@@ -20,9 +20,13 @@
 #include <QPushButton>
 #include <QImage>
 #include <QPainter>
+#include <QFileDialog>
+#include <QMessageBox>
+#include <QString>
+#include <QDir>
+#include <QStringList>
 #include "owngraphicsscene.hpp"
 #include "mainwidget.hpp"
-#include "promtwindow.hpp"
 
 
 
@@ -58,7 +62,7 @@ private:
   QAction *delete_mode;
   QAction *clear_mode;
   QAction *clear_all_mode;
-  PromtWindow *promtWindow;
+
 
 };
 

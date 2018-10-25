@@ -14,6 +14,8 @@
  #include <QWidget>
  #include <QList>
  #include <list>
+ #include <QPixmap>
+ #include <QString>
  #include "line_item.hpp"
 
 
@@ -31,6 +33,7 @@
    void ClearMode();
    void remove_Item(unsigned x, unsigned y);
    void ClearAll();
+   bool setImage(QString imagename);
  private:
    std::list <LineItem*> line_items;
    unsigned mouse_x;
@@ -38,6 +41,7 @@
    bool first_line = true;
    bool line_mode = true;
    bool delete_mode = false;
+   QPixmap image;
  };
 
 

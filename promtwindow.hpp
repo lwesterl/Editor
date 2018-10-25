@@ -1,6 +1,7 @@
 #ifndef Promt_window
 #define Promt_window
 
+// THIS CLASS IS NOT USED 
 
 #include <QStringList>
 #include <QDir>

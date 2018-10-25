@@ -147,16 +147,49 @@ void GUI::saveImage()
 
   QPainter painter (&image);
   scene->render(&painter);
-  image.save("test.png");
+
+  // create a file dialog for user to save the image
+  QFileDialog dialog (this);
+  dialog.setAcceptMode(QFileDialog::AcceptSave);
+  dialog.setFileMode(QFileDialog::AnyFile);
+  dialog.setNameFilter(tr("Images (*.jpeg *.png)"));
+  if (dialog.exec())
+  {
+    QStringList names = dialog.selectedFiles();
+    // try to save the image
+    bool ret = image.save(names[0]);
+
+    if (ret)
+    {
+      // saved
+      QMessageBox::information(this, "Information", "Image saved successfully!");
+    }
+    else
+    {
+      QMessageBox::warning(this, "Warning", "Image saving failed!");
+    }
+  }
+
 
 
 }
 
 void GUI::openImage()
 {
-  // Create a new promtWindow
-  promtWindow = new PromtWindow(this);
-  promtWindow->show();
+  // Create a QFileDialog
+  QString imagename = QFileDialog::getOpenFileName(this, tr("Open image"),QDir::currentPath(), tr("*.png *.jpg "));
+  bool ret = mainWidget->getScene()->setImage(imagename);
+  if (ret == true)
+  {
+    // image opened successfully
+    // inform user
+    QMessageBox::information(this,"Information", "Image loaded successfully!");
+  }
+  else
+  {
+    QMessageBox::warning(this, "Warning", "Image loading failed!");
+  }
+
 }
 
 

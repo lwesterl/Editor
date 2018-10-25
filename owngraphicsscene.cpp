@@ -129,6 +129,17 @@ void OwnGraphicsScene::ClearAll()
   clear(); // removes all objects and deletes them
 
 
+}
 
 
+//Construct a QPixmap from an image
+bool OwnGraphicsScene::setImage(QString imagename)
+{
+  image = QPixmap(imagename);
+  if (image.isNull())
+  {
+    // pixmap NUll so failed to open image
+    return false;
+  }
+  return true;
 }
