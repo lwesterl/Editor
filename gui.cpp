@@ -18,9 +18,9 @@ GUI::GUI(QWidget *parent): QMainWindow(parent)
   file_options = menuBar()->addMenu("&File");
 
   // create a quit action
-  QPixmap quit_pic("exit.png");
-  QPixmap save_pic("save.png");
-  QPixmap open_pic("open.png");
+  QPixmap quit_pic(exit_img);
+  QPixmap save_pic(save_img);
+  QPixmap open_pic(open_img);
   QAction *save = new QAction(save_pic, "&Save", this);
   QAction *open = new QAction(open_pic, "&Open", this);
   QAction *quit_option = new QAction(quit_pic, "&Quit", this);
@@ -36,28 +36,36 @@ GUI::GUI(QWidget *parent): QMainWindow(parent)
   QToolBar *toolbar = addToolBar("Main Toolbar");
 
   // add a checkable line mode button
-  QPixmap draw_line("draw_line.png");
+  QPixmap draw_line(draw_line_img);
   line_mode = toolbar->addAction(QIcon(draw_line),"Line mode");
   line_mode->setCheckable(true);
   line_mode->setChecked(true);
   connect(line_mode, &QAction::triggered, this, &GUI::LineMode);
 
   // add a checkable delete line button
-  QPixmap delete_line("delete_line.png");
+  QPixmap delete_line(delete_line_img);
   delete_mode = toolbar->addAction(QIcon(delete_line),"Delete line");
   delete_mode->setCheckable(true);
   connect(delete_mode, &QAction::triggered, this, &GUI::DeleteMode);
 
   // add a clear previous points button
   toolbar->addSeparator();
-  QPixmap clear_points("clear_points.png");
+  QPixmap clear_points(clear_points_img);
   clear_mode = toolbar->addAction(QIcon(clear_points),"Clear previous point(s)");
   connect(clear_mode, &QAction::triggered, this, &GUI::ClearMode);
 
   // add a clear all button
-  QPixmap clear_all("clear_all.png");
+  QPixmap clear_all(clear_all_img);
   clear_all_mode = toolbar->addAction(QIcon(clear_all), "Clear all");
   connect(clear_all_mode, &QAction::triggered, this, &GUI::ClearAll);
+
+  // add an add image button
+  toolbar->addSeparator();
+  QPixmap add_img(image_sketch_img);
+  add_img_mode = toolbar->addAction(QIcon(add_img),"Add image");
+  add_img_mode->setCheckable(true);
+  add_img_mode->setChecked(false);
+  connect(add_img_mode, &QAction::triggered, this, &GUI::ImgMode);
 
   //QPixmap quit_pic("exit.png");
   //QAction *quit = toolbar->addAction(QIcon(quit_pic),"Quit");
@@ -100,6 +108,7 @@ void GUI::LineMode()
     // Set off other modes and activate line mode
     mainWidget->getScene()->LineMode(true);
     delete_mode->setChecked(false);
+    add_img_mode->setChecked(false);
   }
   else
   {
@@ -114,6 +123,7 @@ void GUI::DeleteMode()
     // Set off other modes and activate delete mode
     mainWidget->getScene()->DeleteMode(true);
     line_mode->setChecked(false);
+    add_img_mode->setChecked(false);
   }
   else
   {
@@ -174,6 +184,7 @@ void GUI::saveImage()
 
 }
 
+// Load an image for the scene
 void GUI::openImage()
 {
   // Create a QFileDialog
@@ -188,6 +199,33 @@ void GUI::openImage()
   else
   {
     QMessageBox::warning(this, "Warning", "Image loading failed!");
+  }
+
+}
+
+// Check if image_add mode activated or stopped
+// If activated, test if image can be added to the scene (calls scene imgMode)
+// If image not possible to add, informs user
+void GUI::ImgMode()
+{
+  if (add_img_mode->isChecked())
+  {
+    bool ret = mainWidget->getScene()->imgMode(true);
+    if (ret == false)
+    {
+      // deactivate mode button
+      add_img_mode->setChecked(false);
+      QMessageBox::information(this, "Information", "Load an image first!");
+    }
+    // image mode activated
+    // deactivate other modes
+    line_mode->setChecked(false);
+    delete_mode->setChecked(false);
+  }
+  else
+  {
+    // deactivate image mode
+    mainWidget->getScene()->imgMode(false); // no need to check the return value
   }
 
 }

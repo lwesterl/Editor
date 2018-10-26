@@ -42,6 +42,49 @@ void OwnGraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent  *event)
     // Remove the elent user clicked
     remove_Item(x_new, y_new);
   }
+
+  else if (image_active.image_mode)
+  {
+    if (image_active.clicks == 0)
+    {
+      // add a new image to the scene
+      image_active.pixmap_item = new QGraphicsPixmapItem(image);
+      addItem(image_active.pixmap_item);
+      // add item also to the pixmap_items list
+      pixmap_items.push_back(image_active.pixmap_item);
+      image_active.added_scene = true;
+      image_active.clicks = 1;
+    }
+    else if (image_active.clicks == 1)
+    {
+      // user wants to place the image
+      // init values for a new image ready to be placed
+      image_active.added_scene = false;
+      image_active.clicks = 0;
+
+    }
+  }
+}
+
+// Move image according to user mouse movements
+void OwnGraphicsScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
+{
+  if (image_active.image_mode)
+  {
+    // user is moving the image
+    if (image_active.added_scene)
+    {
+      // convert mouse coordinates to scene position
+      QPointF point = event->scenePos();
+      unsigned x_new = point.x();
+      unsigned y_new = point.y();
+
+      // move the image accordinly
+      // mouse tells x1 and y1 positions so upper left corner
+      image_active.pixmap_item->setPos(x_new, y_new);
+    }
+
+  }
 }
 
 // This method goes throw OwnGraphicsScene items and tries to remove item
@@ -92,6 +135,7 @@ void OwnGraphicsScene::LineMode(bool activate)
     qDebug() << "LineMode actived\n";
     line_mode = true;
     delete_mode = false;
+    image_active.image_mode = false;
   }
   else line_mode = false;
 }
@@ -104,6 +148,7 @@ void OwnGraphicsScene::DeleteMode(bool activate)
     qDebug() << "DeleteMode actived\n";
     delete_mode = true;
     line_mode = false;
+    image_active.image_mode = false;
   }
   else delete_mode = false;
 }
@@ -141,5 +186,30 @@ bool OwnGraphicsScene::setImage(QString imagename)
     // pixmap NUll so failed to open image
     return false;
   }
+  return true;
+}
+
+
+// Enable or disaple imgMode based on activate
+// Also don't activate img mode if the image can't be added (inform gui)
+bool OwnGraphicsScene::imgMode(bool activate)
+{
+  if (activate == false)
+  {
+    image_active.image_mode = false;
+    return false;
+  }
+  // test if image can be added
+  if (image.isNull())
+  {
+    // can't add the image
+    return false;
+  }
+
+  // update mode status
+  image_active.image_mode = true;
+  line_mode = false;
+  delete_mode = false;
+
   return true;
 }
