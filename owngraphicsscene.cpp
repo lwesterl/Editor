@@ -9,6 +9,10 @@ OwnGraphicsScene::~OwnGraphicsScene()
   {
     it = line_items.erase(it);
   }
+  for (auto it = pixmap_items.begin(); it != pixmap_items.end();)
+  {
+    it = pixmap_items.erase(it);
+  }
   clear();
 }
 
@@ -48,7 +52,7 @@ void OwnGraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent  *event)
     if (image_active.clicks == 0)
     {
       // add a new image to the scene
-      image_active.pixmap_item = new QGraphicsPixmapItem(image);
+      image_active.pixmap_item = new PixmapItem(image, current_imagename);
       addItem(image_active.pixmap_item);
       // add item also to the pixmap_items list
       pixmap_items.push_back(image_active.pixmap_item);
@@ -63,6 +67,12 @@ void OwnGraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent  *event)
       image_active.clicks = 0;
 
     }
+
+  }
+  else if (delete_img_mode)
+  {
+    // try to delete the PixmapItem user clicked
+    DeleteImg(x_new, y_new);
   }
 }
 
@@ -82,6 +92,9 @@ void OwnGraphicsScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
       // move the image accordinly
       // mouse tells x1 and y1 positions so upper left corner
       image_active.pixmap_item->setPos(x_new, y_new);
+      // add position also to the item itself
+      image_active.pixmap_item->setX(x_new);
+      image_active.pixmap_item->setY(y_new);
     }
 
   }
@@ -136,6 +149,7 @@ void OwnGraphicsScene::LineMode(bool activate)
     line_mode = true;
     delete_mode = false;
     image_active.image_mode = false;
+    delete_img_mode = false;
   }
   else line_mode = false;
 }
@@ -149,6 +163,7 @@ void OwnGraphicsScene::DeleteMode(bool activate)
     delete_mode = true;
     line_mode = false;
     image_active.image_mode = false;
+    delete_img_mode = false;
   }
   else delete_mode = false;
 }
@@ -171,6 +186,12 @@ void OwnGraphicsScene::ClearAll()
     it = line_items.erase(it);
   }
 
+  // clear all pixmap_items
+  for (auto it = pixmap_items.begin(); it != pixmap_items.end();)
+  {
+    it = pixmap_items.erase(it);
+  }
+
   clear(); // removes all objects and deletes them
 
 
@@ -186,6 +207,7 @@ bool OwnGraphicsScene::setImage(QString imagename)
     // pixmap NUll so failed to open image
     return false;
   }
+  current_imagename = imagename;
   return true;
 }
 
@@ -199,6 +221,11 @@ bool OwnGraphicsScene::imgMode(bool activate)
     image_active.image_mode = false;
     return false;
   }
+
+  line_mode = false;
+  delete_mode = false;
+  delete_img_mode = false;
+
   // test if image can be added
   if (image.isNull())
   {
@@ -208,8 +235,43 @@ bool OwnGraphicsScene::imgMode(bool activate)
 
   // update mode status
   image_active.image_mode = true;
-  line_mode = false;
-  delete_mode = false;
 
   return true;
+}
+
+void OwnGraphicsScene::DeleteImgMode(bool activate)
+{
+  if (activate)
+  {
+    // enable delete_img_mode and disaple other modes
+    delete_img_mode = true;
+    line_mode = false;
+    delete_mode = false;
+    image_active.image_mode = false;
+  }
+  else
+  {
+    delete_img_mode = false;
+  }
+
+}
+
+
+// try to delete image at x1, y1
+
+void OwnGraphicsScene::DeleteImg(unsigned x1, unsigned y1)
+{
+  for (std::list <PixmapItem*>::iterator it = pixmap_items.begin(); it != pixmap_items.end(); it++)
+  {
+    if ((*it)->isXinside(x1) && (*it)->isYinside(y1))
+    {
+      // item found at clicked position
+      // remove item from the scene
+      removeItem(*it);
+      // remove item from the list and delete it
+      pixmap_items.remove(*it);
+      delete(*it);
+      break;
+    }
+  }
 }

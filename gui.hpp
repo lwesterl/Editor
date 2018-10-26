@@ -37,6 +37,7 @@
 #define clear_points_img "img_src/clear_points.png"
 #define clear_all_img "img_src/clear_all.png"
 #define image_sketch_img "img_src/image_sketch.png"
+#define image_delete_img "img_src/image_delete.png"
 
 
 
@@ -56,6 +57,7 @@ public:
   void saveImage();
   void openImage();
   void ImgMode();
+  void DeleteImgMode();
 
   //void mouseMoveEvent(QMouseEvent *event);
   //void mousePressEvent(QMouseEvent *event);
@@ -75,6 +77,7 @@ private:
   QAction *clear_mode;
   QAction *clear_all_mode;
   QAction *add_img_mode;
+  QAction *delete_img_mode;
 
 
 };

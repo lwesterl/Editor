@@ -67,6 +67,14 @@ GUI::GUI(QWidget *parent): QMainWindow(parent)
   add_img_mode->setChecked(false);
   connect(add_img_mode, &QAction::triggered, this, &GUI::ImgMode);
 
+
+  // add an image delete mode button
+  QPixmap delete_img(image_delete_img);
+  delete_img_mode = toolbar->addAction(QIcon(delete_img), "Delete image");
+  delete_img_mode->setCheckable(true);
+  delete_img_mode->setChecked(false);
+  connect(delete_img_mode, &QAction::triggered, this, &GUI::DeleteImgMode);
+
   //QPixmap quit_pic("exit.png");
   //QAction *quit = toolbar->addAction(QIcon(quit_pic),"Quit");
   //connect(quit, &QAction::triggered, qApp, &QApplication::quit);
@@ -109,6 +117,7 @@ void GUI::LineMode()
     mainWidget->getScene()->LineMode(true);
     delete_mode->setChecked(false);
     add_img_mode->setChecked(false);
+    delete_img_mode->setChecked(false);
   }
   else
   {
@@ -124,6 +133,7 @@ void GUI::DeleteMode()
     mainWidget->getScene()->DeleteMode(true);
     line_mode->setChecked(false);
     add_img_mode->setChecked(false);
+    delete_img_mode->setChecked(false);
   }
   else
   {
@@ -221,6 +231,7 @@ void GUI::ImgMode()
     // deactivate other modes
     line_mode->setChecked(false);
     delete_mode->setChecked(false);
+    delete_img_mode->setChecked(false);
   }
   else
   {
@@ -228,6 +239,23 @@ void GUI::ImgMode()
     mainWidget->getScene()->imgMode(false); // no need to check the return value
   }
 
+}
+
+// Delete images, activates the delete img mode in the scene
+void GUI::DeleteImgMode()
+{
+  if (delete_img_mode->isChecked())
+  {
+    // set other modes off
+    line_mode->setChecked(false);
+    delete_mode->setChecked(false);
+    add_img_mode->setChecked(false);
+    mainWidget->getScene()->DeleteImgMode(true);
+  }
+  else
+  {
+    mainWidget->getScene()->DeleteImgMode(false);
+  }
 }
 
 

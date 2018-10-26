@@ -18,14 +18,15 @@
  #include <QString>
  #include <QGraphicsPixmapItem>
  #include "line_item.hpp"
+ #include "pixmap_item.hpp"
 
 
  struct Image_Active
  {
    bool image_mode = false; // user has activated image mode
    bool added_scene = false; // is image added to scene
-   QGraphicsPixmapItem *pixmap_item; // points to the current item which is moved
-   unsigned char clicks = 0; 
+   PixmapItem *pixmap_item; // points to the current item which is moved
+   unsigned char clicks = 0;
  };
 
 
@@ -46,10 +47,12 @@
    void ClearAll();
    bool setImage(QString imagename);
    bool imgMode(bool activate);
-   void addImg();
+   void DeleteImgMode(bool activate);
+   void DeleteImg(unsigned x1, unsigned y1);
+
  private:
    std::list <LineItem*> line_items;
-   std::list <QGraphicsPixmapItem*> pixmap_items;
+   std::list <PixmapItem*> pixmap_items;
    unsigned mouse_x;
    unsigned mouse_y;
    bool first_line = true;
@@ -57,6 +60,8 @@
    bool delete_mode = false;
    struct Image_Active image_active;
    QPixmap image = QPixmap(); // construct a Null pixmap
+   bool delete_img_mode = false;
+   QString current_imagename;
  };
 
 
