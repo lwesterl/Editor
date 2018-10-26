@@ -51,10 +51,12 @@ OBJECTS_DIR   = ./
 SOURCES       = gui_test.cpp \
 		mainwidget.cpp \
 		owngraphicsscene.cpp \
+		pixmap_item.cpp \
 		promtwindow.cpp moc_promtwindow.cpp
 OBJECTS       = gui_test.o \
 		mainwidget.o \
 		owngraphicsscene.o \
+		pixmap_item.o \
 		promtwindow.o \
 		moc_promtwindow.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
@@ -121,9 +123,11 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		line_item.hpp \
 		mainwidget.hpp \
 		owngraphicsscene.hpp \
+		pixmap_item.hpp \
 		promtwindow.hpp gui_test.cpp \
 		mainwidget.cpp \
 		owngraphicsscene.cpp \
+		pixmap_item.cpp \
 		promtwindow.cpp
 QMAKE_TARGET  = Editor
 DESTDIR       = 
@@ -279,8 +283,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents gui.hpp line_item.hpp mainwidget.hpp owngraphicsscene.hpp promtwindow.hpp $(DISTDIR)/
-	$(COPY_FILE) --parents gui_test.cpp mainwidget.cpp owngraphicsscene.cpp promtwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents gui.hpp line_item.hpp mainwidget.hpp owngraphicsscene.hpp pixmap_item.hpp promtwindow.hpp $(DISTDIR)/
+	$(COPY_FILE) --parents gui_test.cpp mainwidget.cpp owngraphicsscene.cpp pixmap_item.cpp promtwindow.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -331,18 +335,23 @@ gui_test.o: gui_test.cpp gui.cpp \
 		gui.hpp \
 		owngraphicsscene.hpp \
 		line_item.hpp \
-		mainwidget.hpp \
-		promtwindow.hpp
+		pixmap_item.hpp \
+		mainwidget.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o gui_test.o gui_test.cpp
 
 mainwidget.o: mainwidget.cpp mainwidget.hpp \
 		owngraphicsscene.hpp \
-		line_item.hpp
+		line_item.hpp \
+		pixmap_item.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwidget.o mainwidget.cpp
 
 owngraphicsscene.o: owngraphicsscene.cpp owngraphicsscene.hpp \
-		line_item.hpp
+		line_item.hpp \
+		pixmap_item.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o owngraphicsscene.o owngraphicsscene.cpp
+
+pixmap_item.o: pixmap_item.cpp pixmap_item.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o pixmap_item.o pixmap_item.cpp
 
 promtwindow.o: promtwindow.cpp promtwindow.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o promtwindow.o promtwindow.cpp
