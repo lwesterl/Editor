@@ -14,11 +14,16 @@
  #include <QWidget>
  #include <QList>
  #include <list>
+ #include <vector>
  #include <QPixmap>
  #include <QString>
  #include <QGraphicsPixmapItem>
  #include "line_item.hpp"
  #include "pixmap_item.hpp"
+
+ #define no_img_cut 0
+ #define polygon_img_cut 1
+ #define path_img_cut 2
 
 
  struct Image_Active
@@ -27,6 +32,14 @@
    bool added_scene = false; // is image added to scene
    PixmapItem *pixmap_item; // points to the current item which is moved
    unsigned char clicks = 0;
+ };
+
+ struct Image_Cut
+ {
+   PixmapItem *pixmap_item;
+   bool initialized = false;
+   unsigned char cut_mode = no_img_cut; // stores the cut mode
+   QPoint point; // tells which image should be cutted
  };
 
  // Different modes
@@ -57,6 +70,10 @@
    void DeleteImgMode(bool activate);
    void DeleteImg(unsigned x1, unsigned y1);
    void CutImageMode(bool active);
+   bool SelectCutImg();
+   void SetImgCutMode(int cut_mode);
+   void CutPixmapItem();
+   void RemovePolyPrevious();
 
  private:
    std::list <LineItem*> line_items;
@@ -72,6 +89,7 @@
    //bool delete_img_mode = false;
    QString current_imagename;
    //bool cut_image_mode = false;
+   struct Image_Cut image_cut;
  };
 
 

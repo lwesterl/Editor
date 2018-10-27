@@ -27,6 +27,7 @@
 #include <QStringList>
 #include <QToolButton>
 #include <QLabel>
+#include <QComboBox>
 #include "owngraphicsscene.hpp"
 #include "mainwidget.hpp"
 
@@ -42,14 +43,32 @@
 #define image_delete_img "img_src/image_delete.png"
 #define image_cut_img "img_src/image_cut.png"
 
-struct LowerToolbar
+struct PolygonToolbar
 {
-  QToolBar *lower_toolbar;
-  QAction *add;
-  QLabel *add_text;
+  QToolBar *polygon_toolbar;
+  QAction *endpoints;
+  QLabel *endpoints_text;
+  QAction *final_point;
+  QLabel *final_point_text;
   QAction *remove;
   QLabel *remove_text;
-  QAction *cansel;
+  QAction *cancel;
+};
+
+struct ModeToolbar
+{
+  QToolBar *mode_toolbar;
+  QComboBox *combobox;
+  QAction *continue_button;
+  QAction *cancel;
+};
+
+struct SelectImgToolbar
+{
+  QToolBar *select_img_toolbar;
+  QLabel *info;
+  QAction *continue_button;
+  QAction *cancel;
 };
 
 
@@ -70,7 +89,18 @@ public:
   void ImgMode();
   void DeleteImgMode();
   void CutImageMode();
-  void HideLowerToolbar(bool hide);
+  void createToolbars();
+  void HidePolygonToolbar(bool hide);
+  void HideModeToolbar(bool hide);
+  void HideMainToolbar(bool hide);
+  void HideSelectToolbar(bool hide);
+  void ContinueFromMode();
+  void CancelFromMode();
+  void SetPolyFinal();
+  void RemovePolyPrevious();
+  void CancelFromPoly();
+  void ContinueFromSelect();
+  void CancelFromSelect();
 
   //void mouseMoveEvent(QMouseEvent *event);
   //void mousePressEvent(QMouseEvent *event);
@@ -79,11 +109,6 @@ public:
   //void addLine(int x1, int y1, int x2, int y2);
 
 private:
-  //unsigned mouse_x = 0;
-  //unsigned mouse_y = 200;
-  //QGraphicsScene *scene;
-  //QGraphicsView *view;
-  //QHBoxLayout *h_layout;
   MainWidget *mainWidget;
   QAction *line_mode;
   QAction *delete_mode;
@@ -92,8 +117,12 @@ private:
   QAction *add_img_mode;
   QAction *delete_img_mode;
   QAction *cut_image_mode;
-  struct LowerToolbar lToolbar;
-
+  QAction *continue_img_cut;
+  QAction *cancel_img_cut;
+  QToolBar *main_toolbar;
+  struct PolygonToolbar polyToolbar;
+  struct ModeToolbar modeToolbar;
+  struct SelectImgToolbar selectToolbar;
 
 
 };

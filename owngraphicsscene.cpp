@@ -74,6 +74,21 @@ void OwnGraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent  *event)
     // try to delete the PixmapItem user clicked
     DeleteImg(x_new, y_new);
   }
+
+  else if (mode == cut_image_mode_value)
+  {
+    if (image_cut.initialized == false)
+    {
+      // store the point
+      image_cut.point = QPoint(x_new, y_new);
+    }
+    else if (image_cut.initialized && (image_cut.cut_mode == polygon_img_cut))
+    {
+      // Polygon cut activated
+      // Add a new point
+      image_cut.pixmap_item->addPainterPoint(x_new, y_new);
+    }
+  }
 }
 
 // Move image according to user mouse movements
@@ -288,19 +303,76 @@ void OwnGraphicsScene::DeleteImg(unsigned x1, unsigned y1)
 // Activate cut_image_mode
 void OwnGraphicsScene::CutImageMode(bool activate)
 {
-  image_active.clicks = 0;
   if (activate)
   {
     mode = cut_image_mode_value;
-    image_active.pixmap_item = nullptr;
   }
   else
   {
     // clear points vector if current pixmap exists
-    if (image_active.pixmap_item != nullptr)
+    if (image_cut.initialized)
     {
-      image_active.pixmap_item->clearPointsVector();
+      image_cut.pixmap_item->clearPointsVector();
+      image_cut.pixmap_item = nullptr; // dont't delete original pointer
+      image_cut.initialized = false;
+      image_cut.cut_mode = no_img_cut;
+      // clear also the point by constructing a null point
+      image_cut.point = QPoint();
     }
     mode = view_mode_value;
   }
+}
+
+// Try to select the image which user pointed
+// return true if image exists
+// return false if it doesn't exists
+// called from GUI::ContinueFromSelect
+
+bool OwnGraphicsScene::SelectCutImg()
+{
+  // img_cut.point should now contain coordinates for an image
+  // iterate all pixmap items and try to get the matching pixmap
+  // This cannot handle multiple imaged at same position (selects the first created)
+
+  for (auto it = pixmap_items.begin(); it != pixmap_items.end(); it++)
+  {
+    if ((*it)->isXinside(image_cut.point.x()) && (*it)->isYinside(image_cut.point.y()))
+    {
+      // The matching image found
+      image_cut.pixmap_item = *it;
+      image_cut.initialized = true;
+      return true;
+    }
+  }
+  // no matching image found
+  return false;
+
+}
+
+// Assign correct cut_mode
+// Called by GUI::ContinueFromMode
+// (GUI checks that the cut_mode valid)
+void OwnGraphicsScene::SetImgCutMode(int cut_mode)
+{
+  if (cut_mode == 1)
+  {
+    image_cut.cut_mode = polygon_img_cut;
+  }
+  else if (cut_mode == 2)
+  {
+    image_cut.cut_mode = path_img_cut;
+  }
+}
+
+// This is just a wrapper call for PixmapItem::CutItem
+void OwnGraphicsScene::CutPixmapItem()
+{
+  // Cut the item
+  image_cut.pixmap_item->CutItem();
+}
+
+// Just a wrapper call for PixmapItem::RemoveLatestPoint
+void OwnGraphicsScene::RemovePolyPrevious()
+{
+  image_cut.pixmap_item->RemoveLatestPoint();
 }

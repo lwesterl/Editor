@@ -12,33 +12,50 @@ PixmapItem::PixmapItem(QPixmap pixmap, QString image_name) :
 
   pixmap_ = pixmap;
 
-
-  QPainter painter(&pixmap_);
-  painter.setCompositionMode(QPainter::CompositionMode_Clear);
-
-  // just for testing
-  static const QPointF points[4] = {
-    QPointF(0, 0),
-    QPointF(50, 50),
-    QPointF(70, 30.0),
-    QPointF(80.0, 0.0)
-  };
+}
 
 
-  QPainterPath path;
+// Cut the object according to painter_points content
+// Cutting is done by QPainterPath and fillPath
 
-  path.moveTo (points[0]);
+void PixmapItem::CutItem()
+{
+  // Check that the vector isn't empty
+  if (!painter_points.empty())
+  {
+    // Create a new QPainter from the pixmap
+    QPainter painter(&pixmap_);
+    // This make painting alpha (i.e. clears original pixels)
+    painter.setCompositionMode(QPainter::CompositionMode_Clear);
 
-  path.lineTo (points[1]);
+    /* just for testing
+    static const QPointF points[4] = {
+      QPointF(0, 0),
+      QPointF(50, 50),
+      QPointF(70, 30.0),
+      QPointF(80.0, 0.0)
+    };*/
 
-  path.lineTo (points[2]);
-  path.lineTo (points[3]);
+    // Create a path by the vector points
+    QPainterPath path;
+    auto it = painter_points.begin();
+    // first, move to the starting point
+    path.moveTo(*it);
+    it ++;
+    for (; it != painter_points.end(); it++)
+    {
+      path.lineTo(*it);
+    }
+    // finally connect the last and the first point
+    path.moveTo(painter_points[0]); // vector shouldn't be empty
 
-  painter.setPen (Qt::NoPen);
-  // Composition mode clear so color has no effect
-  painter.fillPath (path, QBrush (QColor ("white")));
-  // just for testing
-  this->setPixmap(pixmap_);
+    painter.setPen (Qt::NoPen);
+    // Composition mode clear so color has no effect
+    painter.fillPath (path, QBrush (QColor ("white")));
+    // Swap pixmap
+    this->setPixmap(pixmap_);
+  }
+
 }
 
 
@@ -101,6 +118,20 @@ void PixmapItem::clearPointsVector()
   }
 }
 
+
+// Tries to remove the latest entry from the points vector
+void PixmapItem::RemoveLatestPoint()
+{
+  // Check the vector isn't empty
+  if (!painter_points.empty())
+  {
+    painter_points.pop_back();
+  }
+}
+
+
+// THIS IS NOT A PART OF THE CLASS
+// Return a valid point within the coordinate boundaries
 unsigned chek_values(unsigned val, unsigned min_val, unsigned max_val)
 {
   if (val < min_val) return 0;

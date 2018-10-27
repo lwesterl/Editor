@@ -33,72 +33,8 @@ GUI::GUI(QWidget *parent): QMainWindow(parent)
   connect(save, &QAction::triggered, this, &GUI::saveImage);
   connect(open, &QAction::triggered, this, &GUI::openImage);
 
-  // create a toolbar
-  QToolBar *toolbar = addToolBar("Main Toolbar");
+  createToolbars();
 
-  // add a checkable line mode button
-  QPixmap draw_line(draw_line_img);
-  line_mode = toolbar->addAction(QIcon(draw_line),"Line mode");
-  line_mode->setCheckable(true);
-  line_mode->setChecked(true);
-  connect(line_mode, &QAction::triggered, this, &GUI::LineMode);
-
-  // add a checkable delete line button
-  QPixmap delete_line(delete_line_img);
-  delete_mode = toolbar->addAction(QIcon(delete_line),"Delete line");
-  delete_mode->setCheckable(true);
-  connect(delete_mode, &QAction::triggered, this, &GUI::DeleteMode);
-
-  // add a clear previous points button
-  toolbar->addSeparator();
-  QPixmap clear_points(clear_points_img);
-  clear_mode = toolbar->addAction(QIcon(clear_points),"Clear previous point(s)");
-  connect(clear_mode, &QAction::triggered, this, &GUI::ClearMode);
-
-  // add a clear all button
-  QPixmap clear_all(clear_all_img);
-  clear_all_mode = toolbar->addAction(QIcon(clear_all), "Clear all");
-  connect(clear_all_mode, &QAction::triggered, this, &GUI::ClearAll);
-
-  // add an add image button
-  toolbar->addSeparator();
-  QPixmap add_img(image_sketch_img);
-  add_img_mode = toolbar->addAction(QIcon(add_img),"Add image");
-  add_img_mode->setCheckable(true);
-  add_img_mode->setChecked(false);
-  connect(add_img_mode, &QAction::triggered, this, &GUI::ImgMode);
-
-
-  // add an image delete mode button
-  QPixmap delete_img(image_delete_img);
-  delete_img_mode = toolbar->addAction(QIcon(delete_img), "Delete image");
-  delete_img_mode->setCheckable(true);
-  delete_img_mode->setChecked(false);
-  connect(delete_img_mode, &QAction::triggered, this, &GUI::DeleteImgMode);
-
-
-  // add a cut image mode button
-  QPixmap image_cut(image_cut_img);
-  cut_image_mode = toolbar->addAction(QIcon(image_cut), "Cut image");
-  cut_image_mode->setCheckable(true);
-  cut_image_mode->setChecked(false);
-  connect(cut_image_mode, &QAction::triggered, this, &GUI::CutImageMode);
-
-  // add another toolbar below the first one
-  addToolBarBreak();
-  lToolbar.lower_toolbar = addToolBar("Special toolbar");
-  lToolbar.add_text = new QLabel("\tAdd points: ");
-  lToolbar.lower_toolbar->addWidget(lToolbar.add_text);
-  lToolbar.add = lToolbar.lower_toolbar->addAction("Add");
-  lToolbar.lower_toolbar->addSeparator();
-  lToolbar.remove_text = new QLabel("\tRemove previous point: ");
-  lToolbar.lower_toolbar->addWidget(lToolbar.remove_text);
-  lToolbar.remove = lToolbar.lower_toolbar->addAction("Remove");
-  lToolbar.lower_toolbar->addSeparator();
-  lToolbar.cansel = lToolbar.lower_toolbar->addAction("Cansel");
-
-  // HIde the toolbar
-  HideLowerToolbar(true);
 
   //add_lower_toolbar->setVisible(false);
   //lToolbar.lower_toolbar->toggleViewAction()->setChecked(false)->trigger();
@@ -308,30 +244,343 @@ void GUI::CutImageMode()
 
     // activate mode
     mainWidget->getScene()->CutImageMode(true);
-    // Set the lower toolbar enabled
-    HideLowerToolbar(false);
+    // Set the lower toolbar enabled and hide the main toolbar
+    HideSelectToolbar(false);
+    HideMainToolbar(true);
 
   }
   else
   {
     mainWidget->getScene()->CutImageMode(false);
+    HideModeToolbar(true);
+    // unhide the main toolbar
+    HideMainToolbar(false);
   }
 }
 
 
-// Hide/unhide the lower toolbar from user
+// Hide/unhide the polygon toolbar from user
 // hide == true -> hide, hide == false -> unhide
-void GUI::HideLowerToolbar(bool hide)
+void GUI::HidePolygonToolbar(bool hide)
 {
   if (hide)
   {
-    lToolbar.lower_toolbar->setVisible(false);
+    polyToolbar.polygon_toolbar->setVisible(false);
   }
   else
   {
-    lToolbar.lower_toolbar->setVisible(true);
+    polyToolbar.polygon_toolbar->setVisible(true);
   }
 }
+
+
+// Hide/unhide the mode toolbar from user
+// hide == true -> hide, hide == false -> unhide
+void GUI::HideModeToolbar(bool hide)
+{
+  if (hide)
+  {
+    modeToolbar.mode_toolbar->setVisible(false);
+  }
+  else
+  {
+    modeToolbar.mode_toolbar->setVisible(true);
+  }
+}
+
+// Hide/unhide the main toolbar from user
+// Called from CutImageMode
+// hide == true -> hide, hide == false -> unhide
+void GUI::HideMainToolbar(bool hide)
+{
+  if (hide)
+  {
+    main_toolbar->setVisible(false);
+  }
+  else
+  {
+    main_toolbar->setVisible(true);
+  }
+}
+
+// Hide/unhide the select toolbar from user
+// hide == true -> hide, hide == false -> unhide
+void GUI::HideSelectToolbar(bool hide)
+{
+  if (hide)
+  {
+    selectToolbar.select_img_toolbar->setVisible(false);
+  }
+  else
+  {
+    selectToolbar.select_img_toolbar->setVisible(true);
+  }
+}
+
+
+
+// This method creates all toolbars (long method)
+// Called from constructor
+
+void GUI::createToolbars()
+{
+  // create a toolbar
+  main_toolbar = addToolBar("Main Toolbar");
+
+  // add a checkable line mode button
+  QPixmap draw_line(draw_line_img);
+  line_mode = main_toolbar->addAction(QIcon(draw_line),"Line mode");
+  line_mode->setCheckable(true);
+  line_mode->setChecked(true);
+  connect(line_mode, &QAction::triggered, this, &GUI::LineMode);
+
+  // add a checkable delete line button
+  QPixmap delete_line(delete_line_img);
+  delete_mode = main_toolbar->addAction(QIcon(delete_line),"Delete line");
+  delete_mode->setCheckable(true);
+  connect(delete_mode, &QAction::triggered, this, &GUI::DeleteMode);
+
+  // add a clear previous points button
+  main_toolbar->addSeparator();
+  QPixmap clear_points(clear_points_img);
+  clear_mode = main_toolbar->addAction(QIcon(clear_points),"Clear previous point(s)");
+  connect(clear_mode, &QAction::triggered, this, &GUI::ClearMode);
+
+  // add a clear all button
+  QPixmap clear_all(clear_all_img);
+  clear_all_mode = main_toolbar->addAction(QIcon(clear_all), "Clear all");
+  connect(clear_all_mode, &QAction::triggered, this, &GUI::ClearAll);
+
+  // add an add image button
+  main_toolbar->addSeparator();
+  QPixmap add_img(image_sketch_img);
+  add_img_mode = main_toolbar->addAction(QIcon(add_img),"Add image");
+  add_img_mode->setCheckable(true);
+  add_img_mode->setChecked(false);
+  connect(add_img_mode, &QAction::triggered, this, &GUI::ImgMode);
+
+
+  // add an image delete mode button
+  QPixmap delete_img(image_delete_img);
+  delete_img_mode = main_toolbar->addAction(QIcon(delete_img), "Delete image");
+  delete_img_mode->setCheckable(true);
+  delete_img_mode->setChecked(false);
+  connect(delete_img_mode, &QAction::triggered, this, &GUI::DeleteImgMode);
+
+
+  // add a cut image mode button
+  QPixmap image_cut(image_cut_img);
+  cut_image_mode = main_toolbar->addAction(QIcon(image_cut), "Cut image");
+  cut_image_mode->setCheckable(true);
+  cut_image_mode->setChecked(false);
+  connect(cut_image_mode, &QAction::triggered, this, &GUI::CutImageMode);
+
+
+  // Create SelectImgToolbar
+  selectToolbar.select_img_toolbar = addToolBar("Select image");
+  selectToolbar.info = new QLabel(" Select an image to cut and then press continue ");
+  selectToolbar.select_img_toolbar->addWidget(selectToolbar.info);
+  selectToolbar.select_img_toolbar->addSeparator();
+  // Add the continue button
+  selectToolbar.continue_button = selectToolbar.select_img_toolbar->addAction("Continue");
+  selectToolbar.continue_button->setCheckable(true);
+  selectToolbar.continue_button->setChecked(false);
+  connect(selectToolbar.continue_button, &QAction::triggered, this, &GUI::ContinueFromSelect);
+  // Add cancel button, connect to CancelFromSelect
+  selectToolbar.select_img_toolbar->addSeparator();
+  selectToolbar.cancel = selectToolbar.select_img_toolbar->addAction("Cancel");
+  selectToolbar.cancel->setCheckable(true);
+  selectToolbar.cancel->setChecked(false);
+  connect(selectToolbar.cancel, &QAction::triggered, this, &GUI::CancelFromSelect);
+  // Hide the select toolbar
+  HideSelectToolbar(true);
+
+  // Create mode Toolbar
+  modeToolbar.mode_toolbar = addToolBar("Mode toolbar");
+  // Add a combobox with valid 2 options: Polygon cut, Path cut
+  modeToolbar.combobox = new QComboBox();
+  modeToolbar.combobox->addItem(tr("Select mode"));
+  modeToolbar.combobox->addItem(tr("Polygon cut"));
+  modeToolbar.combobox->addItem(tr("Path cut"));
+  modeToolbar.mode_toolbar->addWidget(modeToolbar.combobox);
+  // Add a continue and cancel button
+  // Connect those also to the correct actions
+  modeToolbar.mode_toolbar->addSeparator();
+  modeToolbar.continue_button = modeToolbar.mode_toolbar->addAction("Continue");
+  connect(modeToolbar.continue_button, &QAction::triggered, this, &GUI::ContinueFromMode);
+  modeToolbar.mode_toolbar->addSeparator();
+  modeToolbar.cancel = modeToolbar.mode_toolbar->addAction("Cancel");
+  connect(modeToolbar.cancel, &QAction::triggered, this, &GUI::CancelFromMode);
+  // Hide the mode toolbar
+  HideModeToolbar(true);
+
+
+  // Add PolygonToolbar for polygon image cutting options
+  addToolBarBreak();
+  polyToolbar.polygon_toolbar = addToolBar("Polygon toolbar");
+
+  polyToolbar.endpoints_text = new QLabel(" Previous point endpoint enabled ");
+  polyToolbar.polygon_toolbar->addWidget(polyToolbar.endpoints_text);
+  polyToolbar.endpoints = polyToolbar.polygon_toolbar->addAction("Endpoints");
+  // Set endpoints always enabled
+  polyToolbar.endpoints->setCheckable(true);
+  polyToolbar.endpoints->setChecked(true);
+
+  polyToolbar.polygon_toolbar->addSeparator();
+  polyToolbar.final_point_text = new QLabel(" Finished cut: connects the first and last point ");
+  polyToolbar.polygon_toolbar->addWidget(polyToolbar.final_point_text);
+  polyToolbar.final_point = polyToolbar.polygon_toolbar->addAction("Finished cut");
+  // Set checkable and disabled, connect
+  polyToolbar.final_point->setCheckable(true);
+  polyToolbar.final_point->setChecked(false);
+  connect(polyToolbar.final_point, &QAction::triggered, this, &GUI::SetPolyFinal);
+
+  polyToolbar.polygon_toolbar->addSeparator();
+  polyToolbar.remove_text = new QLabel(" Remove previous point ");
+  polyToolbar.polygon_toolbar->addWidget(polyToolbar.remove_text);
+  polyToolbar.remove = polyToolbar.polygon_toolbar->addAction("Remove point");
+  // Set checkable and disabled, connect
+  polyToolbar.remove->setCheckable(true);
+  polyToolbar.remove->setChecked(false);
+  connect(polyToolbar.remove, &QAction::triggered, this, &GUI::RemovePolyPrevious);
+
+  polyToolbar.polygon_toolbar->addSeparator();
+  polyToolbar.cancel = polyToolbar.polygon_toolbar->addAction("Cancel");
+  // Set checkable and connect
+  polyToolbar.cancel->setCheckable(true);
+  polyToolbar.cancel->setChecked(false);
+  connect(polyToolbar.cancel, &QAction::triggered, this, &GUI::CancelFromPoly);
+
+  // Hide the lower toolbar
+  HidePolygonToolbar(true);
+
+
+}
+
+// User wants to cancel image cutting
+// Unhide the main toolbar
+// Hide the select toolbar
+void GUI::CancelFromSelect()
+{
+  HideSelectToolbar(true);
+  HideMainToolbar(false);
+  // disable cancel button
+  selectToolbar.cancel->setChecked(false);
+
+  // Set also image cutting mode disabled
+  mainWidget->getScene()->CutImageMode(false);
+  cut_image_mode->setChecked(false);
+
+}
+
+// User has selected an image, check the image exists
+// if image ok, continue to the mode select
+// otherwise call CancelFromSelect
+void GUI::ContinueFromSelect()
+{
+  // disable continue_button
+  selectToolbar.continue_button->setChecked(false);
+
+  HideSelectToolbar(true);
+  // check if image exists
+  if( mainWidget->getScene()->SelectCutImg())
+  {
+    // image found, enter to the mode select toolbar
+    HideModeToolbar(false);
+  }
+  else
+  {
+    // no image found, inform user and call CancelFromSelect
+    QMessageBox::warning(this, "No image found", "Click a valid image position!");
+    CancelFromSelect();
+  }
+
+}
+
+// Cancel from mode select
+// Hide mode select toolbar and unhide main toolbar
+void GUI::CancelFromMode()
+{
+  // disable the cancel button
+  modeToolbar.cancel->setChecked(false);
+  HideModeToolbar(true);
+  HideMainToolbar(false);
+
+  // Set also image cutting mode disabled
+  mainWidget->getScene()->CutImageMode(false);
+  cut_image_mode->setChecked(false);
+}
+
+// Continue based on the combobox value
+void GUI::ContinueFromMode()
+{
+  // set continue button off
+  modeToolbar.continue_button->setChecked(false);
+
+  int index = modeToolbar.combobox->currentIndex();
+  if (index == 0)
+  {
+    // Invalid option
+    // Inform user with QMessageBox and return with CancelFromMode
+    QMessageBox::warning(this, "Invalid cut mode", "Choose Polygon cut or Path cut!");
+    CancelFromMode();
+  }
+
+  else if (index == 1)
+  {
+    // Polygon cut, assign mode to the scene
+    mainWidget->getScene()->SetImgCutMode(index);
+
+    // Hide the mode toolbar and unhide polygon toolbar
+    HideModeToolbar(true);
+    HidePolygonToolbar(false);
+
+  }
+  else if (index == 2)
+  {
+    // not implemented yet
+    CancelFromMode();
+  }
+}
+
+// Cancel from polygon cut mode to the main toolbar mode
+void GUI::CancelFromPoly()
+{
+  // turn cancel button off
+  polyToolbar.cancel->setChecked(false);
+
+  // Hide poly toolbar and unhide main toolbar
+  HidePolygonToolbar(true);
+  HideMainToolbar(false);
+  // Set also image cutting mode disabled
+  mainWidget->getScene()->CutImageMode(false);
+  cut_image_mode->setChecked(false);
+
+}
+
+// Cuts the pixmap
+// Returns to the main toolbox
+void GUI::SetPolyFinal()
+{
+  // turn the button off
+  polyToolbar.final_point->setChecked(false);
+
+  // Calls the OwnGraphicsScene wrapper call for cutting the image
+  mainWidget->getScene()->CutPixmapItem();
+  // Hides polygon_toolbar and unhides main_toolbar
+  // by calling CancelFromPoly
+  CancelFromPoly();
+}
+
+
+//  Removes the latest added point
+void GUI::RemovePolyPrevious()
+{
+  // set the button off
+  polyToolbar.remove->setChecked(false);
+  mainWidget->getScene()->RemovePolyPrevious();
+}
+
 /*void GUI::mouseMoveEvent(QMouseEvent *event)
 {
   mouse_x = event->x();

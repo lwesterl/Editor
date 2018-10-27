@@ -30,7 +30,8 @@ class PixmapItem: public QGraphicsPixmapItem
     void setY(unsigned y);
     void addPainterPoint(unsigned x, unsigned y);
     void clearPointsVector();
-
+    void CutItem();
+    void RemoveLatestPoint();
 
   private:
     QPixmap pixmap_;
