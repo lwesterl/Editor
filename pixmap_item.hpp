@@ -7,14 +7,14 @@
 #include <QPoint>
 #include <QRegion>
 #include <QPolygon>
-#include <QVector>
 #include <QString>
 #include <QImage>
-#include <QBitmap>
 #include <QColor>
 #include <QPainterPath>
 #include <QBrush>
+#include <vector>
 
+unsigned chek_values(unsigned val, unsigned min_val, unsigned max_val);
 
 // This class inherits QGraphicsPixmapItem
 // Adds a position specifiers to the upper class
@@ -28,10 +28,13 @@ class PixmapItem: public QGraphicsPixmapItem
     bool isYinside(unsigned y);
     void setX(unsigned x);
     void setY(unsigned y);
+    void addPainterPoint(unsigned x, unsigned y);
+    void clearPointsVector();
+
 
   private:
     QPixmap pixmap_;
-    //QPainter painter;
+    std::vector<QPoint> painter_points;
 
     // Item width and height
     unsigned width;
@@ -39,10 +42,7 @@ class PixmapItem: public QGraphicsPixmapItem
     // upper left corner coordinates
     unsigned x1;
     unsigned y1;
-    QString imagename;
-
-
-
+    QString imagename; // not used at the moment
 
 };
 

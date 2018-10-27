@@ -74,3 +74,36 @@ void PixmapItem::setY(unsigned y)
 {
   y1 = y;
 }
+
+// Adds a point to painter_points
+// called when user is in the cut_image_mode
+
+void PixmapItem::addPainterPoint(unsigned x, unsigned y)
+{
+  // Map points to inside item
+  unsigned x_new = x - x1;
+  unsigned y_new = y - y1;
+
+  x_new = chek_values(x_new, 0, width);
+  y_new = chek_values(y_new, 0, height);
+
+  // Add points to the vector
+  painter_points.push_back(QPoint(x_new, y_new));
+
+}
+
+// Clears the painter_points vector
+void PixmapItem::clearPointsVector()
+{
+  for (auto it = painter_points.begin(); it !=painter_points.end(); )
+  {
+    it = painter_points.erase(it);
+  }
+}
+
+unsigned chek_values(unsigned val, unsigned min_val, unsigned max_val)
+{
+  if (val < min_val) return 0;
+  else if (val > max_val) return max_val;
+  return val;
+}

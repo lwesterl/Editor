@@ -24,7 +24,7 @@ void OwnGraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent  *event)
   unsigned y_new = point.y();
 
   // Add a line from previous points if line adding mode activated
-  if (line_mode)
+  if (mode == line_mode_value)
   {
     if (first_line)
     {
@@ -41,13 +41,13 @@ void OwnGraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent  *event)
     mouse_y = y_new;
     qDebug() << "Clicked\n" << "X: " << mouse_x << "Y: " << mouse_y;
   }
-  else if (delete_mode)
+  else if (mode == delete_mode_value)
   {
     // Remove the elent user clicked
     remove_Item(x_new, y_new);
   }
 
-  else if (image_active.image_mode)
+  else if (mode == image_mode_value)
   {
     if (image_active.clicks == 0)
     {
@@ -69,7 +69,7 @@ void OwnGraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent  *event)
     }
 
   }
-  else if (delete_img_mode)
+  else if (mode == delete_img_mode_value)
   {
     // try to delete the PixmapItem user clicked
     DeleteImg(x_new, y_new);
@@ -79,7 +79,7 @@ void OwnGraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent  *event)
 // Move image according to user mouse movements
 void OwnGraphicsScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
-  if (image_active.image_mode)
+  if (mode == image_mode_value)
   {
     // user is moving the image
     if (image_active.added_scene)
@@ -146,12 +146,14 @@ void OwnGraphicsScene::LineMode(bool activate)
   if (activate)
   {
     qDebug() << "LineMode actived\n";
-    line_mode = true;
+    /*line_mode = true;
     delete_mode = false;
     image_active.image_mode = false;
     delete_img_mode = false;
+    cut_image_mode = false;*/
+    mode = line_mode_value;
   }
-  else line_mode = false;
+  else mode = view_mode_value;
 }
 
 // Swap to the delete mode
@@ -160,12 +162,14 @@ void OwnGraphicsScene::DeleteMode(bool activate)
   if (activate)
   {
     qDebug() << "DeleteMode actived\n";
-    delete_mode = true;
+    /*delete_mode = true;
     line_mode = false;
     image_active.image_mode = false;
     delete_img_mode = false;
+    cut_image_mode = false;*/
+    mode = delete_mode_value;
   }
-  else delete_mode = false;
+  else mode = view_mode_value;
 }
 
 void OwnGraphicsScene::ClearMode()
@@ -218,23 +222,26 @@ bool OwnGraphicsScene::imgMode(bool activate)
 {
   if (activate == false)
   {
-    image_active.image_mode = false;
+    //image_active.image_mode = false;
+    mode = view_mode_value;
     return false;
   }
 
-  line_mode = false;
+  /*line_mode = false;
   delete_mode = false;
   delete_img_mode = false;
+  cut_image_mode = false;*/
 
   // test if image can be added
   if (image.isNull())
   {
     // can't add the image
+    mode = view_mode_value;
     return false;
   }
 
   // update mode status
-  image_active.image_mode = true;
+  mode = image_mode_value;
 
   return true;
 }
@@ -244,14 +251,16 @@ void OwnGraphicsScene::DeleteImgMode(bool activate)
   if (activate)
   {
     // enable delete_img_mode and disaple other modes
-    delete_img_mode = true;
+    /*delete_img_mode = true;
     line_mode = false;
     delete_mode = false;
     image_active.image_mode = false;
+    cut_image_mode = false;*/
+    mode = delete_img_mode_value;
   }
   else
   {
-    delete_img_mode = false;
+    mode = view_mode_value;
   }
 
 }
@@ -273,5 +282,25 @@ void OwnGraphicsScene::DeleteImg(unsigned x1, unsigned y1)
       delete(*it);
       break;
     }
+  }
+}
+
+// Activate cut_image_mode
+void OwnGraphicsScene::CutImageMode(bool activate)
+{
+  image_active.clicks = 0;
+  if (activate)
+  {
+    mode = cut_image_mode_value;
+    image_active.pixmap_item = nullptr;
+  }
+  else
+  {
+    // clear points vector if current pixmap exists
+    if (image_active.pixmap_item != nullptr)
+    {
+      image_active.pixmap_item->clearPointsVector();
+    }
+    mode = view_mode_value;
   }
 }

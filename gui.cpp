@@ -75,6 +75,14 @@ GUI::GUI(QWidget *parent): QMainWindow(parent)
   delete_img_mode->setChecked(false);
   connect(delete_img_mode, &QAction::triggered, this, &GUI::DeleteImgMode);
 
+
+  // add a cut image mode button
+  QPixmap image_cut(image_cut_img);
+  cut_image_mode = toolbar->addAction(QIcon(image_cut), "Cut image");
+  cut_image_mode->setCheckable(true);
+  cut_image_mode->setChecked(false);
+  connect(cut_image_mode, &QAction::triggered, this, &GUI::CutImageMode);
+
   //QPixmap quit_pic("exit.png");
   //QAction *quit = toolbar->addAction(QIcon(quit_pic),"Quit");
   //connect(quit, &QAction::triggered, qApp, &QApplication::quit);
@@ -118,6 +126,7 @@ void GUI::LineMode()
     delete_mode->setChecked(false);
     add_img_mode->setChecked(false);
     delete_img_mode->setChecked(false);
+    cut_image_mode->setChecked(false);
   }
   else
   {
@@ -134,6 +143,7 @@ void GUI::DeleteMode()
     line_mode->setChecked(false);
     add_img_mode->setChecked(false);
     delete_img_mode->setChecked(false);
+    cut_image_mode->setChecked(false);
   }
   else
   {
@@ -232,6 +242,7 @@ void GUI::ImgMode()
     line_mode->setChecked(false);
     delete_mode->setChecked(false);
     delete_img_mode->setChecked(false);
+    cut_image_mode->setChecked(false);
   }
   else
   {
@@ -250,11 +261,33 @@ void GUI::DeleteImgMode()
     line_mode->setChecked(false);
     delete_mode->setChecked(false);
     add_img_mode->setChecked(false);
+    cut_image_mode->setChecked(false);
     mainWidget->getScene()->DeleteImgMode(true);
   }
   else
   {
     mainWidget->getScene()->DeleteImgMode(false);
+  }
+}
+
+// Activate or inactivate cut image mode
+void GUI::CutImageMode()
+{
+  if (cut_image_mode->isChecked())
+  {
+    // set other modes off
+    line_mode->setChecked(false);
+    delete_mode->setChecked(false);
+    add_img_mode->setChecked(false);
+    delete_img_mode->setChecked(false);
+
+    // activate mode
+    mainWidget->getScene()->CutImageMode(true);
+
+  }
+  else
+  {
+    mainWidget->getScene()->CutImageMode(false);
   }
 }
 
