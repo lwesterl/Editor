@@ -10,6 +10,7 @@ GUI::GUI(QWidget *parent): QMainWindow(parent)
 
   this->setWindowTitle ("Editor");
   setMouseTracking(true);
+  setContextMenuPolicy(Qt::NoContextMenu); // don't allow clicking toolboxes
 
 
 
@@ -82,6 +83,30 @@ GUI::GUI(QWidget *parent): QMainWindow(parent)
   cut_image_mode->setCheckable(true);
   cut_image_mode->setChecked(false);
   connect(cut_image_mode, &QAction::triggered, this, &GUI::CutImageMode);
+
+  // add another toolbar below the first one
+  addToolBarBreak();
+  lToolbar.lower_toolbar = addToolBar("Special toolbar");
+  lToolbar.add_text = new QLabel("\tAdd points: ");
+  lToolbar.lower_toolbar->addWidget(lToolbar.add_text);
+  lToolbar.add = lToolbar.lower_toolbar->addAction("Add");
+  lToolbar.lower_toolbar->addSeparator();
+  lToolbar.remove_text = new QLabel("\tRemove previous point: ");
+  lToolbar.lower_toolbar->addWidget(lToolbar.remove_text);
+  lToolbar.remove = lToolbar.lower_toolbar->addAction("Remove");
+  lToolbar.lower_toolbar->addSeparator();
+  lToolbar.cansel = lToolbar.lower_toolbar->addAction("Cansel");
+
+  // HIde the toolbar
+  HideLowerToolbar(true);
+
+  //add_lower_toolbar->setVisible(false);
+  //lToolbar.lower_toolbar->toggleViewAction()->setChecked(false)->trigger();
+  //toggle_lower_toolbar->setChecked(true);
+
+
+  //test
+
 
   //QPixmap quit_pic("exit.png");
   //QAction *quit = toolbar->addAction(QIcon(quit_pic),"Quit");
@@ -283,6 +308,8 @@ void GUI::CutImageMode()
 
     // activate mode
     mainWidget->getScene()->CutImageMode(true);
+    // Set the lower toolbar enabled
+    HideLowerToolbar(false);
 
   }
   else
@@ -292,6 +319,19 @@ void GUI::CutImageMode()
 }
 
 
+// Hide/unhide the lower toolbar from user
+// hide == true -> hide, hide == false -> unhide
+void GUI::HideLowerToolbar(bool hide)
+{
+  if (hide)
+  {
+    lToolbar.lower_toolbar->setVisible(false);
+  }
+  else
+  {
+    lToolbar.lower_toolbar->setVisible(true);
+  }
+}
 /*void GUI::mouseMoveEvent(QMouseEvent *event)
 {
   mouse_x = event->x();

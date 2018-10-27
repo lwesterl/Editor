@@ -25,6 +25,8 @@
 #include <QString>
 #include <QDir>
 #include <QStringList>
+#include <QToolButton>
+#include <QLabel>
 #include "owngraphicsscene.hpp"
 #include "mainwidget.hpp"
 
@@ -40,7 +42,15 @@
 #define image_delete_img "img_src/image_delete.png"
 #define image_cut_img "img_src/image_cut.png"
 
-
+struct LowerToolbar
+{
+  QToolBar *lower_toolbar;
+  QAction *add;
+  QLabel *add_text;
+  QAction *remove;
+  QLabel *remove_text;
+  QAction *cansel;
+};
 
 
 // Graphical user interface
@@ -60,6 +70,7 @@ public:
   void ImgMode();
   void DeleteImgMode();
   void CutImageMode();
+  void HideLowerToolbar(bool hide);
 
   //void mouseMoveEvent(QMouseEvent *event);
   //void mousePressEvent(QMouseEvent *event);
@@ -81,6 +92,8 @@ private:
   QAction *add_img_mode;
   QAction *delete_img_mode;
   QAction *cut_image_mode;
+  struct LowerToolbar lToolbar;
+
 
 
 };
