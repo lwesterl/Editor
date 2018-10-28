@@ -13,8 +13,9 @@
 #include <QPainterPath>
 #include <QBrush>
 #include <vector>
+#include <QDebug>
 
-unsigned chek_values(unsigned val, unsigned min_val, unsigned max_val);
+int check_values(int val, int min_val, int max_val);
 
 // This class inherits QGraphicsPixmapItem
 // Adds a position specifiers to the upper class

@@ -28,14 +28,6 @@ void PixmapItem::CutItem()
     // This make painting alpha (i.e. clears original pixels)
     painter.setCompositionMode(QPainter::CompositionMode_Clear);
 
-    /* just for testing
-    static const QPointF points[4] = {
-      QPointF(0, 0),
-      QPointF(50, 50),
-      QPointF(70, 30.0),
-      QPointF(80.0, 0.0)
-    };*/
-
     // Create a path by the vector points
     QPainterPath path;
     auto it = painter_points.begin();
@@ -97,13 +89,12 @@ void PixmapItem::setY(unsigned y)
 
 void PixmapItem::addPainterPoint(unsigned x, unsigned y)
 {
-  // Map points to inside item
-  unsigned x_new = x - x1;
-  unsigned y_new = y - y1;
-
-  x_new = chek_values(x_new, 0, width);
-  y_new = chek_values(y_new, 0, height);
-
+  // Map points to inside the item
+  int x_new = (int) x - (int) x1;
+  int y_new = (int) y - (int) y1;
+  x_new = check_values(x_new, 0, width);
+  y_new = check_values(y_new, 0, height);
+  
   // Add points to the vector
   painter_points.push_back(QPoint(x_new, y_new));
 
@@ -132,7 +123,7 @@ void PixmapItem::RemoveLatestPoint()
 
 // THIS IS NOT A PART OF THE CLASS
 // Return a valid point within the coordinate boundaries
-unsigned chek_values(unsigned val, unsigned min_val, unsigned max_val)
+int check_values(int val, int min_val, int max_val)
 {
   if (val < min_val) return 0;
   else if (val > max_val) return max_val;
