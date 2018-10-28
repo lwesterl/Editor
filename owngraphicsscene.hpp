@@ -42,6 +42,16 @@
    QPoint point; // tells which image should be cutted
  };
 
+ struct Line_Mode
+ {
+   LineItem *line_item; // the item which is curretly moved
+   bool positioned = false;
+   bool created = false; // whether element already created
+   unsigned prev_x;
+   unsigned prev_y;
+ };
+
+
  // Different modes
  #define view_mode_value 0
  #define line_mode_value 1
@@ -57,7 +67,7 @@
    ~OwnGraphicsScene();
    void mousePressEvent(QGraphicsSceneMouseEvent *event);
    void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
-   void addLine(unsigned x1, unsigned y1, unsigned x2, unsigned y2);
+   LineItem *addLine(unsigned x1, unsigned y1, unsigned x2, unsigned y2);
    unsigned getMouseX() {return mouse_x;}
    unsigned getMouseY() {return mouse_y;}
    void LineMode(bool activate);
@@ -81,6 +91,8 @@
    unsigned mouse_x;
    unsigned mouse_y;
    bool first_line = true;
+   bool connect_lines = true; // This controls whether first_line is reset
+   struct Line_Mode line_struct;
    unsigned char mode = line_mode_value;
    //bool line_mode = true;
    //bool delete_mode = false;

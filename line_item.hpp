@@ -13,6 +13,11 @@ class LineItem : public QGraphicsLineItem
     unsigned getX2() {return x2;}
     unsigned getY1() {return y1;}
     unsigned getY2() {return y2;}
+    void updatePosition(unsigned x_new, unsigned y_new)
+    {
+      x2 = x_new;
+      y2 = y_new;
+    }
   private:
     unsigned x1;
     unsigned x2;

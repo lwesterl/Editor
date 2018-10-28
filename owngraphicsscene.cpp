@@ -29,11 +29,23 @@ void OwnGraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent  *event)
     if (first_line)
     {
       // no previous points
+      line_struct.prev_x = x_new;
+      line_struct.prev_y = y_new;
       first_line = false;
     }
-    else
+    else if (line_struct.created)
     {
-      addLine(mouse_x, mouse_y, x_new, y_new);
+      // user has set the final position for the line
+      // set previous points to the current item end coordinates
+      line_struct.prev_x = line_struct.line_item->getX2();
+      line_struct.prev_y = line_struct.line_item->getY2();
+      line_struct.positioned = true;
+      line_struct.created = false;
+      if (!connect_lines)
+      {
+        // reset first_line to true not to connect lines
+        first_line = true;
+      }
     }
 
     // reassign mouse_x and mouse_y
@@ -113,6 +125,49 @@ void OwnGraphicsScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
     }
 
   }
+  else if (mode == line_mode_value)
+  {
+    if (first_line == false)
+    {
+      // convert mouse coordinates to a scene position
+      QPointF point = event->scenePos();
+      unsigned x_new = point.x();
+      unsigned y_new = point.y();
+      if (line_struct.created)
+      {
+        // Don't create a new item , move previosly created
+        if (connect_lines)
+        {
+          // connect item to the last one
+          line_struct.line_item->setLine(line_struct.prev_x, line_struct.prev_y, x_new, y_new);
+        }
+        else
+        {
+          // don't connect to the prev item
+          line_struct.line_item->setLine(mouse_x, mouse_y, x_new, y_new);
+        }
+        line_struct.line_item->updatePosition(x_new, y_new);
+      }
+      else
+      {
+        // create a new line_item
+        if (connect_lines)
+        {
+          // connect item to the last item
+          line_struct.line_item = addLine(line_struct.prev_x, line_struct.prev_y, x_new, y_new);
+        }
+        else
+        {
+          // create a complitely new element without connection to the previous one
+          line_struct.line_item = addLine(mouse_x, mouse_y, x_new, y_new);
+        }
+
+        line_struct.created = true;
+        line_struct.positioned = false;
+      }
+
+    }
+  }
 }
 
 // This method goes throw OwnGraphicsScene items and tries to remove item
@@ -144,13 +199,14 @@ void OwnGraphicsScene::remove_Item(unsigned x, unsigned y)
 
 // This adds a line to the graphics scene
 
-void OwnGraphicsScene::addLine(unsigned x1, unsigned y1, unsigned x2, unsigned y2)
+LineItem* OwnGraphicsScene::addLine(unsigned x1, unsigned y1, unsigned x2, unsigned y2)
 {
   //QGraphicsLineItem *line = new QGraphicsLineItem(x1, y1, x2, y2);
   LineItem *line = new LineItem(x1, y1, x2, y2);
   // Add item to the scene and line items list
   addItem(line);
   line_items.push_back(line);
+  return line;
 }
 
 
@@ -168,7 +224,29 @@ void OwnGraphicsScene::LineMode(bool activate)
     cut_image_mode = false;*/
     mode = line_mode_value;
   }
-  else mode = view_mode_value;
+  else
+  {
+    mode = view_mode_value;
+    // Clear the line_struct if item created
+    if (line_struct.created)
+    {
+      line_struct.prev_x = line_struct.line_item->getX2();
+      line_struct.prev_y = line_struct.line_item->getY2();
+      line_struct.line_item = nullptr;
+      line_struct.created = false;
+      line_struct.positioned = true;
+    }
+
+
+    /*if (line_struct.created && !line_struct.positioned)
+    {
+      // remove the last item from the scene
+      removeItem(line_struct.line_item);
+      // remove the excessive LineItem from the end of the list
+      line_items.pop_back();
+      delete(line_struct.line_item);
+    }*/
+  }
 }
 
 // Swap to the delete mode
@@ -177,18 +255,27 @@ void OwnGraphicsScene::DeleteMode(bool activate)
   if (activate)
   {
     qDebug() << "DeleteMode actived\n";
-    /*delete_mode = true;
-    line_mode = false;
-    image_active.image_mode = false;
-    delete_img_mode = false;
-    cut_image_mode = false;*/
+    // enable delete mode
     mode = delete_mode_value;
+
+    // store the (current) item if created
+    if (line_struct.created)
+    {
+      line_struct.prev_x = line_struct.line_item->getX2();
+      line_struct.prev_y = line_struct.line_item->getY2();
+      line_struct.positioned = true; // now the item isn't overwritten
+      line_struct.created = false;
+    }
+
   }
   else mode = view_mode_value;
 }
 
 void OwnGraphicsScene::ClearMode()
 {
+  // store the (current) item
+  line_struct.positioned = true; // now the item isn't overwritten
+  line_struct.created = false;
   first_line = true;
 }
 
@@ -198,6 +285,9 @@ void OwnGraphicsScene::ClearAll()
 {
   // Init first line
   first_line = true;
+  // init line_struct
+  line_struct.created = false;
+  line_struct.line_item = nullptr;
 
   // remove list objects
   for (auto it = line_items.begin(); it !=line_items.end();)
@@ -210,7 +300,7 @@ void OwnGraphicsScene::ClearAll()
   {
     it = pixmap_items.erase(it);
   }
-
+  
   clear(); // removes all objects and deletes them
 
 
