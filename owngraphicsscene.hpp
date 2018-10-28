@@ -84,6 +84,7 @@
    void SetImgCutMode(int cut_mode);
    void CutPixmapItem();
    void RemovePolyPrevious();
+   void setConnectLines(int value);
 
  private:
    std::list <LineItem*> line_items;

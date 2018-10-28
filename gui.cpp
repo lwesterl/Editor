@@ -33,6 +33,23 @@ GUI::GUI(QWidget *parent): QMainWindow(parent)
   connect(save, &QAction::triggered, this, &GUI::saveImage);
   connect(open, &QAction::triggered, this, &GUI::openImage);
 
+  // create options menu
+  QMenu *options;
+  options = menuBar()->addMenu("&Options");
+  // Add a ComboboxAction
+  line_options_combo = new ComboboxAction("New lines connect to previous one: ");
+  options->addAction(line_options_combo);
+  // Add a save choices
+  QAction *save_choices = new QAction("Save choices");
+  options->addAction(save_choices);
+  // connect the action
+  connect(save_choices, &QAction::triggered, this, &GUI::SaveChoices);
+
+
+
+
+
+  // create all toolbars
   createToolbars();
 
 
@@ -580,6 +597,19 @@ void GUI::RemovePolyPrevious()
   polyToolbar.remove->setChecked(false);
   mainWidget->getScene()->RemovePolyPrevious();
 }
+
+
+// User has changed options
+void GUI::SaveChoices()
+{
+  // Set the correct line_connect value to OwnGraphicsScene
+  int combo_index = line_options_combo->ComboIndex();
+  mainWidget->getScene()->setConnectLines(combo_index);
+
+  // Show a QMessageBox to user
+  QMessageBox::information(this, "Information", "Selected options saved");
+}
+
 
 /*void GUI::mouseMoveEvent(QMouseEvent *event)
 {

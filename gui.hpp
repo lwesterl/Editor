@@ -30,6 +30,7 @@
 #include <QComboBox>
 #include "owngraphicsscene.hpp"
 #include "mainwidget.hpp"
+#include "combobox_action.hpp"
 
 // Source images
 #define exit_img "img_src/exit.png"
@@ -101,6 +102,7 @@ public:
   void CancelFromPoly();
   void ContinueFromSelect();
   void CancelFromSelect();
+  void SaveChoices();
 
   //void mouseMoveEvent(QMouseEvent *event);
   //void mousePressEvent(QMouseEvent *event);
@@ -120,9 +122,12 @@ private:
   QAction *continue_img_cut;
   QAction *cancel_img_cut;
   QToolBar *main_toolbar;
+
   struct PolygonToolbar polyToolbar;
   struct ModeToolbar modeToolbar;
   struct SelectImgToolbar selectToolbar;
+
+  ComboboxAction *line_options_combo;
 
 
 };

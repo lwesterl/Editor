@@ -300,7 +300,7 @@ void OwnGraphicsScene::ClearAll()
   {
     it = pixmap_items.erase(it);
   }
-  
+
   clear(); // removes all objects and deletes them
 
 
@@ -465,4 +465,15 @@ void OwnGraphicsScene::CutPixmapItem()
 void OwnGraphicsScene::RemovePolyPrevious()
 {
   image_cut.pixmap_item->RemoveLatestPoint();
+}
+
+// Set correct connect_lines value based on input value
+void OwnGraphicsScene::setConnectLines(int value)
+{
+  if (value == 0)
+  {
+    connect_lines = true;
+  }
+  else connect_lines = false;
+
 }

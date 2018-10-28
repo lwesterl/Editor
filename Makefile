@@ -48,12 +48,14 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = gui_test.cpp \
+SOURCES       = combobox_action.cpp \
+		gui_test.cpp \
 		mainwidget.cpp \
 		owngraphicsscene.cpp \
 		pixmap_item.cpp \
 		promtwindow.cpp moc_promtwindow.cpp
-OBJECTS       = gui_test.o \
+OBJECTS       = combobox_action.o \
+		gui_test.o \
 		mainwidget.o \
 		owngraphicsscene.o \
 		pixmap_item.o \
@@ -119,12 +121,14 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
-		Editor.pro gui.hpp \
+		Editor.pro combobox_action.hpp \
+		gui.hpp \
 		line_item.hpp \
 		mainwidget.hpp \
 		owngraphicsscene.hpp \
 		pixmap_item.hpp \
-		promtwindow.hpp gui_test.cpp \
+		promtwindow.hpp combobox_action.cpp \
+		gui_test.cpp \
 		mainwidget.cpp \
 		owngraphicsscene.cpp \
 		pixmap_item.cpp \
@@ -283,8 +287,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents gui.hpp line_item.hpp mainwidget.hpp owngraphicsscene.hpp pixmap_item.hpp promtwindow.hpp $(DISTDIR)/
-	$(COPY_FILE) --parents gui_test.cpp mainwidget.cpp owngraphicsscene.cpp pixmap_item.cpp promtwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents combobox_action.hpp gui.hpp line_item.hpp mainwidget.hpp owngraphicsscene.hpp pixmap_item.hpp promtwindow.hpp $(DISTDIR)/
+	$(COPY_FILE) --parents combobox_action.cpp gui_test.cpp mainwidget.cpp owngraphicsscene.cpp pixmap_item.cpp promtwindow.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -331,12 +335,16 @@ compiler_clean: compiler_moc_header_clean
 
 ####### Compile
 
+combobox_action.o: combobox_action.cpp combobox_action.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o combobox_action.o combobox_action.cpp
+
 gui_test.o: gui_test.cpp gui.cpp \
 		gui.hpp \
 		owngraphicsscene.hpp \
 		line_item.hpp \
 		pixmap_item.hpp \
-		mainwidget.hpp
+		mainwidget.hpp \
+		combobox_action.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o gui_test.o gui_test.cpp
 
 mainwidget.o: mainwidget.cpp mainwidget.hpp \
