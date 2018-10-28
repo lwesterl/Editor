@@ -43,6 +43,11 @@
 #define image_sketch_img "img_src/image_sketch.png"
 #define image_delete_img "img_src/image_delete.png"
 #define image_cut_img "img_src/image_cut.png"
+#define continue_img "img_src/continue.png"
+#define cancel_img "img_src/cancel.png"
+#define finish_img "img_src/finish.png"
+#define remove_point_img "img_src/remove_point.png"
+
 
 struct PolygonToolbar
 {

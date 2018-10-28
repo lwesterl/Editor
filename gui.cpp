@@ -399,13 +399,15 @@ void GUI::createToolbars()
   selectToolbar.select_img_toolbar->addWidget(selectToolbar.info);
   selectToolbar.select_img_toolbar->addSeparator();
   // Add the continue button
-  selectToolbar.continue_button = selectToolbar.select_img_toolbar->addAction("Continue");
+  QPixmap continue_pic = QPixmap(continue_img);
+  QPixmap cancel_pic = QPixmap(cancel_img);
+  selectToolbar.continue_button = selectToolbar.select_img_toolbar->addAction(continue_pic, "Continue");
   selectToolbar.continue_button->setCheckable(true);
   selectToolbar.continue_button->setChecked(false);
   connect(selectToolbar.continue_button, &QAction::triggered, this, &GUI::ContinueFromSelect);
   // Add cancel button, connect to CancelFromSelect
   selectToolbar.select_img_toolbar->addSeparator();
-  selectToolbar.cancel = selectToolbar.select_img_toolbar->addAction("Cancel");
+  selectToolbar.cancel = selectToolbar.select_img_toolbar->addAction(cancel_pic, "Cancel");
   selectToolbar.cancel->setCheckable(true);
   selectToolbar.cancel->setChecked(false);
   connect(selectToolbar.cancel, &QAction::triggered, this, &GUI::CancelFromSelect);
@@ -423,10 +425,10 @@ void GUI::createToolbars()
   // Add a continue and cancel button
   // Connect those also to the correct actions
   modeToolbar.mode_toolbar->addSeparator();
-  modeToolbar.continue_button = modeToolbar.mode_toolbar->addAction("Continue");
+  modeToolbar.continue_button = modeToolbar.mode_toolbar->addAction(continue_pic, "Continue");
   connect(modeToolbar.continue_button, &QAction::triggered, this, &GUI::ContinueFromMode);
   modeToolbar.mode_toolbar->addSeparator();
-  modeToolbar.cancel = modeToolbar.mode_toolbar->addAction("Cancel");
+  modeToolbar.cancel = modeToolbar.mode_toolbar->addAction(cancel_pic, "Cancel");
   connect(modeToolbar.cancel, &QAction::triggered, this, &GUI::CancelFromMode);
   // Hide the mode toolbar
   HideModeToolbar(true);
@@ -436,33 +438,35 @@ void GUI::createToolbars()
   addToolBarBreak();
   polyToolbar.polygon_toolbar = addToolBar("Polygon toolbar");
 
-  polyToolbar.endpoints_text = new QLabel(" Previous point endpoint enabled ");
+  /*polyToolbar.endpoints_text = new QLabel(" Previous point endpoint enabled ");
   polyToolbar.polygon_toolbar->addWidget(polyToolbar.endpoints_text);
   polyToolbar.endpoints = polyToolbar.polygon_toolbar->addAction("Endpoints");
   // Set endpoints always enabled
   polyToolbar.endpoints->setCheckable(true);
-  polyToolbar.endpoints->setChecked(true);
+  polyToolbar.endpoints->setChecked(true);*/
 
   polyToolbar.polygon_toolbar->addSeparator();
-  polyToolbar.final_point_text = new QLabel(" Finished cut: connects the first and last point ");
+  polyToolbar.final_point_text = new QLabel("Finished cut: connects the first and the last point ");
   polyToolbar.polygon_toolbar->addWidget(polyToolbar.final_point_text);
-  polyToolbar.final_point = polyToolbar.polygon_toolbar->addAction("Finished cut");
+  //QPixmap finish_pic = QPixmap(finish_img);
+  polyToolbar.final_point = polyToolbar.polygon_toolbar->addAction(continue_pic, "Finished cut");
   // Set checkable and disabled, connect
   polyToolbar.final_point->setCheckable(true);
   polyToolbar.final_point->setChecked(false);
   connect(polyToolbar.final_point, &QAction::triggered, this, &GUI::SetPolyFinal);
 
   polyToolbar.polygon_toolbar->addSeparator();
-  polyToolbar.remove_text = new QLabel(" Remove previous point ");
+  polyToolbar.remove_text = new QLabel("Remove previous point ");
+  QPixmap remove_point_pic = QPixmap(remove_point_img);
   polyToolbar.polygon_toolbar->addWidget(polyToolbar.remove_text);
-  polyToolbar.remove = polyToolbar.polygon_toolbar->addAction("Remove point");
+  polyToolbar.remove = polyToolbar.polygon_toolbar->addAction(remove_point_pic, "Remove point");
   // Set checkable and disabled, connect
   polyToolbar.remove->setCheckable(true);
   polyToolbar.remove->setChecked(false);
   connect(polyToolbar.remove, &QAction::triggered, this, &GUI::RemovePolyPrevious);
 
   polyToolbar.polygon_toolbar->addSeparator();
-  polyToolbar.cancel = polyToolbar.polygon_toolbar->addAction("Cancel");
+  polyToolbar.cancel = polyToolbar.polygon_toolbar->addAction(cancel_pic, "Cancel");
   // Set checkable and connect
   polyToolbar.cancel->setCheckable(true);
   polyToolbar.cancel->setChecked(false);
