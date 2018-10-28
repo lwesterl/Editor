@@ -40,6 +40,13 @@
    bool initialized = false;
    unsigned char cut_mode = no_img_cut; // stores the cut mode
    QPoint point; // tells which image should be cutted
+   // These are used to visualize the cutting pattern and just temporarily added to the scene
+   std::vector<LineItem*> visual_items;
+   LineItem *current_item;
+   unsigned prev_x;
+   unsigned prev_y;
+   bool visual_created = false;
+
  };
 
  struct Line_Mode
@@ -85,6 +92,7 @@
    void CutPixmapItem();
    void RemovePolyPrevious();
    void setConnectLines(int value);
+   void ClearVisualItems();
 
  private:
    std::list <LineItem*> line_items;

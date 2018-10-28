@@ -97,8 +97,23 @@ void OwnGraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent  *event)
     else if (image_cut.initialized && (image_cut.cut_mode == polygon_img_cut))
     {
       // Polygon cut activated
-      // Add a new point
-      image_cut.pixmap_item->addPainterPoint(x_new, y_new);
+      // Add a new point to match the visual item
+
+      if (image_cut.visual_created)
+      {
+        image_cut.visual_created = false;
+        image_cut.prev_x = image_cut.current_item->getX2();
+        image_cut.prev_y = image_cut.current_item->getY2();
+      }
+      else
+      {
+        // no points created
+        image_cut.prev_x = x_new;
+        image_cut.prev_y = y_new;
+      }
+      // add the point
+      image_cut.pixmap_item->addPainterPoint(image_cut.prev_x, image_cut.prev_y);
+
     }
   }
 }
@@ -146,6 +161,7 @@ void OwnGraphicsScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
           // don't connect to the prev item
           line_struct.line_item->setLine(mouse_x, mouse_y, x_new, y_new);
         }
+        // Then also update x2 and y2 values to item itself (crusial)
         line_struct.line_item->updatePosition(x_new, y_new);
       }
       else
@@ -167,6 +183,34 @@ void OwnGraphicsScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
       }
 
     }
+  }
+
+  else if (mode == cut_image_mode_value)
+  {
+    if (image_cut.initialized && (image_cut.cut_mode == polygon_img_cut))
+    {
+      QPointF point = event->scenePos();
+      unsigned x_new = point.x();
+      unsigned y_new = point.y();
+
+      // construct visual items
+      if (image_cut.visual_created)
+      {
+        // move already created element
+        image_cut.current_item->setLine(image_cut.prev_x, image_cut.prev_y, x_new, y_new);
+        // also update x2 and y2 values to item itself (crusial)
+        image_cut.current_item->updatePosition(x_new, y_new);
+      }
+      else
+      {
+        // add a new visual item
+        image_cut.current_item = new LineItem(image_cut.prev_x, image_cut.prev_y, x_new, y_new);
+        image_cut.visual_items.push_back(image_cut.current_item); // adds item to end of the vector
+        addItem(image_cut.current_item); // adds item to the scene
+        image_cut.visual_created = true;
+      }
+    }
+
   }
 }
 
@@ -408,6 +452,9 @@ void OwnGraphicsScene::CutImageMode(bool activate)
       image_cut.cut_mode = no_img_cut;
       // clear also the point by constructing a null point
       image_cut.point = QPoint();
+      // clear also visual items
+      ClearVisualItems();
+
     }
     mode = view_mode_value;
   }
@@ -457,14 +504,54 @@ void OwnGraphicsScene::SetImgCutMode(int cut_mode)
 // This is just a wrapper call for PixmapItem::CutItem
 void OwnGraphicsScene::CutPixmapItem()
 {
+  // Add the final point
+  if (image_cut.visual_created)
+  {
+    image_cut.visual_created = false;
+    image_cut.prev_x = image_cut.current_item->getX2();
+    image_cut.prev_y = image_cut.current_item->getY2();
+    // add the point
+    image_cut.pixmap_item->addPainterPoint(image_cut.prev_x, image_cut.prev_y);
+  }
   // Cut the item
   image_cut.pixmap_item->CutItem();
+  // remove excessive visual items
+  ClearVisualItems();
 }
 
-// Just a wrapper call for PixmapItem::RemoveLatestPoint
+// Call PixmapItem::RemoveLatestPoint
+// and remove visual item
 void OwnGraphicsScene::RemovePolyPrevious()
 {
   image_cut.pixmap_item->RemoveLatestPoint();
+  // remove also visual item
+  if (!image_cut.visual_items.empty())
+  {
+    // get the last visual item
+    LineItem *last = image_cut.visual_items.back();
+
+    // remove from the scene and then from the vector
+    removeItem(last);
+    image_cut.visual_items.pop_back();
+
+    // if possible connect image_cut prev x and y values to the new last item
+    if (!image_cut.visual_items.empty())
+    {
+      // set current point to the last item
+      image_cut.current_item = image_cut.visual_items.back();
+      image_cut.prev_x = image_cut.current_item->getX2();
+      image_cut.prev_y = image_cut.current_item->getY2();
+    }
+    else
+    {
+      image_cut.current_item = nullptr;
+      // no items left so init prev_x and prev_y by changing visual_created
+      image_cut.visual_created = false;
+    }
+
+    // delete the previous last item
+    delete(last);
+  }
 }
 
 // Set correct connect_lines value based on input value
@@ -476,4 +563,19 @@ void OwnGraphicsScene::setConnectLines(int value)
   }
   else connect_lines = false;
 
+}
+
+// Deletes all visual items from the scene and the visual_items vector
+void OwnGraphicsScene::ClearVisualItems()
+{
+  image_cut.current_item = nullptr;
+  image_cut.visual_created = false;
+
+  // delete items
+  for (auto it = image_cut.visual_items.begin(); it != image_cut.visual_items.end();)
+  {
+    // remove the item from the scene
+    removeItem(*it);
+    it = image_cut.visual_items.erase(it);
+  }
 }
