@@ -48,12 +48,12 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = combobox_action.cpp \
-		gui_test.cpp \
-		mainwidget.cpp \
-		owngraphicsscene.cpp \
-		pixmap_item.cpp \
-		promtwindow.cpp moc_promtwindow.cpp
+SOURCES       = src/combobox_action.cpp \
+		src/gui_test.cpp \
+		src/mainwidget.cpp \
+		src/owngraphicsscene.cpp \
+		src/pixmap_item.cpp \
+		src/promtwindow.cpp moc_promtwindow.cpp
 OBJECTS       = combobox_action.o \
 		gui_test.o \
 		mainwidget.o \
@@ -121,18 +121,18 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
-		Editor.pro combobox_action.hpp \
-		gui.hpp \
-		line_item.hpp \
-		mainwidget.hpp \
-		owngraphicsscene.hpp \
-		pixmap_item.hpp \
-		promtwindow.hpp combobox_action.cpp \
-		gui_test.cpp \
-		mainwidget.cpp \
-		owngraphicsscene.cpp \
-		pixmap_item.cpp \
-		promtwindow.cpp
+		Editor.pro include/combobox_action.hpp \
+		include/gui.hpp \
+		include/line_item.hpp \
+		include/mainwidget.hpp \
+		include/owngraphicsscene.hpp \
+		include/pixmap_item.hpp \
+		include/promtwindow.hpp src/combobox_action.cpp \
+		src/gui_test.cpp \
+		src/mainwidget.cpp \
+		src/owngraphicsscene.cpp \
+		src/pixmap_item.cpp \
+		src/promtwindow.cpp
 QMAKE_TARGET  = Editor
 DESTDIR       = 
 TARGET        = Editor
@@ -287,8 +287,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents combobox_action.hpp gui.hpp line_item.hpp mainwidget.hpp owngraphicsscene.hpp pixmap_item.hpp promtwindow.hpp $(DISTDIR)/
-	$(COPY_FILE) --parents combobox_action.cpp gui_test.cpp mainwidget.cpp owngraphicsscene.cpp pixmap_item.cpp promtwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents include/combobox_action.hpp include/gui.hpp include/line_item.hpp include/mainwidget.hpp include/owngraphicsscene.hpp include/pixmap_item.hpp include/promtwindow.hpp $(DISTDIR)/
+	$(COPY_FILE) --parents src/combobox_action.cpp src/gui_test.cpp src/mainwidget.cpp src/owngraphicsscene.cpp src/pixmap_item.cpp src/promtwindow.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -317,9 +317,9 @@ compiler_rcc_clean:
 compiler_moc_header_make_all: moc_promtwindow.cpp
 compiler_moc_header_clean:
 	-$(DEL_FILE) moc_promtwindow.cpp
-moc_promtwindow.cpp: promtwindow.hpp \
+moc_promtwindow.cpp: include/promtwindow.hpp \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/lauri/Documents/Game_project/Editor -I/home/lauri/Documents/Game_project/Editor -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include promtwindow.hpp -o moc_promtwindow.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/lauri/Documents/Game_project/Editor -I/home/lauri/Documents/Game_project/Editor -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/promtwindow.hpp -o moc_promtwindow.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -335,34 +335,34 @@ compiler_clean: compiler_moc_header_clean
 
 ####### Compile
 
-combobox_action.o: combobox_action.cpp combobox_action.hpp
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o combobox_action.o combobox_action.cpp
+combobox_action.o: src/combobox_action.cpp include/combobox_action.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o combobox_action.o src/combobox_action.cpp
 
-gui_test.o: gui_test.cpp gui.cpp \
-		gui.hpp \
-		owngraphicsscene.hpp \
-		line_item.hpp \
-		pixmap_item.hpp \
-		mainwidget.hpp \
-		combobox_action.hpp
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o gui_test.o gui_test.cpp
+gui_test.o: src/gui_test.cpp src/gui.cpp \
+		include/gui.hpp \
+		include/owngraphicsscene.hpp \
+		include/line_item.hpp \
+		include/pixmap_item.hpp \
+		include/mainwidget.hpp \
+		include/combobox_action.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o gui_test.o src/gui_test.cpp
 
-mainwidget.o: mainwidget.cpp mainwidget.hpp \
-		owngraphicsscene.hpp \
-		line_item.hpp \
-		pixmap_item.hpp
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwidget.o mainwidget.cpp
+mainwidget.o: src/mainwidget.cpp include/mainwidget.hpp \
+		include/owngraphicsscene.hpp \
+		include/line_item.hpp \
+		include/pixmap_item.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwidget.o src/mainwidget.cpp
 
-owngraphicsscene.o: owngraphicsscene.cpp owngraphicsscene.hpp \
-		line_item.hpp \
-		pixmap_item.hpp
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o owngraphicsscene.o owngraphicsscene.cpp
+owngraphicsscene.o: src/owngraphicsscene.cpp include/owngraphicsscene.hpp \
+		include/line_item.hpp \
+		include/pixmap_item.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o owngraphicsscene.o src/owngraphicsscene.cpp
 
-pixmap_item.o: pixmap_item.cpp pixmap_item.hpp
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o pixmap_item.o pixmap_item.cpp
+pixmap_item.o: src/pixmap_item.cpp include/pixmap_item.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o pixmap_item.o src/pixmap_item.cpp
 
-promtwindow.o: promtwindow.cpp promtwindow.hpp
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o promtwindow.o promtwindow.cpp
+promtwindow.o: src/promtwindow.cpp include/promtwindow.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o promtwindow.o src/promtwindow.cpp
 
 moc_promtwindow.o: moc_promtwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_promtwindow.o moc_promtwindow.cpp
