@@ -1,3 +1,10 @@
+/**
+  *   @file combobox_action.cpp
+  *   @author Lauri Westerholm
+  *   @brief Contains ComboboxAction class
+  */
+
+
 #include "../include/combobox_action.hpp"
 
 

@@ -1,5 +1,14 @@
 \hypertarget{classPixmapItem}{}\section{Pixmap\+Item Class Reference}
 \label{classPixmapItem}\index{Pixmap\+Item@{Pixmap\+Item}}
+
+
+Own Q\+Graphics\+Pixmap\+Item implementation.  
+
+
+
+
+{\ttfamily \#include $<$pixmap\+\_\+item.\+hpp$>$}
+
 Inheritance diagram for Pixmap\+Item\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,43 +18,208 @@ Inheritance diagram for Pixmap\+Item\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classPixmapItem_a7e339e581be3c4892d2af89494bd137c}\label{classPixmapItem_a7e339e581be3c4892d2af89494bd137c}} 
-{\bfseries Pixmap\+Item} (Q\+Pixmap pixmap, Q\+String image\+\_\+name)
-\item 
-\mbox{\Hypertarget{classPixmapItem_ad5510bf5a97b352e3b06cb888ac0a99c}\label{classPixmapItem_ad5510bf5a97b352e3b06cb888ac0a99c}} 
-bool {\bfseries is\+Xinside} (unsigned x)
-\item 
-\mbox{\Hypertarget{classPixmapItem_ab6e6526fd5cd0ce5ba34b665adca6c5c}\label{classPixmapItem_ab6e6526fd5cd0ce5ba34b665adca6c5c}} 
-bool {\bfseries is\+Yinside} (unsigned y)
-\item 
-\mbox{\Hypertarget{classPixmapItem_a692a0aca72ffbe102769fdc9246ed2f6}\label{classPixmapItem_a692a0aca72ffbe102769fdc9246ed2f6}} 
-void {\bfseries setX} (unsigned x)
-\item 
-\mbox{\Hypertarget{classPixmapItem_a6c6f4a872823f585edcf134d9bf209e1}\label{classPixmapItem_a6c6f4a872823f585edcf134d9bf209e1}} 
-void {\bfseries setY} (unsigned y)
-\item 
-\mbox{\Hypertarget{classPixmapItem_a6e18b1223f61d40dba6e96f4da15ce5c}\label{classPixmapItem_a6e18b1223f61d40dba6e96f4da15ce5c}} 
-void {\bfseries add\+Painter\+Point} (unsigned x, unsigned y)
-\item 
-\mbox{\Hypertarget{classPixmapItem_a54810877049ab858d569f83065720a18}\label{classPixmapItem_a54810877049ab858d569f83065720a18}} 
-void {\bfseries clear\+Points\+Vector} ()
-\item 
-\mbox{\Hypertarget{classPixmapItem_a4a742318dce01d018da2f4b01790c210}\label{classPixmapItem_a4a742318dce01d018da2f4b01790c210}} 
-void {\bfseries Cut\+Item} ()
-\item 
-\mbox{\Hypertarget{classPixmapItem_ae2e67a7b69ef10dc613e14c1d3c1a327}\label{classPixmapItem_ae2e67a7b69ef10dc613e14c1d3c1a327}} 
-void {\bfseries Remove\+Latest\+Point} ()
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{classPixmapItem_a7e339e581be3c4892d2af89494bd137c}{Pixmap\+Item}} (Q\+Pixmap pixmap, Q\+String image\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{classPixmapItem}{Pixmap\+Item}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classPixmapItem_ad5510bf5a97b352e3b06cb888ac0a99c}{is\+Xinside}} (unsigned x)
+\begin{DoxyCompactList}\small\item\em Is x coordinate inside the item. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classPixmapItem_ab6e6526fd5cd0ce5ba34b665adca6c5c}{is\+Yinside}} (unsigned y)
+\begin{DoxyCompactList}\small\item\em Is y coordinate inside the item. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPixmapItem_a692a0aca72ffbe102769fdc9246ed2f6}{setX}} (unsigned x)
+\begin{DoxyCompactList}\small\item\em Set new x coordinate. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPixmapItem_a6c6f4a872823f585edcf134d9bf209e1}{setY}} (unsigned y)
+\begin{DoxyCompactList}\small\item\em Set new y coordinate. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPixmapItem_a6e18b1223f61d40dba6e96f4da15ce5c}{add\+Painter\+Point}} (unsigned x, unsigned y)
+\begin{DoxyCompactList}\small\item\em Add Q\+Point to painter\+\_\+points. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPixmapItem_a54810877049ab858d569f83065720a18}{clear\+Points\+Vector}} ()
+\begin{DoxyCompactList}\small\item\em Clear all Q\+Points of the item. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPixmapItem_a4a742318dce01d018da2f4b01790c210}{Cut\+Item}} ()
+\begin{DoxyCompactList}\small\item\em Cut the item. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPixmapItem_ae2e67a7b69ef10dc613e14c1d3c1a327}{Remove\+Latest\+Point}} ()
+\begin{DoxyCompactList}\small\item\em Remove the latest point added. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
+Own Q\+Graphics\+Pixmap\+Item implementation. 
+
+This class inherits Q\+Graphics\+Pixmap\+Item Adds a position specifiers to the base class 
+
+Definition at line 53 of file pixmap\+\_\+item.\+hpp.
 
 
-Definition at line 23 of file pixmap\+\_\+item.\+hpp.
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classPixmapItem_a7e339e581be3c4892d2af89494bd137c}\label{classPixmapItem_a7e339e581be3c4892d2af89494bd137c}} 
+\index{Pixmap\+Item@{Pixmap\+Item}!Pixmap\+Item@{Pixmap\+Item}}
+\index{Pixmap\+Item@{Pixmap\+Item}!Pixmap\+Item@{Pixmap\+Item}}
+\subsubsection{\texorpdfstring{Pixmap\+Item()}{PixmapItem()}}
+{\footnotesize\ttfamily Pixmap\+Item\+::\+Pixmap\+Item (\begin{DoxyParamCaption}\item[{Q\+Pixmap}]{pixmap,  }\item[{Q\+String}]{image\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{classPixmapItem}{Pixmap\+Item}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pixmap} & Pixmap which the item is created from \\
+\hline
+{\em image\+\_\+name} & Name(path) of the image used in Pixmap \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 16 of file pixmap\+\_\+item.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classPixmapItem_a6e18b1223f61d40dba6e96f4da15ce5c}\label{classPixmapItem_a6e18b1223f61d40dba6e96f4da15ce5c}} 
+\index{Pixmap\+Item@{Pixmap\+Item}!add\+Painter\+Point@{add\+Painter\+Point}}
+\index{add\+Painter\+Point@{add\+Painter\+Point}!Pixmap\+Item@{Pixmap\+Item}}
+\subsubsection{\texorpdfstring{add\+Painter\+Point()}{addPainterPoint()}}
+{\footnotesize\ttfamily void Pixmap\+Item\+::add\+Painter\+Point (\begin{DoxyParamCaption}\item[{unsigned}]{x,  }\item[{unsigned}]{y }\end{DoxyParamCaption})}
+
+
+
+Add Q\+Point to painter\+\_\+points. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & x coordinate of the point \\
+\hline
+{\em y} & y coordinate of the point\\
+\hline
+\end{DoxyParams}
+The painter point is used in cut image mode to create a polygon cut 
+
+Definition at line 99 of file pixmap\+\_\+item.\+cpp.
+
+\mbox{\Hypertarget{classPixmapItem_a54810877049ab858d569f83065720a18}\label{classPixmapItem_a54810877049ab858d569f83065720a18}} 
+\index{Pixmap\+Item@{Pixmap\+Item}!clear\+Points\+Vector@{clear\+Points\+Vector}}
+\index{clear\+Points\+Vector@{clear\+Points\+Vector}!Pixmap\+Item@{Pixmap\+Item}}
+\subsubsection{\texorpdfstring{clear\+Points\+Vector()}{clearPointsVector()}}
+{\footnotesize\ttfamily void Pixmap\+Item\+::clear\+Points\+Vector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Clear all Q\+Points of the item. 
+
+Points are cleared from painter\+\_\+points vector 
+
+Definition at line 113 of file pixmap\+\_\+item.\+cpp.
+
+\mbox{\Hypertarget{classPixmapItem_a4a742318dce01d018da2f4b01790c210}\label{classPixmapItem_a4a742318dce01d018da2f4b01790c210}} 
+\index{Pixmap\+Item@{Pixmap\+Item}!Cut\+Item@{Cut\+Item}}
+\index{Cut\+Item@{Cut\+Item}!Pixmap\+Item@{Pixmap\+Item}}
+\subsubsection{\texorpdfstring{Cut\+Item()}{CutItem()}}
+{\footnotesize\ttfamily void Pixmap\+Item\+::\+Cut\+Item (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Cut the item. 
+
+Cut path is defined by Q\+Painter\+Path which is created from Q\+Points in painter\+\_\+points 
+
+Definition at line 30 of file pixmap\+\_\+item.\+cpp.
+
+\mbox{\Hypertarget{classPixmapItem_ad5510bf5a97b352e3b06cb888ac0a99c}\label{classPixmapItem_ad5510bf5a97b352e3b06cb888ac0a99c}} 
+\index{Pixmap\+Item@{Pixmap\+Item}!is\+Xinside@{is\+Xinside}}
+\index{is\+Xinside@{is\+Xinside}!Pixmap\+Item@{Pixmap\+Item}}
+\subsubsection{\texorpdfstring{is\+Xinside()}{isXinside()}}
+{\footnotesize\ttfamily bool Pixmap\+Item\+::is\+Xinside (\begin{DoxyParamCaption}\item[{unsigned}]{x }\end{DoxyParamCaption})}
+
+
+
+Is x coordinate inside the item. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & x coordinate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true if x is inside the item 
+\end{DoxyReturn}
+
+
+Definition at line 65 of file pixmap\+\_\+item.\+cpp.
+
+\mbox{\Hypertarget{classPixmapItem_ab6e6526fd5cd0ce5ba34b665adca6c5c}\label{classPixmapItem_ab6e6526fd5cd0ce5ba34b665adca6c5c}} 
+\index{Pixmap\+Item@{Pixmap\+Item}!is\+Yinside@{is\+Yinside}}
+\index{is\+Yinside@{is\+Yinside}!Pixmap\+Item@{Pixmap\+Item}}
+\subsubsection{\texorpdfstring{is\+Yinside()}{isYinside()}}
+{\footnotesize\ttfamily bool Pixmap\+Item\+::is\+Yinside (\begin{DoxyParamCaption}\item[{unsigned}]{y }\end{DoxyParamCaption})}
+
+
+
+Is y coordinate inside the item. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em y} & y coordinate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true if y is inside the item 
+\end{DoxyReturn}
+
+
+Definition at line 77 of file pixmap\+\_\+item.\+cpp.
+
+\mbox{\Hypertarget{classPixmapItem_ae2e67a7b69ef10dc613e14c1d3c1a327}\label{classPixmapItem_ae2e67a7b69ef10dc613e14c1d3c1a327}} 
+\index{Pixmap\+Item@{Pixmap\+Item}!Remove\+Latest\+Point@{Remove\+Latest\+Point}}
+\index{Remove\+Latest\+Point@{Remove\+Latest\+Point}!Pixmap\+Item@{Pixmap\+Item}}
+\subsubsection{\texorpdfstring{Remove\+Latest\+Point()}{RemoveLatestPoint()}}
+{\footnotesize\ttfamily void Pixmap\+Item\+::\+Remove\+Latest\+Point (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Remove the latest point added. 
+
+Removes the latest entry from painter\+\_\+points vector 
+
+Definition at line 123 of file pixmap\+\_\+item.\+cpp.
+
+\mbox{\Hypertarget{classPixmapItem_a692a0aca72ffbe102769fdc9246ed2f6}\label{classPixmapItem_a692a0aca72ffbe102769fdc9246ed2f6}} 
+\index{Pixmap\+Item@{Pixmap\+Item}!setX@{setX}}
+\index{setX@{setX}!Pixmap\+Item@{Pixmap\+Item}}
+\subsubsection{\texorpdfstring{set\+X()}{setX()}}
+{\footnotesize\ttfamily void Pixmap\+Item\+::setX (\begin{DoxyParamCaption}\item[{unsigned}]{x }\end{DoxyParamCaption})}
+
+
+
+Set new x coordinate. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & New x coordinate \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 86 of file pixmap\+\_\+item.\+cpp.
+
+\mbox{\Hypertarget{classPixmapItem_a6c6f4a872823f585edcf134d9bf209e1}\label{classPixmapItem_a6c6f4a872823f585edcf134d9bf209e1}} 
+\index{Pixmap\+Item@{Pixmap\+Item}!setY@{setY}}
+\index{setY@{setY}!Pixmap\+Item@{Pixmap\+Item}}
+\subsubsection{\texorpdfstring{set\+Y()}{setY()}}
+{\footnotesize\ttfamily void Pixmap\+Item\+::setY (\begin{DoxyParamCaption}\item[{unsigned}]{y }\end{DoxyParamCaption})}
+
+
+
+Set new y coordinate. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em y} & New y coordinate \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 91 of file pixmap\+\_\+item.\+cpp.
 
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-include/pixmap\+\_\+item.\+hpp\item 
-src/pixmap\+\_\+item.\+cpp\end{DoxyCompactItemize}
+include/\mbox{\hyperlink{pixmap__item_8hpp}{pixmap\+\_\+item.\+hpp}}\item 
+src/\mbox{\hyperlink{pixmap__item_8cpp}{pixmap\+\_\+item.\+cpp}}\end{DoxyCompactItemize}

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['savechoices',['SaveChoices',['../classGUI.html#a00fb847ea0a8249acaaf70c0f3ba3fd4',1,'GUI']]],
-  ['saveimage',['saveImage',['../classGUI.html#a44684af7706c021022520e2c4829c3ee',1,'GUI']]],
-  ['setpolyfinal',['SetPolyFinal',['../classGUI.html#a6bf2d3ef382340365b5693245a2bd955',1,'GUI']]]
+  ['openimage',['openImage',['../classGUI.html#a925c89bd7b32ccc8d726063ed8076f8f',1,'GUI']]],
+  ['owngraphicsscene',['OwnGraphicsScene',['../classOwnGraphicsScene.html#a242b82147a469314e4c7fb5af69c265f',1,'OwnGraphicsScene']]]
 ];

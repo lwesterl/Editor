@@ -1,0 +1,70 @@
+\hypertarget{pixmap__item_8hpp}{}\section{include/pixmap\+\_\+item.hpp File Reference}
+\label{pixmap__item_8hpp}\index{include/pixmap\+\_\+item.\+hpp@{include/pixmap\+\_\+item.\+hpp}}
+
+
+Header for Pixmap\+\_\+\+Item class.  
+
+
+{\ttfamily \#include $<$Q\+Graphics\+Pixmap\+Item$>$}\newline
+{\ttfamily \#include $<$Q\+Pixmap$>$}\newline
+{\ttfamily \#include $<$Q\+Painter$>$}\newline
+{\ttfamily \#include $<$Q\+Point$>$}\newline
+{\ttfamily \#include $<$Q\+Region$>$}\newline
+{\ttfamily \#include $<$Q\+Polygon$>$}\newline
+{\ttfamily \#include $<$Q\+String$>$}\newline
+{\ttfamily \#include $<$Q\+Image$>$}\newline
+{\ttfamily \#include $<$Q\+Color$>$}\newline
+{\ttfamily \#include $<$Q\+Painter\+Path$>$}\newline
+{\ttfamily \#include $<$Q\+Brush$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$Q\+Debug$>$}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classPixmapItem}{Pixmap\+Item}}
+\begin{DoxyCompactList}\small\item\em Own Q\+Graphics\+Pixmap\+Item implementation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{pixmap__item_8hpp_aab3d9efc9b7e8525a8821389d3ebb907}{check\+\_\+values}} (int val, int min\+\_\+val, int max\+\_\+val)
+\begin{DoxyCompactList}\small\item\em Map value to limits. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Header for Pixmap\+\_\+\+Item class. 
+
+\begin{DoxyAuthor}{Author}
+Lauri Westerholm 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{pixmap__item_8hpp_aab3d9efc9b7e8525a8821389d3ebb907}\label{pixmap__item_8hpp_aab3d9efc9b7e8525a8821389d3ebb907}} 
+\index{pixmap\+\_\+item.\+hpp@{pixmap\+\_\+item.\+hpp}!check\+\_\+values@{check\+\_\+values}}
+\index{check\+\_\+values@{check\+\_\+values}!pixmap\+\_\+item.\+hpp@{pixmap\+\_\+item.\+hpp}}
+\subsubsection{\texorpdfstring{check\+\_\+values()}{check\_values()}}
+{\footnotesize\ttfamily int check\+\_\+values (\begin{DoxyParamCaption}\item[{int}]{val,  }\item[{int}]{min\+\_\+val,  }\item[{int}]{max\+\_\+val }\end{DoxyParamCaption})}
+
+
+
+Map value to limits. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & Value to be mapped \\
+\hline
+{\em min\+\_\+val} & Minimum value, the lower limit \\
+\hline
+{\em max\+\_\+val} & Maximum value, the upper limit \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Mapped value
+\end{DoxyReturn}
+If val within the limits, return val. If val $<$ min\+\_\+val, return min\+\_\+val. If val $>$ max\+\_\+val, return max\+\_\+val \begin{DoxyRemark}{Remarks}
+Function is not a part of the class but it\textquotesingle{}s called from the class 
+\end{DoxyRemark}
+
+
+Definition at line 135 of file pixmap\+\_\+item.\+cpp.
+

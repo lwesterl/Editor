@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['save_5fimg',['save_img',['../gui_8hpp.html#ae14474955e229d006688f31321aeef30',1,'gui.hpp']]]
+  ['open_5fimg',['open_img',['../gui_8hpp.html#a90a466ca632ac85ebbd176bba62a8fed',1,'gui.hpp']]]
 ];

@@ -1,6 +1,19 @@
+
+/**
+  *   @file gui_test.cpp
+  *   @author Lauri Westerholm
+  *   @brief Test main for Editor program
+  */
+
+
+
 #include "gui.cpp"
 
-// just test main
+/**
+  *   @brief Simple main for Editor program
+  *   @param args The number of command line arguments
+  *   @param argv Command line arguments
+  */
 
 int main(int args, char *argv[])
 {

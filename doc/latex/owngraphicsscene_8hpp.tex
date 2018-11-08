@@ -1,0 +1,70 @@
+\hypertarget{owngraphicsscene_8hpp}{}\section{include/owngraphicsscene.hpp File Reference}
+\label{owngraphicsscene_8hpp}\index{include/owngraphicsscene.\+hpp@{include/owngraphicsscene.\+hpp}}
+
+
+Header file for \mbox{\hyperlink{classOwnGraphicsScene}{Own\+Graphics\+Scene}} class.  
+
+
+{\ttfamily \#include $<$Q\+Graphics\+Scene\+Mouse\+Event$>$}\newline
+{\ttfamily \#include $<$Q\+Debug$>$}\newline
+{\ttfamily \#include $<$Q\+Graphics\+Scene$>$}\newline
+{\ttfamily \#include $<$Q\+Graphics\+Item$>$}\newline
+{\ttfamily \#include $<$Q\+Point$>$}\newline
+{\ttfamily \#include $<$Q\+Widget$>$}\newline
+{\ttfamily \#include $<$Q\+List$>$}\newline
+{\ttfamily \#include $<$list$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$Q\+Pixmap$>$}\newline
+{\ttfamily \#include $<$Q\+String$>$}\newline
+{\ttfamily \#include $<$Q\+Graphics\+Pixmap\+Item$>$}\newline
+{\ttfamily \#include \char`\"{}line\+\_\+item.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pixmap\+\_\+item.\+hpp\char`\"{}}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structImage__Active}{Image\+\_\+\+Active}}
+\begin{DoxyCompactList}\small\item\em Contains active image. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structImage__Cut}{Image\+\_\+\+Cut}}
+\begin{DoxyCompactList}\small\item\em Struct for active image during image cut. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structLine__Mode}{Line\+\_\+\+Mode}}
+\begin{DoxyCompactList}\small\item\em Struct used during line\+\_\+mode. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classOwnGraphicsScene}{Own\+Graphics\+Scene}}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{owngraphicsscene_8hpp_a749db80b860523fda0b90a1c2afa5067}\label{owngraphicsscene_8hpp_a749db80b860523fda0b90a1c2afa5067}} 
+\#define \mbox{\hyperlink{owngraphicsscene_8hpp_a749db80b860523fda0b90a1c2afa5067}{no\+\_\+img\+\_\+cut}}~0
+\begin{DoxyCompactList}\small\item\em Macro for no image cut mode selected. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{owngraphicsscene_8hpp_a50ed0d21defcf82a075974b744283c79}\label{owngraphicsscene_8hpp_a50ed0d21defcf82a075974b744283c79}} 
+\#define \mbox{\hyperlink{owngraphicsscene_8hpp_a50ed0d21defcf82a075974b744283c79}{polygon\+\_\+img\+\_\+cut}}~1
+\begin{DoxyCompactList}\small\item\em Macro for polygon cut mode selected. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{owngraphicsscene_8hpp_a25e0e36ca050353140c0266111789633}\label{owngraphicsscene_8hpp_a25e0e36ca050353140c0266111789633}} 
+\#define \mbox{\hyperlink{owngraphicsscene_8hpp_a25e0e36ca050353140c0266111789633}{path\+\_\+img\+\_\+cut}}~2
+\begin{DoxyCompactList}\small\item\em Macro for path cut mode selected. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{owngraphicsscene_8hpp_a1d74836a304c4b235a3f1e47bde49cb4}\label{owngraphicsscene_8hpp_a1d74836a304c4b235a3f1e47bde49cb4}} 
+\#define \mbox{\hyperlink{owngraphicsscene_8hpp_a1d74836a304c4b235a3f1e47bde49cb4}{view\+\_\+mode\+\_\+value}}~0
+\begin{DoxyCompactList}\small\item\em Macro for view mode (drawing modes not active) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{owngraphicsscene_8hpp_ae4b787cddbc3ba73896a6119026fec90}\label{owngraphicsscene_8hpp_ae4b787cddbc3ba73896a6119026fec90}} 
+\#define \mbox{\hyperlink{owngraphicsscene_8hpp_ae4b787cddbc3ba73896a6119026fec90}{line\+\_\+mode\+\_\+value}}~1
+\begin{DoxyCompactList}\small\item\em Macro for view mode. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{owngraphicsscene_8hpp_adc62c58e36cc464526f22115bb6748fb}\label{owngraphicsscene_8hpp_adc62c58e36cc464526f22115bb6748fb}} 
+\#define \mbox{\hyperlink{owngraphicsscene_8hpp_adc62c58e36cc464526f22115bb6748fb}{delete\+\_\+mode\+\_\+value}}~2
+\begin{DoxyCompactList}\small\item\em Macro for delete mode. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{owngraphicsscene_8hpp_a2fc6d7ad71e1f82400070b8c166f984e}\label{owngraphicsscene_8hpp_a2fc6d7ad71e1f82400070b8c166f984e}} 
+\#define \mbox{\hyperlink{owngraphicsscene_8hpp_a2fc6d7ad71e1f82400070b8c166f984e}{image\+\_\+mode\+\_\+value}}~3
+\begin{DoxyCompactList}\small\item\em Macro for image adding mode. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{owngraphicsscene_8hpp_a3fb78f6acb59bd9f7fa6487564b91915}\label{owngraphicsscene_8hpp_a3fb78f6acb59bd9f7fa6487564b91915}} 
+\#define \mbox{\hyperlink{owngraphicsscene_8hpp_a3fb78f6acb59bd9f7fa6487564b91915}{delete\+\_\+img\+\_\+mode\+\_\+value}}~4
+\begin{DoxyCompactList}\small\item\em Macro for delete image mode. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{owngraphicsscene_8hpp_af85c91211d7caad89d3baae5e9f36fa9}\label{owngraphicsscene_8hpp_af85c91211d7caad89d3baae5e9f36fa9}} 
+\#define \mbox{\hyperlink{owngraphicsscene_8hpp_af85c91211d7caad89d3baae5e9f36fa9}{cut\+\_\+image\+\_\+mode\+\_\+value}}~5
+\begin{DoxyCompactList}\small\item\em Macro for image cutting mode. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Header file for \mbox{\hyperlink{classOwnGraphicsScene}{Own\+Graphics\+Scene}} class. 
+
+\begin{DoxyAuthor}{Author}
+Lauri Westerholm 
+\end{DoxyAuthor}

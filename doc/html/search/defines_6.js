@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['remove_5fpoint_5fimg',['remove_point_img',['../gui_8hpp.html#a19fb1ba48d0a34f41020472dd625cf95',1,'gui.hpp']]]
+  ['no_5fimg_5fcut',['no_img_cut',['../owngraphicsscene_8hpp.html#a749db80b860523fda0b90a1c2afa5067',1,'owngraphicsscene.hpp']]]
 ];

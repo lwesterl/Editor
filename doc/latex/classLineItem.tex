@@ -1,5 +1,14 @@
 \hypertarget{classLineItem}{}\section{Line\+Item Class Reference}
 \label{classLineItem}\index{Line\+Item@{Line\+Item}}
+
+
+Own implementation of Q\+Graphics\+Line\+Item.  
+
+
+
+
+{\ttfamily \#include $<$line\+\_\+item.\+hpp$>$}
+
 Inheritance diagram for Line\+Item\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,33 +18,149 @@ Inheritance diagram for Line\+Item\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classLineItem_af79b99800cc44a69b53940bdb88ddd1b}\label{classLineItem_af79b99800cc44a69b53940bdb88ddd1b}} 
-{\bfseries Line\+Item} (unsigned x1, unsigned y1, unsigned x2, unsigned y2)
-\item 
-\mbox{\Hypertarget{classLineItem_a8862ea60a3804d346e9801f79c67af76}\label{classLineItem_a8862ea60a3804d346e9801f79c67af76}} 
-unsigned {\bfseries get\+X1} ()
-\item 
-\mbox{\Hypertarget{classLineItem_addce0ef5af72c233e2c7bf019c7a693d}\label{classLineItem_addce0ef5af72c233e2c7bf019c7a693d}} 
-unsigned {\bfseries get\+X2} ()
-\item 
-\mbox{\Hypertarget{classLineItem_abbdf5be2637561802ea22385c7c11df5}\label{classLineItem_abbdf5be2637561802ea22385c7c11df5}} 
-unsigned {\bfseries get\+Y1} ()
-\item 
-\mbox{\Hypertarget{classLineItem_aa99afab282d1e7e25b5d1549a41984d2}\label{classLineItem_aa99afab282d1e7e25b5d1549a41984d2}} 
-unsigned {\bfseries get\+Y2} ()
-\item 
-\mbox{\Hypertarget{classLineItem_acea090c7b9ff53dcc7a95ab7939b2cb9}\label{classLineItem_acea090c7b9ff53dcc7a95ab7939b2cb9}} 
-void {\bfseries update\+Position} (unsigned x\+\_\+new, unsigned y\+\_\+new)
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{classLineItem_af79b99800cc44a69b53940bdb88ddd1b}{Line\+Item}} (unsigned x1, unsigned y1, unsigned x2, unsigned y2)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{classLineItem}{Line\+Item}}. \end{DoxyCompactList}\item 
+unsigned \mbox{\hyperlink{classLineItem_a8862ea60a3804d346e9801f79c67af76}{get\+X1}} ()
+\begin{DoxyCompactList}\small\item\em Get start x coordinate. \end{DoxyCompactList}\item 
+unsigned \mbox{\hyperlink{classLineItem_addce0ef5af72c233e2c7bf019c7a693d}{get\+X2}} ()
+\begin{DoxyCompactList}\small\item\em Get end x coordinate. \end{DoxyCompactList}\item 
+unsigned \mbox{\hyperlink{classLineItem_abbdf5be2637561802ea22385c7c11df5}{get\+Y1}} ()
+\begin{DoxyCompactList}\small\item\em Get start y coordinate. \end{DoxyCompactList}\item 
+unsigned \mbox{\hyperlink{classLineItem_aa99afab282d1e7e25b5d1549a41984d2}{get\+Y2}} ()
+\begin{DoxyCompactList}\small\item\em Get end y coordinate. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLineItem_acea090c7b9ff53dcc7a95ab7939b2cb9}{update\+Position}} (unsigned x\+\_\+new, unsigned y\+\_\+new)
+\begin{DoxyCompactList}\small\item\em Update end x and y coordinates. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
+Own implementation of Q\+Graphics\+Line\+Item. 
+
+Adds coordinate positions variables to Q\+Graphics\+Line\+Item 
+
+Definition at line 22 of file line\+\_\+item.\+hpp.
 
 
-Definition at line 7 of file line\+\_\+item.\+hpp.
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classLineItem_af79b99800cc44a69b53940bdb88ddd1b}\label{classLineItem_af79b99800cc44a69b53940bdb88ddd1b}} 
+\index{Line\+Item@{Line\+Item}!Line\+Item@{Line\+Item}}
+\index{Line\+Item@{Line\+Item}!Line\+Item@{Line\+Item}}
+\subsubsection{\texorpdfstring{Line\+Item()}{LineItem()}}
+{\footnotesize\ttfamily Line\+Item\+::\+Line\+Item (\begin{DoxyParamCaption}\item[{unsigned}]{x1,  }\item[{unsigned}]{y1,  }\item[{unsigned}]{x2,  }\item[{unsigned}]{y2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for \mbox{\hyperlink{classLineItem}{Line\+Item}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x1} & Start x coordinate \\
+\hline
+{\em y1} & Start y coordinate \\
+\hline
+{\em x2} & End x coordinate \\
+\hline
+{\em y2} & End y coordinate \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 33 of file line\+\_\+item.\+hpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classLineItem_a8862ea60a3804d346e9801f79c67af76}\label{classLineItem_a8862ea60a3804d346e9801f79c67af76}} 
+\index{Line\+Item@{Line\+Item}!get\+X1@{get\+X1}}
+\index{get\+X1@{get\+X1}!Line\+Item@{Line\+Item}}
+\subsubsection{\texorpdfstring{get\+X1()}{getX1()}}
+{\footnotesize\ttfamily unsigned Line\+Item\+::get\+X1 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get start x coordinate. 
+
+\begin{DoxyReturn}{Returns}
+Returns x1 
+\end{DoxyReturn}
+
+
+Definition at line 40 of file line\+\_\+item.\+hpp.
+
+\mbox{\Hypertarget{classLineItem_addce0ef5af72c233e2c7bf019c7a693d}\label{classLineItem_addce0ef5af72c233e2c7bf019c7a693d}} 
+\index{Line\+Item@{Line\+Item}!get\+X2@{get\+X2}}
+\index{get\+X2@{get\+X2}!Line\+Item@{Line\+Item}}
+\subsubsection{\texorpdfstring{get\+X2()}{getX2()}}
+{\footnotesize\ttfamily unsigned Line\+Item\+::get\+X2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get end x coordinate. 
+
+\begin{DoxyReturn}{Returns}
+Returns x2 
+\end{DoxyReturn}
+
+
+Definition at line 46 of file line\+\_\+item.\+hpp.
+
+\mbox{\Hypertarget{classLineItem_abbdf5be2637561802ea22385c7c11df5}\label{classLineItem_abbdf5be2637561802ea22385c7c11df5}} 
+\index{Line\+Item@{Line\+Item}!get\+Y1@{get\+Y1}}
+\index{get\+Y1@{get\+Y1}!Line\+Item@{Line\+Item}}
+\subsubsection{\texorpdfstring{get\+Y1()}{getY1()}}
+{\footnotesize\ttfamily unsigned Line\+Item\+::get\+Y1 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get start y coordinate. 
+
+\begin{DoxyReturn}{Returns}
+Returns y1 
+\end{DoxyReturn}
+
+
+Definition at line 52 of file line\+\_\+item.\+hpp.
+
+\mbox{\Hypertarget{classLineItem_aa99afab282d1e7e25b5d1549a41984d2}\label{classLineItem_aa99afab282d1e7e25b5d1549a41984d2}} 
+\index{Line\+Item@{Line\+Item}!get\+Y2@{get\+Y2}}
+\index{get\+Y2@{get\+Y2}!Line\+Item@{Line\+Item}}
+\subsubsection{\texorpdfstring{get\+Y2()}{getY2()}}
+{\footnotesize\ttfamily unsigned Line\+Item\+::get\+Y2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get end y coordinate. 
+
+\begin{DoxyReturn}{Returns}
+Returns y2 
+\end{DoxyReturn}
+
+
+Definition at line 58 of file line\+\_\+item.\+hpp.
+
+\mbox{\Hypertarget{classLineItem_acea090c7b9ff53dcc7a95ab7939b2cb9}\label{classLineItem_acea090c7b9ff53dcc7a95ab7939b2cb9}} 
+\index{Line\+Item@{Line\+Item}!update\+Position@{update\+Position}}
+\index{update\+Position@{update\+Position}!Line\+Item@{Line\+Item}}
+\subsubsection{\texorpdfstring{update\+Position()}{updatePosition()}}
+{\footnotesize\ttfamily void Line\+Item\+::update\+Position (\begin{DoxyParamCaption}\item[{unsigned}]{x\+\_\+new,  }\item[{unsigned}]{y\+\_\+new }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Update end x and y coordinates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x\+\_\+new} & New end x coordinate \\
+\hline
+{\em y\+\_\+new} & New end y coordinate \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 65 of file line\+\_\+item.\+hpp.
 
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-include/line\+\_\+item.\+hpp\end{DoxyCompactItemize}
+include/\mbox{\hyperlink{line__item_8hpp}{line\+\_\+item.\+hpp}}\end{DoxyCompactItemize}

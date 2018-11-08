@@ -1,3 +1,12 @@
+/**
+  *   @file promtwindow.cpp
+  *   @author Lauri Westerholm
+  *   @brief Contains PromtWindow class
+  *   @remark This class/file is not used
+  */
+
+
+
   #include "../include/promtwindow.hpp"
 
 // THIS CLASS IS NOT USED

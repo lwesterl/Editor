@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['remove',['remove',['../structPolygonToolbar.html#ad5f83fc2ac8daf17ae3014d05d3f5d5b',1,'PolygonToolbar']]],
-  ['remove_5fpoint_5fimg',['remove_point_img',['../gui_8hpp.html#a19fb1ba48d0a34f41020472dd625cf95',1,'gui.hpp']]],
-  ['remove_5ftext',['remove_text',['../structPolygonToolbar.html#ad396d8e37e491bb7bfa8bf91d318014c',1,'PolygonToolbar']]],
-  ['removepolyprevious',['RemovePolyPrevious',['../classGUI.html#abf8e1050ae4d599bf35af7b1f841d960',1,'GUI']]]
+  ['open_5fimg',['open_img',['../gui_8hpp.html#a90a466ca632ac85ebbd176bba62a8fed',1,'gui.hpp']]],
+  ['openimage',['openImage',['../classGUI.html#a925c89bd7b32ccc8d726063ed8076f8f',1,'GUI']]],
+  ['owngraphicsscene',['OwnGraphicsScene',['../classOwnGraphicsScene.html',1,'OwnGraphicsScene'],['../classOwnGraphicsScene.html#a242b82147a469314e4c7fb5af69c265f',1,'OwnGraphicsScene::OwnGraphicsScene()']]],
+  ['owngraphicsscene_2ecpp',['owngraphicsscene.cpp',['../owngraphicsscene_8cpp.html',1,'']]],
+  ['owngraphicsscene_2ehpp',['owngraphicsscene.hpp',['../owngraphicsscene_8hpp.html',1,'']]]
 ];

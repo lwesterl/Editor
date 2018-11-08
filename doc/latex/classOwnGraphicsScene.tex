@@ -1,5 +1,9 @@
 \hypertarget{classOwnGraphicsScene}{}\section{Own\+Graphics\+Scene Class Reference}
 \label{classOwnGraphicsScene}\index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
+
+
+{\ttfamily \#include $<$owngraphicsscene.\+hpp$>$}
+
 Inheritance diagram for Own\+Graphics\+Scene\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,82 +13,410 @@ Inheritance diagram for Own\+Graphics\+Scene\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classOwnGraphicsScene_a242b82147a469314e4c7fb5af69c265f}\label{classOwnGraphicsScene_a242b82147a469314e4c7fb5af69c265f}} 
-{\bfseries Own\+Graphics\+Scene} (Q\+Widget $\ast$parent)
-\item 
-\mbox{\Hypertarget{classOwnGraphicsScene_a1a9916971af608d5331483606f72fbe4}\label{classOwnGraphicsScene_a1a9916971af608d5331483606f72fbe4}} 
-void {\bfseries mouse\+Press\+Event} (Q\+Graphics\+Scene\+Mouse\+Event $\ast$event)
-\item 
-\mbox{\Hypertarget{classOwnGraphicsScene_ac7f6be2800f09463413459fed74bf34e}\label{classOwnGraphicsScene_ac7f6be2800f09463413459fed74bf34e}} 
-void {\bfseries mouse\+Move\+Event} (Q\+Graphics\+Scene\+Mouse\+Event $\ast$event)
-\item 
-\mbox{\Hypertarget{classOwnGraphicsScene_a4251b836ee575083f4eeaa73254723f4}\label{classOwnGraphicsScene_a4251b836ee575083f4eeaa73254723f4}} 
-\mbox{\hyperlink{classLineItem}{Line\+Item}} $\ast$ {\bfseries add\+Line} (unsigned x1, unsigned y1, unsigned x2, unsigned y2)
-\item 
-\mbox{\Hypertarget{classOwnGraphicsScene_a6e54bd43db758bcd4f7cc1dd4544232e}\label{classOwnGraphicsScene_a6e54bd43db758bcd4f7cc1dd4544232e}} 
-unsigned {\bfseries get\+MouseX} ()
-\item 
-\mbox{\Hypertarget{classOwnGraphicsScene_a3fd2942e9930fc2dda41844622dc8a35}\label{classOwnGraphicsScene_a3fd2942e9930fc2dda41844622dc8a35}} 
-unsigned {\bfseries get\+MouseY} ()
-\item 
-\mbox{\Hypertarget{classOwnGraphicsScene_a6b7e69131827f0ae64626af378ff9974}\label{classOwnGraphicsScene_a6b7e69131827f0ae64626af378ff9974}} 
-void {\bfseries Line\+Mode} (bool activate)
-\item 
-\mbox{\Hypertarget{classOwnGraphicsScene_aca454942ecf6c472d020e063862464d4}\label{classOwnGraphicsScene_aca454942ecf6c472d020e063862464d4}} 
-void {\bfseries Delete\+Mode} (bool activate)
-\item 
+\mbox{\hyperlink{classOwnGraphicsScene_a242b82147a469314e4c7fb5af69c265f}{Own\+Graphics\+Scene}} (Q\+Widget $\ast$parent)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{classOwnGraphicsScene}{Own\+Graphics\+Scene}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classOwnGraphicsScene_a4c77674db1854f2b228c7aefbd9ea688}\label{classOwnGraphicsScene_a4c77674db1854f2b228c7aefbd9ea688}} 
+\mbox{\hyperlink{classOwnGraphicsScene_a4c77674db1854f2b228c7aefbd9ea688}{$\sim$\+Own\+Graphics\+Scene}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \mbox{\hyperlink{classOwnGraphicsScene}{Own\+Graphics\+Scene}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classOwnGraphicsScene_a1a9916971af608d5331483606f72fbe4}{mouse\+Press\+Event}} (Q\+Graphics\+Scene\+Mouse\+Event $\ast$event)
+\begin{DoxyCompactList}\small\item\em Overload for mouse\+Press\+Event. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classOwnGraphicsScene_ac7f6be2800f09463413459fed74bf34e}{mouse\+Move\+Event}} (Q\+Graphics\+Scene\+Mouse\+Event $\ast$event)
+\begin{DoxyCompactList}\small\item\em Overload for mouse\+Move\+Event. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classLineItem}{Line\+Item}} $\ast$ \mbox{\hyperlink{classOwnGraphicsScene_a4251b836ee575083f4eeaa73254723f4}{add\+Line}} (unsigned x1, unsigned y1, unsigned x2, unsigned y2)
+\begin{DoxyCompactList}\small\item\em Add a \mbox{\hyperlink{classLineItem}{Line\+Item}}. \end{DoxyCompactList}\item 
+unsigned \mbox{\hyperlink{classOwnGraphicsScene_a6e54bd43db758bcd4f7cc1dd4544232e}{get\+MouseX}} ()
+\begin{DoxyCompactList}\small\item\em Get new mouse x coordinate. \end{DoxyCompactList}\item 
+unsigned \mbox{\hyperlink{classOwnGraphicsScene_a3fd2942e9930fc2dda41844622dc8a35}{get\+MouseY}} ()
+\begin{DoxyCompactList}\small\item\em Get new mouse y coordinate. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classOwnGraphicsScene_a6b7e69131827f0ae64626af378ff9974}{Line\+Mode}} (bool activate)
+\begin{DoxyCompactList}\small\item\em Activate or deactivate line\+\_\+mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classOwnGraphicsScene_aca454942ecf6c472d020e063862464d4}{Delete\+Mode}} (bool activate)
+\begin{DoxyCompactList}\small\item\em Activate or deactivate delete\+\_\+mode. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classOwnGraphicsScene_a31221ca321dde1e684f9cdf23dd1c225}\label{classOwnGraphicsScene_a31221ca321dde1e684f9cdf23dd1c225}} 
-void {\bfseries Clear\+Mode} ()
-\item 
-\mbox{\Hypertarget{classOwnGraphicsScene_a5b4b466a697f83c23294a80067edac23}\label{classOwnGraphicsScene_a5b4b466a697f83c23294a80067edac23}} 
-void {\bfseries remove\+\_\+\+Item} (unsigned x, unsigned y)
-\item 
+void \mbox{\hyperlink{classOwnGraphicsScene_a31221ca321dde1e684f9cdf23dd1c225}{Clear\+Mode}} ()
+\begin{DoxyCompactList}\small\item\em Clear previous line points. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classOwnGraphicsScene_a5b4b466a697f83c23294a80067edac23}{remove\+\_\+\+Item}} (unsigned x, unsigned y)
+\begin{DoxyCompactList}\small\item\em Remove \mbox{\hyperlink{classLineItem}{Line\+Item}} from the scene. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classOwnGraphicsScene_a8d133a1b72a853772d2d89da4d4e1afa}\label{classOwnGraphicsScene_a8d133a1b72a853772d2d89da4d4e1afa}} 
-void {\bfseries Clear\+All} ()
-\item 
+void \mbox{\hyperlink{classOwnGraphicsScene_a8d133a1b72a853772d2d89da4d4e1afa}{Clear\+All}} ()
+\begin{DoxyCompactList}\small\item\em Remove all items from the scene. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classOwnGraphicsScene_ae83ee24e342b50c335af155a34295185}\label{classOwnGraphicsScene_ae83ee24e342b50c335af155a34295185}} 
-bool {\bfseries set\+Image} (Q\+String imagename)
-\item 
-\mbox{\Hypertarget{classOwnGraphicsScene_acc6e7978a3f10889e439ceabd155a341}\label{classOwnGraphicsScene_acc6e7978a3f10889e439ceabd155a341}} 
-bool {\bfseries img\+Mode} (bool activate)
-\item 
-\mbox{\Hypertarget{classOwnGraphicsScene_aefe52a5b20dbb38dcc9d9510ecfabe52}\label{classOwnGraphicsScene_aefe52a5b20dbb38dcc9d9510ecfabe52}} 
-void {\bfseries Delete\+Img\+Mode} (bool activate)
-\item 
-\mbox{\Hypertarget{classOwnGraphicsScene_abda962c04f88920377d3bb23b30b9267}\label{classOwnGraphicsScene_abda962c04f88920377d3bb23b30b9267}} 
-void {\bfseries Delete\+Img} (unsigned x1, unsigned y1)
-\item 
-\mbox{\Hypertarget{classOwnGraphicsScene_a3ce5a34cebcc134ecb20323c48e5812b}\label{classOwnGraphicsScene_a3ce5a34cebcc134ecb20323c48e5812b}} 
-void {\bfseries Cut\+Image\+Mode} (bool active)
-\item 
-\mbox{\Hypertarget{classOwnGraphicsScene_ae79aa179ce90ab26f06d7d17eed96b93}\label{classOwnGraphicsScene_ae79aa179ce90ab26f06d7d17eed96b93}} 
-bool {\bfseries Select\+Cut\+Img} ()
-\item 
-\mbox{\Hypertarget{classOwnGraphicsScene_a656919c9fdd0827ae182d3d3f5f91e4f}\label{classOwnGraphicsScene_a656919c9fdd0827ae182d3d3f5f91e4f}} 
-void {\bfseries Set\+Img\+Cut\+Mode} (int cut\+\_\+mode)
-\item 
-\mbox{\Hypertarget{classOwnGraphicsScene_a7e3d97c27cca1df796b75cc4a99e24cd}\label{classOwnGraphicsScene_a7e3d97c27cca1df796b75cc4a99e24cd}} 
-void {\bfseries Cut\+Pixmap\+Item} ()
-\item 
-\mbox{\Hypertarget{classOwnGraphicsScene_a4976a8e6f682612acd3e23b6c98bd8d8}\label{classOwnGraphicsScene_a4976a8e6f682612acd3e23b6c98bd8d8}} 
-void {\bfseries Remove\+Poly\+Previous} ()
-\item 
-\mbox{\Hypertarget{classOwnGraphicsScene_ad62254e1884fa4817ff1beaa3bc6c011}\label{classOwnGraphicsScene_ad62254e1884fa4817ff1beaa3bc6c011}} 
-void {\bfseries set\+Connect\+Lines} (int value)
-\item 
-\mbox{\Hypertarget{classOwnGraphicsScene_a158c6430ca8e07642b693e37ec05119e}\label{classOwnGraphicsScene_a158c6430ca8e07642b693e37ec05119e}} 
-void {\bfseries Clear\+Visual\+Items} ()
-\end{DoxyCompactItemize}
+bool \mbox{\hyperlink{classOwnGraphicsScene_ae83ee24e342b50c335af155a34295185}{set\+Image}} (Q\+String imagename)
+\begin{DoxyCompactList}\small\item\em Construct Q\+Pixmap from an image. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classOwnGraphicsScene_acc6e7978a3f10889e439ceabd155a341}{img\+Mode}} (bool activate)
+\begin{DoxyCompactList}\small\item\em Activate or deactivate image\+\_\+mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classOwnGraphicsScene_aefe52a5b20dbb38dcc9d9510ecfabe52}{Delete\+Img\+Mode}} (bool activate)
+\begin{DoxyCompactList}\small\item\em Activate or deactivate delete\+\_\+img\+\_\+mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classOwnGraphicsScene_abda962c04f88920377d3bb23b30b9267}{Delete\+Img}} (unsigned x1, unsigned y1)
+\begin{DoxyCompactList}\small\item\em Delete image from the scene. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classOwnGraphicsScene_a3ce5a34cebcc134ecb20323c48e5812b}{Cut\+Image\+Mode}} (bool active)
+\begin{DoxyCompactList}\small\item\em Activate or deactivate cut\+\_\+image\+\_\+mode. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classOwnGraphicsScene_ae79aa179ce90ab26f06d7d17eed96b93}{Select\+Cut\+Img}} ()
+\begin{DoxyCompactList}\small\item\em Select image to be cut. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classOwnGraphicsScene_a656919c9fdd0827ae182d3d3f5f91e4f}{Set\+Img\+Cut\+Mode}} (int cut\+\_\+mode)
+\begin{DoxyCompactList}\small\item\em Select image cut mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classOwnGraphicsScene_a7e3d97c27cca1df796b75cc4a99e24cd}{Cut\+Pixmap\+Item}} ()
+\begin{DoxyCompactList}\small\item\em Wrapper for \mbox{\hyperlink{classPixmapItem_a4a742318dce01d018da2f4b01790c210}{Pixmap\+Item\+::\+Cut\+Item}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classOwnGraphicsScene_a4976a8e6f682612acd3e23b6c98bd8d8}{Remove\+Poly\+Previous}} ()
+\begin{DoxyCompactList}\small\item\em Remove previous image cut point. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classOwnGraphicsScene_ad62254e1884fa4817ff1beaa3bc6c011}{set\+Connect\+Lines}} (int value)
+\begin{DoxyCompactList}\small\item\em Update connect\+\_\+lines value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classOwnGraphicsScene_a158c6430ca8e07642b693e37ec05119e}{Clear\+Visual\+Items}} ()
+\begin{DoxyCompactList}\small\item\em Removes all temporary visual\+\_\+items. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
+This is an implementation for own Q\+Graphics\+Scene which overloads mouse\+Press\+Event to update the scene 
+
+Definition at line 128 of file owngraphicsscene.\+hpp.
 
 
-Definition at line 70 of file owngraphicsscene.\+hpp.
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classOwnGraphicsScene_a242b82147a469314e4c7fb5af69c265f}\label{classOwnGraphicsScene_a242b82147a469314e4c7fb5af69c265f}} 
+\index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
+\index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
+\subsubsection{\texorpdfstring{Own\+Graphics\+Scene()}{OwnGraphicsScene()}}
+{\footnotesize\ttfamily Own\+Graphics\+Scene\+::\+Own\+Graphics\+Scene (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for \mbox{\hyperlink{classOwnGraphicsScene}{Own\+Graphics\+Scene}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & The Q\+Widget parent\\
+\hline
+\end{DoxyParams}
+Sets standard size for the view rect 
+
+Definition at line 136 of file owngraphicsscene.\+hpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classOwnGraphicsScene_a4251b836ee575083f4eeaa73254723f4}\label{classOwnGraphicsScene_a4251b836ee575083f4eeaa73254723f4}} 
+\index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!add\+Line@{add\+Line}}
+\index{add\+Line@{add\+Line}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
+\subsubsection{\texorpdfstring{add\+Line()}{addLine()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLineItem}{Line\+Item}} $\ast$ Own\+Graphics\+Scene\+::add\+Line (\begin{DoxyParamCaption}\item[{unsigned}]{x1,  }\item[{unsigned}]{y1,  }\item[{unsigned}]{x2,  }\item[{unsigned}]{y2 }\end{DoxyParamCaption})}
+
+
+
+Add a \mbox{\hyperlink{classLineItem}{Line\+Item}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x1} & Start x coordinate \\
+\hline
+{\em y1} & Start y coordinate \\
+\hline
+{\em x2} & End x coordinate \\
+\hline
+{\em y2} & End y coordinate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns pointer to the new item added to the scene 
+\end{DoxyReturn}
+
+
+Definition at line 253 of file owngraphicsscene.\+cpp.
+
+\mbox{\Hypertarget{classOwnGraphicsScene_a158c6430ca8e07642b693e37ec05119e}\label{classOwnGraphicsScene_a158c6430ca8e07642b693e37ec05119e}} 
+\index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Clear\+Visual\+Items@{Clear\+Visual\+Items}}
+\index{Clear\+Visual\+Items@{Clear\+Visual\+Items}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
+\subsubsection{\texorpdfstring{Clear\+Visual\+Items()}{ClearVisualItems()}}
+{\footnotesize\ttfamily void Own\+Graphics\+Scene\+::\+Clear\+Visual\+Items (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Removes all temporary visual\+\_\+items. 
+
+Called after image cut is ready 
+
+Definition at line 576 of file owngraphicsscene.\+cpp.
+
+\mbox{\Hypertarget{classOwnGraphicsScene_a3ce5a34cebcc134ecb20323c48e5812b}\label{classOwnGraphicsScene_a3ce5a34cebcc134ecb20323c48e5812b}} 
+\index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Cut\+Image\+Mode@{Cut\+Image\+Mode}}
+\index{Cut\+Image\+Mode@{Cut\+Image\+Mode}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
+\subsubsection{\texorpdfstring{Cut\+Image\+Mode()}{CutImageMode()}}
+{\footnotesize\ttfamily void Own\+Graphics\+Scene\+::\+Cut\+Image\+Mode (\begin{DoxyParamCaption}\item[{bool}]{active }\end{DoxyParamCaption})}
+
+
+
+Activate or deactivate cut\+\_\+image\+\_\+mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em active} & If true activate cut\+\_\+image\+\_\+mode \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 445 of file owngraphicsscene.\+cpp.
+
+\mbox{\Hypertarget{classOwnGraphicsScene_a7e3d97c27cca1df796b75cc4a99e24cd}\label{classOwnGraphicsScene_a7e3d97c27cca1df796b75cc4a99e24cd}} 
+\index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Cut\+Pixmap\+Item@{Cut\+Pixmap\+Item}}
+\index{Cut\+Pixmap\+Item@{Cut\+Pixmap\+Item}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
+\subsubsection{\texorpdfstring{Cut\+Pixmap\+Item()}{CutPixmapItem()}}
+{\footnotesize\ttfamily void Own\+Graphics\+Scene\+::\+Cut\+Pixmap\+Item (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Wrapper for \mbox{\hyperlink{classPixmapItem_a4a742318dce01d018da2f4b01790c210}{Pixmap\+Item\+::\+Cut\+Item}}. 
+
+Cuts the image by adding painter points. Removes temporary Line\+Items which were used to display the cut path 
+
+Definition at line 512 of file owngraphicsscene.\+cpp.
+
+\mbox{\Hypertarget{classOwnGraphicsScene_abda962c04f88920377d3bb23b30b9267}\label{classOwnGraphicsScene_abda962c04f88920377d3bb23b30b9267}} 
+\index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Delete\+Img@{Delete\+Img}}
+\index{Delete\+Img@{Delete\+Img}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
+\subsubsection{\texorpdfstring{Delete\+Img()}{DeleteImg()}}
+{\footnotesize\ttfamily void Own\+Graphics\+Scene\+::\+Delete\+Img (\begin{DoxyParamCaption}\item[{unsigned}]{x1,  }\item[{unsigned}]{y1 }\end{DoxyParamCaption})}
+
+
+
+Delete image from the scene. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x1} & x coordinate \\
+\hline
+{\em y1} & y coordinate \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 427 of file owngraphicsscene.\+cpp.
+
+\mbox{\Hypertarget{classOwnGraphicsScene_aefe52a5b20dbb38dcc9d9510ecfabe52}\label{classOwnGraphicsScene_aefe52a5b20dbb38dcc9d9510ecfabe52}} 
+\index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Delete\+Img\+Mode@{Delete\+Img\+Mode}}
+\index{Delete\+Img\+Mode@{Delete\+Img\+Mode}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
+\subsubsection{\texorpdfstring{Delete\+Img\+Mode()}{DeleteImgMode()}}
+{\footnotesize\ttfamily void Own\+Graphics\+Scene\+::\+Delete\+Img\+Mode (\begin{DoxyParamCaption}\item[{bool}]{activate }\end{DoxyParamCaption})}
+
+
+
+Activate or deactivate delete\+\_\+img\+\_\+mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em activate} & If true activate delete\+\_\+img\+\_\+mode \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 405 of file owngraphicsscene.\+cpp.
+
+\mbox{\Hypertarget{classOwnGraphicsScene_aca454942ecf6c472d020e063862464d4}\label{classOwnGraphicsScene_aca454942ecf6c472d020e063862464d4}} 
+\index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Delete\+Mode@{Delete\+Mode}}
+\index{Delete\+Mode@{Delete\+Mode}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
+\subsubsection{\texorpdfstring{Delete\+Mode()}{DeleteMode()}}
+{\footnotesize\ttfamily void Own\+Graphics\+Scene\+::\+Delete\+Mode (\begin{DoxyParamCaption}\item[{bool}]{activate }\end{DoxyParamCaption})}
+
+
+
+Activate or deactivate delete\+\_\+mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em activate} & If true activates delete mode \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 304 of file owngraphicsscene.\+cpp.
+
+\mbox{\Hypertarget{classOwnGraphicsScene_a6e54bd43db758bcd4f7cc1dd4544232e}\label{classOwnGraphicsScene_a6e54bd43db758bcd4f7cc1dd4544232e}} 
+\index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!get\+MouseX@{get\+MouseX}}
+\index{get\+MouseX@{get\+MouseX}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
+\subsubsection{\texorpdfstring{get\+Mouse\+X()}{getMouseX()}}
+{\footnotesize\ttfamily unsigned Own\+Graphics\+Scene\+::get\+MouseX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get new mouse x coordinate. 
+
+\begin{DoxyReturn}{Returns}
+Returns mouse\+\_\+x value 
+\end{DoxyReturn}
+
+
+Definition at line 171 of file owngraphicsscene.\+hpp.
+
+\mbox{\Hypertarget{classOwnGraphicsScene_a3fd2942e9930fc2dda41844622dc8a35}\label{classOwnGraphicsScene_a3fd2942e9930fc2dda41844622dc8a35}} 
+\index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!get\+MouseY@{get\+MouseY}}
+\index{get\+MouseY@{get\+MouseY}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
+\subsubsection{\texorpdfstring{get\+Mouse\+Y()}{getMouseY()}}
+{\footnotesize\ttfamily unsigned Own\+Graphics\+Scene\+::get\+MouseY (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get new mouse y coordinate. 
+
+\begin{DoxyReturn}{Returns}
+Returns mouse\+\_\+y value 
+\end{DoxyReturn}
+
+
+Definition at line 177 of file owngraphicsscene.\+hpp.
+
+\mbox{\Hypertarget{classOwnGraphicsScene_acc6e7978a3f10889e439ceabd155a341}\label{classOwnGraphicsScene_acc6e7978a3f10889e439ceabd155a341}} 
+\index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!img\+Mode@{img\+Mode}}
+\index{img\+Mode@{img\+Mode}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
+\subsubsection{\texorpdfstring{img\+Mode()}{imgMode()}}
+{\footnotesize\ttfamily bool Own\+Graphics\+Scene\+::img\+Mode (\begin{DoxyParamCaption}\item[{bool}]{activate }\end{DoxyParamCaption})}
+
+
+
+Activate or deactivate image\+\_\+mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em activate} & If true activate image\+\_\+mode \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 377 of file owngraphicsscene.\+cpp.
+
+\mbox{\Hypertarget{classOwnGraphicsScene_a6b7e69131827f0ae64626af378ff9974}\label{classOwnGraphicsScene_a6b7e69131827f0ae64626af378ff9974}} 
+\index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Line\+Mode@{Line\+Mode}}
+\index{Line\+Mode@{Line\+Mode}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
+\subsubsection{\texorpdfstring{Line\+Mode()}{LineMode()}}
+{\footnotesize\ttfamily void Own\+Graphics\+Scene\+::\+Line\+Mode (\begin{DoxyParamCaption}\item[{bool}]{activate }\end{DoxyParamCaption})}
+
+
+
+Activate or deactivate line\+\_\+mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em activate} & If true activates line mode \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 265 of file owngraphicsscene.\+cpp.
+
+\mbox{\Hypertarget{classOwnGraphicsScene_ac7f6be2800f09463413459fed74bf34e}\label{classOwnGraphicsScene_ac7f6be2800f09463413459fed74bf34e}} 
+\index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!mouse\+Move\+Event@{mouse\+Move\+Event}}
+\index{mouse\+Move\+Event@{mouse\+Move\+Event}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
+\subsubsection{\texorpdfstring{mouse\+Move\+Event()}{mouseMoveEvent()}}
+{\footnotesize\ttfamily void Own\+Graphics\+Scene\+::mouse\+Move\+Event (\begin{DoxyParamCaption}\item[{Q\+Graphics\+Scene\+Mouse\+Event $\ast$}]{event }\end{DoxyParamCaption})}
+
+
+
+Overload for mouse\+Move\+Event. 
+
+Used to track user mouse when creating lines and cutting images 
+
+Definition at line 129 of file owngraphicsscene.\+cpp.
+
+\mbox{\Hypertarget{classOwnGraphicsScene_a1a9916971af608d5331483606f72fbe4}\label{classOwnGraphicsScene_a1a9916971af608d5331483606f72fbe4}} 
+\index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!mouse\+Press\+Event@{mouse\+Press\+Event}}
+\index{mouse\+Press\+Event@{mouse\+Press\+Event}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
+\subsubsection{\texorpdfstring{mouse\+Press\+Event()}{mousePressEvent()}}
+{\footnotesize\ttfamily void Own\+Graphics\+Scene\+::mouse\+Press\+Event (\begin{DoxyParamCaption}\item[{Q\+Graphics\+Scene\+Mouse\+Event $\ast$}]{event }\end{DoxyParamCaption})}
+
+
+
+Overload for mouse\+Press\+Event. 
+
+Used to add new items to the scene, also to remove and cut old items 
+
+Definition at line 26 of file owngraphicsscene.\+cpp.
+
+\mbox{\Hypertarget{classOwnGraphicsScene_a5b4b466a697f83c23294a80067edac23}\label{classOwnGraphicsScene_a5b4b466a697f83c23294a80067edac23}} 
+\index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!remove\+\_\+\+Item@{remove\+\_\+\+Item}}
+\index{remove\+\_\+\+Item@{remove\+\_\+\+Item}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
+\subsubsection{\texorpdfstring{remove\+\_\+\+Item()}{remove\_Item()}}
+{\footnotesize\ttfamily void Own\+Graphics\+Scene\+::remove\+\_\+\+Item (\begin{DoxyParamCaption}\item[{unsigned}]{x,  }\item[{unsigned}]{y }\end{DoxyParamCaption})}
+
+
+
+Remove \mbox{\hyperlink{classLineItem}{Line\+Item}} from the scene. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & x coordinate of the item to be removed \\
+\hline
+{\em y} & y coordinate of the item to be removed \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 226 of file owngraphicsscene.\+cpp.
+
+\mbox{\Hypertarget{classOwnGraphicsScene_a4976a8e6f682612acd3e23b6c98bd8d8}\label{classOwnGraphicsScene_a4976a8e6f682612acd3e23b6c98bd8d8}} 
+\index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Remove\+Poly\+Previous@{Remove\+Poly\+Previous}}
+\index{Remove\+Poly\+Previous@{Remove\+Poly\+Previous}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
+\subsubsection{\texorpdfstring{Remove\+Poly\+Previous()}{RemovePolyPrevious()}}
+{\footnotesize\ttfamily void Own\+Graphics\+Scene\+::\+Remove\+Poly\+Previous (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Remove previous image cut point. 
+
+Removes also the \mbox{\hyperlink{classLineItem}{Line\+Item}} matching the point 
+
+Definition at line 531 of file owngraphicsscene.\+cpp.
+
+\mbox{\Hypertarget{classOwnGraphicsScene_ae79aa179ce90ab26f06d7d17eed96b93}\label{classOwnGraphicsScene_ae79aa179ce90ab26f06d7d17eed96b93}} 
+\index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Select\+Cut\+Img@{Select\+Cut\+Img}}
+\index{Select\+Cut\+Img@{Select\+Cut\+Img}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
+\subsubsection{\texorpdfstring{Select\+Cut\+Img()}{SelectCutImg()}}
+{\footnotesize\ttfamily bool Own\+Graphics\+Scene\+::\+Select\+Cut\+Img (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Select image to be cut. 
+
+\begin{DoxyReturn}{Returns}
+Returns true if image exists 
+\end{DoxyReturn}
+
+
+Definition at line 475 of file owngraphicsscene.\+cpp.
+
+\mbox{\Hypertarget{classOwnGraphicsScene_ad62254e1884fa4817ff1beaa3bc6c011}\label{classOwnGraphicsScene_ad62254e1884fa4817ff1beaa3bc6c011}} 
+\index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!set\+Connect\+Lines@{set\+Connect\+Lines}}
+\index{set\+Connect\+Lines@{set\+Connect\+Lines}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
+\subsubsection{\texorpdfstring{set\+Connect\+Lines()}{setConnectLines()}}
+{\footnotesize\ttfamily void Own\+Graphics\+Scene\+::set\+Connect\+Lines (\begin{DoxyParamCaption}\item[{int}]{value }\end{DoxyParamCaption})}
+
+
+
+Update connect\+\_\+lines value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & New connect\+\_\+lines value matching combobox options \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 565 of file owngraphicsscene.\+cpp.
+
+\mbox{\Hypertarget{classOwnGraphicsScene_a656919c9fdd0827ae182d3d3f5f91e4f}\label{classOwnGraphicsScene_a656919c9fdd0827ae182d3d3f5f91e4f}} 
+\index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Set\+Img\+Cut\+Mode@{Set\+Img\+Cut\+Mode}}
+\index{Set\+Img\+Cut\+Mode@{Set\+Img\+Cut\+Mode}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
+\subsubsection{\texorpdfstring{Set\+Img\+Cut\+Mode()}{SetImgCutMode()}}
+{\footnotesize\ttfamily void Own\+Graphics\+Scene\+::\+Set\+Img\+Cut\+Mode (\begin{DoxyParamCaption}\item[{int}]{cut\+\_\+mode }\end{DoxyParamCaption})}
+
+
+
+Select image cut mode. 
+
+Image cut modes are defined as macros 
+
+Definition at line 499 of file owngraphicsscene.\+cpp.
 
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-include/owngraphicsscene.\+hpp\item 
-src/owngraphicsscene.\+cpp\end{DoxyCompactItemize}
+include/\mbox{\hyperlink{owngraphicsscene_8hpp}{owngraphicsscene.\+hpp}}\item 
+src/\mbox{\hyperlink{owngraphicsscene_8cpp}{owngraphicsscene.\+cpp}}\end{DoxyCompactItemize}

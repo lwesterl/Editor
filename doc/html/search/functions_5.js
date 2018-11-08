@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['linemode',['LineMode',['../classGUI.html#a91fab5d31617ad5631d17dfceb5a0fad',1,'GUI']]]
+  ['imgmode',['imgMode',['../classOwnGraphicsScene.html#acc6e7978a3f10889e439ceabd155a341',1,'OwnGraphicsScene::imgMode()'],['../classGUI.html#a5281fa4256d3ff14df9a95c1c6613bb2',1,'GUI::ImgMode()']]],
+  ['initscrollbar',['InitScrollBar',['../classMainWidget.html#af544f3b04a81d63c0810a90706773d3d',1,'MainWidget']]],
+  ['isxinside',['isXinside',['../classPixmapItem.html#ad5510bf5a97b352e3b06cb888ac0a99c',1,'PixmapItem']]],
+  ['isyinside',['isYinside',['../classPixmapItem.html#ab6e6526fd5cd0ce5ba34b665adca6c5c',1,'PixmapItem']]]
 ];

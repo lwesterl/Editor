@@ -1,3 +1,11 @@
+/**
+  *   @file mainwidget.cpp
+  *   @author Lauri Westerholm
+  *   @brief Contains MainWidget class
+  */
+
+
+
 #include "../include/mainwidget.hpp"
 
 

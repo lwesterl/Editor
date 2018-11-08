@@ -1,5 +1,14 @@
 \hypertarget{classComboboxAction}{}\section{Combobox\+Action Class Reference}
 \label{classComboboxAction}\index{Combobox\+Action@{Combobox\+Action}}
+
+
+Implements own Q\+Combo\+Box.  
+
+
+
+
+{\ttfamily \#include $<$combobox\+\_\+action.\+hpp$>$}
+
 Inheritance diagram for Combobox\+Action\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,22 +18,64 @@ Inheritance diagram for Combobox\+Action\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classComboboxAction_afa2a6bfade094a82beef7d478c5a4cf8}\label{classComboboxAction_afa2a6bfade094a82beef7d478c5a4cf8}} 
-{\bfseries Combobox\+Action} (const Q\+String \&info)
-\item 
-\mbox{\Hypertarget{classComboboxAction_adfe475154e5b88eddbc9a51759bdf312}\label{classComboboxAction_adfe475154e5b88eddbc9a51759bdf312}} 
-int {\bfseries Combo\+Index} ()
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{classComboboxAction_afa2a6bfade094a82beef7d478c5a4cf8}{Combobox\+Action}} (const Q\+String \&info)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{classComboboxAction}{Combobox\+Action}}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classComboboxAction_adfe475154e5b88eddbc9a51759bdf312}{Combo\+Index}} ()
+\begin{DoxyCompactList}\small\item\em Get combobox index. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
+Implements own Q\+Combo\+Box. 
+
+This class implements a Q\+Combo\+Box which can be added to a menu\+Bar 
+
+Definition at line 28 of file combobox\+\_\+action.\+hpp.
 
 
-Definition at line 13 of file combobox\+\_\+action.\+hpp.
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classComboboxAction_afa2a6bfade094a82beef7d478c5a4cf8}\label{classComboboxAction_afa2a6bfade094a82beef7d478c5a4cf8}} 
+\index{Combobox\+Action@{Combobox\+Action}!Combobox\+Action@{Combobox\+Action}}
+\index{Combobox\+Action@{Combobox\+Action}!Combobox\+Action@{Combobox\+Action}}
+\subsubsection{\texorpdfstring{Combobox\+Action()}{ComboboxAction()}}
+{\footnotesize\ttfamily Combobox\+Action\+::\+Combobox\+Action (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{info }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{classComboboxAction}{Combobox\+Action}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em info} & String which is added to info label \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 13 of file combobox\+\_\+action.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classComboboxAction_adfe475154e5b88eddbc9a51759bdf312}\label{classComboboxAction_adfe475154e5b88eddbc9a51759bdf312}} 
+\index{Combobox\+Action@{Combobox\+Action}!Combo\+Index@{Combo\+Index}}
+\index{Combo\+Index@{Combo\+Index}!Combobox\+Action@{Combobox\+Action}}
+\subsubsection{\texorpdfstring{Combo\+Index()}{ComboIndex()}}
+{\footnotesize\ttfamily int Combobox\+Action\+::\+Combo\+Index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get combobox index. 
+
+\begin{DoxyReturn}{Returns}
+Returns combobox index
+\end{DoxyReturn}
+Calls Q\+Combo\+Box current\+Index() 
+
+Definition at line 35 of file combobox\+\_\+action.\+cpp.
 
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-include/combobox\+\_\+action.\+hpp\item 
-src/combobox\+\_\+action.\+cpp\end{DoxyCompactItemize}
+include/\mbox{\hyperlink{combobox__action_8hpp}{combobox\+\_\+action.\+hpp}}\item 
+src/\mbox{\hyperlink{combobox__action_8cpp}{combobox\+\_\+action.\+cpp}}\end{DoxyCompactItemize}

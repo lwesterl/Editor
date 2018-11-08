@@ -11,6 +11,7 @@
 #define GUI_HEADER
 
 
+/*    INCLUDES    */
 
 #include <QMainWindow>
 #include <QWidget>
@@ -41,6 +42,8 @@
 #include "mainwidget.hpp"
 #include "combobox_action.hpp"
 
+
+/*    MACROS    */
 
 /**
   *   @brief Exit image macro
@@ -162,51 +165,61 @@ public:
     *   @param parent the parent widget
     */
   GUI(QWidget *parent = 0);
+
   /**
     *   @brief GUI deconstructor
     *   @details Deletes mainwidget
     */
   ~GUI() {delete mainWidget;}
+
   /**
     *   @brief Line drawing mode
     *   @details QAction sends a signal and activates or deactivates line mode
     */
   void LineMode();
+
   /**
     *   @brief Delete lines mode
     *   @details QAction sends a signal and activates or deactivates delete mode
     */
   void DeleteMode();
+
   /**
-    *   @brief Clears previous points
+    *   @brief Clear previous points
     *   @details Triggers clear mode in the scene
     */
   void ClearMode();
+
   /**
-    *   @brief Clears all objects
+    *   @brief Clear all objects
     *   @details User triggered QAction sends a signal and clears all
     */
   void ClearAll();
+
   /**
-    *   @brief Saves scene content to an image
+    *   @brief Save scene content to an image
     *   @details User can specify where the image is saved
     */
   void saveImage();
+
   /**
-    *   @brief Opens an image
+    *   @brief Open an image
     *   @details By activating image mode user can place the image to the scene
     */
   void openImage();
+
   /**
     *   @brief Mode for adding images to the scene
     *   @details User can drag image and then save it to the scene
     */
   void ImgMode();
+
   /**
-    *   @brief Deletes images from the scene
+    *   @brief Delete images from the scene
     *   @details User holds cursor over an image and clicks to delete the image
     */
   void DeleteImgMode();
+
   /**
     *   @brief Mode for cutting images
     *   @details Images can be cut to multiple shapes. Starts a toolbar which
@@ -214,68 +227,81 @@ public:
     *   and finally cuts the image
     */
   void CutImageMode();
+
   /**
-    *   @brief Creates different toolbars
+    *   @brief Create different toolbars
     *   @details Called from GUI constructor to create all toolbars
     */
   void createToolbars();
+
   /**
-    *   @brief Hides PolygonToolbar
+    *   @brief Hide PolygonToolbar
     *   @param hide if true hides the toolbar
     */
   void HidePolygonToolbar(bool hide);
+
   /**
-    *   @brief Hides ModeToolbar
+    *   @brief Hide ModeToolbar
     *   @param hide if true hides the toolbar
     */
   void HideModeToolbar(bool hide);
+
   /**
-    *   @brief Hides MainToolbar
+    *   @brief Hide MainToolbar
     *   @param hide if true hides the toolbar
     */
   void HideMainToolbar(bool hide);
+
   /**
-    *   @brief Hides SelectImgToolbar
+    *   @brief Hide SelectImgToolbar
     *   @param hide if true hides the toolbar
     */
   void HideSelectToolbar(bool hide);
+
   /**
-    *   @brief Continues to image cutting
+    *   @brief Continue to image cutting
     *   @details Called after user has selected image cutting mode
     */
   void ContinueFromMode();
+
   /**
-    *   @brief Cancels to the main view, toolbar
+    *   @brief Cancel to the main view, toolbar
     *   @details Called after user has canceled from image cutting mode
     */
   void CancelFromMode();
+
   /**
-    *   @brief Creates polygon cut to an image
+    *   @brief Create polygon cut to an image
     *   @details Triggered by user when user is ready to cut the image
     */
   void SetPolyFinal();
+
   /**
-    *   @brief Removes previous cut line from an image
+    *   @brief Remove previous cut line from an image
     *   @details Triggered by user action
     */
   void RemovePolyPrevious();
+
   /**
-    *   @brief Returns to the main view
+    *   @brief Return to the main view
     *   @details Called after user has canceled from polygon image cut
     */
   void CancelFromPoly();
+
   /**
-    *   @brief Continues to image mode select
+    *   @brief Continue to image mode select
     *   @details Called after user has selected which image to cut
     */
   void ContinueFromSelect();
+
   /**
-    *   @brief Returns to the main view
+    *   @brief Return to the main view
     *   @details Called after user has canceled from image select
     */
   void CancelFromSelect();
+
   /**
-    *   @brief Saves options
+    *   @brief Save options
     *   @details Called after user has modified options combobox and wants to save
     *   the options
     */

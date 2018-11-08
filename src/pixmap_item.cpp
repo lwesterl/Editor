@@ -1,3 +1,12 @@
+/**
+  *   @file pixmap_item.cpp
+  *   @author Lauri Westerholm
+  *   @brief Contains PixmapItem class
+  */
+
+
+
+
 #include "../include/pixmap_item.hpp"
 
 

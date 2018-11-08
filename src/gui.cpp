@@ -1,3 +1,11 @@
+/**
+  *   @file gui.cpp
+  *   @author Lauri Westerholm
+  *   @brief Contains GUI class
+  */
+
+
+
 #include "../include/gui.hpp"
 
 

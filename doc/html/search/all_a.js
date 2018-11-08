@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['pixmapitem',['PixmapItem',['../classPixmapItem.html',1,'']]],
-  ['polygon_5ftoolbar',['polygon_toolbar',['../structPolygonToolbar.html#a5388c77217c5bea7075cf234c508b8d6',1,'PolygonToolbar']]],
-  ['polygontoolbar',['PolygonToolbar',['../structPolygonToolbar.html',1,'']]],
-  ['promtwindow',['PromtWindow',['../classPromtWindow.html',1,'']]]
+  ['no_5fimg_5fcut',['no_img_cut',['../owngraphicsscene_8hpp.html#a749db80b860523fda0b90a1c2afa5067',1,'owngraphicsscene.hpp']]]
 ];

@@ -1,3 +1,10 @@
+/**
+  *   @file owngraphicsscene.cpp
+  *   @author Lauri Westerholm
+  *   @brief Contains OwnGraphicsScene class
+  */
+
+
 #include "../include/owngraphicsscene.hpp"
 
 

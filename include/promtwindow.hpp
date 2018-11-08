@@ -1,7 +1,16 @@
+/**
+  *   @file promtwindow.hpp
+  *   @author Lauri Westerholm
+  *   @brief Header for PromtWindow class
+  *   @remark Not used
+  */
+
+
 #ifndef Promt_window
 #define Promt_window
 
-// THIS CLASS IS NOT USED 
+
+/*    INCLUDES    */
 
 #include <QStringList>
 #include <QDir>
@@ -18,12 +27,29 @@
 #include <QGraphicsScene>
 #include <QGraphicsTextItem>
 
+/**
+  *   @class PromtWindow
+  *   @brief Implements specific QDialog
+  *   @remark Not used
+  */
+
 class PromtWindow: public QDialog
 {
   Q_OBJECT
   public:
+
+    /**
+      *   @brief Constructor for PromtWindow
+      *   @param parent The parent QWidget
+      */
     PromtWindow(QWidget *parent);
+
+    /**
+      *   @brief List all images in directory
+      *   @param directory Path to the directory to be listed
+      */
     void ListImages(QDir directory);
+    
   private slots:
     void backButton();
     void homeButton();

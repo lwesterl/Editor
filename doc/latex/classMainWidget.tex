@@ -1,5 +1,9 @@
 \hypertarget{classMainWidget}{}\section{Main\+Widget Class Reference}
 \label{classMainWidget}\index{Main\+Widget@{Main\+Widget}}
+
+
+{\ttfamily \#include $<$mainwidget.\+hpp$>$}
+
 Inheritance diagram for Main\+Widget\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,31 +13,119 @@ Inheritance diagram for Main\+Widget\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classMainWidget_a62f5aa5fe2314c6221ac49b328b72e8b}\label{classMainWidget_a62f5aa5fe2314c6221ac49b328b72e8b}} 
-{\bfseries Main\+Widget} (Q\+Widget $\ast$parent)
-\item 
-\mbox{\Hypertarget{classMainWidget_ad40a8bd13b501a0ebe88c87426a5b591}\label{classMainWidget_ad40a8bd13b501a0ebe88c87426a5b591}} 
-\mbox{\hyperlink{classOwnGraphicsScene}{Own\+Graphics\+Scene}} $\ast$ {\bfseries get\+Scene} ()
-\item 
-\mbox{\Hypertarget{classMainWidget_ae73e3dac6fb1e99dabe84aab683b3fbd}\label{classMainWidget_ae73e3dac6fb1e99dabe84aab683b3fbd}} 
-Q\+Graphics\+View $\ast$ {\bfseries get\+View} ()
-\item 
-\mbox{\Hypertarget{classMainWidget_a639b465bb49eb31e1c09051ae047951f}\label{classMainWidget_a639b465bb49eb31e1c09051ae047951f}} 
-Q\+H\+Box\+Layout $\ast$ {\bfseries get\+Layout} ()
-\item 
-\mbox{\Hypertarget{classMainWidget_af544f3b04a81d63c0810a90706773d3d}\label{classMainWidget_af544f3b04a81d63c0810a90706773d3d}} 
-void {\bfseries Init\+Scroll\+Bar} ()
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{classMainWidget_a62f5aa5fe2314c6221ac49b328b72e8b}{Main\+Widget}} (Q\+Widget $\ast$parent)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{classMainWidget}{Main\+Widget}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMainWidget_add21c63f8e799303a21a69da3d288c2f}\label{classMainWidget_add21c63f8e799303a21a69da3d288c2f}} 
+\mbox{\hyperlink{classMainWidget_add21c63f8e799303a21a69da3d288c2f}{$\sim$\+Main\+Widget}} ()
+\begin{DoxyCompactList}\small\item\em Deconstructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classOwnGraphicsScene}{Own\+Graphics\+Scene}} $\ast$ \mbox{\hyperlink{classMainWidget_ad40a8bd13b501a0ebe88c87426a5b591}{get\+Scene}} ()
+\begin{DoxyCompactList}\small\item\em Get the scene. \end{DoxyCompactList}\item 
+Q\+Graphics\+View $\ast$ \mbox{\hyperlink{classMainWidget_ae73e3dac6fb1e99dabe84aab683b3fbd}{get\+View}} ()
+\begin{DoxyCompactList}\small\item\em Get the view. \end{DoxyCompactList}\item 
+Q\+H\+Box\+Layout $\ast$ \mbox{\hyperlink{classMainWidget_a639b465bb49eb31e1c09051ae047951f}{get\+Layout}} ()
+\begin{DoxyCompactList}\small\item\em Get the layout. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMainWidget_af544f3b04a81d63c0810a90706773d3d}{Init\+Scroll\+Bar}} ()
+\begin{DoxyCompactList}\small\item\em Init the scrollbar. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
+This class is the main widget for gui contains a Graphics scene and a view for it Uses Q\+H\+Box\+Layout 
+
+Definition at line 34 of file mainwidget.\+hpp.
 
 
-Definition at line 21 of file mainwidget.\+hpp.
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classMainWidget_a62f5aa5fe2314c6221ac49b328b72e8b}\label{classMainWidget_a62f5aa5fe2314c6221ac49b328b72e8b}} 
+\index{Main\+Widget@{Main\+Widget}!Main\+Widget@{Main\+Widget}}
+\index{Main\+Widget@{Main\+Widget}!Main\+Widget@{Main\+Widget}}
+\subsubsection{\texorpdfstring{Main\+Widget()}{MainWidget()}}
+{\footnotesize\ttfamily Main\+Widget\+::\+Main\+Widget (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{classMainWidget}{Main\+Widget}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & the parent Q\+Widget \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 13 of file mainwidget.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classMainWidget_a639b465bb49eb31e1c09051ae047951f}\label{classMainWidget_a639b465bb49eb31e1c09051ae047951f}} 
+\index{Main\+Widget@{Main\+Widget}!get\+Layout@{get\+Layout}}
+\index{get\+Layout@{get\+Layout}!Main\+Widget@{Main\+Widget}}
+\subsubsection{\texorpdfstring{get\+Layout()}{getLayout()}}
+{\footnotesize\ttfamily Q\+H\+Box\+Layout$\ast$ Main\+Widget\+::get\+Layout (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the layout. 
+
+\begin{DoxyReturn}{Returns}
+Returns the graphics layout 
+\end{DoxyReturn}
+
+
+Definition at line 67 of file mainwidget.\+hpp.
+
+\mbox{\Hypertarget{classMainWidget_ad40a8bd13b501a0ebe88c87426a5b591}\label{classMainWidget_ad40a8bd13b501a0ebe88c87426a5b591}} 
+\index{Main\+Widget@{Main\+Widget}!get\+Scene@{get\+Scene}}
+\index{get\+Scene@{get\+Scene}!Main\+Widget@{Main\+Widget}}
+\subsubsection{\texorpdfstring{get\+Scene()}{getScene()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classOwnGraphicsScene}{Own\+Graphics\+Scene}}$\ast$ Main\+Widget\+::get\+Scene (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the scene. 
+
+\begin{DoxyReturn}{Returns}
+Returns the graphics scene 
+\end{DoxyReturn}
+
+
+Definition at line 57 of file mainwidget.\+hpp.
+
+\mbox{\Hypertarget{classMainWidget_ae73e3dac6fb1e99dabe84aab683b3fbd}\label{classMainWidget_ae73e3dac6fb1e99dabe84aab683b3fbd}} 
+\index{Main\+Widget@{Main\+Widget}!get\+View@{get\+View}}
+\index{get\+View@{get\+View}!Main\+Widget@{Main\+Widget}}
+\subsubsection{\texorpdfstring{get\+View()}{getView()}}
+{\footnotesize\ttfamily Q\+Graphics\+View$\ast$ Main\+Widget\+::get\+View (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the view. 
+
+\begin{DoxyReturn}{Returns}
+Returns the graphics view 
+\end{DoxyReturn}
+
+
+Definition at line 62 of file mainwidget.\+hpp.
+
+\mbox{\Hypertarget{classMainWidget_af544f3b04a81d63c0810a90706773d3d}\label{classMainWidget_af544f3b04a81d63c0810a90706773d3d}} 
+\index{Main\+Widget@{Main\+Widget}!Init\+Scroll\+Bar@{Init\+Scroll\+Bar}}
+\index{Init\+Scroll\+Bar@{Init\+Scroll\+Bar}!Main\+Widget@{Main\+Widget}}
+\subsubsection{\texorpdfstring{Init\+Scroll\+Bar()}{InitScrollBar()}}
+{\footnotesize\ttfamily void Main\+Widget\+::\+Init\+Scroll\+Bar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Init the scrollbar. 
+
+Set view scrollbar to left and center of the scene 
+
+Definition at line 37 of file mainwidget.\+cpp.
 
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-include/mainwidget.\+hpp\item 
-src/mainwidget.\+cpp\end{DoxyCompactItemize}
+include/\mbox{\hyperlink{mainwidget_8hpp}{mainwidget.\+hpp}}\item 
+src/\mbox{\hyperlink{mainwidget_8cpp}{mainwidget.\+cpp}}\end{DoxyCompactItemize}

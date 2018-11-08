@@ -1,44 +1,137 @@
 \hypertarget{structImage__Cut}{}\section{Image\+\_\+\+Cut Struct Reference}
 \label{structImage__Cut}\index{Image\+\_\+\+Cut@{Image\+\_\+\+Cut}}
+
+
+Struct for active image during image cut.  
+
+
+
+
+{\ttfamily \#include $<$owngraphicsscene.\+hpp$>$}
+
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{structImage__Cut_afdafc46c968b35b63758d409ef863a8f}\label{structImage__Cut_afdafc46c968b35b63758d409ef863a8f}} 
-\mbox{\hyperlink{classPixmapItem}{Pixmap\+Item}} $\ast$ {\bfseries pixmap\+\_\+item}
+\mbox{\hyperlink{classPixmapItem}{Pixmap\+Item}} $\ast$ \mbox{\hyperlink{structImage__Cut_afdafc46c968b35b63758d409ef863a8f}{pixmap\+\_\+item}}
 \item 
-\mbox{\Hypertarget{structImage__Cut_a7259136300a6eade3ee84743f3e47c1f}\label{structImage__Cut_a7259136300a6eade3ee84743f3e47c1f}} 
-bool {\bfseries initialized} = false
+bool \mbox{\hyperlink{structImage__Cut_a7259136300a6eade3ee84743f3e47c1f}{initialized}} = false
 \item 
-\mbox{\Hypertarget{structImage__Cut_ad4904a8753086961301a91050f6b2794}\label{structImage__Cut_ad4904a8753086961301a91050f6b2794}} 
-unsigned char {\bfseries cut\+\_\+mode} = no\+\_\+img\+\_\+cut
+unsigned char \mbox{\hyperlink{structImage__Cut_ad4904a8753086961301a91050f6b2794}{cut\+\_\+mode}} = \mbox{\hyperlink{owngraphicsscene_8hpp_a749db80b860523fda0b90a1c2afa5067}{no\+\_\+img\+\_\+cut}}
 \item 
-\mbox{\Hypertarget{structImage__Cut_a45fc996285a5ae8ef255d66655d63df2}\label{structImage__Cut_a45fc996285a5ae8ef255d66655d63df2}} 
-Q\+Point {\bfseries point}
+Q\+Point \mbox{\hyperlink{structImage__Cut_a45fc996285a5ae8ef255d66655d63df2}{point}}
 \item 
-\mbox{\Hypertarget{structImage__Cut_ad56f1d72a3d7c5488fec27eaf5c6fbd9}\label{structImage__Cut_ad56f1d72a3d7c5488fec27eaf5c6fbd9}} 
-std\+::vector$<$ \mbox{\hyperlink{classLineItem}{Line\+Item}} $\ast$ $>$ {\bfseries visual\+\_\+items}
+std\+::vector$<$ \mbox{\hyperlink{classLineItem}{Line\+Item}} $\ast$ $>$ \mbox{\hyperlink{structImage__Cut_ad56f1d72a3d7c5488fec27eaf5c6fbd9}{visual\+\_\+items}}
 \item 
-\mbox{\Hypertarget{structImage__Cut_aa3fcac1ab311c38947b343d8913fb2e8}\label{structImage__Cut_aa3fcac1ab311c38947b343d8913fb2e8}} 
-\mbox{\hyperlink{classLineItem}{Line\+Item}} $\ast$ {\bfseries current\+\_\+item}
+\mbox{\hyperlink{classLineItem}{Line\+Item}} $\ast$ \mbox{\hyperlink{structImage__Cut_aa3fcac1ab311c38947b343d8913fb2e8}{current\+\_\+item}}
 \item 
-\mbox{\Hypertarget{structImage__Cut_a9e6768e7bea9a60876d086d78da3c4df}\label{structImage__Cut_a9e6768e7bea9a60876d086d78da3c4df}} 
-unsigned {\bfseries prev\+\_\+x}
+unsigned \mbox{\hyperlink{structImage__Cut_a9e6768e7bea9a60876d086d78da3c4df}{prev\+\_\+x}}
 \item 
-\mbox{\Hypertarget{structImage__Cut_ad86dabb21b97270448d8db5aa7a5676f}\label{structImage__Cut_ad86dabb21b97270448d8db5aa7a5676f}} 
-unsigned {\bfseries prev\+\_\+y}
+unsigned \mbox{\hyperlink{structImage__Cut_ad86dabb21b97270448d8db5aa7a5676f}{prev\+\_\+y}}
 \item 
-\mbox{\Hypertarget{structImage__Cut_acbae7507f135d85e9f2f9724fbc2a643}\label{structImage__Cut_acbae7507f135d85e9f2f9724fbc2a643}} 
-bool {\bfseries visual\+\_\+created} = false
+bool \mbox{\hyperlink{structImage__Cut_acbae7507f135d85e9f2f9724fbc2a643}{visual\+\_\+created}} = false
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
+Struct for active image during image cut. 
+
+Definition at line 62 of file owngraphicsscene.\+hpp.
 
 
-Definition at line 37 of file owngraphicsscene.\+hpp.
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{structImage__Cut_aa3fcac1ab311c38947b343d8913fb2e8}\label{structImage__Cut_aa3fcac1ab311c38947b343d8913fb2e8}} 
+\index{Image\+\_\+\+Cut@{Image\+\_\+\+Cut}!current\+\_\+item@{current\+\_\+item}}
+\index{current\+\_\+item@{current\+\_\+item}!Image\+\_\+\+Cut@{Image\+\_\+\+Cut}}
+\subsubsection{\texorpdfstring{current\+\_\+item}{current\_item}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLineItem}{Line\+Item}}$\ast$ Image\+\_\+\+Cut\+::current\+\_\+item}
+
+Linei\+Item which is curretly under construction 
+
+Definition at line 69 of file owngraphicsscene.\+hpp.
+
+\mbox{\Hypertarget{structImage__Cut_ad4904a8753086961301a91050f6b2794}\label{structImage__Cut_ad4904a8753086961301a91050f6b2794}} 
+\index{Image\+\_\+\+Cut@{Image\+\_\+\+Cut}!cut\+\_\+mode@{cut\+\_\+mode}}
+\index{cut\+\_\+mode@{cut\+\_\+mode}!Image\+\_\+\+Cut@{Image\+\_\+\+Cut}}
+\subsubsection{\texorpdfstring{cut\+\_\+mode}{cut\_mode}}
+{\footnotesize\ttfamily unsigned char Image\+\_\+\+Cut\+::cut\+\_\+mode = \mbox{\hyperlink{owngraphicsscene_8hpp_a749db80b860523fda0b90a1c2afa5067}{no\+\_\+img\+\_\+cut}}}
+
+Stores the cut mode 
+
+Definition at line 66 of file owngraphicsscene.\+hpp.
+
+\mbox{\Hypertarget{structImage__Cut_a7259136300a6eade3ee84743f3e47c1f}\label{structImage__Cut_a7259136300a6eade3ee84743f3e47c1f}} 
+\index{Image\+\_\+\+Cut@{Image\+\_\+\+Cut}!initialized@{initialized}}
+\index{initialized@{initialized}!Image\+\_\+\+Cut@{Image\+\_\+\+Cut}}
+\subsubsection{\texorpdfstring{initialized}{initialized}}
+{\footnotesize\ttfamily bool Image\+\_\+\+Cut\+::initialized = false}
+
+Is user selected which image to cut 
+
+Definition at line 65 of file owngraphicsscene.\+hpp.
+
+\mbox{\Hypertarget{structImage__Cut_afdafc46c968b35b63758d409ef863a8f}\label{structImage__Cut_afdafc46c968b35b63758d409ef863a8f}} 
+\index{Image\+\_\+\+Cut@{Image\+\_\+\+Cut}!pixmap\+\_\+item@{pixmap\+\_\+item}}
+\index{pixmap\+\_\+item@{pixmap\+\_\+item}!Image\+\_\+\+Cut@{Image\+\_\+\+Cut}}
+\subsubsection{\texorpdfstring{pixmap\+\_\+item}{pixmap\_item}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPixmapItem}{Pixmap\+Item}}$\ast$ Image\+\_\+\+Cut\+::pixmap\+\_\+item}
+
+Original image pixmap item 
+
+Definition at line 64 of file owngraphicsscene.\+hpp.
+
+\mbox{\Hypertarget{structImage__Cut_a45fc996285a5ae8ef255d66655d63df2}\label{structImage__Cut_a45fc996285a5ae8ef255d66655d63df2}} 
+\index{Image\+\_\+\+Cut@{Image\+\_\+\+Cut}!point@{point}}
+\index{point@{point}!Image\+\_\+\+Cut@{Image\+\_\+\+Cut}}
+\subsubsection{\texorpdfstring{point}{point}}
+{\footnotesize\ttfamily Q\+Point Image\+\_\+\+Cut\+::point}
+
+Tells which image should be cutted 
+
+Definition at line 67 of file owngraphicsscene.\+hpp.
+
+\mbox{\Hypertarget{structImage__Cut_a9e6768e7bea9a60876d086d78da3c4df}\label{structImage__Cut_a9e6768e7bea9a60876d086d78da3c4df}} 
+\index{Image\+\_\+\+Cut@{Image\+\_\+\+Cut}!prev\+\_\+x@{prev\+\_\+x}}
+\index{prev\+\_\+x@{prev\+\_\+x}!Image\+\_\+\+Cut@{Image\+\_\+\+Cut}}
+\subsubsection{\texorpdfstring{prev\+\_\+x}{prev\_x}}
+{\footnotesize\ttfamily unsigned Image\+\_\+\+Cut\+::prev\+\_\+x}
+
+Previous x position 
+
+Definition at line 70 of file owngraphicsscene.\+hpp.
+
+\mbox{\Hypertarget{structImage__Cut_ad86dabb21b97270448d8db5aa7a5676f}\label{structImage__Cut_ad86dabb21b97270448d8db5aa7a5676f}} 
+\index{Image\+\_\+\+Cut@{Image\+\_\+\+Cut}!prev\+\_\+y@{prev\+\_\+y}}
+\index{prev\+\_\+y@{prev\+\_\+y}!Image\+\_\+\+Cut@{Image\+\_\+\+Cut}}
+\subsubsection{\texorpdfstring{prev\+\_\+y}{prev\_y}}
+{\footnotesize\ttfamily unsigned Image\+\_\+\+Cut\+::prev\+\_\+y}
+
+Previous y position 
+
+Definition at line 71 of file owngraphicsscene.\+hpp.
+
+\mbox{\Hypertarget{structImage__Cut_acbae7507f135d85e9f2f9724fbc2a643}\label{structImage__Cut_acbae7507f135d85e9f2f9724fbc2a643}} 
+\index{Image\+\_\+\+Cut@{Image\+\_\+\+Cut}!visual\+\_\+created@{visual\+\_\+created}}
+\index{visual\+\_\+created@{visual\+\_\+created}!Image\+\_\+\+Cut@{Image\+\_\+\+Cut}}
+\subsubsection{\texorpdfstring{visual\+\_\+created}{visual\_created}}
+{\footnotesize\ttfamily bool Image\+\_\+\+Cut\+::visual\+\_\+created = false}
+
+Whether the \mbox{\hyperlink{classLineItem}{Line\+Item}} is added to the scene or not 
+
+Definition at line 72 of file owngraphicsscene.\+hpp.
+
+\mbox{\Hypertarget{structImage__Cut_ad56f1d72a3d7c5488fec27eaf5c6fbd9}\label{structImage__Cut_ad56f1d72a3d7c5488fec27eaf5c6fbd9}} 
+\index{Image\+\_\+\+Cut@{Image\+\_\+\+Cut}!visual\+\_\+items@{visual\+\_\+items}}
+\index{visual\+\_\+items@{visual\+\_\+items}!Image\+\_\+\+Cut@{Image\+\_\+\+Cut}}
+\subsubsection{\texorpdfstring{visual\+\_\+items}{visual\_items}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classLineItem}{Line\+Item}}$\ast$$>$ Image\+\_\+\+Cut\+::visual\+\_\+items}
+
+These are used to visualize the cutting pattern and just temporarily added to the scene 
+
+Definition at line 68 of file owngraphicsscene.\+hpp.
 
 
 
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-include/owngraphicsscene.\+hpp\end{DoxyCompactItemize}
+include/\mbox{\hyperlink{owngraphicsscene_8hpp}{owngraphicsscene.\+hpp}}\end{DoxyCompactItemize}

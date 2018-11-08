@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['final_5fpoint',['final_point',['../structPolygonToolbar.html#a25d471a6081bfa4107d5f1cd9a61d243',1,'PolygonToolbar']]],
-  ['final_5fpoint_5ftext',['final_point_text',['../structPolygonToolbar.html#a3af92f094b85ad63be4d9dcf37a88fa8',1,'PolygonToolbar']]]
+  ['endpoints',['endpoints',['../structPolygonToolbar.html#a78a569efc30754e02b7d8f5d74ede0ec',1,'PolygonToolbar']]],
+  ['endpoints_5ftext',['endpoints_text',['../structPolygonToolbar.html#a4ab3ad9905d894a2f166a4e1cbfb9e3a',1,'PolygonToolbar']]]
 ];
