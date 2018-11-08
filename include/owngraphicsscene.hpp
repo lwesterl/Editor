@@ -120,6 +120,7 @@
 
  /**
    *    @class OwnGraphicsScene
+   *    @brief Own QGraphicsScene implementation
    *    @details This is an implementation for own QGraphicsScene which
    *    overloads mousePressEvent to update the scene
    */

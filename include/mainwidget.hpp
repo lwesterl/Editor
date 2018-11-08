@@ -26,6 +26,7 @@
 
 /**
   *   @class MainWidget
+  *   @brief Mainwidget for GUI
   *   @details This class is the main widget for gui
   *    contains a Graphics scene and a view for it
   *    Uses QHBoxLayout
