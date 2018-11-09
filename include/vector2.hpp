@@ -27,14 +27,14 @@ class Vector2
 public:
 
   /**
-    *   @brief Constructor for Bezier
+    *   @brief Constructor for Vector2
     *   @param x x coordinate
     *   @param y y coordinate
     */
   Vector2(float x, float y): x(x), y(y) {}
 
   /**
-    *   @brief Empty constructor for Bezier
+    *   @brief Empty constructor for Vector
     */
   Vector2(): x(0), y(0) {}
 
