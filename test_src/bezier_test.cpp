@@ -1,7 +1,7 @@
 /**
   *   @file bezier_test.cpp
   *   @author Lauri Westerholm
-  *   @brief Contains a test main for bezier class
+  *   @brief Contains a test main for Bezier class
   */
 
 
