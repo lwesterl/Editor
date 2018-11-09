@@ -26,6 +26,8 @@
  #include <QGraphicsPixmapItem>
  #include "line_item.hpp"
  #include "pixmap_item.hpp"
+ #include "bezier.hpp"
+ #include "vector2.hpp"
 
 /**
   *   @brief Macro for no image cut mode selected
@@ -88,6 +90,21 @@
    unsigned prev_y; /**< Previous y position */
  };
 
+/**
+  *   @struct Bezier_Mode
+  *   @brief Struct used during bezier_mode
+  */
+
+ struct Bezier_Mode
+ {
+   Vector2 p1; /**< The first bezier point */
+   Vector2 p2; /**< The second bezier point */
+   Vector2 p3; /**< The third bezier point */
+   Vector2 p4; /**< The fourth bezier point */
+   int points = 0; /**< How many points have been added */
+   Bezier *active_bezier; /**< Pointer to the Bezier being constructed */
+ };
+
 
 /*    MACROS    */
 
@@ -115,6 +132,11 @@
    *   @brief Macro for image cutting mode
    */
  #define cut_image_mode_value 5
+ /**
+   *   @brief Macro for bezier mode
+   */
+ #define bezier_mode_value 6
+
 
 
 
@@ -273,9 +295,38 @@
     */
    void ClearVisualItems();
 
+  /**
+    *   @brief Activates/deactivates bezier mode
+    */
+   void BezierMode(bool active);
+
+  /**
+    *   @brief Constructs a Bezer object
+    *   @param x Mouse x coordinate
+    *   @param y Mouse y coordinate
+    *   @param point_added Whether user added a new point or just moved previous one
+    */
+   void CreateBezier(unsigned x, unsigned y, bool point_added);
+
+  /**
+    *   @brief Add Bezier to the scene
+    *   @details To be more precise adds the LineItems matching the Bezier (line_items)
+    *   to the scene
+    *   @param bezier Pointer to Bezier which is added to the scene
+    */
+   void AddBezier(Bezier *bezier);
+
+  /**
+    *   @brief Remove Bezier from the scene
+    *   @details Removes the LineItems matching the Bezier and then deletes the object itself
+    *   @param bezier Pointer to the Bezier to be removed
+    */
+   void RemoveBezier(Bezier *bezier);
+
  private:
    std::list <LineItem*> line_items;
    std::list <PixmapItem*> pixmap_items;
+   std::list <Bezier*> beziers;
    unsigned mouse_x;
    unsigned mouse_y;
    bool first_line = true;
@@ -290,6 +341,8 @@
    QString current_imagename;
    //bool cut_image_mode = false;
    struct Image_Cut image_cut;
+   struct Bezier_Mode bezier_struct;
+
  };
 
 
