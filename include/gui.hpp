@@ -2,7 +2,7 @@
 /**
   *   @file gui.hpp
   *   @author Lauri Westerholm
-  *   @brief Header for gui class.
+  *   @brief Header for GUI class.
   */
 
 
@@ -307,6 +307,11 @@ public:
     */
   void SaveChoices();
 
+  /**
+    *   @brief Activates/deactivates bezier_mode
+    */
+  void BezierMode();
+  
   //void mouseMoveEvent(QMouseEvent *event);
   //void mousePressEvent(QMouseEvent *event);
   //int getMouseX(){return mouse_x;}
@@ -318,6 +323,7 @@ private:
   QAction *line_mode;
   QAction *delete_mode;
   QAction *clear_mode;
+  QAction *bezier_mode;
   QAction *clear_all_mode;
   QAction *add_img_mode;
   QAction *delete_img_mode;

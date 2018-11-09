@@ -113,6 +113,7 @@ void GUI::LineMode()
     add_img_mode->setChecked(false);
     delete_img_mode->setChecked(false);
     cut_image_mode->setChecked(false);
+    bezier_mode->setChecked(false);
   }
   else
   {
@@ -130,6 +131,7 @@ void GUI::DeleteMode()
     add_img_mode->setChecked(false);
     delete_img_mode->setChecked(false);
     cut_image_mode->setChecked(false);
+    bezier_mode->setChecked(false);
   }
   else
   {
@@ -229,6 +231,7 @@ void GUI::ImgMode()
     delete_mode->setChecked(false);
     delete_img_mode->setChecked(false);
     cut_image_mode->setChecked(false);
+    bezier_mode->setChecked(false);
   }
   else
   {
@@ -248,6 +251,7 @@ void GUI::DeleteImgMode()
     delete_mode->setChecked(false);
     add_img_mode->setChecked(false);
     cut_image_mode->setChecked(false);
+    bezier_mode->setChecked(false);
     mainWidget->getScene()->DeleteImgMode(true);
   }
   else
@@ -266,6 +270,7 @@ void GUI::CutImageMode()
     delete_mode->setChecked(false);
     add_img_mode->setChecked(false);
     delete_img_mode->setChecked(false);
+    bezier_mode->setChecked(false);
 
     // activate mode
     mainWidget->getScene()->CutImageMode(true);
@@ -366,12 +371,21 @@ void GUI::createToolbars()
   connect(delete_mode, &QAction::triggered, this, &GUI::DeleteMode);
 
   // add a clear previous points button
-  main_toolbar->addSeparator();
+  //main_toolbar->addSeparator();
   QPixmap clear_points(clear_points_img);
   clear_mode = main_toolbar->addAction(QIcon(clear_points),"Clear previous point(s)");
   connect(clear_mode, &QAction::triggered, this, &GUI::ClearMode);
 
+  // add a action for bezier mode
+  main_toolbar->addSeparator();
+  bezier_mode = main_toolbar->addAction("BEZIER");
+  bezier_mode->setCheckable(true);
+  bezier_mode->setChecked(false);
+  connect(bezier_mode, &QAction::triggered, this, &GUI::BezierMode);
+
+
   // add a clear all button
+  main_toolbar->addSeparator();
   QPixmap clear_all(clear_all_img);
   clear_all_mode = main_toolbar->addAction(QIcon(clear_all), "Clear all");
   connect(clear_all_mode, &QAction::triggered, this, &GUI::ClearAll);
@@ -622,6 +636,29 @@ void GUI::SaveChoices()
   QMessageBox::information(this, "Information", "Selected options saved");
 }
 
+// Bezier action triggered
+void GUI::BezierMode()
+{
+  if (bezier_mode->isChecked())
+  {
+    // deactivate other mode
+    line_mode->setChecked(false);
+    delete_mode->setChecked(false);
+    add_img_mode->setChecked(false);
+    delete_img_mode->setChecked(false);
+    cut_image_mode->setChecked(false);
+
+    // Activate Bezier mode
+    mainWidget->getScene()->BezierMode(true);
+  }
+  else
+  {
+    // Deactivate the Bezier mode
+    mainWidget->getScene()->BezierMode(false);
+
+  }
+
+}
 
 /*void GUI::mouseMoveEvent(QMouseEvent *event)
 {
