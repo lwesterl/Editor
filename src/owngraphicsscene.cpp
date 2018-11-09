@@ -123,6 +123,12 @@ void OwnGraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent  *event)
 
     }
   }
+  else if (mode == bezier_mode_value)
+  {
+    // Add a new bezier
+    //qDebug() << "Bezier mode point added\n";
+    CreateBezier(x_new, y_new, true);
+  }
 }
 
 // Move image according to user mouse movements
@@ -585,4 +591,92 @@ void OwnGraphicsScene::ClearVisualItems()
     removeItem(*it);
     it = image_cut.visual_items.erase(it);
   }
+}
+
+// Activate or deactivate bezier mode
+void OwnGraphicsScene::BezierMode(bool active)
+{
+  if (active)
+  {
+    mode = bezier_mode_value;
+  }
+  else
+  {
+    // Reset bezier_struct
+    bezier_struct.points = 0;
+
+    mode = view_mode_value;
+  }
+}
+
+void OwnGraphicsScene::CreateBezier(unsigned x, unsigned y, bool point_added)
+{
+  if (point_added)
+  {
+    // One new point added
+    bezier_struct.points += 1;
+
+    if (bezier_struct.points == 1)
+    {
+      // Create a new Bezier
+      bezier_struct.p1 = Vector2((float) x, (float) y);
+      bezier_struct.active_bezier = new Bezier(bezier_struct.p1, bezier_struct.p1, bezier_struct.p1, bezier_struct.p1);
+      AddBezier(bezier_struct.active_bezier);
+    }
+
+    else
+    {
+      // Destroy the old Bezier
+      RemoveBezier(bezier_struct.active_bezier);
+
+      if (bezier_struct.points == 2)
+      {
+        bezier_struct.p2 = Vector2((float) x, (float) y);
+        bezier_struct.active_bezier = new Bezier(bezier_struct.p1, bezier_struct.p2, bezier_struct.p2, bezier_struct.p2);
+        AddBezier(bezier_struct.active_bezier);
+      }
+      else if(bezier_struct.points == 3)
+      {
+        bezier_struct.p3 = Vector2((float) x, (float) y);
+        bezier_struct.active_bezier = new Bezier(bezier_struct.p1, bezier_struct.p2, bezier_struct.p3, bezier_struct.p3);
+        AddBezier(bezier_struct.active_bezier);
+      }
+      else
+      {
+        bezier_struct.p4 = Vector2((float) x, (float) y);
+        bezier_struct.active_bezier = new Bezier(bezier_struct.p1, bezier_struct.p2, bezier_struct.p3, bezier_struct.p4);
+        AddBezier(bezier_struct.active_bezier);
+
+        // Reset the points
+        bezier_struct.points = 0;
+
+      }
+    }
+
+  }
+}
+
+/*  Add all LineItems from Bezier to the scene */
+void OwnGraphicsScene::AddBezier(Bezier *bezier)
+{
+  // Add all the LineItems to the scene
+  std::vector<LineItem*> items = bezier->getLineItems();
+
+  for (auto it = items.begin(); it != items.end(); it++)
+  {
+    addItem(*it);
+  }
+}
+
+/*  Remove all LineItems from Bezier and then delete the Bezier */
+void OwnGraphicsScene::RemoveBezier(Bezier *bezier)
+{
+  std::vector<LineItem*> items = bezier->getLineItems();
+
+  for (auto it = items.begin(); it != items.end(); it++)
+  {
+    removeItem(*it);
+  }
+  // Delete the Bezier (Bezier destructor should delete all items)
+  delete(bezier);
 }
