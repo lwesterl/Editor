@@ -1,7 +1,7 @@
 /**
   *   @file pixmap_item.hpp
   *   @author Lauri Westerholm
-  *   @brief Header for Pixmap_Item class
+  *   @brief Header for PixmapItem class
   */
 
 
