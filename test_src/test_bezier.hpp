@@ -68,13 +68,13 @@ private:
   *   @param t [0 1] bezier parameter
   *   @return Returns Vector2 matching a part of the curve
   */
-Vector2 createBezier(Vector2 p0, Vector2 p1, Vector2 p2, Vector2 p3, float t);
+Vector2 createBezier(Vector2 p0, Vector2 p1, Vector2 p2, Vector2 p3, double t);
 
 /**
   *   @brief Lerp function
   *   @details Calculates linear vector interpolation
   */
-Vector2 Lerp(Vector2 a, Vector2 b, float t);
+Vector2 Lerp(Vector2 a, Vector2 b, double t);
 
 
 #endif

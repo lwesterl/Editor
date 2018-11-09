@@ -39,5 +39,15 @@ int main ()
     std::cout << *it;
   }
 
+  std::cout << "_______________Same vectors test_______________" << std::endl;
+  Vector2 test_vec = Lerp(Vector2(100,100), Vector2(100,100), 0.1);
+  std::cout << "Lerp result (should be 100, 100): " << test_vec.getX() << ", " << test_vec.getY() << std::endl;
+  Bezier bez = Bezier(test_vec, test_vec, test_vec, test_vec);
+  auto vec = bez.getVectors();
+  for (auto it = vec.begin(); it != vec.end(); it++)
+  {
+    std::cout << *it;
+  }
+
   return 0;
 }
