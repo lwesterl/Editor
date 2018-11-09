@@ -1,0 +1,120 @@
+\hypertarget{vector2_8cpp}{}\section{src/vector2.cpp File Reference}
+\label{vector2_8cpp}\index{src/vector2.\+cpp@{src/vector2.\+cpp}}
+
+
+Contains \mbox{\hyperlink{classVector2}{Vector2}} class.  
+
+
+{\ttfamily \#include \char`\"{}../include/vector2.\+hpp\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{vector2_8cpp_a3950745faeec98895d1446094d9c27dd}{operator$<$$<$}} (std\+::ostream \&os, \mbox{\hyperlink{classVector2}{Vector2}} \&vector2)
+\begin{DoxyCompactList}\small\item\em Print overload for \mbox{\hyperlink{classVector2}{Vector2}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classVector2}{Vector2}} \mbox{\hyperlink{vector2_8cpp_aec551a9b18e5851febf60c555fc382ab}{operator+}} (const \mbox{\hyperlink{classVector2}{Vector2}} \&vec1, const \mbox{\hyperlink{classVector2}{Vector2}} \&vec2)
+\item 
+\mbox{\hyperlink{classVector2}{Vector2}} \mbox{\hyperlink{vector2_8cpp_a1ce2215611e761b7b1ca2f9f0dcdeb12}{operator+}} (const \mbox{\hyperlink{classVector2}{Vector2}} \&vec1, float mult)
+\item 
+\mbox{\hyperlink{classVector2}{Vector2}} \mbox{\hyperlink{vector2_8cpp_abed1d1283eebca3cc8248543d219a937}{operator$\ast$}} (float mult, const \mbox{\hyperlink{classVector2}{Vector2}} \&vec1)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Contains \mbox{\hyperlink{classVector2}{Vector2}} class. 
+
+\begin{DoxyAuthor}{Author}
+Lauri Westerholm 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{vector2_8cpp_abed1d1283eebca3cc8248543d219a937}\label{vector2_8cpp_abed1d1283eebca3cc8248543d219a937}} 
+\index{vector2.\+cpp@{vector2.\+cpp}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!vector2.\+cpp@{vector2.\+cpp}}
+\subsubsection{\texorpdfstring{operator$\ast$()}{operator*()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classVector2}{Vector2}} operator$\ast$ (\begin{DoxyParamCaption}\item[{float}]{mult,  }\item[{const \mbox{\hyperlink{classVector2}{Vector2}} \&}]{vec1 }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec1} & Base vector \\
+\hline
+{\em mult} & Multiplier \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns new \mbox{\hyperlink{classVector2}{Vector2}} which is multiplication of inputs 
+\end{DoxyReturn}
+
+
+Definition at line 50 of file vector2.\+cpp.
+
+\mbox{\Hypertarget{vector2_8cpp_aec551a9b18e5851febf60c555fc382ab}\label{vector2_8cpp_aec551a9b18e5851febf60c555fc382ab}} 
+\index{vector2.\+cpp@{vector2.\+cpp}!operator+@{operator+}}
+\index{operator+@{operator+}!vector2.\+cpp@{vector2.\+cpp}}
+\subsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classVector2}{Vector2}} operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classVector2}{Vector2}} \&}]{vec1,  }\item[{const \mbox{\hyperlink{classVector2}{Vector2}} \&}]{vec2 }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec1} & Base vector 1 \\
+\hline
+{\em vec2} & Base vector 2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+Notice the parameters 
+\end{DoxyRemark}
+\begin{DoxyReturn}{Returns}
+Returns a new \mbox{\hyperlink{classVector2}{Vector2}} which is addition of the two vectors 
+\end{DoxyReturn}
+
+
+Definition at line 34 of file vector2.\+cpp.
+
+\mbox{\Hypertarget{vector2_8cpp_a1ce2215611e761b7b1ca2f9f0dcdeb12}\label{vector2_8cpp_a1ce2215611e761b7b1ca2f9f0dcdeb12}} 
+\index{vector2.\+cpp@{vector2.\+cpp}!operator+@{operator+}}
+\index{operator+@{operator+}!vector2.\+cpp@{vector2.\+cpp}}
+\subsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classVector2}{Vector2}} operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classVector2}{Vector2}} \&}]{vec1,  }\item[{float}]{mult }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec1} & Base vector \\
+\hline
+{\em mult} & Value to be added \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns new \mbox{\hyperlink{classVector2}{Vector2}} which is multiplication of inputs 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+Notice the parameters 
+\end{DoxyRemark}
+
+
+Definition at line 42 of file vector2.\+cpp.
+
+\mbox{\Hypertarget{vector2_8cpp_a3950745faeec98895d1446094d9c27dd}\label{vector2_8cpp_a3950745faeec98895d1446094d9c27dd}} 
+\index{vector2.\+cpp@{vector2.\+cpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!vector2.\+cpp@{vector2.\+cpp}}
+\subsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{\mbox{\hyperlink{classVector2}{Vector2}} \&}]{vector2 }\end{DoxyParamCaption})}
+
+
+
+Print overload for \mbox{\hyperlink{classVector2}{Vector2}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & Output stream \\
+\hline
+{\em vector2} & \mbox{\hyperlink{classVector2}{Vector2}} object to be printed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the updated stream 
+\end{DoxyReturn}
+
+
+Definition at line 27 of file vector2.\+cpp.
+

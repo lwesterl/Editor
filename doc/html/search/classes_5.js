@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['owngraphicsscene',['OwnGraphicsScene',['../classOwnGraphicsScene.html',1,'']]]
+  ['mainwidget',['MainWidget',['../classMainWidget.html',1,'']]],
+  ['modetoolbar',['ModeToolbar',['../structModeToolbar.html',1,'']]]
 ];

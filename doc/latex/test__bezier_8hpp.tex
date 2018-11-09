@@ -1,0 +1,87 @@
+\hypertarget{test__bezier_8hpp}{}\section{test\+\_\+src/test\+\_\+bezier.hpp File Reference}
+\label{test__bezier_8hpp}\index{test\+\_\+src/test\+\_\+bezier.\+hpp@{test\+\_\+src/test\+\_\+bezier.\+hpp}}
+
+
+Test header for \mbox{\hyperlink{classBezier}{Bezier}} class.  
+
+
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$list$>$}\newline
+{\ttfamily \#include \char`\"{}../include/vector2.\+hpp\char`\"{}}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classBezier}{Bezier}}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{test__bezier_8hpp_a43f16b1192d361674c601d1e98fc21ba}\label{test__bezier_8hpp_a43f16b1192d361674c601d1e98fc21ba}} 
+\#define \mbox{\hyperlink{test__bezier_8hpp_a43f16b1192d361674c601d1e98fc21ba}{B\+E\+C\+I\+E\+R\+\_\+\+I\+N\+T\+E\+R\+V\+AL}}~0.\+05
+\begin{DoxyCompactList}\small\item\em Macro which tells how often bezier points are calculated. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classVector2}{Vector2}} \mbox{\hyperlink{test__bezier_8hpp_a6d37478e463a941f6fbf92cfe1090e74}{create\+Bezier}} (\mbox{\hyperlink{classVector2}{Vector2}} p0, \mbox{\hyperlink{classVector2}{Vector2}} p1, \mbox{\hyperlink{classVector2}{Vector2}} p2, \mbox{\hyperlink{classVector2}{Vector2}} p3, double t)
+\begin{DoxyCompactList}\small\item\em Creates a bezier curve. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classVector2}{Vector2}} \mbox{\hyperlink{test__bezier_8hpp_abead8367885694f7212fa116668885c1}{Lerp}} (\mbox{\hyperlink{classVector2}{Vector2}} a, \mbox{\hyperlink{classVector2}{Vector2}} b, double t)
+\begin{DoxyCompactList}\small\item\em Lerp function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Test header for \mbox{\hyperlink{classBezier}{Bezier}} class. 
+
+\begin{DoxyAuthor}{Author}
+Lauri Westerholm 
+\end{DoxyAuthor}
+\begin{DoxyRemark}{Remarks}
+This is not intended to be directly used with Editor 
+\end{DoxyRemark}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{test__bezier_8hpp_a6d37478e463a941f6fbf92cfe1090e74}\label{test__bezier_8hpp_a6d37478e463a941f6fbf92cfe1090e74}} 
+\index{test\+\_\+bezier.\+hpp@{test\+\_\+bezier.\+hpp}!create\+Bezier@{create\+Bezier}}
+\index{create\+Bezier@{create\+Bezier}!test\+\_\+bezier.\+hpp@{test\+\_\+bezier.\+hpp}}
+\subsubsection{\texorpdfstring{create\+Bezier()}{createBezier()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classVector2}{Vector2}} create\+Bezier (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classVector2}{Vector2}}}]{p0,  }\item[{\mbox{\hyperlink{classVector2}{Vector2}}}]{p1,  }\item[{\mbox{\hyperlink{classVector2}{Vector2}}}]{p2,  }\item[{\mbox{\hyperlink{classVector2}{Vector2}}}]{p3,  }\item[{double}]{t }\end{DoxyParamCaption})}
+
+
+
+Creates a bezier curve. 
+
+This function only calculates a part of the bezier curve and returns a \mbox{\hyperlink{classVector2}{Vector2}} mathing the part of the curve 
+\begin{DoxyParams}{Parameters}
+{\em p0} & \mbox{\hyperlink{classVector2}{Vector2}} 1 \\
+\hline
+{\em p1} & \mbox{\hyperlink{classVector2}{Vector2}} 2 \\
+\hline
+{\em p2} & \mbox{\hyperlink{classVector2}{Vector2}} 3 \\
+\hline
+{\em p3} & \mbox{\hyperlink{classVector2}{Vector2}} 4 \\
+\hline
+{\em t} & \mbox{[}0 1\mbox{]} bezier parameter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns \mbox{\hyperlink{classVector2}{Vector2}} matching a part of the curve 
+\end{DoxyReturn}
+
+
+Definition at line 22 of file test\+\_\+bezier.\+cpp.
+
+\mbox{\Hypertarget{test__bezier_8hpp_abead8367885694f7212fa116668885c1}\label{test__bezier_8hpp_abead8367885694f7212fa116668885c1}} 
+\index{test\+\_\+bezier.\+hpp@{test\+\_\+bezier.\+hpp}!Lerp@{Lerp}}
+\index{Lerp@{Lerp}!test\+\_\+bezier.\+hpp@{test\+\_\+bezier.\+hpp}}
+\subsubsection{\texorpdfstring{Lerp()}{Lerp()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classVector2}{Vector2}} Lerp (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classVector2}{Vector2}}}]{a,  }\item[{\mbox{\hyperlink{classVector2}{Vector2}}}]{b,  }\item[{double}]{t }\end{DoxyParamCaption})}
+
+
+
+Lerp function. 
+
+Calculates linear vector interpolation 
+
+Definition at line 15 of file test\+\_\+bezier.\+cpp.
+

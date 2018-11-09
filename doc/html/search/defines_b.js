@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['view_5fmode_5fvalue',['view_mode_value',['../owngraphicsscene_8hpp.html#a1d74836a304c4b235a3f1e47bde49cb4',1,'owngraphicsscene.hpp']]]
+  ['save_5fimg',['save_img',['../gui_8hpp.html#ae14474955e229d006688f31321aeef30',1,'gui.hpp']]]
 ];

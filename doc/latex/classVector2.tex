@@ -1,0 +1,213 @@
+\hypertarget{classVector2}{}\section{Vector2 Class Reference}
+\label{classVector2}\index{Vector2@{Vector2}}
+
+
+Class for a basic 2D vector.  
+
+
+
+
+{\ttfamily \#include $<$vector2.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classVector2_a061ab58a0e216c759d64e3746d712b12}{Vector2}} (float x, float y)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{classVector2}{Vector2}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classVector2_a22104d1809be26a419ef1f959e3761bf}\label{classVector2_a22104d1809be26a419ef1f959e3761bf}} 
+\mbox{\hyperlink{classVector2_a22104d1809be26a419ef1f959e3761bf}{Vector2}} ()
+\begin{DoxyCompactList}\small\item\em Empty constructor for Vector. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classVector2}{Vector2}} \& \mbox{\hyperlink{classVector2_a2b00999bdfe377965239a8f44d7c192c}{operator$\ast$}} (float mult)
+\begin{DoxyCompactList}\small\item\em Multiplication overload. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classVector2_a808d02062efcc0c016491c04845e3e34}{getX}} () const
+\begin{DoxyCompactList}\small\item\em Get x coordinate. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classVector2_a59bf838c0fc50305975e1679509fda83}{getY}} () const
+\begin{DoxyCompactList}\small\item\em Get y coordinate. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classVector2}{Vector2}} \mbox{\hyperlink{classVector2_a1ce2215611e761b7b1ca2f9f0dcdeb12}{operator+}} (const \mbox{\hyperlink{classVector2}{Vector2}} \&vec1, float mult)
+\begin{DoxyCompactList}\small\item\em Friend addition definition. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classVector2}{Vector2}} \mbox{\hyperlink{classVector2_abed1d1283eebca3cc8248543d219a937}{operator$\ast$}} (float mult, const \mbox{\hyperlink{classVector2}{Vector2}} \&vec1)
+\begin{DoxyCompactList}\small\item\em Friend multiplication definition. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classVector2}{Vector2}} \mbox{\hyperlink{classVector2_aec551a9b18e5851febf60c555fc382ab}{operator+}} (const \mbox{\hyperlink{classVector2}{Vector2}} \&vec1, const \mbox{\hyperlink{classVector2}{Vector2}} \&vec2)
+\begin{DoxyCompactList}\small\item\em Friend addition definition. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class for a basic 2D vector. 
+
+Used to create \mbox{\hyperlink{classBezier}{Bezier}} objects 
+
+Definition at line 24 of file vector2.\+hpp.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classVector2_a061ab58a0e216c759d64e3746d712b12}\label{classVector2_a061ab58a0e216c759d64e3746d712b12}} 
+\index{Vector2@{Vector2}!Vector2@{Vector2}}
+\index{Vector2@{Vector2}!Vector2@{Vector2}}
+\subsubsection{\texorpdfstring{Vector2()}{Vector2()}}
+{\footnotesize\ttfamily Vector2\+::\+Vector2 (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for \mbox{\hyperlink{classVector2}{Vector2}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & x coordinate \\
+\hline
+{\em y} & y coordinate \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 34 of file vector2.\+hpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classVector2_a808d02062efcc0c016491c04845e3e34}\label{classVector2_a808d02062efcc0c016491c04845e3e34}} 
+\index{Vector2@{Vector2}!getX@{getX}}
+\index{getX@{getX}!Vector2@{Vector2}}
+\subsubsection{\texorpdfstring{get\+X()}{getX()}}
+{\footnotesize\ttfamily float Vector2\+::getX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get x coordinate. 
+
+\begin{DoxyReturn}{Returns}
+Returns \mbox{\hyperlink{classVector2}{Vector2}} x 
+\end{DoxyReturn}
+
+
+Definition at line 79 of file vector2.\+hpp.
+
+\mbox{\Hypertarget{classVector2_a59bf838c0fc50305975e1679509fda83}\label{classVector2_a59bf838c0fc50305975e1679509fda83}} 
+\index{Vector2@{Vector2}!getY@{getY}}
+\index{getY@{getY}!Vector2@{Vector2}}
+\subsubsection{\texorpdfstring{get\+Y()}{getY()}}
+{\footnotesize\ttfamily float Vector2\+::getY (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get y coordinate. 
+
+\begin{DoxyReturn}{Returns}
+Returns \mbox{\hyperlink{classVector2}{Vector2}} y 
+\end{DoxyReturn}
+
+
+Definition at line 85 of file vector2.\+hpp.
+
+\mbox{\Hypertarget{classVector2_a2b00999bdfe377965239a8f44d7c192c}\label{classVector2_a2b00999bdfe377965239a8f44d7c192c}} 
+\index{Vector2@{Vector2}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Vector2@{Vector2}}
+\subsubsection{\texorpdfstring{operator$\ast$()}{operator*()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classVector2}{Vector2}} \& Vector2\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{float}]{mult }\end{DoxyParamCaption})}
+
+
+
+Multiplication overload. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mult} & Multiplier for vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns multiplied vector as reference 
+\end{DoxyReturn}
+
+
+Definition at line 12 of file vector2.\+cpp.
+
+
+
+\subsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{classVector2_abed1d1283eebca3cc8248543d219a937}\label{classVector2_abed1d1283eebca3cc8248543d219a937}} 
+\index{Vector2@{Vector2}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Vector2@{Vector2}}
+\subsubsection{\texorpdfstring{operator$\ast$}{operator*}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classVector2}{Vector2}} operator$\ast$ (\begin{DoxyParamCaption}\item[{float}]{mult,  }\item[{const \mbox{\hyperlink{classVector2}{Vector2}} \&}]{vec1 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Friend multiplication definition. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec1} & Base vector \\
+\hline
+{\em mult} & Multiplier \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns new \mbox{\hyperlink{classVector2}{Vector2}} which is multiplication of inputs 
+\end{DoxyReturn}
+
+
+Definition at line 50 of file vector2.\+cpp.
+
+\mbox{\Hypertarget{classVector2_a1ce2215611e761b7b1ca2f9f0dcdeb12}\label{classVector2_a1ce2215611e761b7b1ca2f9f0dcdeb12}} 
+\index{Vector2@{Vector2}!operator+@{operator+}}
+\index{operator+@{operator+}!Vector2@{Vector2}}
+\subsubsection{\texorpdfstring{operator+}{operator+}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classVector2}{Vector2}} operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classVector2}{Vector2}} \&}]{vec1,  }\item[{float}]{mult }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Friend addition definition. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec1} & Base vector \\
+\hline
+{\em mult} & Value to be added \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns new \mbox{\hyperlink{classVector2}{Vector2}} which is multiplication of inputs 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+Notice the parameters 
+\end{DoxyRemark}
+
+
+Definition at line 42 of file vector2.\+cpp.
+
+\mbox{\Hypertarget{classVector2_aec551a9b18e5851febf60c555fc382ab}\label{classVector2_aec551a9b18e5851febf60c555fc382ab}} 
+\index{Vector2@{Vector2}!operator+@{operator+}}
+\index{operator+@{operator+}!Vector2@{Vector2}}
+\subsubsection{\texorpdfstring{operator+}{operator+}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classVector2}{Vector2}} operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classVector2}{Vector2}} \&}]{vec1,  }\item[{const \mbox{\hyperlink{classVector2}{Vector2}} \&}]{vec2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Friend addition definition. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec1} & Base vector 1 \\
+\hline
+{\em vec2} & Base vector 2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+Notice the parameters 
+\end{DoxyRemark}
+\begin{DoxyReturn}{Returns}
+Returns a new \mbox{\hyperlink{classVector2}{Vector2}} which is addition of the two vectors 
+\end{DoxyReturn}
+
+
+Definition at line 34 of file vector2.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{vector2_8hpp}{vector2.\+hpp}}\item 
+src/\mbox{\hyperlink{vector2_8cpp}{vector2.\+cpp}}\end{DoxyCompactItemize}

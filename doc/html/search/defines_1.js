@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['delete_5fimg_5fmode_5fvalue',['delete_img_mode_value',['../owngraphicsscene_8hpp.html#a3fb78f6acb59bd9f7fa6487564b91915',1,'owngraphicsscene.hpp']]],
-  ['delete_5fline_5fimg',['delete_line_img',['../gui_8hpp.html#abac07b84eaf5bfe1b574356adf52ce42',1,'gui.hpp']]],
-  ['delete_5fmode_5fvalue',['delete_mode_value',['../owngraphicsscene_8hpp.html#adc62c58e36cc464526f22115bb6748fb',1,'owngraphicsscene.hpp']]],
-  ['draw_5fline_5fimg',['draw_line_img',['../gui_8hpp.html#a7f04d211e7913a5261475b88fd66b777',1,'gui.hpp']]]
+  ['cancel_5fimg',['cancel_img',['../gui_8hpp.html#a9f228b0281863ba576bea09d2fb86f98',1,'gui.hpp']]],
+  ['clear_5fall_5fimg',['clear_all_img',['../gui_8hpp.html#a63e6f9ee3d2bc3cb839909281ac5d807',1,'gui.hpp']]],
+  ['clear_5fpoints_5fimg',['clear_points_img',['../gui_8hpp.html#a3e0477dc697ad2153357f9c02f19431b',1,'gui.hpp']]],
+  ['continue_5fimg',['continue_img',['../gui_8hpp.html#ac646c2d9dc5338391faa385199532ead',1,'gui.hpp']]],
+  ['cut_5fimage_5fmode_5fvalue',['cut_image_mode_value',['../owngraphicsscene_8hpp.html#af85c91211d7caad89d3baae5e9f36fa9',1,'owngraphicsscene.hpp']]]
 ];

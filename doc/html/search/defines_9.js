@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['remove_5fpoint_5fimg',['remove_point_img',['../gui_8hpp.html#a19fb1ba48d0a34f41020472dd625cf95',1,'gui.hpp']]]
+  ['path_5fimg_5fcut',['path_img_cut',['../owngraphicsscene_8hpp.html#a25e0e36ca050353140c0266111789633',1,'owngraphicsscene.hpp']]],
+  ['polygon_5fimg_5fcut',['polygon_img_cut',['../owngraphicsscene_8hpp.html#a50ed0d21defcf82a075974b744283c79',1,'owngraphicsscene.hpp']]]
 ];

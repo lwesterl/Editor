@@ -1,18 +1,11 @@
 var searchData=
 [
-  ['path_5fimg_5fcut',['path_img_cut',['../owngraphicsscene_8hpp.html#a25e0e36ca050353140c0266111789633',1,'owngraphicsscene.hpp']]],
-  ['pixmap_5fitem',['pixmap_item',['../structImage__Active.html#aa007ea3c9ba4830bbc2706af51820c20',1,'Image_Active::pixmap_item()'],['../structImage__Cut.html#afdafc46c968b35b63758d409ef863a8f',1,'Image_Cut::pixmap_item()']]],
-  ['pixmap_5fitem_2ecpp',['pixmap_item.cpp',['../pixmap__item_8cpp.html',1,'']]],
-  ['pixmap_5fitem_2ehpp',['pixmap_item.hpp',['../pixmap__item_8hpp.html',1,'']]],
-  ['pixmapitem',['PixmapItem',['../classPixmapItem.html',1,'PixmapItem'],['../classPixmapItem.html#a7e339e581be3c4892d2af89494bd137c',1,'PixmapItem::PixmapItem()']]],
-  ['point',['point',['../structImage__Cut.html#a45fc996285a5ae8ef255d66655d63df2',1,'Image_Cut']]],
-  ['polygon_5fimg_5fcut',['polygon_img_cut',['../owngraphicsscene_8hpp.html#a50ed0d21defcf82a075974b744283c79',1,'owngraphicsscene.hpp']]],
-  ['polygon_5ftoolbar',['polygon_toolbar',['../structPolygonToolbar.html#a5388c77217c5bea7075cf234c508b8d6',1,'PolygonToolbar']]],
-  ['polygontoolbar',['PolygonToolbar',['../structPolygonToolbar.html',1,'']]],
-  ['positioned',['positioned',['../structLine__Mode.html#aefbb8555f406d47d742491003a6afde1',1,'Line_Mode']]],
-  ['prev_5fx',['prev_x',['../structImage__Cut.html#a9e6768e7bea9a60876d086d78da3c4df',1,'Image_Cut::prev_x()'],['../structLine__Mode.html#a8bbcbaff29a7810e066e99174e562371',1,'Line_Mode::prev_x()']]],
-  ['prev_5fy',['prev_y',['../structImage__Cut.html#ad86dabb21b97270448d8db5aa7a5676f',1,'Image_Cut::prev_y()'],['../structLine__Mode.html#a8d5fb940f686955ead3f368a8d3b9016',1,'Line_Mode::prev_y()']]],
-  ['promtwindow',['PromtWindow',['../classPromtWindow.html',1,'PromtWindow'],['../classPromtWindow.html#a6536787a099e6d7348db00b4382244a8',1,'PromtWindow::PromtWindow()']]],
-  ['promtwindow_2ecpp',['promtwindow.cpp',['../promtwindow_8cpp.html',1,'']]],
-  ['promtwindow_2ehpp',['promtwindow.hpp',['../promtwindow_8hpp.html',1,'']]]
+  ['open_5fimg',['open_img',['../gui_8hpp.html#a90a466ca632ac85ebbd176bba62a8fed',1,'gui.hpp']]],
+  ['openimage',['openImage',['../classGUI.html#a925c89bd7b32ccc8d726063ed8076f8f',1,'GUI']]],
+  ['operator_2a',['operator*',['../classVector2.html#a2b00999bdfe377965239a8f44d7c192c',1,'Vector2::operator*(float mult)'],['../classVector2.html#abed1d1283eebca3cc8248543d219a937',1,'Vector2::operator*()'],['../vector2_8cpp.html#abed1d1283eebca3cc8248543d219a937',1,'operator*():&#160;vector2.cpp']]],
+  ['operator_2b',['operator+',['../classVector2.html#a1ce2215611e761b7b1ca2f9f0dcdeb12',1,'Vector2::operator+()'],['../classVector2.html#aec551a9b18e5851febf60c555fc382ab',1,'Vector2::operator+()'],['../vector2_8cpp.html#aec551a9b18e5851febf60c555fc382ab',1,'operator+(const Vector2 &amp;vec1, const Vector2 &amp;vec2):&#160;vector2.cpp'],['../vector2_8cpp.html#a1ce2215611e761b7b1ca2f9f0dcdeb12',1,'operator+(const Vector2 &amp;vec1, float mult):&#160;vector2.cpp']]],
+  ['operator_3c_3c',['operator&lt;&lt;',['../vector2_8cpp.html#a3950745faeec98895d1446094d9c27dd',1,'operator&lt;&lt;(std::ostream &amp;os, Vector2 &amp;vector2):&#160;vector2.cpp'],['../vector2_8hpp.html#a3950745faeec98895d1446094d9c27dd',1,'operator&lt;&lt;(std::ostream &amp;os, Vector2 &amp;vector2):&#160;vector2.cpp']]],
+  ['owngraphicsscene',['OwnGraphicsScene',['../classOwnGraphicsScene.html',1,'OwnGraphicsScene'],['../classOwnGraphicsScene.html#a242b82147a469314e4c7fb5af69c265f',1,'OwnGraphicsScene::OwnGraphicsScene()']]],
+  ['owngraphicsscene_2ecpp',['owngraphicsscene.cpp',['../owngraphicsscene_8cpp.html',1,'']]],
+  ['owngraphicsscene_2ehpp',['owngraphicsscene.hpp',['../owngraphicsscene_8hpp.html',1,'']]]
 ];

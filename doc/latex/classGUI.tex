@@ -65,7 +65,10 @@ void \mbox{\hyperlink{classGUI_a0cddf3859f457495040857f4868f32e3}{Continue\+From
 void \mbox{\hyperlink{classGUI_a3e6d9c2c9482bf8cb9655899b36e8bc1}{Cancel\+From\+Select}} ()
 \begin{DoxyCompactList}\small\item\em Return to the main view. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classGUI_a00fb847ea0a8249acaaf70c0f3ba3fd4}{Save\+Choices}} ()
-\begin{DoxyCompactList}\small\item\em Save options. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Save options. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGUI_ac0cb178a0a36573f7d99a104dd84f5ed}\label{classGUI_ac0cb178a0a36573f7d99a104dd84f5ed}} 
+void \mbox{\hyperlink{classGUI_ac0cb178a0a36573f7d99a104dd84f5ed}{Bezier\+Mode}} ()
+\begin{DoxyCompactList}\small\item\em Activates/deactivates bezier\+\_\+mode. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -126,7 +129,7 @@ Cancel to the main view, toolbar.
 
 Called after user has canceled from image cutting mode 
 
-Definition at line 531 of file gui.\+cpp.
+Definition at line 545 of file gui.\+cpp.
 
 \mbox{\Hypertarget{classGUI_a9f2b3abf533a7c720b817caed653da2e}\label{classGUI_a9f2b3abf533a7c720b817caed653da2e}} 
 \index{G\+UI@{G\+UI}!Cancel\+From\+Poly@{Cancel\+From\+Poly}}
@@ -140,7 +143,7 @@ Return to the main view.
 
 Called after user has canceled from polygon image cut 
 
-Definition at line 576 of file gui.\+cpp.
+Definition at line 590 of file gui.\+cpp.
 
 \mbox{\Hypertarget{classGUI_a3e6d9c2c9482bf8cb9655899b36e8bc1}\label{classGUI_a3e6d9c2c9482bf8cb9655899b36e8bc1}} 
 \index{G\+UI@{G\+UI}!Cancel\+From\+Select@{Cancel\+From\+Select}}
@@ -154,7 +157,7 @@ Return to the main view.
 
 Called after user has canceled from image select 
 
-Definition at line 492 of file gui.\+cpp.
+Definition at line 506 of file gui.\+cpp.
 
 \mbox{\Hypertarget{classGUI_a19c82a62a2b41460c81317fa967e3a1e}\label{classGUI_a19c82a62a2b41460c81317fa967e3a1e}} 
 \index{G\+UI@{G\+UI}!Clear\+All@{Clear\+All}}
@@ -168,7 +171,7 @@ Clear all objects.
 
 User triggered Q\+Action sends a signal and clears all 
 
-Definition at line 148 of file gui.\+cpp.
+Definition at line 150 of file gui.\+cpp.
 
 \mbox{\Hypertarget{classGUI_afb6e169c9372800e69c70a3889420325}\label{classGUI_afb6e169c9372800e69c70a3889420325}} 
 \index{G\+UI@{G\+UI}!Clear\+Mode@{Clear\+Mode}}
@@ -182,7 +185,7 @@ Clear previous points.
 
 Triggers clear mode in the scene 
 
-Definition at line 142 of file gui.\+cpp.
+Definition at line 144 of file gui.\+cpp.
 
 \mbox{\Hypertarget{classGUI_a3547730e0fae81b59fcb19d00a370782}\label{classGUI_a3547730e0fae81b59fcb19d00a370782}} 
 \index{G\+UI@{G\+UI}!Continue\+From\+Mode@{Continue\+From\+Mode}}
@@ -196,7 +199,7 @@ Continue to image cutting.
 
 Called after user has selected image cutting mode 
 
-Definition at line 544 of file gui.\+cpp.
+Definition at line 558 of file gui.\+cpp.
 
 \mbox{\Hypertarget{classGUI_a0cddf3859f457495040857f4868f32e3}\label{classGUI_a0cddf3859f457495040857f4868f32e3}} 
 \index{G\+UI@{G\+UI}!Continue\+From\+Select@{Continue\+From\+Select}}
@@ -210,7 +213,7 @@ Continue to image mode select.
 
 Called after user has selected which image to cut 
 
-Definition at line 508 of file gui.\+cpp.
+Definition at line 522 of file gui.\+cpp.
 
 \mbox{\Hypertarget{classGUI_a26cdc4a989f3637301f0afb9cc5e23b0}\label{classGUI_a26cdc4a989f3637301f0afb9cc5e23b0}} 
 \index{G\+UI@{G\+UI}!create\+Toolbars@{create\+Toolbars}}
@@ -224,7 +227,7 @@ Create different toolbars.
 
 Called from \mbox{\hyperlink{classGUI}{G\+UI}} constructor to create all toolbars 
 
-Definition at line 350 of file gui.\+cpp.
+Definition at line 355 of file gui.\+cpp.
 
 \mbox{\Hypertarget{classGUI_ae8acfcce2ea4da241c920076b72f1c93}\label{classGUI_ae8acfcce2ea4da241c920076b72f1c93}} 
 \index{G\+UI@{G\+UI}!Cut\+Image\+Mode@{Cut\+Image\+Mode}}
@@ -238,7 +241,7 @@ Mode for cutting images.
 
 Images can be cut to multiple shapes. Starts a toolbar which promts user to choose which image is being cut. Then user chooses cut style and finally cuts the image 
 
-Definition at line 260 of file gui.\+cpp.
+Definition at line 264 of file gui.\+cpp.
 
 \mbox{\Hypertarget{classGUI_a453b758a292b4a0e6f52f25b1bb2de77}\label{classGUI_a453b758a292b4a0e6f52f25b1bb2de77}} 
 \index{G\+UI@{G\+UI}!Delete\+Img\+Mode@{Delete\+Img\+Mode}}
@@ -252,7 +255,7 @@ Delete images from the scene.
 
 User holds cursor over an image and clicks to delete the image 
 
-Definition at line 242 of file gui.\+cpp.
+Definition at line 245 of file gui.\+cpp.
 
 \mbox{\Hypertarget{classGUI_aac66154aaa763aac4d20e55cbd1bdc0d}\label{classGUI_aac66154aaa763aac4d20e55cbd1bdc0d}} 
 \index{G\+UI@{G\+UI}!Delete\+Mode@{Delete\+Mode}}
@@ -266,7 +269,7 @@ Delete lines mode.
 
 Q\+Action sends a signal and activates or deactivates delete mode 
 
-Definition at line 123 of file gui.\+cpp.
+Definition at line 124 of file gui.\+cpp.
 
 \mbox{\Hypertarget{classGUI_aa115b0163bfbf518dd201f4f02476b75}\label{classGUI_aa115b0163bfbf518dd201f4f02476b75}} 
 \index{G\+UI@{G\+UI}!Hide\+Main\+Toolbar@{Hide\+Main\+Toolbar}}
@@ -285,7 +288,7 @@ Hide Main\+Toolbar.
 \end{DoxyParams}
 
 
-Definition at line 319 of file gui.\+cpp.
+Definition at line 324 of file gui.\+cpp.
 
 \mbox{\Hypertarget{classGUI_a9517c0ad1e4c2b39faab8050f8133151}\label{classGUI_a9517c0ad1e4c2b39faab8050f8133151}} 
 \index{G\+UI@{G\+UI}!Hide\+Mode\+Toolbar@{Hide\+Mode\+Toolbar}}
@@ -304,7 +307,7 @@ Hide \mbox{\hyperlink{structModeToolbar}{Mode\+Toolbar}}.
 \end{DoxyParams}
 
 
-Definition at line 304 of file gui.\+cpp.
+Definition at line 309 of file gui.\+cpp.
 
 \mbox{\Hypertarget{classGUI_aaf633cd0904e4c3627c21219f330c177}\label{classGUI_aaf633cd0904e4c3627c21219f330c177}} 
 \index{G\+UI@{G\+UI}!Hide\+Polygon\+Toolbar@{Hide\+Polygon\+Toolbar}}
@@ -323,7 +326,7 @@ Hide \mbox{\hyperlink{structPolygonToolbar}{Polygon\+Toolbar}}.
 \end{DoxyParams}
 
 
-Definition at line 289 of file gui.\+cpp.
+Definition at line 294 of file gui.\+cpp.
 
 \mbox{\Hypertarget{classGUI_a7f6d3b1fcbd874fccd93c5f29c468ed8}\label{classGUI_a7f6d3b1fcbd874fccd93c5f29c468ed8}} 
 \index{G\+UI@{G\+UI}!Hide\+Select\+Toolbar@{Hide\+Select\+Toolbar}}
@@ -342,7 +345,7 @@ Hide \mbox{\hyperlink{structSelectImgToolbar}{Select\+Img\+Toolbar}}.
 \end{DoxyParams}
 
 
-Definition at line 333 of file gui.\+cpp.
+Definition at line 338 of file gui.\+cpp.
 
 \mbox{\Hypertarget{classGUI_a5281fa4256d3ff14df9a95c1c6613bb2}\label{classGUI_a5281fa4256d3ff14df9a95c1c6613bb2}} 
 \index{G\+UI@{G\+UI}!Img\+Mode@{Img\+Mode}}
@@ -356,7 +359,7 @@ Mode for adding images to the scene.
 
 User can drag image and then save it to the scene 
 
-Definition at line 215 of file gui.\+cpp.
+Definition at line 217 of file gui.\+cpp.
 
 \mbox{\Hypertarget{classGUI_a91fab5d31617ad5631d17dfceb5a0fad}\label{classGUI_a91fab5d31617ad5631d17dfceb5a0fad}} 
 \index{G\+UI@{G\+UI}!Line\+Mode@{Line\+Mode}}
@@ -384,7 +387,7 @@ Open an image.
 
 By activating image mode user can place the image to the scene 
 
-Definition at line 194 of file gui.\+cpp.
+Definition at line 196 of file gui.\+cpp.
 
 \mbox{\Hypertarget{classGUI_abf8e1050ae4d599bf35af7b1f841d960}\label{classGUI_abf8e1050ae4d599bf35af7b1f841d960}} 
 \index{G\+UI@{G\+UI}!Remove\+Poly\+Previous@{Remove\+Poly\+Previous}}
@@ -398,7 +401,7 @@ Remove previous cut line from an image.
 
 Triggered by user action 
 
-Definition at line 606 of file gui.\+cpp.
+Definition at line 620 of file gui.\+cpp.
 
 \mbox{\Hypertarget{classGUI_a00fb847ea0a8249acaaf70c0f3ba3fd4}\label{classGUI_a00fb847ea0a8249acaaf70c0f3ba3fd4}} 
 \index{G\+UI@{G\+UI}!Save\+Choices@{Save\+Choices}}
@@ -412,7 +415,7 @@ Save options.
 
 Called after user has modified options combobox and wants to save the options 
 
-Definition at line 615 of file gui.\+cpp.
+Definition at line 629 of file gui.\+cpp.
 
 \mbox{\Hypertarget{classGUI_a44684af7706c021022520e2c4829c3ee}\label{classGUI_a44684af7706c021022520e2c4829c3ee}} 
 \index{G\+UI@{G\+UI}!save\+Image@{save\+Image}}
@@ -426,7 +429,7 @@ Save scene content to an image.
 
 User can specify where the image is saved 
 
-Definition at line 155 of file gui.\+cpp.
+Definition at line 157 of file gui.\+cpp.
 
 \mbox{\Hypertarget{classGUI_a6bf2d3ef382340365b5693245a2bd955}\label{classGUI_a6bf2d3ef382340365b5693245a2bd955}} 
 \index{G\+UI@{G\+UI}!Set\+Poly\+Final@{Set\+Poly\+Final}}
@@ -440,7 +443,7 @@ Create polygon cut to an image.
 
 Triggered by user when user is ready to cut the image 
 
-Definition at line 592 of file gui.\+cpp.
+Definition at line 606 of file gui.\+cpp.
 
 
 

@@ -19,6 +19,8 @@ Header file for \mbox{\hyperlink{classOwnGraphicsScene}{Own\+Graphics\+Scene}} c
 {\ttfamily \#include $<$Q\+Graphics\+Pixmap\+Item$>$}\newline
 {\ttfamily \#include \char`\"{}line\+\_\+item.\+hpp\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}pixmap\+\_\+item.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}bezier.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}vector2.\+hpp\char`\"{}}\newline
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -28,6 +30,8 @@ struct \mbox{\hyperlink{structImage__Cut}{Image\+\_\+\+Cut}}
 \begin{DoxyCompactList}\small\item\em Struct for active image during image cut. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structLine__Mode}{Line\+\_\+\+Mode}}
 \begin{DoxyCompactList}\small\item\em Struct used during line\+\_\+mode. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structBezier__Mode}{Bezier\+\_\+\+Mode}}
+\begin{DoxyCompactList}\small\item\em Struct used during bezier\+\_\+mode. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classOwnGraphicsScene}{Own\+Graphics\+Scene}}
 \begin{DoxyCompactList}\small\item\em Own Q\+Graphics\+Scene implementation. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Macros}
@@ -59,7 +63,10 @@ class \mbox{\hyperlink{classOwnGraphicsScene}{Own\+Graphics\+Scene}}
 \begin{DoxyCompactList}\small\item\em Macro for delete image mode. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{owngraphicsscene_8hpp_af85c91211d7caad89d3baae5e9f36fa9}\label{owngraphicsscene_8hpp_af85c91211d7caad89d3baae5e9f36fa9}} 
 \#define \mbox{\hyperlink{owngraphicsscene_8hpp_af85c91211d7caad89d3baae5e9f36fa9}{cut\+\_\+image\+\_\+mode\+\_\+value}}~5
-\begin{DoxyCompactList}\small\item\em Macro for image cutting mode. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Macro for image cutting mode. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{owngraphicsscene_8hpp_a5959059a6c672fa3c38efdbd568672c8}\label{owngraphicsscene_8hpp_a5959059a6c672fa3c38efdbd568672c8}} 
+\#define \mbox{\hyperlink{owngraphicsscene_8hpp_a5959059a6c672fa3c38efdbd568672c8}{bezier\+\_\+mode\+\_\+value}}~6
+\begin{DoxyCompactList}\small\item\em Macro for bezier mode. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}

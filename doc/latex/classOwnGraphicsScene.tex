@@ -67,7 +67,16 @@ void \mbox{\hyperlink{classOwnGraphicsScene_a4976a8e6f682612acd3e23b6c98bd8d8}{R
 void \mbox{\hyperlink{classOwnGraphicsScene_ad62254e1884fa4817ff1beaa3bc6c011}{set\+Connect\+Lines}} (int value)
 \begin{DoxyCompactList}\small\item\em Update connect\+\_\+lines value. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classOwnGraphicsScene_a158c6430ca8e07642b693e37ec05119e}{Clear\+Visual\+Items}} ()
-\begin{DoxyCompactList}\small\item\em Removes all temporary visual\+\_\+items. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Removes all temporary visual\+\_\+items. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classOwnGraphicsScene_a8d2bbcfd1b3d28ca45802e53b046fe49}\label{classOwnGraphicsScene_a8d2bbcfd1b3d28ca45802e53b046fe49}} 
+void \mbox{\hyperlink{classOwnGraphicsScene_a8d2bbcfd1b3d28ca45802e53b046fe49}{Bezier\+Mode}} (bool active)
+\begin{DoxyCompactList}\small\item\em Activates/deactivates bezier mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classOwnGraphicsScene_a17a6ce2b609b924aa05bbb64ff123669}{Create\+Bezier}} (unsigned x, unsigned y, bool point\+\_\+added)
+\begin{DoxyCompactList}\small\item\em Constructs a Bezer object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classOwnGraphicsScene_ac0c5440d16675d6bf8c27767d2721622}{Add\+Bezier}} (\mbox{\hyperlink{classBezier}{Bezier}} $\ast$bezier)
+\begin{DoxyCompactList}\small\item\em Add \mbox{\hyperlink{classBezier}{Bezier}} to the scene. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classOwnGraphicsScene_a24d8270608b0bd56c6155d99d7722ab8}{Remove\+Bezier}} (\mbox{\hyperlink{classBezier}{Bezier}} $\ast$bezier)
+\begin{DoxyCompactList}\small\item\em Remove \mbox{\hyperlink{classBezier}{Bezier}} from the scene. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -75,7 +84,7 @@ Own Q\+Graphics\+Scene implementation.
 
 This is an implementation for own Q\+Graphics\+Scene which overloads mouse\+Press\+Event to update the scene 
 
-Definition at line 129 of file owngraphicsscene.\+hpp.
+Definition at line 151 of file owngraphicsscene.\+hpp.
 
 
 
@@ -97,11 +106,30 @@ Constructor for \mbox{\hyperlink{classOwnGraphicsScene}{Own\+Graphics\+Scene}}.
 \end{DoxyParams}
 Sets standard size for the view rect 
 
-Definition at line 137 of file owngraphicsscene.\+hpp.
+Definition at line 159 of file owngraphicsscene.\+hpp.
 
 
 
 \subsection{Member Function Documentation}
+\mbox{\Hypertarget{classOwnGraphicsScene_ac0c5440d16675d6bf8c27767d2721622}\label{classOwnGraphicsScene_ac0c5440d16675d6bf8c27767d2721622}} 
+\index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Add\+Bezier@{Add\+Bezier}}
+\index{Add\+Bezier@{Add\+Bezier}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
+\subsubsection{\texorpdfstring{Add\+Bezier()}{AddBezier()}}
+{\footnotesize\ttfamily void Own\+Graphics\+Scene\+::\+Add\+Bezier (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBezier}{Bezier}} $\ast$}]{bezier }\end{DoxyParamCaption})}
+
+
+
+Add \mbox{\hyperlink{classBezier}{Bezier}} to the scene. 
+
+To be more precise adds the Line\+Items matching the \mbox{\hyperlink{classBezier}{Bezier}} (line\+\_\+items) to the scene 
+\begin{DoxyParams}{Parameters}
+{\em bezier} & Pointer to \mbox{\hyperlink{classBezier}{Bezier}} which is added to the scene \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 660 of file owngraphicsscene.\+cpp.
+
 \mbox{\Hypertarget{classOwnGraphicsScene_a4251b836ee575083f4eeaa73254723f4}\label{classOwnGraphicsScene_a4251b836ee575083f4eeaa73254723f4}} 
 \index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!add\+Line@{add\+Line}}
 \index{add\+Line@{add\+Line}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
@@ -128,7 +156,7 @@ Returns pointer to the new item added to the scene
 \end{DoxyReturn}
 
 
-Definition at line 253 of file owngraphicsscene.\+cpp.
+Definition at line 259 of file owngraphicsscene.\+cpp.
 
 \mbox{\Hypertarget{classOwnGraphicsScene_a158c6430ca8e07642b693e37ec05119e}\label{classOwnGraphicsScene_a158c6430ca8e07642b693e37ec05119e}} 
 \index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Clear\+Visual\+Items@{Clear\+Visual\+Items}}
@@ -142,7 +170,30 @@ Removes all temporary visual\+\_\+items.
 
 Called after image cut is ready 
 
-Definition at line 576 of file owngraphicsscene.\+cpp.
+Definition at line 582 of file owngraphicsscene.\+cpp.
+
+\mbox{\Hypertarget{classOwnGraphicsScene_a17a6ce2b609b924aa05bbb64ff123669}\label{classOwnGraphicsScene_a17a6ce2b609b924aa05bbb64ff123669}} 
+\index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Create\+Bezier@{Create\+Bezier}}
+\index{Create\+Bezier@{Create\+Bezier}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
+\subsubsection{\texorpdfstring{Create\+Bezier()}{CreateBezier()}}
+{\footnotesize\ttfamily void Own\+Graphics\+Scene\+::\+Create\+Bezier (\begin{DoxyParamCaption}\item[{unsigned}]{x,  }\item[{unsigned}]{y,  }\item[{bool}]{point\+\_\+added }\end{DoxyParamCaption})}
+
+
+
+Constructs a Bezer object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Mouse x coordinate \\
+\hline
+{\em y} & Mouse y coordinate \\
+\hline
+{\em point\+\_\+added} & Whether user added a new point or just moved previous one \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 612 of file owngraphicsscene.\+cpp.
 
 \mbox{\Hypertarget{classOwnGraphicsScene_a3ce5a34cebcc134ecb20323c48e5812b}\label{classOwnGraphicsScene_a3ce5a34cebcc134ecb20323c48e5812b}} 
 \index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Cut\+Image\+Mode@{Cut\+Image\+Mode}}
@@ -161,7 +212,7 @@ Activate or deactivate cut\+\_\+image\+\_\+mode.
 \end{DoxyParams}
 
 
-Definition at line 445 of file owngraphicsscene.\+cpp.
+Definition at line 451 of file owngraphicsscene.\+cpp.
 
 \mbox{\Hypertarget{classOwnGraphicsScene_a7e3d97c27cca1df796b75cc4a99e24cd}\label{classOwnGraphicsScene_a7e3d97c27cca1df796b75cc4a99e24cd}} 
 \index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Cut\+Pixmap\+Item@{Cut\+Pixmap\+Item}}
@@ -175,7 +226,7 @@ Wrapper for \mbox{\hyperlink{classPixmapItem_a4a742318dce01d018da2f4b01790c210}{
 
 Cuts the image by adding painter points. Removes temporary Line\+Items which were used to display the cut path 
 
-Definition at line 512 of file owngraphicsscene.\+cpp.
+Definition at line 518 of file owngraphicsscene.\+cpp.
 
 \mbox{\Hypertarget{classOwnGraphicsScene_abda962c04f88920377d3bb23b30b9267}\label{classOwnGraphicsScene_abda962c04f88920377d3bb23b30b9267}} 
 \index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Delete\+Img@{Delete\+Img}}
@@ -196,7 +247,7 @@ Delete image from the scene.
 \end{DoxyParams}
 
 
-Definition at line 427 of file owngraphicsscene.\+cpp.
+Definition at line 433 of file owngraphicsscene.\+cpp.
 
 \mbox{\Hypertarget{classOwnGraphicsScene_aefe52a5b20dbb38dcc9d9510ecfabe52}\label{classOwnGraphicsScene_aefe52a5b20dbb38dcc9d9510ecfabe52}} 
 \index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Delete\+Img\+Mode@{Delete\+Img\+Mode}}
@@ -215,7 +266,7 @@ Activate or deactivate delete\+\_\+img\+\_\+mode.
 \end{DoxyParams}
 
 
-Definition at line 405 of file owngraphicsscene.\+cpp.
+Definition at line 411 of file owngraphicsscene.\+cpp.
 
 \mbox{\Hypertarget{classOwnGraphicsScene_aca454942ecf6c472d020e063862464d4}\label{classOwnGraphicsScene_aca454942ecf6c472d020e063862464d4}} 
 \index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Delete\+Mode@{Delete\+Mode}}
@@ -234,7 +285,7 @@ Activate or deactivate delete\+\_\+mode.
 \end{DoxyParams}
 
 
-Definition at line 304 of file owngraphicsscene.\+cpp.
+Definition at line 310 of file owngraphicsscene.\+cpp.
 
 \mbox{\Hypertarget{classOwnGraphicsScene_a6e54bd43db758bcd4f7cc1dd4544232e}\label{classOwnGraphicsScene_a6e54bd43db758bcd4f7cc1dd4544232e}} 
 \index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!get\+MouseX@{get\+MouseX}}
@@ -251,7 +302,7 @@ Returns mouse\+\_\+x value
 \end{DoxyReturn}
 
 
-Definition at line 172 of file owngraphicsscene.\+hpp.
+Definition at line 194 of file owngraphicsscene.\+hpp.
 
 \mbox{\Hypertarget{classOwnGraphicsScene_a3fd2942e9930fc2dda41844622dc8a35}\label{classOwnGraphicsScene_a3fd2942e9930fc2dda41844622dc8a35}} 
 \index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!get\+MouseY@{get\+MouseY}}
@@ -268,7 +319,7 @@ Returns mouse\+\_\+y value
 \end{DoxyReturn}
 
 
-Definition at line 178 of file owngraphicsscene.\+hpp.
+Definition at line 200 of file owngraphicsscene.\+hpp.
 
 \mbox{\Hypertarget{classOwnGraphicsScene_acc6e7978a3f10889e439ceabd155a341}\label{classOwnGraphicsScene_acc6e7978a3f10889e439ceabd155a341}} 
 \index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!img\+Mode@{img\+Mode}}
@@ -287,7 +338,7 @@ Activate or deactivate image\+\_\+mode.
 \end{DoxyParams}
 
 
-Definition at line 377 of file owngraphicsscene.\+cpp.
+Definition at line 383 of file owngraphicsscene.\+cpp.
 
 \mbox{\Hypertarget{classOwnGraphicsScene_a6b7e69131827f0ae64626af378ff9974}\label{classOwnGraphicsScene_a6b7e69131827f0ae64626af378ff9974}} 
 \index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Line\+Mode@{Line\+Mode}}
@@ -306,7 +357,7 @@ Activate or deactivate line\+\_\+mode.
 \end{DoxyParams}
 
 
-Definition at line 265 of file owngraphicsscene.\+cpp.
+Definition at line 271 of file owngraphicsscene.\+cpp.
 
 \mbox{\Hypertarget{classOwnGraphicsScene_ac7f6be2800f09463413459fed74bf34e}\label{classOwnGraphicsScene_ac7f6be2800f09463413459fed74bf34e}} 
 \index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!mouse\+Move\+Event@{mouse\+Move\+Event}}
@@ -320,7 +371,7 @@ Overload for mouse\+Move\+Event.
 
 Used to track user mouse when creating lines and cutting images 
 
-Definition at line 129 of file owngraphicsscene.\+cpp.
+Definition at line 135 of file owngraphicsscene.\+cpp.
 
 \mbox{\Hypertarget{classOwnGraphicsScene_a1a9916971af608d5331483606f72fbe4}\label{classOwnGraphicsScene_a1a9916971af608d5331483606f72fbe4}} 
 \index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!mouse\+Press\+Event@{mouse\+Press\+Event}}
@@ -355,7 +406,26 @@ Remove \mbox{\hyperlink{classLineItem}{Line\+Item}} from the scene.
 \end{DoxyParams}
 
 
-Definition at line 226 of file owngraphicsscene.\+cpp.
+Definition at line 232 of file owngraphicsscene.\+cpp.
+
+\mbox{\Hypertarget{classOwnGraphicsScene_a24d8270608b0bd56c6155d99d7722ab8}\label{classOwnGraphicsScene_a24d8270608b0bd56c6155d99d7722ab8}} 
+\index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Remove\+Bezier@{Remove\+Bezier}}
+\index{Remove\+Bezier@{Remove\+Bezier}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
+\subsubsection{\texorpdfstring{Remove\+Bezier()}{RemoveBezier()}}
+{\footnotesize\ttfamily void Own\+Graphics\+Scene\+::\+Remove\+Bezier (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBezier}{Bezier}} $\ast$}]{bezier }\end{DoxyParamCaption})}
+
+
+
+Remove \mbox{\hyperlink{classBezier}{Bezier}} from the scene. 
+
+Removes the Line\+Items matching the \mbox{\hyperlink{classBezier}{Bezier}} and then deletes the object itself 
+\begin{DoxyParams}{Parameters}
+{\em bezier} & Pointer to the \mbox{\hyperlink{classBezier}{Bezier}} to be removed \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 672 of file owngraphicsscene.\+cpp.
 
 \mbox{\Hypertarget{classOwnGraphicsScene_a4976a8e6f682612acd3e23b6c98bd8d8}\label{classOwnGraphicsScene_a4976a8e6f682612acd3e23b6c98bd8d8}} 
 \index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Remove\+Poly\+Previous@{Remove\+Poly\+Previous}}
@@ -369,7 +439,7 @@ Remove previous image cut point.
 
 Removes also the \mbox{\hyperlink{classLineItem}{Line\+Item}} matching the point 
 
-Definition at line 531 of file owngraphicsscene.\+cpp.
+Definition at line 537 of file owngraphicsscene.\+cpp.
 
 \mbox{\Hypertarget{classOwnGraphicsScene_ae79aa179ce90ab26f06d7d17eed96b93}\label{classOwnGraphicsScene_ae79aa179ce90ab26f06d7d17eed96b93}} 
 \index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Select\+Cut\+Img@{Select\+Cut\+Img}}
@@ -386,7 +456,7 @@ Returns true if image exists
 \end{DoxyReturn}
 
 
-Definition at line 475 of file owngraphicsscene.\+cpp.
+Definition at line 481 of file owngraphicsscene.\+cpp.
 
 \mbox{\Hypertarget{classOwnGraphicsScene_ad62254e1884fa4817ff1beaa3bc6c011}\label{classOwnGraphicsScene_ad62254e1884fa4817ff1beaa3bc6c011}} 
 \index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!set\+Connect\+Lines@{set\+Connect\+Lines}}
@@ -405,7 +475,7 @@ Update connect\+\_\+lines value.
 \end{DoxyParams}
 
 
-Definition at line 565 of file owngraphicsscene.\+cpp.
+Definition at line 571 of file owngraphicsscene.\+cpp.
 
 \mbox{\Hypertarget{classOwnGraphicsScene_a656919c9fdd0827ae182d3d3f5f91e4f}\label{classOwnGraphicsScene_a656919c9fdd0827ae182d3d3f5f91e4f}} 
 \index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Set\+Img\+Cut\+Mode@{Set\+Img\+Cut\+Mode}}
@@ -419,7 +489,7 @@ Select image cut mode.
 
 Image cut modes are defined as macros 
 
-Definition at line 499 of file owngraphicsscene.\+cpp.
+Definition at line 505 of file owngraphicsscene.\+cpp.
 
 
 

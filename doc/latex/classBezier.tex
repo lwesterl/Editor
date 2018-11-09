@@ -1,0 +1,139 @@
+\hypertarget{classBezier}{}\section{Bezier Class Reference}
+\label{classBezier}\index{Bezier@{Bezier}}
+
+
+{\ttfamily \#include $<$bezier.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classBezier_aeee0e41ed64d1a61d7ac103d2300093b}{Bezier}} (\mbox{\hyperlink{classVector2}{Vector2}} p0, \mbox{\hyperlink{classVector2}{Vector2}} p1, \mbox{\hyperlink{classVector2}{Vector2}} p2, \mbox{\hyperlink{classVector2}{Vector2}} p3)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{classBezier}{Bezier}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classBezier_a32f81ea72bd31a4607b4168839ea8815}{$\sim$\+Bezier}} ()
+\begin{DoxyCompactList}\small\item\em Deconstructor. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classVector2}{Vector2}} $>$ \& \mbox{\hyperlink{classBezier_a26bf332b0c831e0f302f1d72ec782436}{get\+Vectors}} ()
+\begin{DoxyCompactList}\small\item\em Get vector matching bezier. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classBezier_ad4417fabe40db932edc57406d1ab302a}\label{classBezier_ad4417fabe40db932edc57406d1ab302a}} 
+std\+::vector$<$ \mbox{\hyperlink{classLineItem}{Line\+Item}} $\ast$ $>$ \mbox{\hyperlink{classBezier_ad4417fabe40db932edc57406d1ab302a}{get\+Line\+Items}} ()
+\begin{DoxyCompactList}\small\item\em Get \mbox{\hyperlink{classLineItem}{Line\+Item}} vector matching the object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classBezier_aeee0e41ed64d1a61d7ac103d2300093b}{Bezier}} (\mbox{\hyperlink{classVector2}{Vector2}} p0, \mbox{\hyperlink{classVector2}{Vector2}} p1, \mbox{\hyperlink{classVector2}{Vector2}} p2, \mbox{\hyperlink{classVector2}{Vector2}} p3)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{classBezier}{Bezier}}. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classVector2}{Vector2}} $>$ \& \mbox{\hyperlink{classBezier_a26bf332b0c831e0f302f1d72ec782436}{get\+Vectors}} ()
+\begin{DoxyCompactList}\small\item\em Get vector matching bezier. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+@brief Creates bezier curves
+
+Used in Editor to draw bezier curves 
+
+Definition at line 35 of file bezier.\+hpp.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classBezier_aeee0e41ed64d1a61d7ac103d2300093b}\label{classBezier_aeee0e41ed64d1a61d7ac103d2300093b}} 
+\index{Bezier@{Bezier}!Bezier@{Bezier}}
+\index{Bezier@{Bezier}!Bezier@{Bezier}}
+\subsubsection{\texorpdfstring{Bezier()}{Bezier()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Bezier\+::\+Bezier (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classVector2}{Vector2}}}]{p0,  }\item[{\mbox{\hyperlink{classVector2}{Vector2}}}]{p1,  }\item[{\mbox{\hyperlink{classVector2}{Vector2}}}]{p2,  }\item[{\mbox{\hyperlink{classVector2}{Vector2}}}]{p3 }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{classBezier}{Bezier}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p0} & \mbox{\hyperlink{classVector2}{Vector2}} first point \\
+\hline
+{\em p1} & \mbox{\hyperlink{classVector2}{Vector2}} second point \\
+\hline
+{\em p2} & \mbox{\hyperlink{classVector2}{Vector2}} third point \\
+\hline
+{\em p3} & \mbox{\hyperlink{classVector2}{Vector2}} fourth point\\
+\hline
+\end{DoxyParams}
+Calculates parts of the curve using create\+Bezier and then adds those to the vector 
+
+Definition at line 38 of file bezier.\+cpp.
+
+\mbox{\Hypertarget{classBezier_a32f81ea72bd31a4607b4168839ea8815}\label{classBezier_a32f81ea72bd31a4607b4168839ea8815}} 
+\index{Bezier@{Bezier}!````~Bezier@{$\sim$\+Bezier}}
+\index{````~Bezier@{$\sim$\+Bezier}!Bezier@{Bezier}}
+\subsubsection{\texorpdfstring{$\sim$\+Bezier()}{~Bezier()}}
+{\footnotesize\ttfamily Bezier\+::$\sim$\+Bezier (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Deconstructor. 
+
+deletes line\+\_\+items 
+
+Definition at line 66 of file bezier.\+cpp.
+
+\mbox{\Hypertarget{classBezier_aeee0e41ed64d1a61d7ac103d2300093b}\label{classBezier_aeee0e41ed64d1a61d7ac103d2300093b}} 
+\index{Bezier@{Bezier}!Bezier@{Bezier}}
+\index{Bezier@{Bezier}!Bezier@{Bezier}}
+\subsubsection{\texorpdfstring{Bezier()}{Bezier()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Bezier\+::\+Bezier (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classVector2}{Vector2}}}]{p0,  }\item[{\mbox{\hyperlink{classVector2}{Vector2}}}]{p1,  }\item[{\mbox{\hyperlink{classVector2}{Vector2}}}]{p2,  }\item[{\mbox{\hyperlink{classVector2}{Vector2}}}]{p3 }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{classBezier}{Bezier}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p0} & \mbox{\hyperlink{classVector2}{Vector2}} first point \\
+\hline
+{\em p1} & \mbox{\hyperlink{classVector2}{Vector2}} second point \\
+\hline
+{\em p2} & \mbox{\hyperlink{classVector2}{Vector2}} third point \\
+\hline
+{\em p3} & \mbox{\hyperlink{classVector2}{Vector2}} fourth point\\
+\hline
+\end{DoxyParams}
+Calculates parts of the curve using create\+Bezier and then adds those to the vector 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classBezier_a26bf332b0c831e0f302f1d72ec782436}\label{classBezier_a26bf332b0c831e0f302f1d72ec782436}} 
+\index{Bezier@{Bezier}!get\+Vectors@{get\+Vectors}}
+\index{get\+Vectors@{get\+Vectors}!Bezier@{Bezier}}
+\subsubsection{\texorpdfstring{get\+Vectors()}{getVectors()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classVector2}{Vector2}}$>$\& Bezier\+::get\+Vectors (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get vector matching bezier. 
+
+\begin{DoxyReturn}{Returns}
+Returns reference to the vector object containing \mbox{\hyperlink{classVector2}{Vector2}} 2\+D-\/vectors 
+\end{DoxyReturn}
+
+
+Definition at line 53 of file test\+\_\+bezier.\+hpp.
+
+\mbox{\Hypertarget{classBezier_a26bf332b0c831e0f302f1d72ec782436}\label{classBezier_a26bf332b0c831e0f302f1d72ec782436}} 
+\index{Bezier@{Bezier}!get\+Vectors@{get\+Vectors}}
+\index{get\+Vectors@{get\+Vectors}!Bezier@{Bezier}}
+\subsubsection{\texorpdfstring{get\+Vectors()}{getVectors()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classVector2}{Vector2}}$>$\& Bezier\+::get\+Vectors (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get vector matching bezier. 
+
+\begin{DoxyReturn}{Returns}
+Returns reference to the vector object containing \mbox{\hyperlink{classVector2}{Vector2}} 2\+D-\/vectors 
+\end{DoxyReturn}
+
+
+Definition at line 60 of file bezier.\+hpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{bezier_8hpp}{bezier.\+hpp}}\item 
+test\+\_\+src/\mbox{\hyperlink{test__bezier_8hpp}{test\+\_\+bezier.\+hpp}}\item 
+src/\mbox{\hyperlink{bezier_8cpp}{bezier.\+cpp}}\item 
+test\+\_\+src/\mbox{\hyperlink{test__bezier_8cpp}{test\+\_\+bezier.\+cpp}}\end{DoxyCompactItemize}

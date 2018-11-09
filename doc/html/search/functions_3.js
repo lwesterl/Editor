@@ -1,13 +1,6 @@
 var searchData=
 [
-  ['getlayout',['getLayout',['../classMainWidget.html#a639b465bb49eb31e1c09051ae047951f',1,'MainWidget']]],
-  ['getmousex',['getMouseX',['../classOwnGraphicsScene.html#a6e54bd43db758bcd4f7cc1dd4544232e',1,'OwnGraphicsScene']]],
-  ['getmousey',['getMouseY',['../classOwnGraphicsScene.html#a3fd2942e9930fc2dda41844622dc8a35',1,'OwnGraphicsScene']]],
-  ['getscene',['getScene',['../classMainWidget.html#ad40a8bd13b501a0ebe88c87426a5b591',1,'MainWidget']]],
-  ['getview',['getView',['../classMainWidget.html#ae73e3dac6fb1e99dabe84aab683b3fbd',1,'MainWidget']]],
-  ['getx1',['getX1',['../classLineItem.html#a8862ea60a3804d346e9801f79c67af76',1,'LineItem']]],
-  ['getx2',['getX2',['../classLineItem.html#addce0ef5af72c233e2c7bf019c7a693d',1,'LineItem']]],
-  ['gety1',['getY1',['../classLineItem.html#abbdf5be2637561802ea22385c7c11df5',1,'LineItem']]],
-  ['gety2',['getY2',['../classLineItem.html#aa99afab282d1e7e25b5d1549a41984d2',1,'LineItem']]],
-  ['gui',['GUI',['../classGUI.html#acb0ba8c6fc121d814d30560e2c29f2fe',1,'GUI']]]
+  ['deleteimg',['DeleteImg',['../classOwnGraphicsScene.html#abda962c04f88920377d3bb23b30b9267',1,'OwnGraphicsScene']]],
+  ['deleteimgmode',['DeleteImgMode',['../classGUI.html#a453b758a292b4a0e6f52f25b1bb2de77',1,'GUI::DeleteImgMode()'],['../classOwnGraphicsScene.html#aefe52a5b20dbb38dcc9d9510ecfabe52',1,'OwnGraphicsScene::DeleteImgMode()']]],
+  ['deletemode',['DeleteMode',['../classGUI.html#aac66154aaa763aac4d20e55cbd1bdc0d',1,'GUI::DeleteMode()'],['../classOwnGraphicsScene.html#aca454942ecf6c472d020e063862464d4',1,'OwnGraphicsScene::DeleteMode()']]]
 ];

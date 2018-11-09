@@ -1,10 +1,15 @@
 var searchData=
 [
-  ['line_5fitem',['line_item',['../structLine__Mode.html#a4e11b31f28505579f3dfcde54b27ecac',1,'Line_Mode']]],
-  ['line_5fitem_2ehpp',['line_item.hpp',['../line__item_8hpp.html',1,'']]],
-  ['line_5fmode',['Line_Mode',['../structLine__Mode.html',1,'']]],
-  ['line_5fmode_5fvalue',['line_mode_value',['../owngraphicsscene_8hpp.html#ae4b787cddbc3ba73896a6119026fec90',1,'owngraphicsscene.hpp']]],
-  ['lineitem',['LineItem',['../classLineItem.html',1,'LineItem'],['../classLineItem.html#af79b99800cc44a69b53940bdb88ddd1b',1,'LineItem::LineItem()']]],
-  ['linemode',['LineMode',['../classGUI.html#a91fab5d31617ad5631d17dfceb5a0fad',1,'GUI::LineMode()'],['../classOwnGraphicsScene.html#a6b7e69131827f0ae64626af378ff9974',1,'OwnGraphicsScene::LineMode()']]],
-  ['listimages',['ListImages',['../classPromtWindow.html#a9f2e84ed19a4f520e0e764c31cc39362',1,'PromtWindow']]]
+  ['image_5factive',['Image_Active',['../structImage__Active.html',1,'']]],
+  ['image_5fcut',['Image_Cut',['../structImage__Cut.html',1,'']]],
+  ['image_5fcut_5fimg',['image_cut_img',['../gui_8hpp.html#aa390e86a16a72f2efc028e0434c4bd15',1,'gui.hpp']]],
+  ['image_5fdelete_5fimg',['image_delete_img',['../gui_8hpp.html#ae0967b0632586ee3481fbdacff2858e3',1,'gui.hpp']]],
+  ['image_5fmode_5fvalue',['image_mode_value',['../owngraphicsscene_8hpp.html#a2fc6d7ad71e1f82400070b8c166f984e',1,'owngraphicsscene.hpp']]],
+  ['image_5fsketch_5fimg',['image_sketch_img',['../gui_8hpp.html#a3e5269f105011bf3ef8a4efc2cf3ccbf',1,'gui.hpp']]],
+  ['imgmode',['imgMode',['../classOwnGraphicsScene.html#acc6e7978a3f10889e439ceabd155a341',1,'OwnGraphicsScene::imgMode()'],['../classGUI.html#a5281fa4256d3ff14df9a95c1c6613bb2',1,'GUI::ImgMode()']]],
+  ['info',['info',['../structSelectImgToolbar.html#a3cf6ac92fbe60877873c89939217e1de',1,'SelectImgToolbar']]],
+  ['initialized',['initialized',['../structImage__Cut.html#a7259136300a6eade3ee84743f3e47c1f',1,'Image_Cut']]],
+  ['initscrollbar',['InitScrollBar',['../classMainWidget.html#af544f3b04a81d63c0810a90706773d3d',1,'MainWidget']]],
+  ['isxinside',['isXinside',['../classPixmapItem.html#ad5510bf5a97b352e3b06cb888ac0a99c',1,'PixmapItem']]],
+  ['isyinside',['isYinside',['../classPixmapItem.html#ab6e6526fd5cd0ce5ba34b665adca6c5c',1,'PixmapItem']]]
 ];

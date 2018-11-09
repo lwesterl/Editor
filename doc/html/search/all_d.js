@@ -1,9 +1,23 @@
 var searchData=
 [
-  ['remove',['remove',['../structPolygonToolbar.html#ad5f83fc2ac8daf17ae3014d05d3f5d5b',1,'PolygonToolbar']]],
-  ['remove_5fitem',['remove_Item',['../classOwnGraphicsScene.html#a5b4b466a697f83c23294a80067edac23',1,'OwnGraphicsScene']]],
-  ['remove_5fpoint_5fimg',['remove_point_img',['../gui_8hpp.html#a19fb1ba48d0a34f41020472dd625cf95',1,'gui.hpp']]],
-  ['remove_5ftext',['remove_text',['../structPolygonToolbar.html#ad396d8e37e491bb7bfa8bf91d318014c',1,'PolygonToolbar']]],
-  ['removelatestpoint',['RemoveLatestPoint',['../classPixmapItem.html#ae2e67a7b69ef10dc613e14c1d3c1a327',1,'PixmapItem']]],
-  ['removepolyprevious',['RemovePolyPrevious',['../classGUI.html#abf8e1050ae4d599bf35af7b1f841d960',1,'GUI::RemovePolyPrevious()'],['../classOwnGraphicsScene.html#a4976a8e6f682612acd3e23b6c98bd8d8',1,'OwnGraphicsScene::RemovePolyPrevious()']]]
+  ['p1',['p1',['../structBezier__Mode.html#a2d7c5ccccb03114fd1b26a20843a59e4',1,'Bezier_Mode']]],
+  ['p2',['p2',['../structBezier__Mode.html#a96ed0f4076e540e5a8789f25f9bf65e9',1,'Bezier_Mode']]],
+  ['p3',['p3',['../structBezier__Mode.html#ad9fbff84a5248923ceb29433dc58f49b',1,'Bezier_Mode']]],
+  ['p4',['p4',['../structBezier__Mode.html#a5a3df46137ba62eaf3f9c0ad1ee391ef',1,'Bezier_Mode']]],
+  ['path_5fimg_5fcut',['path_img_cut',['../owngraphicsscene_8hpp.html#a25e0e36ca050353140c0266111789633',1,'owngraphicsscene.hpp']]],
+  ['pixmap_5fitem',['pixmap_item',['../structImage__Active.html#aa007ea3c9ba4830bbc2706af51820c20',1,'Image_Active::pixmap_item()'],['../structImage__Cut.html#afdafc46c968b35b63758d409ef863a8f',1,'Image_Cut::pixmap_item()']]],
+  ['pixmap_5fitem_2ecpp',['pixmap_item.cpp',['../pixmap__item_8cpp.html',1,'']]],
+  ['pixmap_5fitem_2ehpp',['pixmap_item.hpp',['../pixmap__item_8hpp.html',1,'']]],
+  ['pixmapitem',['PixmapItem',['../classPixmapItem.html',1,'PixmapItem'],['../classPixmapItem.html#a7e339e581be3c4892d2af89494bd137c',1,'PixmapItem::PixmapItem()']]],
+  ['point',['point',['../structImage__Cut.html#a45fc996285a5ae8ef255d66655d63df2',1,'Image_Cut']]],
+  ['points',['points',['../structBezier__Mode.html#a5389426ea819f66e663684f6244c3960',1,'Bezier_Mode']]],
+  ['polygon_5fimg_5fcut',['polygon_img_cut',['../owngraphicsscene_8hpp.html#a50ed0d21defcf82a075974b744283c79',1,'owngraphicsscene.hpp']]],
+  ['polygon_5ftoolbar',['polygon_toolbar',['../structPolygonToolbar.html#a5388c77217c5bea7075cf234c508b8d6',1,'PolygonToolbar']]],
+  ['polygontoolbar',['PolygonToolbar',['../structPolygonToolbar.html',1,'']]],
+  ['positioned',['positioned',['../structLine__Mode.html#aefbb8555f406d47d742491003a6afde1',1,'Line_Mode']]],
+  ['prev_5fx',['prev_x',['../structImage__Cut.html#a9e6768e7bea9a60876d086d78da3c4df',1,'Image_Cut::prev_x()'],['../structLine__Mode.html#a8bbcbaff29a7810e066e99174e562371',1,'Line_Mode::prev_x()']]],
+  ['prev_5fy',['prev_y',['../structImage__Cut.html#ad86dabb21b97270448d8db5aa7a5676f',1,'Image_Cut::prev_y()'],['../structLine__Mode.html#a8d5fb940f686955ead3f368a8d3b9016',1,'Line_Mode::prev_y()']]],
+  ['promtwindow',['PromtWindow',['../classPromtWindow.html',1,'PromtWindow'],['../classPromtWindow.html#a6536787a099e6d7348db00b4382244a8',1,'PromtWindow::PromtWindow()']]],
+  ['promtwindow_2ecpp',['promtwindow.cpp',['../promtwindow_8cpp.html',1,'']]],
+  ['promtwindow_2ehpp',['promtwindow.hpp',['../promtwindow_8hpp.html',1,'']]]
 ];
