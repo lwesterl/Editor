@@ -16,17 +16,7 @@ Vector2 Lerp(Vector2 a, Vector2 b, float t)
   return (1.0 - t) * a + t * b;
 }
 
-
-/**
-  *   @brief Creates a bezier curve
-  *   @details This function only calculates a part of the bezier curve and
-  *   returns a Vector2 mathing the part of the curve
-  *   @param p0 Vector2 1
-  *   @param p1 Vector2 2
-  *   @param p2 Vector2 3
-  *   @param p3 Vector2 4
-  *   @return Returns Vector2 matching a part of the curve
-  */
+/*  Create a part of bezier curve */
 
 Vector2 createBezier(Vector2 p0, Vector2 p1, Vector2 p2, Vector2 p3, float t)
 {
@@ -36,7 +26,7 @@ Vector2 createBezier(Vector2 p0, Vector2 p1, Vector2 p2, Vector2 p3, float t)
   float u3 = u2 * u;
   float t3 = t2 * t;
 
-  Vector2 result = u3 * p0 + (3.00 * u2 * t) + p1 + (3.00 * u * t2) * p2 +
+  Vector2 result = u3 * p0 + (3.00 * u2 * t) * p1 + (3.00 * u * t2) * p2 +
                   t3 * p3;
 
   return result;
@@ -52,4 +42,33 @@ Bezier::Bezier(Vector2 p0, Vector2 p1, Vector2 p2, Vector2 p3)
     Vector2 vect2 = createBezier(p0, p1, p2, p3, t);
     vectors.push_back(vect2);
   }
+
+  // Add LineItems
+  int prev_x = -1;
+  int prev_y = -1;
+
+  for (auto it = vectors.begin(); it != vectors.end(); it++)
+  {
+    if (prev_x > 0)
+    {
+      // Connect the start and end points of the item
+      LineItem *item = new LineItem((unsigned) prev_x, (unsigned) prev_y, it->getX(), it->getY());
+      line_items.push_back(item);
+    }
+    // Update prev_x and prev_y
+    prev_x = it->getX();
+    prev_y = it->getY();
+    qDebug() << "X: " << prev_x << " Y: " << prev_y << "\n";
+  }
+}
+
+/* Bezier deconstructor */
+Bezier::~Bezier()
+{
+  // Delete all LineItems
+  for (auto it = line_items.begin(); it != line_items.end(); it++)
+  {
+    delete(*it);
+  }
+  line_items.clear();
 }

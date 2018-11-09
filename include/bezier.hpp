@@ -14,6 +14,8 @@
 #include <vector>
 #include <iostream>
 #include <list>
+#include <QDebug>
+#include "line_item.hpp"
 #include "vector2.hpp"
 
 /*    MACROS    */
@@ -21,8 +23,8 @@
 /**
   *   @brief Macro which tells how often bezier points are calculated
   */
-  
-#define BECIER_INTERVAL 0.05
+
+#define BECIER_INTERVAL 0.01
 
 /**
   *   @class Bezier
@@ -46,12 +48,25 @@ public:
   Bezier(Vector2 p0, Vector2 p1, Vector2 p2, Vector2 p3);
 
   /**
+    *   @brief Deconstructor
+    *   @details deletes line_items
+    */
+  ~Bezier();
+
+  /**
     *   @brief Get vector matching bezier
     *   @return Returns reference to the vector object containing Vector2 2D-vectors
     */
   std::vector<Vector2> &getVectors() {return vectors;}
+
+  /**
+    *   @brief Get LineItem vector matching the object
+    */
+  std::vector <LineItem*> getLineItems() {return line_items;}
+
 private:
   std::vector <Vector2> vectors;
+  std::vector <LineItem*> line_items;
 };
 
 /*    EXTERNAL FUNCTIONS    */
@@ -64,6 +79,7 @@ private:
   *   @param p1 Vector2 2
   *   @param p2 Vector2 3
   *   @param p3 Vector2 4
+  *   @param t [0 1] bezier parameter
   *   @return Returns Vector2 matching a part of the curve
   */
 Vector2 createBezier(Vector2 p0, Vector2 p1, Vector2 p2, Vector2 p3, float t);
