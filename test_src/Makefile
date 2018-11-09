@@ -7,9 +7,10 @@
 CC = g++
 CFLAGS = -Wall -pedantic
 Files = lib vector2_test bezier_test
-O_Files = bezier.o vector2.o
+O_Files = test_bezier.o vector2.o
 EXE = bezier_test vector2_test
 STATIC_F = ar rcs
+
 
 
 
@@ -17,8 +18,8 @@ default: all
 
 all: $(Files)
 
-lib:	vector2.o bezier.o
-	$(STATIC_F) libbezier.a vector2.o bezier.o
+lib:	vector2.o test_bezier.o
+	$(STATIC_F) libbezier.a vector2.o test_bezier.o
 
 
 bezier_test:	lib
@@ -30,8 +31,8 @@ vector2_test:	lib
 vector2.o:
 	$(CC) $(CFLAGS) ../src/vector2.cpp -c
 
-bezier.o:
-	$(CC) $(CFLAGS) ../src/bezier.cpp -c
+test_bezier.o:
+	$(CC) $(CFLAGS) test_bezier.cpp -c
 
 
 clean:

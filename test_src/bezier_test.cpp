@@ -5,7 +5,7 @@
   */
 
 
-#include "../include/bezier.hpp"
+#include "test_bezier.hpp"
 
 
 /**
