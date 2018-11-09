@@ -48,18 +48,22 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = src/combobox_action.cpp \
+SOURCES       = src/bezier.cpp \
+		src/combobox_action.cpp \
 		src/gui_test.cpp \
 		src/mainwidget.cpp \
 		src/owngraphicsscene.cpp \
 		src/pixmap_item.cpp \
-		src/promtwindow.cpp moc_promtwindow.cpp
-OBJECTS       = combobox_action.o \
+		src/promtwindow.cpp \
+		src/vector2.cpp moc_promtwindow.cpp
+OBJECTS       = bezier.o \
+		combobox_action.o \
 		gui_test.o \
 		mainwidget.o \
 		owngraphicsscene.o \
 		pixmap_item.o \
 		promtwindow.o \
+		vector2.o \
 		moc_promtwindow.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
@@ -121,18 +125,22 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
-		Editor.pro include/combobox_action.hpp \
+		Editor.pro include/bezier.hpp \
+		include/combobox_action.hpp \
 		include/gui.hpp \
 		include/line_item.hpp \
 		include/mainwidget.hpp \
 		include/owngraphicsscene.hpp \
 		include/pixmap_item.hpp \
-		include/promtwindow.hpp src/combobox_action.cpp \
+		include/promtwindow.hpp \
+		include/vector2.hpp src/bezier.cpp \
+		src/combobox_action.cpp \
 		src/gui_test.cpp \
 		src/mainwidget.cpp \
 		src/owngraphicsscene.cpp \
 		src/pixmap_item.cpp \
-		src/promtwindow.cpp
+		src/promtwindow.cpp \
+		src/vector2.cpp
 QMAKE_TARGET  = Editor
 DESTDIR       = 
 TARGET        = Editor
@@ -287,8 +295,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents include/combobox_action.hpp include/gui.hpp include/line_item.hpp include/mainwidget.hpp include/owngraphicsscene.hpp include/pixmap_item.hpp include/promtwindow.hpp $(DISTDIR)/
-	$(COPY_FILE) --parents src/combobox_action.cpp src/gui_test.cpp src/mainwidget.cpp src/owngraphicsscene.cpp src/pixmap_item.cpp src/promtwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents include/bezier.hpp include/combobox_action.hpp include/gui.hpp include/line_item.hpp include/mainwidget.hpp include/owngraphicsscene.hpp include/pixmap_item.hpp include/promtwindow.hpp include/vector2.hpp $(DISTDIR)/
+	$(COPY_FILE) --parents src/bezier.cpp src/combobox_action.cpp src/gui_test.cpp src/mainwidget.cpp src/owngraphicsscene.cpp src/pixmap_item.cpp src/promtwindow.cpp src/vector2.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -335,6 +343,11 @@ compiler_clean: compiler_moc_header_clean
 
 ####### Compile
 
+bezier.o: src/bezier.cpp include/bezier.hpp \
+		include/line_item.hpp \
+		include/vector2.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o bezier.o src/bezier.cpp
+
 combobox_action.o: src/combobox_action.cpp include/combobox_action.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o combobox_action.o src/combobox_action.cpp
 
@@ -343,6 +356,8 @@ gui_test.o: src/gui_test.cpp src/gui.cpp \
 		include/owngraphicsscene.hpp \
 		include/line_item.hpp \
 		include/pixmap_item.hpp \
+		include/bezier.hpp \
+		include/vector2.hpp \
 		include/mainwidget.hpp \
 		include/combobox_action.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o gui_test.o src/gui_test.cpp
@@ -350,12 +365,16 @@ gui_test.o: src/gui_test.cpp src/gui.cpp \
 mainwidget.o: src/mainwidget.cpp include/mainwidget.hpp \
 		include/owngraphicsscene.hpp \
 		include/line_item.hpp \
-		include/pixmap_item.hpp
+		include/pixmap_item.hpp \
+		include/bezier.hpp \
+		include/vector2.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwidget.o src/mainwidget.cpp
 
 owngraphicsscene.o: src/owngraphicsscene.cpp include/owngraphicsscene.hpp \
 		include/line_item.hpp \
-		include/pixmap_item.hpp
+		include/pixmap_item.hpp \
+		include/bezier.hpp \
+		include/vector2.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o owngraphicsscene.o src/owngraphicsscene.cpp
 
 pixmap_item.o: src/pixmap_item.cpp include/pixmap_item.hpp
@@ -363,6 +382,9 @@ pixmap_item.o: src/pixmap_item.cpp include/pixmap_item.hpp
 
 promtwindow.o: src/promtwindow.cpp include/promtwindow.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o promtwindow.o src/promtwindow.cpp
+
+vector2.o: src/vector2.cpp include/vector2.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o vector2.o src/vector2.cpp
 
 moc_promtwindow.o: moc_promtwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_promtwindow.o moc_promtwindow.cpp
