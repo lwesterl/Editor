@@ -102,6 +102,11 @@
   */
 #define remove_point_img "img_src/remove_point.png"
 
+/**
+  *   @brief Bezier pic image macro
+  */
+#define bezier_pic_img "img_src/bezier_pic.png"
+
 
 
 /**
@@ -311,7 +316,7 @@ public:
     *   @brief Activates/deactivates bezier_mode
     */
   void BezierMode();
-  
+
   //void mouseMoveEvent(QMouseEvent *event);
   //void mousePressEvent(QMouseEvent *event);
   //int getMouseX(){return mouse_x;}

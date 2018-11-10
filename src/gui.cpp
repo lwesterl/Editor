@@ -378,7 +378,8 @@ void GUI::createToolbars()
 
   // add a action for bezier mode
   main_toolbar->addSeparator();
-  bezier_mode = main_toolbar->addAction("BEZIER");
+  QPixmap bezier_img(bezier_pic_img);
+  bezier_mode = main_toolbar->addAction(QIcon(bezier_img), "Bezier mode");
   bezier_mode->setCheckable(true);
   bezier_mode->setChecked(false);
   connect(bezier_mode, &QAction::triggered, this, &GUI::BezierMode);
