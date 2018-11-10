@@ -365,6 +365,13 @@ void OwnGraphicsScene::ClearAll()
   // init line_struct
   line_struct.created = false;
   line_struct.line_item = nullptr;
+  // Init bezier_struct, it's very important to init pointers
+  bezier_struct.created = false;
+  bezier_struct.active_bezier = nullptr;
+  bezier_struct.circle1 = nullptr;
+  bezier_struct.circle2 = nullptr;
+  bezier_struct.circle3 = nullptr;
+  bezier_struct.circle4 = nullptr;
 
   // remove list objects
   for (auto it = line_items.begin(); it !=line_items.end();)
@@ -376,6 +383,12 @@ void OwnGraphicsScene::ClearAll()
   for (auto it = pixmap_items.begin(); it != pixmap_items.end();)
   {
     it = pixmap_items.erase(it);
+  }
+
+  // clear all Beziers
+  for (auto it = beziers.begin(); it != beziers.end();)
+  {
+    it = beziers.erase(it);
   }
 
   clear(); // removes all objects and deletes them
@@ -624,6 +637,8 @@ void OwnGraphicsScene::BezierMode(bool active)
   {
     // Reset bezier_struct
     bezier_struct.created = false;
+    bezier_struct.active_bezier = nullptr;
+
     // Remove all control point circles
     RemoveControlPointCircles(0);
 
@@ -713,14 +728,18 @@ void OwnGraphicsScene::AddBezier(Bezier *bezier)
 /*  Remove all LineItems from Bezier and then delete the Bezier */
 void OwnGraphicsScene::RemoveBezier(Bezier *bezier)
 {
-  std::vector<LineItem*> items = bezier->getLineItems();
-
-  for (auto it = items.begin(); it != items.end(); it++)
+  if (bezier != nullptr)
   {
-    removeItem(*it);
+    std::vector<LineItem*> items = bezier->getLineItems();
+
+    for (auto it = items.begin(); it != items.end(); it++)
+    {
+      removeItem(*it);
+    }
+    // Delete the Bezier (Bezier destructor should delete all items)
+    delete(bezier);
   }
-  // Delete the Bezier (Bezier destructor should delete all items)
-  delete(bezier);
+
 }
 
 /*  Add circles to control points */
@@ -806,45 +825,81 @@ void OwnGraphicsScene::RemoveControlPointCircles(int point)
 {
   if (point == 0)
   {
-    // Remove all the circles from the scene
-    removeItem(bezier_struct.circle1);
-    removeItem(bezier_struct.circle2);
-    removeItem(bezier_struct.circle3);
-    removeItem(bezier_struct.circle4);
+    // Remove all the circles (non-nullptr) from the scene
+    if (bezier_struct.circle1 != nullptr)
+    {
+      removeItem(bezier_struct.circle1);
+      delete(bezier_struct.circle1);
+      bezier_struct.circle1 = nullptr;
+    }
+    if (bezier_struct.circle2 != nullptr)
+    {
+      removeItem(bezier_struct.circle2);
+      delete(bezier_struct.circle2);
+      bezier_struct.circle2 = nullptr;
+    }
+    if (bezier_struct.circle3 != nullptr)
+    {
+      removeItem(bezier_struct.circle3);
+      delete(bezier_struct.circle3);
+      bezier_struct.circle3 = nullptr;
+    }
+    if (bezier_struct.circle4 != nullptr)
+    {
+      removeItem(bezier_struct.circle4);
+      delete(bezier_struct.circle4);
+      bezier_struct.circle4 = nullptr;
+    }
 
-    // Delete all circles
-    delete(bezier_struct.circle1);
-    delete(bezier_struct.circle2);
-    delete(bezier_struct.circle3);
-    delete(bezier_struct.circle4);
+
   }
 
   else if (point == 1)
   {
     // Remove only the first circle
-    removeItem(bezier_struct.circle1);
-    delete(bezier_struct.circle1);
+    if (bezier_struct.circle1 != nullptr)
+    {
+      removeItem(bezier_struct.circle1);
+      delete(bezier_struct.circle1);
+      bezier_struct.circle1 = nullptr;
+    }
+
   }
 
   else if (point == 2)
   {
     // Remove only the second circle
-    removeItem(bezier_struct.circle2);
-    delete(bezier_struct.circle2);
+    if (bezier_struct.circle2 != nullptr)
+    {
+      removeItem(bezier_struct.circle2);
+      delete(bezier_struct.circle2);
+      bezier_struct.circle2 = nullptr;
+    }
+
   }
 
   else if (point == 3)
   {
     // Remove only the third circle
-    removeItem(bezier_struct.circle3);
-    delete(bezier_struct.circle3);
+    if (bezier_struct.circle3 != nullptr)
+    {
+      removeItem(bezier_struct.circle3);
+      delete(bezier_struct.circle3);
+      bezier_struct.circle3 = nullptr;
+    }
+
   }
 
   else if (point == 4)
   {
     // Remove only the fourth circle
-    removeItem(bezier_struct.circle4);
-    delete(bezier_struct.circle4);
+    if (bezier_struct.circle4 != nullptr)
+    {
+      removeItem(bezier_struct.circle4);
+      delete(bezier_struct.circle4);
+      bezier_struct.circle4 = nullptr;
+    }
+
   }
 }
 

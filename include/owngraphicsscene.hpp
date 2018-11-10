@@ -103,11 +103,11 @@
    Vector2 p3; /**< The third bezier point */
    Vector2 p4; /**< The fourth bezier point */
    bool created = false; /**< Whether the Bezier is created or not */
-   Bezier *active_bezier; /**< Pointer to the Bezier being constructed */
-   QGraphicsEllipseItem *circle1; /**< Circle which center is the first control point */
-   QGraphicsEllipseItem *circle2; /**< Circle which center is the second control point */
-   QGraphicsEllipseItem *circle3; /**< Circle which center is the third control point */
-   QGraphicsEllipseItem *circle4; /**< Circle which center is the fourth control point */
+   Bezier *active_bezier = nullptr; /**< Pointer to the Bezier being constructed */
+   QGraphicsEllipseItem *circle1 = nullptr; /**< Circle which center is the first control point */
+   QGraphicsEllipseItem *circle2 = nullptr; /**< Circle which center is the second control point */
+   QGraphicsEllipseItem *circle3 = nullptr; /**< Circle which center is the third control point */
+   QGraphicsEllipseItem *circle4 = nullptr; /**< Circle which center is the fourth control point */
  };
 
 
