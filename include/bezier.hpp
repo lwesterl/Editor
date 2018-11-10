@@ -28,7 +28,7 @@
 
 /**
   *   @class Bezier
-  *   @@brief Creates bezier curves
+  *   @brief Creates bezier curves
   *   @details Used in Editor to draw bezier curves
   */
 

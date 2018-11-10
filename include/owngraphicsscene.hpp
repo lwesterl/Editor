@@ -24,6 +24,7 @@
  #include <QPixmap>
  #include <QString>
  #include <QGraphicsPixmapItem>
+ #include <QGraphicsEllipseItem>
  #include "line_item.hpp"
  #include "pixmap_item.hpp"
  #include "bezier.hpp"
@@ -101,8 +102,12 @@
    Vector2 p2; /**< The second bezier point */
    Vector2 p3; /**< The third bezier point */
    Vector2 p4; /**< The fourth bezier point */
-   int points = 0; /**< How many points have been added */
+   bool created = false; /**< Whether the Bezier is created or not */
    Bezier *active_bezier; /**< Pointer to the Bezier being constructed */
+   QGraphicsEllipseItem *circle1; /**< Circle which center is the first control point */
+   QGraphicsEllipseItem *circle2; /**< Circle which center is the second control point */
+   QGraphicsEllipseItem *circle3; /**< Circle which center is the third control point */
+   QGraphicsEllipseItem *circle4; /**< Circle which center is the fourth control point */
  };
 
 
@@ -136,6 +141,11 @@
    *   @brief Macro for bezier mode
    */
  #define bezier_mode_value 6
+
+/**
+  *   @brief Macro for Bezier control point circle diameter
+  */
+#define Control_point_circle_diameter 30
 
 
 
@@ -304,9 +314,9 @@
     *   @brief Constructs a Bezer object
     *   @param x Mouse x coordinate
     *   @param y Mouse y coordinate
-    *   @param point_added Whether user added a new point or just moved previous one
+    *   @param point_added Which point user moved, 0 means construct new Bezier
     */
-   void CreateBezier(unsigned x, unsigned y, bool point_added);
+   void CreateBezier(unsigned x, unsigned y, int point_added);
 
   /**
     *   @brief Add Bezier to the scene
@@ -322,6 +332,35 @@
     *   @param bezier Pointer to the Bezier to be removed
     */
    void RemoveBezier(Bezier *bezier);
+
+/**
+  *   @brief Create circles matching the bezier control points
+  *   @param point Which circle needs to be created
+  *   @remark point 0 -> create all circles, point 1 -> create circle 1 etc.
+  */
+  void CreateControlPointCircles(int point);
+
+  /**
+    *   @brief Remove circles matching the bezier control points
+    *   @param point Which circle needs to be removed
+    *   @remark point 0 -> remove all circles, point 1 -> remove circle 1 etc.
+    */
+  void RemoveControlPointCircles(int point);
+
+/**
+  *   @brief Convert control point coordinates to circle left top corner point
+  *   @param point Vector2 containing control point
+  *   @return Returns circle point as a Vector2 object
+  */
+  Vector2 ControlPoint2Circle(Vector2 point);
+
+/**
+  *   @brief Check whether mouse is inside control points or not
+  *   @param x Mouse x coordinate
+  *   @param y Mouse y coordinate
+  *   @return Returns 0 if not inside, else returns point number which is inside
+  */
+  int isInsideControlPoint(unsigned x, unsigned y);
 
  private:
    std::list <LineItem*> line_items;

@@ -127,7 +127,12 @@ void OwnGraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent  *event)
   {
     // Add a new bezier
     //qDebug() << "Bezier mode point added\n";
-    CreateBezier(x_new, y_new, true);
+    if (! bezier_struct.created )
+    {
+      // Create a new bezier
+      CreateBezier(x_new, y_new, 0);
+    }
+
   }
 }
 
@@ -224,6 +229,21 @@ void OwnGraphicsScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
       }
     }
 
+  }
+
+  else if (mode == bezier_mode_value)
+  {
+    QPointF point = event->scenePos();
+    unsigned x_new = point.x();
+    unsigned y_new = point.y();
+
+    // Check if user has moved the bezier
+    int is_moved = isInsideControlPoint(x_new, y_new);
+    if (is_moved)
+    {
+      // Update the Bezier
+      CreateBezier(x_new, y_new, is_moved);
+    }
   }
 }
 
@@ -603,57 +623,79 @@ void OwnGraphicsScene::BezierMode(bool active)
   else
   {
     // Reset bezier_struct
-    bezier_struct.points = 0;
+    bezier_struct.created = false;
+    // Remove all control point circles
+    RemoveControlPointCircles(0);
 
     mode = view_mode_value;
   }
 }
 
-void OwnGraphicsScene::CreateBezier(unsigned x, unsigned y, bool point_added)
+void OwnGraphicsScene::CreateBezier(unsigned x, unsigned y, int point_added)
 {
-  if (point_added)
+  if (point_added  == 0)
   {
-    // One new point added
-    bezier_struct.points += 1;
+    // Create a new Bezier, all points to same position
+    bezier_struct.p1 = Vector2((float) x, (float) y);
+    bezier_struct.p2 = bezier_struct.p1;
+    bezier_struct.p3 = bezier_struct.p1;
+    bezier_struct.p4 = bezier_struct.p1;
 
-    if (bezier_struct.points == 1)
-    {
-      // Create a new Bezier
-      bezier_struct.p1 = Vector2((float) x, (float) y);
-      bezier_struct.active_bezier = new Bezier(bezier_struct.p1, bezier_struct.p1, bezier_struct.p1, bezier_struct.p1);
-      AddBezier(bezier_struct.active_bezier);
-    }
+    bezier_struct.active_bezier = new Bezier(bezier_struct.p1, bezier_struct.p2, bezier_struct.p3, bezier_struct.p4);
+    AddBezier(bezier_struct.active_bezier);
 
-    else
-    {
-      // Destroy the old Bezier
-      RemoveBezier(bezier_struct.active_bezier);
+    // Create all the control point circles
+    CreateControlPointCircles(0);
 
-      if (bezier_struct.points == 2)
-      {
-        bezier_struct.p2 = Vector2((float) x, (float) y);
-        bezier_struct.active_bezier = new Bezier(bezier_struct.p1, bezier_struct.p2, bezier_struct.p2, bezier_struct.p2);
-        AddBezier(bezier_struct.active_bezier);
-      }
-      else if(bezier_struct.points == 3)
-      {
-        bezier_struct.p3 = Vector2((float) x, (float) y);
-        bezier_struct.active_bezier = new Bezier(bezier_struct.p1, bezier_struct.p2, bezier_struct.p3, bezier_struct.p3);
-        AddBezier(bezier_struct.active_bezier);
-      }
-      else
-      {
-        bezier_struct.p4 = Vector2((float) x, (float) y);
-        bezier_struct.active_bezier = new Bezier(bezier_struct.p1, bezier_struct.p2, bezier_struct.p3, bezier_struct.p4);
-        AddBezier(bezier_struct.active_bezier);
-
-        // Reset the points
-        bezier_struct.points = 0;
-
-      }
-    }
-
+    bezier_struct.created = true;
   }
+
+  else
+  {
+    // Destroy the old Bezier
+    RemoveBezier(bezier_struct.active_bezier);
+
+    if (point_added == 1)
+    {
+      // Move point 1
+      bezier_struct.p1 = Vector2((float) x, (float) y);
+      bezier_struct.active_bezier = new Bezier(bezier_struct.p1, bezier_struct.p2, bezier_struct.p3, bezier_struct.p4);
+      AddBezier(bezier_struct.active_bezier);
+      // Create also new control circle1
+      CreateControlPointCircles(1);
+
+    }
+    else if(point_added == 2)
+    {
+      // Move point 2
+      bezier_struct.p2 = Vector2((float) x, (float) y);
+      bezier_struct.active_bezier = new Bezier(bezier_struct.p1, bezier_struct.p2, bezier_struct.p3, bezier_struct.p4);
+      AddBezier(bezier_struct.active_bezier);
+      // Create also new control circle2
+      CreateControlPointCircles(2);
+
+    }
+    else if (point_added == 3)
+    {
+      // Move point 3
+      bezier_struct.p3 = Vector2((float) x, (float) y);
+      bezier_struct.active_bezier = new Bezier(bezier_struct.p1, bezier_struct.p2, bezier_struct.p3, bezier_struct.p4);
+      AddBezier(bezier_struct.active_bezier);
+      // Create also new control circle3
+      CreateControlPointCircles(3);
+    }
+    else if (point_added == 4)
+    {
+      // Move point 4
+      bezier_struct.p4 = Vector2((float) x, (float) y);
+      bezier_struct.active_bezier = new Bezier(bezier_struct.p1, bezier_struct.p2, bezier_struct.p3, bezier_struct.p4);
+      AddBezier(bezier_struct.active_bezier);
+      // Create also new control circle4
+      CreateControlPointCircles(4);
+    }
+  }
+
+
 }
 
 /*  Add all LineItems from Bezier to the scene */
@@ -679,4 +721,189 @@ void OwnGraphicsScene::RemoveBezier(Bezier *bezier)
   }
   // Delete the Bezier (Bezier destructor should delete all items)
   delete(bezier);
+}
+
+/*  Add circles to control points */
+void OwnGraphicsScene::CreateControlPointCircles(int point)
+{
+  if (point == 0)
+  {
+    // Create all circles on top of each others
+    Vector2 point1 = ControlPoint2Circle(bezier_struct.p1);
+
+
+    // Construct QGraphicsEllipseItems
+    bezier_struct.circle1 = new QGraphicsEllipseItem(point1.getX(), point1.getY(),
+                            Control_point_circle_diameter, Control_point_circle_diameter);
+    bezier_struct.circle2 = new QGraphicsEllipseItem(point1.getX(), point1.getY(),
+                              Control_point_circle_diameter, Control_point_circle_diameter);
+    bezier_struct.circle3 = new QGraphicsEllipseItem(point1.getX(), point1.getY(),
+                            Control_point_circle_diameter, Control_point_circle_diameter);
+    bezier_struct.circle4 = new QGraphicsEllipseItem(point1.getX(), point1.getY(),
+                            Control_point_circle_diameter, Control_point_circle_diameter);
+
+    // Add the circles to the scene
+    addItem(bezier_struct.circle1);
+    addItem(bezier_struct.circle2);
+    addItem(bezier_struct.circle3);
+    addItem(bezier_struct.circle4);
+
+  }
+
+  else if (point == 1)
+  {
+    // Create a new circle1, start by removing the old one
+    RemoveControlPointCircles(1);
+
+    Vector2 point1 = ControlPoint2Circle(bezier_struct.p1);
+    bezier_struct.circle1 = new QGraphicsEllipseItem(point1.getX(), point1.getY(),
+                            Control_point_circle_diameter, Control_point_circle_diameter);
+    // Add to the scene
+    addItem(bezier_struct.circle1);
+
+  }
+
+  else if (point == 2)
+  {
+    // Create a new circle2, start by removing the old one
+    RemoveControlPointCircles(2);
+
+    Vector2 point2 = ControlPoint2Circle(bezier_struct.p2);
+    bezier_struct.circle2 = new QGraphicsEllipseItem(point2.getX(), point2.getY(),
+                            Control_point_circle_diameter, Control_point_circle_diameter);
+    // Add to the scene
+    addItem(bezier_struct.circle2);
+  }
+
+  else if (point == 3)
+  {
+    // Create a new circle3, start by removing the old one
+    RemoveControlPointCircles(3);
+
+    Vector2 point3 = ControlPoint2Circle(bezier_struct.p3);
+    bezier_struct.circle3 = new QGraphicsEllipseItem(point3.getX(), point3.getY(),
+                            Control_point_circle_diameter, Control_point_circle_diameter);
+    // Add to the scene
+    addItem(bezier_struct.circle3);
+  }
+
+  else if (point == 4)
+  {
+    // Create a new circle4, start by removing the old one
+    RemoveControlPointCircles(4);
+
+    Vector2 point4 = ControlPoint2Circle(bezier_struct.p4);
+    bezier_struct.circle4 = new QGraphicsEllipseItem(point4.getX(), point4.getY(),
+                            Control_point_circle_diameter, Control_point_circle_diameter);
+    // Add to the scene
+    addItem(bezier_struct.circle4);
+  }
+
+}
+
+/*  Remove circles matching control points */
+void OwnGraphicsScene::RemoveControlPointCircles(int point)
+{
+  if (point == 0)
+  {
+    // Remove all the circles from the scene
+    removeItem(bezier_struct.circle1);
+    removeItem(bezier_struct.circle2);
+    removeItem(bezier_struct.circle3);
+    removeItem(bezier_struct.circle4);
+
+    // Delete all circles
+    delete(bezier_struct.circle1);
+    delete(bezier_struct.circle2);
+    delete(bezier_struct.circle3);
+    delete(bezier_struct.circle4);
+  }
+
+  else if (point == 1)
+  {
+    // Remove only the first circle
+    removeItem(bezier_struct.circle1);
+    delete(bezier_struct.circle1);
+  }
+
+  else if (point == 2)
+  {
+    // Remove only the second circle
+    removeItem(bezier_struct.circle2);
+    delete(bezier_struct.circle2);
+  }
+
+  else if (point == 3)
+  {
+    // Remove only the third circle
+    removeItem(bezier_struct.circle3);
+    delete(bezier_struct.circle3);
+  }
+
+  else if (point == 4)
+  {
+    // Remove only the fourth circle
+    removeItem(bezier_struct.circle4);
+    delete(bezier_struct.circle4);
+  }
+}
+
+/*  Convert control point to the circle top left point */
+/*  Control_point_circle_diameter tells the diameter of the circles */
+Vector2 OwnGraphicsScene::ControlPoint2Circle(Vector2 point)
+{
+  float x = point.getX() - Control_point_circle_diameter / 2;
+  if (x < 0)
+  {
+    x = 0;
+  }
+  float y = point.getY() - Control_point_circle_diameter / 2;
+  if (y < 0)
+  {
+    y = 0;
+  }
+
+  // Construct new circle top left point object
+  return Vector2(x,y);
+}
+
+
+int OwnGraphicsScene::isInsideControlPoint(unsigned x, unsigned y)
+{
+  if ( (x >= bezier_struct.p1.getX() - Control_point_circle_diameter/2 ) &&
+        (x <= bezier_struct.p1.getX() + Control_point_circle_diameter/2) &&
+        (y >= bezier_struct.p1.getY() - Control_point_circle_diameter/2) &&
+        (y <= bezier_struct.p1.getY() + Control_point_circle_diameter/2) )
+        {
+          // Inside the first control point
+          return 1;
+        }
+  else if ( (x >= bezier_struct.p2.getX() - Control_point_circle_diameter/2 ) &&
+        (x <= bezier_struct.p2.getX() + Control_point_circle_diameter/2) &&
+        (y >= bezier_struct.p2.getY() - Control_point_circle_diameter/2) &&
+        (y <= bezier_struct.p2.getY() + Control_point_circle_diameter/2) )
+        {
+          // Inside the second control point
+          return 2;
+        }
+  else if ( (x >= bezier_struct.p3.getX() - Control_point_circle_diameter/2 ) &&
+        (x <= bezier_struct.p3.getX() + Control_point_circle_diameter/2) &&
+        (y >= bezier_struct.p3.getY() - Control_point_circle_diameter/2) &&
+        (y <= bezier_struct.p3.getY() + Control_point_circle_diameter/2) )
+        {
+          // Inside the third control point
+          return 3;
+        }
+
+  else if ( (x >= bezier_struct.p4.getX() - Control_point_circle_diameter/2 ) &&
+        (x <= bezier_struct.p4.getX() + Control_point_circle_diameter/2) &&
+        (y >= bezier_struct.p4.getY() - Control_point_circle_diameter/2) &&
+        (y <= bezier_struct.p4.getY() + Control_point_circle_diameter/2) )
+        {
+          // Inside the fourth control point
+          return 4;
+        }
+
+  // Not inside
+  return 0;
 }
