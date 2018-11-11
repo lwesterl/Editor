@@ -21,6 +21,14 @@ std\+::vector$<$ \mbox{\hyperlink{classVector2}{Vector2}} $>$ \& \mbox{\hyperlin
 \mbox{\Hypertarget{classBezier_ad4417fabe40db932edc57406d1ab302a}\label{classBezier_ad4417fabe40db932edc57406d1ab302a}} 
 std\+::vector$<$ \mbox{\hyperlink{classLineItem}{Line\+Item}} $\ast$ $>$ \mbox{\hyperlink{classBezier_ad4417fabe40db932edc57406d1ab302a}{get\+Line\+Items}} ()
 \begin{DoxyCompactList}\small\item\em Get \mbox{\hyperlink{classLineItem}{Line\+Item}} vector matching the object. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classBezier_aef4b9fbe3b5d30ea6b42de7fc38cf796}{get\+EndX}} ()
+\begin{DoxyCompactList}\small\item\em Get \mbox{\hyperlink{classBezier}{Bezier}} end x coordinate. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classBezier_abb9094c95311d916aad946d90a9b5c12}{get\+EndY}} ()
+\begin{DoxyCompactList}\small\item\em Get \mbox{\hyperlink{classBezier}{Bezier}} end y coordinate. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classBezier_a81efbcfa1f2bc8bf3c539dba1a4b80e0}{get\+StartX}} ()
+\begin{DoxyCompactList}\small\item\em Get \mbox{\hyperlink{classBezier}{Bezier}} start x coordinate. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classBezier_ae310b53e4d8b3d586bbc4d335ac4cc08}{get\+StartY}} ()
+\begin{DoxyCompactList}\small\item\em Get \mbox{\hyperlink{classBezier}{Bezier}} start y coordinate. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classBezier_aeee0e41ed64d1a61d7ac103d2300093b}{Bezier}} (\mbox{\hyperlink{classVector2}{Vector2}} p0, \mbox{\hyperlink{classVector2}{Vector2}} p1, \mbox{\hyperlink{classVector2}{Vector2}} p2, \mbox{\hyperlink{classVector2}{Vector2}} p3)
 \begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{classBezier}{Bezier}}. \end{DoxyCompactList}\item 
 std\+::vector$<$ \mbox{\hyperlink{classVector2}{Vector2}} $>$ \& \mbox{\hyperlink{classBezier_a26bf332b0c831e0f302f1d72ec782436}{get\+Vectors}} ()
@@ -104,6 +112,74 @@ Constructor for \mbox{\hyperlink{classBezier}{Bezier}}.
 Calculates parts of the curve using create\+Bezier and then adds those to the vector 
 
 \subsection{Member Function Documentation}
+\mbox{\Hypertarget{classBezier_aef4b9fbe3b5d30ea6b42de7fc38cf796}\label{classBezier_aef4b9fbe3b5d30ea6b42de7fc38cf796}} 
+\index{Bezier@{Bezier}!get\+EndX@{get\+EndX}}
+\index{get\+EndX@{get\+EndX}!Bezier@{Bezier}}
+\subsubsection{\texorpdfstring{get\+End\+X()}{getEndX()}}
+{\footnotesize\ttfamily float Bezier\+::get\+EndX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get \mbox{\hyperlink{classBezier}{Bezier}} end x coordinate. 
+
+\begin{DoxyReturn}{Returns}
+Returns the last x coordinate from vectors 
+\end{DoxyReturn}
+
+
+Definition at line 77 of file bezier.\+cpp.
+
+\mbox{\Hypertarget{classBezier_abb9094c95311d916aad946d90a9b5c12}\label{classBezier_abb9094c95311d916aad946d90a9b5c12}} 
+\index{Bezier@{Bezier}!get\+EndY@{get\+EndY}}
+\index{get\+EndY@{get\+EndY}!Bezier@{Bezier}}
+\subsubsection{\texorpdfstring{get\+End\+Y()}{getEndY()}}
+{\footnotesize\ttfamily float Bezier\+::get\+EndY (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get \mbox{\hyperlink{classBezier}{Bezier}} end y coordinate. 
+
+\begin{DoxyReturn}{Returns}
+Returns the last y coordinate from vectors 
+\end{DoxyReturn}
+
+
+Definition at line 87 of file bezier.\+cpp.
+
+\mbox{\Hypertarget{classBezier_a81efbcfa1f2bc8bf3c539dba1a4b80e0}\label{classBezier_a81efbcfa1f2bc8bf3c539dba1a4b80e0}} 
+\index{Bezier@{Bezier}!get\+StartX@{get\+StartX}}
+\index{get\+StartX@{get\+StartX}!Bezier@{Bezier}}
+\subsubsection{\texorpdfstring{get\+Start\+X()}{getStartX()}}
+{\footnotesize\ttfamily float Bezier\+::get\+StartX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get \mbox{\hyperlink{classBezier}{Bezier}} start x coordinate. 
+
+\begin{DoxyReturn}{Returns}
+Returns the first x coordinate from vectors 
+\end{DoxyReturn}
+
+
+Definition at line 97 of file bezier.\+cpp.
+
+\mbox{\Hypertarget{classBezier_ae310b53e4d8b3d586bbc4d335ac4cc08}\label{classBezier_ae310b53e4d8b3d586bbc4d335ac4cc08}} 
+\index{Bezier@{Bezier}!get\+StartY@{get\+StartY}}
+\index{get\+StartY@{get\+StartY}!Bezier@{Bezier}}
+\subsubsection{\texorpdfstring{get\+Start\+Y()}{getStartY()}}
+{\footnotesize\ttfamily float Bezier\+::get\+StartY (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get \mbox{\hyperlink{classBezier}{Bezier}} start y coordinate. 
+
+\begin{DoxyReturn}{Returns}
+Returns the first y coordinate from vectors 
+\end{DoxyReturn}
+
+
+Definition at line 107 of file bezier.\+cpp.
+
 \mbox{\Hypertarget{classBezier_a26bf332b0c831e0f302f1d72ec782436}\label{classBezier_a26bf332b0c831e0f302f1d72ec782436}} 
 \index{Bezier@{Bezier}!get\+Vectors@{get\+Vectors}}
 \index{get\+Vectors@{get\+Vectors}!Bezier@{Bezier}}

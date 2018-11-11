@@ -76,7 +76,13 @@ class \mbox{\hyperlink{classOwnGraphicsScene}{Own\+Graphics\+Scene}}
 \begin{DoxyCompactList}\small\item\em Macro for bezier mode. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{owngraphicsscene_8hpp_ae48993439460cf1a6b3c8c39c74214cc}\label{owngraphicsscene_8hpp_ae48993439460cf1a6b3c8c39c74214cc}} 
 \#define \mbox{\hyperlink{owngraphicsscene_8hpp_ae48993439460cf1a6b3c8c39c74214cc}{Control\+\_\+point\+\_\+circle\+\_\+diameter}}~30
-\begin{DoxyCompactList}\small\item\em Macro for \mbox{\hyperlink{classBezier}{Bezier}} control point circle diameter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Macro for \mbox{\hyperlink{classBezier}{Bezier}} control point circle diameter. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{owngraphicsscene_8hpp_ac807975b697c4bc870835d4a71a323c0}{Bezier\+\_\+option\+\_\+partially\+\_\+locked}}~1
+\begin{DoxyCompactList}\small\item\em Macro for Bezier\+Mode lock\+\_\+mode. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{owngraphicsscene_8hpp_a89c6eb132d8e5045b0d7e5380223ecf5}{Bezier\+\_\+option\+\_\+locked}}~2
+\begin{DoxyCompactList}\small\item\em Macro for Bezier\+Mode lock\+\_\+mode. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{owngraphicsscene_8hpp_a1509a31ffc7113da2c88462e26e0bd9d}{Bezier\+\_\+option\+\_\+unlocked}}~3
+\begin{DoxyCompactList}\small\item\em Macro for Bezier\+Mode lock\+\_\+mode. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -85,3 +91,48 @@ Header file for \mbox{\hyperlink{classOwnGraphicsScene}{Own\+Graphics\+Scene}} c
 \begin{DoxyAuthor}{Author}
 Lauri Westerholm 
 \end{DoxyAuthor}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{owngraphicsscene_8hpp_a89c6eb132d8e5045b0d7e5380223ecf5}\label{owngraphicsscene_8hpp_a89c6eb132d8e5045b0d7e5380223ecf5}} 
+\index{owngraphicsscene.\+hpp@{owngraphicsscene.\+hpp}!Bezier\+\_\+option\+\_\+locked@{Bezier\+\_\+option\+\_\+locked}}
+\index{Bezier\+\_\+option\+\_\+locked@{Bezier\+\_\+option\+\_\+locked}!owngraphicsscene.\+hpp@{owngraphicsscene.\+hpp}}
+\subsubsection{\texorpdfstring{Bezier\+\_\+option\+\_\+locked}{Bezier\_option\_locked}}
+{\footnotesize\ttfamily \#define Bezier\+\_\+option\+\_\+locked~2}
+
+
+
+Macro for Bezier\+Mode lock\+\_\+mode. 
+
+During this mode the first control point cannot be moved 
+
+Definition at line 190 of file owngraphicsscene.\+hpp.
+
+\mbox{\Hypertarget{owngraphicsscene_8hpp_ac807975b697c4bc870835d4a71a323c0}\label{owngraphicsscene_8hpp_ac807975b697c4bc870835d4a71a323c0}} 
+\index{owngraphicsscene.\+hpp@{owngraphicsscene.\+hpp}!Bezier\+\_\+option\+\_\+partially\+\_\+locked@{Bezier\+\_\+option\+\_\+partially\+\_\+locked}}
+\index{Bezier\+\_\+option\+\_\+partially\+\_\+locked@{Bezier\+\_\+option\+\_\+partially\+\_\+locked}!owngraphicsscene.\+hpp@{owngraphicsscene.\+hpp}}
+\subsubsection{\texorpdfstring{Bezier\+\_\+option\+\_\+partially\+\_\+locked}{Bezier\_option\_partially\_locked}}
+{\footnotesize\ttfamily \#define Bezier\+\_\+option\+\_\+partially\+\_\+locked~1}
+
+
+
+Macro for Bezier\+Mode lock\+\_\+mode. 
+
+During this mode moving control points which are joined to an end point isn\textquotesingle{}t allowed 
+
+Definition at line 184 of file owngraphicsscene.\+hpp.
+
+\mbox{\Hypertarget{owngraphicsscene_8hpp_a1509a31ffc7113da2c88462e26e0bd9d}\label{owngraphicsscene_8hpp_a1509a31ffc7113da2c88462e26e0bd9d}} 
+\index{owngraphicsscene.\+hpp@{owngraphicsscene.\+hpp}!Bezier\+\_\+option\+\_\+unlocked@{Bezier\+\_\+option\+\_\+unlocked}}
+\index{Bezier\+\_\+option\+\_\+unlocked@{Bezier\+\_\+option\+\_\+unlocked}!owngraphicsscene.\+hpp@{owngraphicsscene.\+hpp}}
+\subsubsection{\texorpdfstring{Bezier\+\_\+option\+\_\+unlocked}{Bezier\_option\_unlocked}}
+{\footnotesize\ttfamily \#define Bezier\+\_\+option\+\_\+unlocked~3}
+
+
+
+Macro for Bezier\+Mode lock\+\_\+mode. 
+
+During this mode the first control point can be always moved 
+
+Definition at line 196 of file owngraphicsscene.\+hpp.
+

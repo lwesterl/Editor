@@ -1,6 +1,7 @@
 var searchData=
 [
   ['remove',['remove',['../structPolygonToolbar.html#ad5f83fc2ac8daf17ae3014d05d3f5d5b',1,'PolygonToolbar']]],
+  ['remove_5fbezier',['remove_bezier',['../structBezierToolbar.html#a1e1fd77e3baf09d382973b1ede4247cd',1,'BezierToolbar']]],
   ['remove_5fitem',['remove_Item',['../classOwnGraphicsScene.html#a5b4b466a697f83c23294a80067edac23',1,'OwnGraphicsScene']]],
   ['remove_5fpoint_5fimg',['remove_point_img',['../gui_8hpp.html#a19fb1ba48d0a34f41020472dd625cf95',1,'gui.hpp']]],
   ['remove_5ftext',['remove_text',['../structPolygonToolbar.html#ad396d8e37e491bb7bfa8bf91d318014c',1,'PolygonToolbar']]],

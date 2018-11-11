@@ -68,7 +68,19 @@ void \mbox{\hyperlink{classGUI_a00fb847ea0a8249acaaf70c0f3ba3fd4}{Save\+Choices}
 \begin{DoxyCompactList}\small\item\em Save options. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classGUI_ac0cb178a0a36573f7d99a104dd84f5ed}\label{classGUI_ac0cb178a0a36573f7d99a104dd84f5ed}} 
 void \mbox{\hyperlink{classGUI_ac0cb178a0a36573f7d99a104dd84f5ed}{Bezier\+Mode}} ()
-\begin{DoxyCompactList}\small\item\em Activates/deactivates bezier\+\_\+mode. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Activates/deactivates bezier\+\_\+mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGUI_a593ffaac7d8a664f20893aed2536988b}{Bezier\+Toolbar\+\_\+\+Options\+Saved}} ()
+\begin{DoxyCompactList}\small\item\em Driggered when \mbox{\hyperlink{structBezierToolbar}{Bezier\+Toolbar}} options are saved. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGUI_a6f27f73cf15f18dfa206630cc77bc7df}{Bezier\+Toolbar\+\_\+\+Save\+Bezier}} ()
+\begin{DoxyCompactList}\small\item\em Save the current \mbox{\hyperlink{classBezier}{Bezier}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGUI_a8e851696d9c01c19a3afc7bdc0fbe54f}\label{classGUI_a8e851696d9c01c19a3afc7bdc0fbe54f}} 
+void \mbox{\hyperlink{classGUI_a8e851696d9c01c19a3afc7bdc0fbe54f}{Bezier\+Toolbar\+\_\+\+Cancel}} ()
+\begin{DoxyCompactList}\small\item\em Remove the current \mbox{\hyperlink{classBezier}{Bezier}} and cancel to main toolbar. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGUI_a508f3c222bb40b6cf139fc346e562564}\label{classGUI_a508f3c222bb40b6cf139fc346e562564}} 
+void \mbox{\hyperlink{classGUI_a508f3c222bb40b6cf139fc346e562564}{Bezier\+Toolbar\+\_\+\+Remove}} ()
+\begin{DoxyCompactList}\small\item\em Remove current \mbox{\hyperlink{classBezier}{Bezier}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGUI_ae36c91ff70502eeecb985c3b84aa3a07}{Hide\+Bezier\+Toolbar}} (bool hide)
+\begin{DoxyCompactList}\small\item\em Hide or unhide \mbox{\hyperlink{structBezierToolbar}{Bezier\+Toolbar}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -76,7 +88,7 @@ Graphical user interface.
 
 Inherits Q\+Main\+Window. Implements inteface to mainwidget 
 
-Definition at line 164 of file gui.\+hpp.
+Definition at line 188 of file gui.\+hpp.
 
 
 
@@ -112,11 +124,39 @@ Definition at line 17 of file gui.\+cpp.
 
 Deletes mainwidget 
 
-Definition at line 178 of file gui.\+hpp.
+Definition at line 202 of file gui.\+hpp.
 
 
 
 \subsection{Member Function Documentation}
+\mbox{\Hypertarget{classGUI_a593ffaac7d8a664f20893aed2536988b}\label{classGUI_a593ffaac7d8a664f20893aed2536988b}} 
+\index{G\+UI@{G\+UI}!Bezier\+Toolbar\+\_\+\+Options\+Saved@{Bezier\+Toolbar\+\_\+\+Options\+Saved}}
+\index{Bezier\+Toolbar\+\_\+\+Options\+Saved@{Bezier\+Toolbar\+\_\+\+Options\+Saved}!G\+UI@{G\+UI}}
+\subsubsection{\texorpdfstring{Bezier\+Toolbar\+\_\+\+Options\+Saved()}{BezierToolbar\_OptionsSaved()}}
+{\footnotesize\ttfamily void G\+U\+I\+::\+Bezier\+Toolbar\+\_\+\+Options\+Saved (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Driggered when \mbox{\hyperlink{structBezierToolbar}{Bezier\+Toolbar}} options are saved. 
+
+Used to update \mbox{\hyperlink{classOwnGraphicsScene}{Own\+Graphics\+Scene}} \mbox{\hyperlink{classBezier}{Bezier}} drawing 
+
+Definition at line 685 of file gui.\+cpp.
+
+\mbox{\Hypertarget{classGUI_a6f27f73cf15f18dfa206630cc77bc7df}\label{classGUI_a6f27f73cf15f18dfa206630cc77bc7df}} 
+\index{G\+UI@{G\+UI}!Bezier\+Toolbar\+\_\+\+Save\+Bezier@{Bezier\+Toolbar\+\_\+\+Save\+Bezier}}
+\index{Bezier\+Toolbar\+\_\+\+Save\+Bezier@{Bezier\+Toolbar\+\_\+\+Save\+Bezier}!G\+UI@{G\+UI}}
+\subsubsection{\texorpdfstring{Bezier\+Toolbar\+\_\+\+Save\+Bezier()}{BezierToolbar\_SaveBezier()}}
+{\footnotesize\ttfamily void G\+U\+I\+::\+Bezier\+Toolbar\+\_\+\+Save\+Bezier (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Save the current \mbox{\hyperlink{classBezier}{Bezier}}. 
+
+Used to signal \mbox{\hyperlink{classOwnGraphicsScene}{Own\+Graphics\+Scene}} that the \mbox{\hyperlink{classBezier}{Bezier}} should be saved 
+
+Definition at line 703 of file gui.\+cpp.
+
 \mbox{\Hypertarget{classGUI_a8188dd01b2dc9354afbbf2f4b18fd19a}\label{classGUI_a8188dd01b2dc9354afbbf2f4b18fd19a}} 
 \index{G\+UI@{G\+UI}!Cancel\+From\+Mode@{Cancel\+From\+Mode}}
 \index{Cancel\+From\+Mode@{Cancel\+From\+Mode}!G\+UI@{G\+UI}}
@@ -129,7 +169,7 @@ Cancel to the main view, toolbar.
 
 Called after user has canceled from image cutting mode 
 
-Definition at line 546 of file gui.\+cpp.
+Definition at line 573 of file gui.\+cpp.
 
 \mbox{\Hypertarget{classGUI_a9f2b3abf533a7c720b817caed653da2e}\label{classGUI_a9f2b3abf533a7c720b817caed653da2e}} 
 \index{G\+UI@{G\+UI}!Cancel\+From\+Poly@{Cancel\+From\+Poly}}
@@ -143,7 +183,7 @@ Return to the main view.
 
 Called after user has canceled from polygon image cut 
 
-Definition at line 591 of file gui.\+cpp.
+Definition at line 618 of file gui.\+cpp.
 
 \mbox{\Hypertarget{classGUI_a3e6d9c2c9482bf8cb9655899b36e8bc1}\label{classGUI_a3e6d9c2c9482bf8cb9655899b36e8bc1}} 
 \index{G\+UI@{G\+UI}!Cancel\+From\+Select@{Cancel\+From\+Select}}
@@ -157,7 +197,7 @@ Return to the main view.
 
 Called after user has canceled from image select 
 
-Definition at line 507 of file gui.\+cpp.
+Definition at line 534 of file gui.\+cpp.
 
 \mbox{\Hypertarget{classGUI_a19c82a62a2b41460c81317fa967e3a1e}\label{classGUI_a19c82a62a2b41460c81317fa967e3a1e}} 
 \index{G\+UI@{G\+UI}!Clear\+All@{Clear\+All}}
@@ -171,7 +211,7 @@ Clear all objects.
 
 User triggered Q\+Action sends a signal and clears all 
 
-Definition at line 150 of file gui.\+cpp.
+Definition at line 149 of file gui.\+cpp.
 
 \mbox{\Hypertarget{classGUI_afb6e169c9372800e69c70a3889420325}\label{classGUI_afb6e169c9372800e69c70a3889420325}} 
 \index{G\+UI@{G\+UI}!Clear\+Mode@{Clear\+Mode}}
@@ -185,7 +225,7 @@ Clear previous points.
 
 Triggers clear mode in the scene 
 
-Definition at line 144 of file gui.\+cpp.
+Definition at line 143 of file gui.\+cpp.
 
 \mbox{\Hypertarget{classGUI_a3547730e0fae81b59fcb19d00a370782}\label{classGUI_a3547730e0fae81b59fcb19d00a370782}} 
 \index{G\+UI@{G\+UI}!Continue\+From\+Mode@{Continue\+From\+Mode}}
@@ -199,7 +239,7 @@ Continue to image cutting.
 
 Called after user has selected image cutting mode 
 
-Definition at line 559 of file gui.\+cpp.
+Definition at line 586 of file gui.\+cpp.
 
 \mbox{\Hypertarget{classGUI_a0cddf3859f457495040857f4868f32e3}\label{classGUI_a0cddf3859f457495040857f4868f32e3}} 
 \index{G\+UI@{G\+UI}!Continue\+From\+Select@{Continue\+From\+Select}}
@@ -213,7 +253,7 @@ Continue to image mode select.
 
 Called after user has selected which image to cut 
 
-Definition at line 523 of file gui.\+cpp.
+Definition at line 550 of file gui.\+cpp.
 
 \mbox{\Hypertarget{classGUI_a26cdc4a989f3637301f0afb9cc5e23b0}\label{classGUI_a26cdc4a989f3637301f0afb9cc5e23b0}} 
 \index{G\+UI@{G\+UI}!create\+Toolbars@{create\+Toolbars}}
@@ -227,7 +267,7 @@ Create different toolbars.
 
 Called from \mbox{\hyperlink{classGUI}{G\+UI}} constructor to create all toolbars 
 
-Definition at line 355 of file gui.\+cpp.
+Definition at line 354 of file gui.\+cpp.
 
 \mbox{\Hypertarget{classGUI_ae8acfcce2ea4da241c920076b72f1c93}\label{classGUI_ae8acfcce2ea4da241c920076b72f1c93}} 
 \index{G\+UI@{G\+UI}!Cut\+Image\+Mode@{Cut\+Image\+Mode}}
@@ -241,7 +281,7 @@ Mode for cutting images.
 
 Images can be cut to multiple shapes. Starts a toolbar which promts user to choose which image is being cut. Then user chooses cut style and finally cuts the image 
 
-Definition at line 264 of file gui.\+cpp.
+Definition at line 263 of file gui.\+cpp.
 
 \mbox{\Hypertarget{classGUI_a453b758a292b4a0e6f52f25b1bb2de77}\label{classGUI_a453b758a292b4a0e6f52f25b1bb2de77}} 
 \index{G\+UI@{G\+UI}!Delete\+Img\+Mode@{Delete\+Img\+Mode}}
@@ -255,7 +295,7 @@ Delete images from the scene.
 
 User holds cursor over an image and clicks to delete the image 
 
-Definition at line 245 of file gui.\+cpp.
+Definition at line 244 of file gui.\+cpp.
 
 \mbox{\Hypertarget{classGUI_aac66154aaa763aac4d20e55cbd1bdc0d}\label{classGUI_aac66154aaa763aac4d20e55cbd1bdc0d}} 
 \index{G\+UI@{G\+UI}!Delete\+Mode@{Delete\+Mode}}
@@ -269,7 +309,26 @@ Delete lines mode.
 
 Q\+Action sends a signal and activates or deactivates delete mode 
 
-Definition at line 124 of file gui.\+cpp.
+Definition at line 123 of file gui.\+cpp.
+
+\mbox{\Hypertarget{classGUI_ae36c91ff70502eeecb985c3b84aa3a07}\label{classGUI_ae36c91ff70502eeecb985c3b84aa3a07}} 
+\index{G\+UI@{G\+UI}!Hide\+Bezier\+Toolbar@{Hide\+Bezier\+Toolbar}}
+\index{Hide\+Bezier\+Toolbar@{Hide\+Bezier\+Toolbar}!G\+UI@{G\+UI}}
+\subsubsection{\texorpdfstring{Hide\+Bezier\+Toolbar()}{HideBezierToolbar()}}
+{\footnotesize\ttfamily void G\+U\+I\+::\+Hide\+Bezier\+Toolbar (\begin{DoxyParamCaption}\item[{bool}]{hide }\end{DoxyParamCaption})}
+
+
+
+Hide or unhide \mbox{\hyperlink{structBezierToolbar}{Bezier\+Toolbar}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hide} & true -\/$>$ hide, false -\/$>$ unhide \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 725 of file gui.\+cpp.
 
 \mbox{\Hypertarget{classGUI_aa115b0163bfbf518dd201f4f02476b75}\label{classGUI_aa115b0163bfbf518dd201f4f02476b75}} 
 \index{G\+UI@{G\+UI}!Hide\+Main\+Toolbar@{Hide\+Main\+Toolbar}}
@@ -288,7 +347,7 @@ Hide Main\+Toolbar.
 \end{DoxyParams}
 
 
-Definition at line 324 of file gui.\+cpp.
+Definition at line 323 of file gui.\+cpp.
 
 \mbox{\Hypertarget{classGUI_a9517c0ad1e4c2b39faab8050f8133151}\label{classGUI_a9517c0ad1e4c2b39faab8050f8133151}} 
 \index{G\+UI@{G\+UI}!Hide\+Mode\+Toolbar@{Hide\+Mode\+Toolbar}}
@@ -307,7 +366,7 @@ Hide \mbox{\hyperlink{structModeToolbar}{Mode\+Toolbar}}.
 \end{DoxyParams}
 
 
-Definition at line 309 of file gui.\+cpp.
+Definition at line 308 of file gui.\+cpp.
 
 \mbox{\Hypertarget{classGUI_aaf633cd0904e4c3627c21219f330c177}\label{classGUI_aaf633cd0904e4c3627c21219f330c177}} 
 \index{G\+UI@{G\+UI}!Hide\+Polygon\+Toolbar@{Hide\+Polygon\+Toolbar}}
@@ -326,7 +385,7 @@ Hide \mbox{\hyperlink{structPolygonToolbar}{Polygon\+Toolbar}}.
 \end{DoxyParams}
 
 
-Definition at line 294 of file gui.\+cpp.
+Definition at line 293 of file gui.\+cpp.
 
 \mbox{\Hypertarget{classGUI_a7f6d3b1fcbd874fccd93c5f29c468ed8}\label{classGUI_a7f6d3b1fcbd874fccd93c5f29c468ed8}} 
 \index{G\+UI@{G\+UI}!Hide\+Select\+Toolbar@{Hide\+Select\+Toolbar}}
@@ -345,7 +404,7 @@ Hide \mbox{\hyperlink{structSelectImgToolbar}{Select\+Img\+Toolbar}}.
 \end{DoxyParams}
 
 
-Definition at line 338 of file gui.\+cpp.
+Definition at line 337 of file gui.\+cpp.
 
 \mbox{\Hypertarget{classGUI_a5281fa4256d3ff14df9a95c1c6613bb2}\label{classGUI_a5281fa4256d3ff14df9a95c1c6613bb2}} 
 \index{G\+UI@{G\+UI}!Img\+Mode@{Img\+Mode}}
@@ -359,7 +418,7 @@ Mode for adding images to the scene.
 
 User can drag image and then save it to the scene 
 
-Definition at line 217 of file gui.\+cpp.
+Definition at line 216 of file gui.\+cpp.
 
 \mbox{\Hypertarget{classGUI_a91fab5d31617ad5631d17dfceb5a0fad}\label{classGUI_a91fab5d31617ad5631d17dfceb5a0fad}} 
 \index{G\+UI@{G\+UI}!Line\+Mode@{Line\+Mode}}
@@ -373,7 +432,7 @@ Line drawing mode.
 
 Q\+Action sends a signal and activates or deactivates line mode 
 
-Definition at line 105 of file gui.\+cpp.
+Definition at line 104 of file gui.\+cpp.
 
 \mbox{\Hypertarget{classGUI_a925c89bd7b32ccc8d726063ed8076f8f}\label{classGUI_a925c89bd7b32ccc8d726063ed8076f8f}} 
 \index{G\+UI@{G\+UI}!open\+Image@{open\+Image}}
@@ -387,7 +446,7 @@ Open an image.
 
 By activating image mode user can place the image to the scene 
 
-Definition at line 196 of file gui.\+cpp.
+Definition at line 195 of file gui.\+cpp.
 
 \mbox{\Hypertarget{classGUI_abf8e1050ae4d599bf35af7b1f841d960}\label{classGUI_abf8e1050ae4d599bf35af7b1f841d960}} 
 \index{G\+UI@{G\+UI}!Remove\+Poly\+Previous@{Remove\+Poly\+Previous}}
@@ -401,7 +460,7 @@ Remove previous cut line from an image.
 
 Triggered by user action 
 
-Definition at line 621 of file gui.\+cpp.
+Definition at line 648 of file gui.\+cpp.
 
 \mbox{\Hypertarget{classGUI_a00fb847ea0a8249acaaf70c0f3ba3fd4}\label{classGUI_a00fb847ea0a8249acaaf70c0f3ba3fd4}} 
 \index{G\+UI@{G\+UI}!Save\+Choices@{Save\+Choices}}
@@ -415,7 +474,7 @@ Save options.
 
 Called after user has modified options combobox and wants to save the options 
 
-Definition at line 630 of file gui.\+cpp.
+Definition at line 657 of file gui.\+cpp.
 
 \mbox{\Hypertarget{classGUI_a44684af7706c021022520e2c4829c3ee}\label{classGUI_a44684af7706c021022520e2c4829c3ee}} 
 \index{G\+UI@{G\+UI}!save\+Image@{save\+Image}}
@@ -429,7 +488,7 @@ Save scene content to an image.
 
 User can specify where the image is saved 
 
-Definition at line 157 of file gui.\+cpp.
+Definition at line 156 of file gui.\+cpp.
 
 \mbox{\Hypertarget{classGUI_a6bf2d3ef382340365b5693245a2bd955}\label{classGUI_a6bf2d3ef382340365b5693245a2bd955}} 
 \index{G\+UI@{G\+UI}!Set\+Poly\+Final@{Set\+Poly\+Final}}
@@ -443,7 +502,7 @@ Create polygon cut to an image.
 
 Triggered by user when user is ready to cut the image 
 
-Definition at line 607 of file gui.\+cpp.
+Definition at line 634 of file gui.\+cpp.
 
 
 

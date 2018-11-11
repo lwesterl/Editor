@@ -22,6 +22,8 @@ Struct used during bezier\+\_\+mode.
 \item 
 bool \mbox{\hyperlink{structBezier__Mode_ae2573f8601e7d9f439d2bfbc11c34ae9}{created}} = false
 \item 
+int \mbox{\hyperlink{structBezier__Mode_afdb33ea2b7dc22c264580b86e5e9e998}{lock\+\_\+mode}} = 1
+\item 
 \mbox{\hyperlink{classBezier}{Bezier}} $\ast$ \mbox{\hyperlink{structBezier__Mode_a9aefbd869ef59854732e405886d334fb}{active\+\_\+bezier}} = nullptr
 \item 
 Q\+Graphics\+Ellipse\+Item $\ast$ \mbox{\hyperlink{structBezier__Mode_ab07833315488dc0d3c6f613c51de1d3f}{circle1}} = nullptr
@@ -50,7 +52,7 @@ Definition at line 101 of file owngraphicsscene.\+hpp.
 
 Pointer to the \mbox{\hyperlink{classBezier}{Bezier}} being constructed 
 
-Definition at line 108 of file owngraphicsscene.\+hpp.
+Definition at line 109 of file owngraphicsscene.\+hpp.
 
 \mbox{\Hypertarget{structBezier__Mode_ab07833315488dc0d3c6f613c51de1d3f}\label{structBezier__Mode_ab07833315488dc0d3c6f613c51de1d3f}} 
 \index{Bezier\+\_\+\+Mode@{Bezier\+\_\+\+Mode}!circle1@{circle1}}
@@ -60,7 +62,7 @@ Definition at line 108 of file owngraphicsscene.\+hpp.
 
 Circle which center is the first control point 
 
-Definition at line 109 of file owngraphicsscene.\+hpp.
+Definition at line 110 of file owngraphicsscene.\+hpp.
 
 \mbox{\Hypertarget{structBezier__Mode_a3f6f2bdade3db15c0855820d86a5b98e}\label{structBezier__Mode_a3f6f2bdade3db15c0855820d86a5b98e}} 
 \index{Bezier\+\_\+\+Mode@{Bezier\+\_\+\+Mode}!circle2@{circle2}}
@@ -70,7 +72,7 @@ Definition at line 109 of file owngraphicsscene.\+hpp.
 
 Circle which center is the second control point 
 
-Definition at line 110 of file owngraphicsscene.\+hpp.
+Definition at line 111 of file owngraphicsscene.\+hpp.
 
 \mbox{\Hypertarget{structBezier__Mode_a342d3b970c6049b615ef356a902c0781}\label{structBezier__Mode_a342d3b970c6049b615ef356a902c0781}} 
 \index{Bezier\+\_\+\+Mode@{Bezier\+\_\+\+Mode}!circle3@{circle3}}
@@ -80,7 +82,7 @@ Definition at line 110 of file owngraphicsscene.\+hpp.
 
 Circle which center is the third control point 
 
-Definition at line 111 of file owngraphicsscene.\+hpp.
+Definition at line 112 of file owngraphicsscene.\+hpp.
 
 \mbox{\Hypertarget{structBezier__Mode_a6f26e1fe7da425063b792dab9f3c1099}\label{structBezier__Mode_a6f26e1fe7da425063b792dab9f3c1099}} 
 \index{Bezier\+\_\+\+Mode@{Bezier\+\_\+\+Mode}!circle4@{circle4}}
@@ -90,7 +92,7 @@ Definition at line 111 of file owngraphicsscene.\+hpp.
 
 Circle which center is the fourth control point 
 
-Definition at line 112 of file owngraphicsscene.\+hpp.
+Definition at line 113 of file owngraphicsscene.\+hpp.
 
 \mbox{\Hypertarget{structBezier__Mode_ae2573f8601e7d9f439d2bfbc11c34ae9}\label{structBezier__Mode_ae2573f8601e7d9f439d2bfbc11c34ae9}} 
 \index{Bezier\+\_\+\+Mode@{Bezier\+\_\+\+Mode}!created@{created}}
@@ -101,6 +103,16 @@ Definition at line 112 of file owngraphicsscene.\+hpp.
 Whether the \mbox{\hyperlink{classBezier}{Bezier}} is created or not 
 
 Definition at line 107 of file owngraphicsscene.\+hpp.
+
+\mbox{\Hypertarget{structBezier__Mode_afdb33ea2b7dc22c264580b86e5e9e998}\label{structBezier__Mode_afdb33ea2b7dc22c264580b86e5e9e998}} 
+\index{Bezier\+\_\+\+Mode@{Bezier\+\_\+\+Mode}!lock\+\_\+mode@{lock\+\_\+mode}}
+\index{lock\+\_\+mode@{lock\+\_\+mode}!Bezier\+\_\+\+Mode@{Bezier\+\_\+\+Mode}}
+\subsubsection{\texorpdfstring{lock\+\_\+mode}{lock\_mode}}
+{\footnotesize\ttfamily int Bezier\+\_\+\+Mode\+::lock\+\_\+mode = 1}
+
+Whether the start point is locked or not 
+
+Definition at line 108 of file owngraphicsscene.\+hpp.
 
 \mbox{\Hypertarget{structBezier__Mode_a2d7c5ccccb03114fd1b26a20843a59e4}\label{structBezier__Mode_a2d7c5ccccb03114fd1b26a20843a59e4}} 
 \index{Bezier\+\_\+\+Mode@{Bezier\+\_\+\+Mode}!p1@{p1}}

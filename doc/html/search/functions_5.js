@@ -1,10 +1,14 @@
 var searchData=
 [
+  ['getendx',['getEndX',['../classBezier.html#aef4b9fbe3b5d30ea6b42de7fc38cf796',1,'Bezier']]],
+  ['getendy',['getEndY',['../classBezier.html#abb9094c95311d916aad946d90a9b5c12',1,'Bezier']]],
   ['getlayout',['getLayout',['../classMainWidget.html#a639b465bb49eb31e1c09051ae047951f',1,'MainWidget']]],
   ['getlineitems',['getLineItems',['../classBezier.html#ad4417fabe40db932edc57406d1ab302a',1,'Bezier']]],
   ['getmousex',['getMouseX',['../classOwnGraphicsScene.html#a6e54bd43db758bcd4f7cc1dd4544232e',1,'OwnGraphicsScene']]],
   ['getmousey',['getMouseY',['../classOwnGraphicsScene.html#a3fd2942e9930fc2dda41844622dc8a35',1,'OwnGraphicsScene']]],
   ['getscene',['getScene',['../classMainWidget.html#ad40a8bd13b501a0ebe88c87426a5b591',1,'MainWidget']]],
+  ['getstartx',['getStartX',['../classBezier.html#a81efbcfa1f2bc8bf3c539dba1a4b80e0',1,'Bezier']]],
+  ['getstarty',['getStartY',['../classBezier.html#ae310b53e4d8b3d586bbc4d335ac4cc08',1,'Bezier']]],
   ['getvectors',['getVectors',['../classBezier.html#a26bf332b0c831e0f302f1d72ec782436',1,'Bezier::getVectors()'],['../classBezier.html#a26bf332b0c831e0f302f1d72ec782436',1,'Bezier::getVectors()']]],
   ['getview',['getView',['../classMainWidget.html#ae73e3dac6fb1e99dabe84aab683b3fbd',1,'MainWidget']]],
   ['getx',['getX',['../classVector2.html#a808d02062efcc0c016491c04845e3e34',1,'Vector2']]],

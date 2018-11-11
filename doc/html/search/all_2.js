@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['cancel',['cancel',['../structPolygonToolbar.html#aea894e742da9051f58af268c43212a22',1,'PolygonToolbar::cancel()'],['../structModeToolbar.html#a814fa4aec4ff40543904dfc4aa4c8e89',1,'ModeToolbar::cancel()'],['../structSelectImgToolbar.html#a0b17a222dff0441c0f10509315ce9052',1,'SelectImgToolbar::cancel()']]],
+  ['cancel',['cancel',['../structPolygonToolbar.html#aea894e742da9051f58af268c43212a22',1,'PolygonToolbar::cancel()'],['../structModeToolbar.html#a814fa4aec4ff40543904dfc4aa4c8e89',1,'ModeToolbar::cancel()'],['../structSelectImgToolbar.html#a0b17a222dff0441c0f10509315ce9052',1,'SelectImgToolbar::cancel()'],['../structBezierToolbar.html#a5c91775ecfd6725f3707b5b838bcbbf9',1,'BezierToolbar::cancel()']]],
   ['cancel_5fimg',['cancel_img',['../gui_8hpp.html#a9f228b0281863ba576bea09d2fb86f98',1,'gui.hpp']]],
   ['cancelfrommode',['CancelFromMode',['../classGUI.html#a8188dd01b2dc9354afbbf2f4b18fd19a',1,'GUI']]],
   ['cancelfrompoly',['CancelFromPoly',['../classGUI.html#a9f2b3abf533a7c720b817caed653da2e',1,'GUI']]],
