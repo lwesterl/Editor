@@ -18,7 +18,6 @@ GUI::GUI(QWidget *parent): QMainWindow(parent)
 {
 
   this->setWindowTitle ("Editor");
-  setMouseTracking(true);
   setContextMenuPolicy(Qt::NoContextMenu); // don't allow clicking toolboxes
 
 
@@ -380,8 +379,8 @@ void GUI::createToolbars()
   main_toolbar->addSeparator();
   QPixmap bezier_img(bezier_pic_img);
   bezier_mode = main_toolbar->addAction(QIcon(bezier_img), "Bezier mode");
-  bezier_mode->setCheckable(true);
-  bezier_mode->setChecked(false);
+  //bezier_mode->setCheckable(true);
+  //bezier_mode->setChecked(false);
   connect(bezier_mode, &QAction::triggered, this, &GUI::BezierMode);
 
 
@@ -497,6 +496,34 @@ void GUI::createToolbars()
 
   // Hide the lower toolbar
   HidePolygonToolbar(true);
+
+
+  // Create the BezierToolbar
+  bezierToolbar.bezier_toolbar = addToolBar("Bezier toolbar");
+  bezierToolbar.options = new QComboBox();
+  // Note: options order is crusial in BezierToolbarOptionsSaved
+  bezierToolbar.options->addItem(tr("Start point locking"));
+  bezierToolbar.options->addItem(tr("Lock only when connected"));
+  bezierToolbar.options->addItem(tr("Lock always"));
+  bezierToolbar.options->addItem(tr("Never lock"));
+  bezierToolbar.bezier_toolbar->addWidget(bezierToolbar.options);
+  QPixmap save_button = QPixmap(save_button_img);
+  bezierToolbar.save_options = bezierToolbar.bezier_toolbar->addAction(save_button, "Save options");
+  // Connect save options
+  connect(bezierToolbar.save_options, &QAction::triggered, this, &GUI::BezierToolbar_OptionsSaved);
+  bezierToolbar.bezier_toolbar->addSeparator();
+  bezierToolbar.save_bezier = bezierToolbar.bezier_toolbar->addAction(continue_pic, "Save Bezier");
+  QPixmap bezier_remove_pic = QPixmap(bezier_remove_img);
+  bezierToolbar.remove_bezier = bezierToolbar.bezier_toolbar->addAction(bezier_remove_pic, "Remove Bezier");
+  bezierToolbar.bezier_toolbar->addSeparator();
+  bezierToolbar.cancel = bezierToolbar.bezier_toolbar->addAction(cancel_pic, "Cancel");
+  // Connect save_bezier and cancel
+  connect(bezierToolbar.save_bezier, &QAction::triggered, this, &GUI::BezierToolbar_SaveBezier);
+  connect(bezierToolbar.remove_bezier, &QAction::triggered, this, &GUI::BezierToolbar_Remove);
+  connect(bezierToolbar.cancel, &QAction::triggered, this, &GUI::BezierToolbar_Cancel);
+  // Hide the toolbar
+  HideBezierToolbar(true);
+
 
 
 }
@@ -640,57 +667,69 @@ void GUI::SaveChoices()
 // Bezier action triggered
 void GUI::BezierMode()
 {
-  if (bezier_mode->isChecked())
-  {
-    // deactivate other mode
-    line_mode->setChecked(false);
-    delete_mode->setChecked(false);
-    add_img_mode->setChecked(false);
-    delete_img_mode->setChecked(false);
-    cut_image_mode->setChecked(false);
+  // deactivate other mode
+  line_mode->setChecked(false);
+  delete_mode->setChecked(false);
+  add_img_mode->setChecked(false);
+  delete_img_mode->setChecked(false);
+  cut_image_mode->setChecked(false);
 
-    // Activate Bezier mode
-    mainWidget->getScene()->BezierMode(true);
+  // Activate Bezier mode
+  mainWidget->getScene()->BezierMode(true);
+  HideBezierToolbar(false);
+  HideMainToolbar(true);
+
+}
+
+/*  BezierToolbar options have been saved */
+void GUI::BezierToolbar_OptionsSaved()
+{
+  int index = bezierToolbar.options->currentIndex();
+  if (index)
+  {
+    // Send updated option to OwnGraphicsScene
+    mainWidget->getScene()->modifyBezierOptions(index);
+    QMessageBox::information(this, "Information", "Selected options saved");
+
   }
   else
   {
-    // Deactivate the Bezier mode
-    mainWidget->getScene()->BezierMode(false);
-
+    // Non-correct option selected
+    QMessageBox::warning(this, "Warning", "Invalid option");
   }
-
 }
 
-/*void GUI::mouseMoveEvent(QMouseEvent *event)
+/*  Save the Bezier */
+void GUI::BezierToolbar_SaveBezier()
 {
-  mouse_x = event->x();
-  mouse_y = event->y();
-}*/
+  mainWidget->getScene()->BezierReady();
+}
 
-/*
- *    This overload catches user mouse movement
- *    mouse x stored to mouse_x
- *    mouse y stored to mouse_y
- */
-/*
-void GUI::mousePressEvent(QMouseEvent *event)
+/*  Remove current Bezier */
+void GUI::BezierToolbar_Remove()
 {
-  unsigned x_new = event->x();
-  unsigned y_new = event->y();
+  mainWidget->getScene()->EraseBezier();
+}
 
-  // Add a line from previous points if line adding mode activated
-  addLine(mouse_x, mouse_y, x_new, y_new);
-
-  // reassign mouse_x and mouse_y
-  mouse_x = x_new;
-  mouse_y = y_new;
-  qDebug() << "Clicked\n" << "X: " << mouse_x << "Y: " << mouse_y;
+/*  Go back to main toolbar */
+void GUI::BezierToolbar_Cancel()
+{
+  mainWidget->getScene()->BezierMode(false);
+  // Activate correct toolbar
+  HideBezierToolbar(true);
+  HideMainToolbar(false);
 }
 
 
-// This adds a line to the graphics scene
-
-void GUI::addLine(int x1, int y1, int x2, int y2)
+/*  A small wrapper method used to hide BezierToolbar */
+void GUI::HideBezierToolbar(bool hide)
 {
-  scene->addItem(new QGraphicsLineItem(x1, y1, x2, y2));
-}*/
+  if (hide)
+  {
+    bezierToolbar.bezier_toolbar->setVisible(false);
+  }
+  else
+  {
+    bezierToolbar.bezier_toolbar->setVisible(true);
+  }
+}

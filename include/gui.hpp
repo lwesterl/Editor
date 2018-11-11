@@ -107,6 +107,15 @@
   */
 #define bezier_pic_img "img_src/bezier_pic.png"
 
+/**
+  *   @brief Save button image macro
+  */
+#define save_button_img "img_src/save_button.png"
+
+/**
+  *   @brief Bezier remove image macro
+  */
+#define bezier_remove_img "img_src/bezier_remove.png"
 
 
 /**
@@ -150,6 +159,21 @@ struct SelectImgToolbar
   QLabel *info; /**< Label used to inform user */
   QAction *continue_button; /**< Pointer to a QAction which connects to ContinueFromSelect */
   QAction *cancel; /**< Pointer to a QAction which connects to CancelFromSelect */
+};
+
+/**
+  *   @struct BezierToolbar
+  *   @brief Toolbar used during bezier mode
+  */
+
+struct BezierToolbar
+{
+  QToolBar *bezier_toolbar; /**< Pointer to the QToolbar */
+  QComboBox *options; /**< BezierToolbar options */
+  QAction *save_options; /**< Save options */
+  QAction *save_bezier; /**< Button to save the Bezier */
+  QAction *remove_bezier; /**< Button to remove current Bezier */
+  QAction *cancel; /**< Button to cancel to main Toolbar */
 };
 
 
@@ -317,11 +341,35 @@ public:
     */
   void BezierMode();
 
-  //void mouseMoveEvent(QMouseEvent *event);
-  //void mousePressEvent(QMouseEvent *event);
-  //int getMouseX(){return mouse_x;}
-  //int getMouseY(){return mouse_y;}
-  //void addLine(int x1, int y1, int x2, int y2);
+  /**
+    *   @brief Driggered when BezierToolbar options are saved
+    *   @details Used to update OwnGraphicsScene Bezier drawing
+    */
+  void BezierToolbar_OptionsSaved();
+
+  /**
+    *   @brief Save the current Bezier
+    *   @details Used to signal OwnGraphicsScene that the Bezier should be saved
+    */
+  void BezierToolbar_SaveBezier();
+
+  /**
+    *   @brief Remove the current Bezier and cancel to main toolbar
+    */
+  void BezierToolbar_Cancel();
+
+  /**
+    *   @brief Remove current Bezier
+    */
+  void BezierToolbar_Remove();
+
+
+  /**
+    *   @brief Hide or unhide BezierToolbar
+    *   @param hide true -> hide, false -> unhide
+    */
+  void HideBezierToolbar(bool hide);
+
 
 private:
   MainWidget *mainWidget;
@@ -340,6 +388,7 @@ private:
   struct PolygonToolbar polyToolbar;
   struct ModeToolbar modeToolbar;
   struct SelectImgToolbar selectToolbar;
+  struct BezierToolbar bezierToolbar;
 
   ComboboxAction *line_options_combo;
 
