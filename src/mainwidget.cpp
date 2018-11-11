@@ -18,7 +18,9 @@ MainWidget::MainWidget(QWidget *parent): QWidget(parent)
 
   // set a scene and a view for it
   scene = new OwnGraphicsScene(this);
-  view = new QGraphicsView(scene, this);
+  view = new OwnGraphicsView(scene, this);
+  // link view to the scene
+  scene->addView(view);
   layout->addWidget(view);
 
 }

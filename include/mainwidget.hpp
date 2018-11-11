@@ -22,6 +22,7 @@
 #include <QHBoxLayout>
 #include <QScrollBar>
 #include "owngraphicsscene.hpp"
+#include "ownview.hpp"
 
 
 /**
@@ -75,7 +76,7 @@ public:
 
 private:
   OwnGraphicsScene *scene;
-  QGraphicsView *view;
+  OwnGraphicsView *view;
   QHBoxLayout *layout;
 
 };
