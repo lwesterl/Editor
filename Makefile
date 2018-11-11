@@ -55,7 +55,9 @@ SOURCES       = src/bezier.cpp \
 		src/owngraphicsscene.cpp \
 		src/pixmap_item.cpp \
 		src/promtwindow.cpp \
-		src/vector2.cpp moc_promtwindow.cpp
+		src/vector2.cpp moc_owngraphicsscene.cpp \
+		moc_ownview.cpp \
+		moc_promtwindow.cpp
 OBJECTS       = bezier.o \
 		combobox_action.o \
 		gui_test.o \
@@ -64,6 +66,8 @@ OBJECTS       = bezier.o \
 		pixmap_item.o \
 		promtwindow.o \
 		vector2.o \
+		moc_owngraphicsscene.o \
+		moc_ownview.o \
 		moc_promtwindow.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
@@ -131,6 +135,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		include/line_item.hpp \
 		include/mainwidget.hpp \
 		include/owngraphicsscene.hpp \
+		include/ownview.hpp \
 		include/pixmap_item.hpp \
 		include/promtwindow.hpp \
 		include/vector2.hpp src/bezier.cpp \
@@ -295,7 +300,7 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents include/bezier.hpp include/combobox_action.hpp include/gui.hpp include/line_item.hpp include/mainwidget.hpp include/owngraphicsscene.hpp include/pixmap_item.hpp include/promtwindow.hpp include/vector2.hpp $(DISTDIR)/
+	$(COPY_FILE) --parents include/bezier.hpp include/combobox_action.hpp include/gui.hpp include/line_item.hpp include/mainwidget.hpp include/owngraphicsscene.hpp include/ownview.hpp include/pixmap_item.hpp include/promtwindow.hpp include/vector2.hpp $(DISTDIR)/
 	$(COPY_FILE) --parents src/bezier.cpp src/combobox_action.cpp src/gui_test.cpp src/mainwidget.cpp src/owngraphicsscene.cpp src/pixmap_item.cpp src/promtwindow.cpp src/vector2.cpp $(DISTDIR)/
 
 
@@ -322,9 +327,22 @@ benchmark: first
 
 compiler_rcc_make_all:
 compiler_rcc_clean:
-compiler_moc_header_make_all: moc_promtwindow.cpp
+compiler_moc_header_make_all: moc_owngraphicsscene.cpp moc_ownview.cpp moc_promtwindow.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_promtwindow.cpp
+	-$(DEL_FILE) moc_owngraphicsscene.cpp moc_ownview.cpp moc_promtwindow.cpp
+moc_owngraphicsscene.cpp: include/line_item.hpp \
+		include/pixmap_item.hpp \
+		include/ownview.hpp \
+		include/bezier.hpp \
+		include/vector2.hpp \
+		include/owngraphicsscene.hpp \
+		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/lauri/Documents/Game_project/Editor -I/home/lauri/Documents/Game_project/Editor -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/owngraphicsscene.hpp -o moc_owngraphicsscene.cpp
+
+moc_ownview.cpp: include/ownview.hpp \
+		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/lauri/Documents/Game_project/Editor -I/home/lauri/Documents/Game_project/Editor -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/ownview.hpp -o moc_ownview.cpp
+
 moc_promtwindow.cpp: include/promtwindow.hpp \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/lauri/Documents/Game_project/Editor -I/home/lauri/Documents/Game_project/Editor -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/promtwindow.hpp -o moc_promtwindow.cpp
@@ -356,6 +374,7 @@ gui_test.o: src/gui_test.cpp src/gui.cpp \
 		include/owngraphicsscene.hpp \
 		include/line_item.hpp \
 		include/pixmap_item.hpp \
+		include/ownview.hpp \
 		include/bezier.hpp \
 		include/vector2.hpp \
 		include/mainwidget.hpp \
@@ -366,6 +385,7 @@ mainwidget.o: src/mainwidget.cpp include/mainwidget.hpp \
 		include/owngraphicsscene.hpp \
 		include/line_item.hpp \
 		include/pixmap_item.hpp \
+		include/ownview.hpp \
 		include/bezier.hpp \
 		include/vector2.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwidget.o src/mainwidget.cpp
@@ -373,6 +393,7 @@ mainwidget.o: src/mainwidget.cpp include/mainwidget.hpp \
 owngraphicsscene.o: src/owngraphicsscene.cpp include/owngraphicsscene.hpp \
 		include/line_item.hpp \
 		include/pixmap_item.hpp \
+		include/ownview.hpp \
 		include/bezier.hpp \
 		include/vector2.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o owngraphicsscene.o src/owngraphicsscene.cpp
@@ -385,6 +406,12 @@ promtwindow.o: src/promtwindow.cpp include/promtwindow.hpp
 
 vector2.o: src/vector2.cpp include/vector2.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o vector2.o src/vector2.cpp
+
+moc_owngraphicsscene.o: moc_owngraphicsscene.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_owngraphicsscene.o moc_owngraphicsscene.cpp
+
+moc_ownview.o: moc_ownview.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_ownview.o moc_ownview.cpp
 
 moc_promtwindow.o: moc_promtwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_promtwindow.o moc_promtwindow.cpp
