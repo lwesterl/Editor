@@ -105,6 +105,7 @@
    Vector2 p3; /**< The third bezier point */
    Vector2 p4; /**< The fourth bezier point */
    bool created = false; /**< Whether the Bezier is created or not */
+   int lock_mode = 1; /**< Whether the start point is locked or not */
    Bezier *active_bezier = nullptr; /**< Pointer to the Bezier being constructed */
    QGraphicsEllipseItem *circle1 = nullptr; /**< Circle which center is the first control point */
    QGraphicsEllipseItem *circle2 = nullptr; /**< Circle which center is the second control point */
@@ -174,6 +175,25 @@
   *   @brief Macro for Bezier control point circle diameter
   */
 #define Control_point_circle_diameter 30
+
+/**
+  *   @brief Macro for BezierMode lock_mode
+  *   @details During this mode moving control points which are joined to an end
+  *   point isn't allowed
+  */
+#define Bezier_option_partially_locked 1
+
+/**
+  *   @brief Macro for BezierMode lock_mode
+  *   @details During this mode the first control point cannot be moved
+  */
+#define Bezier_option_locked 2
+
+/**
+  *   @brief Macro for BezierMode lock_mode
+  *   @details During this mode the first control point can be always moved
+  */
+#define Bezier_option_unlocked 3
 
 
 
@@ -388,6 +408,8 @@
   *   @param x Mouse x coordinate
   *   @param y Mouse y coordinate
   *   @return Returns 0 if not inside, else returns point number which is inside
+  *   @remark Goes through control points in reverse order so that point 0
+  *   remains starting point and point 4 end point
   */
   int isInsideControlPoint(unsigned x, unsigned y);
 
@@ -452,6 +474,26 @@
   void mouse_tracking(bool enable);
 
 
+/**
+  *   @brief Update Bezier_Mode lock_mode
+  *   @details Called from GUI when when user has changed BezierToolbar options
+  *   @param option New value for lock_mode
+  *   @remark Works only if option is a valid lock_mode
+  */
+  void modifyBezierOptions(int option);
+
+/**
+  *   @brief Remove current Bezier
+  *   @details Called from GUI, BezierToolbar_Remove
+  */
+  void EraseBezier();
+
+/**
+  *   @brief Stop editing bezier and save it
+  *   @details Called from GUI, BezierToolbar_SaveBezier
+  */
+  void BezierReady();
+
   static bool END_POINTS_ACTIVE; /**< Whether items end points are shown */
 
 signals:
@@ -473,13 +515,9 @@ private:
    bool connect_lines = true; // This controls whether first_line is reset
    struct Line_Mode line_struct;
    unsigned char mode = line_mode_value;
-   //bool line_mode = true;
-   //bool delete_mode = false;
    struct Image_Active image_active;
    QPixmap image = QPixmap(); // construct a Null pixmap
-   //bool delete_img_mode = false;
    QString current_imagename;
-   //bool cut_image_mode = false;
    struct Image_Cut image_cut;
    struct Bezier_Mode bezier_struct;
    struct End_Points end_points_struct;

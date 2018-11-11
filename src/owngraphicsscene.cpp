@@ -193,6 +193,11 @@ void OwnGraphicsScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
           // don't connect to the prev item
           line_struct.line_item->setLine(mouse_x, mouse_y, x_new, y_new);
         }
+
+        // Correct end point positions
+        RemoveEndPoint(line_struct.line_item->getX2(), line_struct.line_item->getY2());
+        AddEndPoint(x_new, y_new);
+
         // Then also update x2 and y2 values to item itself (crusial)
         line_struct.line_item->updatePosition(x_new, y_new);
       }
@@ -330,13 +335,9 @@ void OwnGraphicsScene::LineMode(bool activate)
 
   if (activate)
   {
-    qDebug() << "LineMode actived\n";
-    /*line_mode = true;
-    delete_mode = false;
-    image_active.image_mode = false;
-    delete_img_mode = false;
-    cut_image_mode = false;*/
+    //qDebug() << "LineMode actived\n";
     mode = line_mode_value;
+    mouse_tracking(false);
   }
   else
   {
@@ -350,16 +351,6 @@ void OwnGraphicsScene::LineMode(bool activate)
       line_struct.created = false;
       line_struct.positioned = true;
     }
-
-
-    /*if (line_struct.created && !line_struct.positioned)
-    {
-      // remove the last item from the scene
-      removeItem(line_struct.line_item);
-      // remove the excessive LineItem from the end of the list
-      line_items.pop_back();
-      delete(line_struct.line_item);
-    }*/
   }
 }
 
@@ -371,6 +362,7 @@ void OwnGraphicsScene::DeleteMode(bool activate)
     qDebug() << "DeleteMode actived\n";
     // enable delete mode
     mode = delete_mode_value;
+    mouse_tracking(true);
 
     // store the (current) item if created
     if (line_struct.created)
@@ -383,6 +375,7 @@ void OwnGraphicsScene::DeleteMode(bool activate)
 
   }
   else mode = view_mode_value;
+  mouse_tracking(false);
 }
 
 void OwnGraphicsScene::ClearMode()
@@ -448,21 +441,16 @@ bool OwnGraphicsScene::setImage(QString imagename)
 }
 
 
-// Enable or disaple imgMode based on activate
+// Enable or disable imgMode based on activate
 // Also don't activate img mode if the image can't be added (inform gui)
 bool OwnGraphicsScene::imgMode(bool activate)
 {
   if (activate == false)
   {
-    //image_active.image_mode = false;
     mode = view_mode_value;
+    mouse_tracking(false);
     return false;
   }
-
-  /*line_mode = false;
-  delete_mode = false;
-  delete_img_mode = false;
-  cut_image_mode = false;*/
 
   // test if image can be added
   if (image.isNull())
@@ -474,6 +462,7 @@ bool OwnGraphicsScene::imgMode(bool activate)
 
   // update mode status
   mode = image_mode_value;
+  mouse_tracking(true);
 
   return true;
 }
@@ -482,17 +471,14 @@ void OwnGraphicsScene::DeleteImgMode(bool activate)
 {
   if (activate)
   {
-    // enable delete_img_mode and disaple other modes
-    /*delete_img_mode = true;
-    line_mode = false;
-    delete_mode = false;
-    image_active.image_mode = false;
-    cut_image_mode = false;*/
+    // enable delete_img_mode and disable other modes
     mode = delete_img_mode_value;
+    mouse_tracking(true);
   }
   else
   {
     mode = view_mode_value;
+    mouse_tracking(false);
   }
 
 }
@@ -523,6 +509,7 @@ void OwnGraphicsScene::CutImageMode(bool activate)
   if (activate)
   {
     mode = cut_image_mode_value;
+    mouse_tracking(false);
   }
   else
   {
@@ -674,12 +661,8 @@ void OwnGraphicsScene::BezierMode(bool active)
   }
   else
   {
-    // Reset bezier_struct
-    bezier_struct.created = false;
-    bezier_struct.active_bezier = nullptr;
-
-    // Remove all control point circles
-    RemoveControlPointCircles(0);
+    // Remove possible current Bezier, clean bezier_struct
+    EraseBezier();
 
     mode = view_mode_value;
 
@@ -723,47 +706,61 @@ void OwnGraphicsScene::CreateBezier(unsigned x, unsigned y, int point_added)
 
   else
   {
-    // Destroy the old Bezier
-    RemoveBezier(bezier_struct.active_bezier);
 
     if (point_added == 1)
     {
-      // Move point 1
-      bezier_struct.p1 = Vector2((float) x, (float) y);
-      bezier_struct.active_bezier = new Bezier(bezier_struct.p1, bezier_struct.p2, bezier_struct.p3, bezier_struct.p4);
-      AddBezier(bezier_struct.active_bezier);
-      // Create also new control circle1
-      CreateControlPointCircles(1);
+      // Check lock_mode
+      if ( (bezier_struct.lock_mode == Bezier_option_unlocked) ||
+          (bezier_struct.lock_mode == Bezier_option_partially_locked && !end_points_struct.found) )
+         {
+            // Ok to move the first point
+            // Destroy the old Bezier
+            RemoveBezier(bezier_struct.active_bezier);
+
+            // Move point 1
+            bezier_struct.p1 = Vector2((float) x, (float) y);
+            bezier_struct.active_bezier = new Bezier(bezier_struct.p1, bezier_struct.p2, bezier_struct.p3, bezier_struct.p4);
+            AddBezier(bezier_struct.active_bezier);
+            // Create also new control circle1
+            CreateControlPointCircles(1);
+          }
 
     }
-    else if(point_added == 2)
+    else
     {
-      // Move point 2
-      bezier_struct.p2 = Vector2((float) x, (float) y);
-      bezier_struct.active_bezier = new Bezier(bezier_struct.p1, bezier_struct.p2, bezier_struct.p3, bezier_struct.p4);
-      AddBezier(bezier_struct.active_bezier);
-      // Create also new control circle2
-      CreateControlPointCircles(2);
+      // Destroy the old Bezier
+      RemoveBezier(bezier_struct.active_bezier);
 
+      if(point_added == 2)
+      {
+        // Move point 2
+        bezier_struct.p2 = Vector2((float) x, (float) y);
+        bezier_struct.active_bezier = new Bezier(bezier_struct.p1, bezier_struct.p2, bezier_struct.p3, bezier_struct.p4);
+        AddBezier(bezier_struct.active_bezier);
+        // Create also new control circle2
+        CreateControlPointCircles(2);
+
+      }
+      else if (point_added == 3)
+      {
+        // Move point 3
+        bezier_struct.p3 = Vector2((float) x, (float) y);
+        bezier_struct.active_bezier = new Bezier(bezier_struct.p1, bezier_struct.p2, bezier_struct.p3, bezier_struct.p4);
+        AddBezier(bezier_struct.active_bezier);
+        // Create also new control circle3
+        CreateControlPointCircles(3);
+      }
+      else if (point_added == 4)
+      {
+        // Move point 4
+        bezier_struct.p4 = Vector2((float) x, (float) y);
+        bezier_struct.active_bezier = new Bezier(bezier_struct.p1, bezier_struct.p2, bezier_struct.p3, bezier_struct.p4);
+        AddBezier(bezier_struct.active_bezier);
+        // Create also new control circle4
+        CreateControlPointCircles(4);
+      }
     }
-    else if (point_added == 3)
-    {
-      // Move point 3
-      bezier_struct.p3 = Vector2((float) x, (float) y);
-      bezier_struct.active_bezier = new Bezier(bezier_struct.p1, bezier_struct.p2, bezier_struct.p3, bezier_struct.p4);
-      AddBezier(bezier_struct.active_bezier);
-      // Create also new control circle3
-      CreateControlPointCircles(3);
-    }
-    else if (point_added == 4)
-    {
-      // Move point 4
-      bezier_struct.p4 = Vector2((float) x, (float) y);
-      bezier_struct.active_bezier = new Bezier(bezier_struct.p1, bezier_struct.p2, bezier_struct.p3, bezier_struct.p4);
-      AddBezier(bezier_struct.active_bezier);
-      // Create also new control circle4
-      CreateControlPointCircles(4);
-    }
+
   }
 
 
@@ -795,6 +792,7 @@ void OwnGraphicsScene::RemoveBezier(Bezier *bezier)
     // Delete the Bezier (Bezier destructor should delete all items)
     delete(bezier);
   }
+  bezier = nullptr;
 
 }
 
@@ -978,41 +976,41 @@ Vector2 OwnGraphicsScene::ControlPoint2Circle(Vector2 point)
   return Vector2(x,y);
 }
 
-
+/*  Go through points in reverse order so thet 1 point remains the start point */
 int OwnGraphicsScene::isInsideControlPoint(unsigned x, unsigned y)
 {
-  if ( (x >= bezier_struct.p1.getX() - Control_point_circle_diameter/2 ) &&
-        (x <= bezier_struct.p1.getX() + Control_point_circle_diameter/2) &&
-        (y >= bezier_struct.p1.getY() - Control_point_circle_diameter/2) &&
-        (y <= bezier_struct.p1.getY() + Control_point_circle_diameter/2) )
+  if ( (x >= bezier_struct.p4.getX() - Control_point_circle_diameter/2 ) &&
+        (x <= bezier_struct.p4.getX() + Control_point_circle_diameter/2) &&
+        (y >= bezier_struct.p4.getY() - Control_point_circle_diameter/2) &&
+        (y <= bezier_struct.p4.getY() + Control_point_circle_diameter/2) )
         {
           // Inside the first control point
-          return 1;
-        }
-  else if ( (x >= bezier_struct.p2.getX() - Control_point_circle_diameter/2 ) &&
-        (x <= bezier_struct.p2.getX() + Control_point_circle_diameter/2) &&
-        (y >= bezier_struct.p2.getY() - Control_point_circle_diameter/2) &&
-        (y <= bezier_struct.p2.getY() + Control_point_circle_diameter/2) )
-        {
-          // Inside the second control point
-          return 2;
+          return 4;
         }
   else if ( (x >= bezier_struct.p3.getX() - Control_point_circle_diameter/2 ) &&
         (x <= bezier_struct.p3.getX() + Control_point_circle_diameter/2) &&
         (y >= bezier_struct.p3.getY() - Control_point_circle_diameter/2) &&
         (y <= bezier_struct.p3.getY() + Control_point_circle_diameter/2) )
         {
-          // Inside the third control point
+          // Inside the second control point
           return 3;
         }
+  else if ( (x >= bezier_struct.p2.getX() - Control_point_circle_diameter/2 ) &&
+        (x <= bezier_struct.p2.getX() + Control_point_circle_diameter/2) &&
+        (y >= bezier_struct.p2.getY() - Control_point_circle_diameter/2) &&
+        (y <= bezier_struct.p2.getY() + Control_point_circle_diameter/2) )
+        {
+          // Inside the third control point
+          return 2;
+        }
 
-  else if ( (x >= bezier_struct.p4.getX() - Control_point_circle_diameter/2 ) &&
-        (x <= bezier_struct.p4.getX() + Control_point_circle_diameter/2) &&
-        (y >= bezier_struct.p4.getY() - Control_point_circle_diameter/2) &&
-        (y <= bezier_struct.p4.getY() + Control_point_circle_diameter/2) )
+  else if ( (x >= bezier_struct.p1.getX() - Control_point_circle_diameter/2 ) &&
+        (x <= bezier_struct.p1.getX() + Control_point_circle_diameter/2) &&
+        (y >= bezier_struct.p1.getY() - Control_point_circle_diameter/2) &&
+        (y <= bezier_struct.p1.getY() + Control_point_circle_diameter/2) )
         {
           // Inside the fourth control point
-          return 4;
+          return 1;
         }
 
   // Not inside
@@ -1141,6 +1139,7 @@ void OwnGraphicsScene::RemoveEndPointCircle(void)
   }
 }
 
+/* Add parent_view */
 void OwnGraphicsScene::addView(OwnGraphicsView *view)
 {
   parent_view = view;
@@ -1149,6 +1148,7 @@ void OwnGraphicsScene::addView(OwnGraphicsView *view)
           SLOT(enable_mouse_tracking(bool)));
 }
 
+/*  Enable/disable mouse tracking from the view */
 void OwnGraphicsScene::mouse_tracking(bool enable)
 {
   if (enable)
@@ -1159,4 +1159,57 @@ void OwnGraphicsScene::mouse_tracking(bool enable)
   {
     emit switch_mouse_tracking(false);
   }
+}
+
+/*  This only works if GUI sends valid values */
+void OwnGraphicsScene::modifyBezierOptions(int option)
+{
+  bezier_struct.lock_mode = option;
+}
+
+void OwnGraphicsScene::EraseBezier()
+{
+  // Remove Bezier and circles matching it
+  if (bezier_struct.active_bezier != nullptr && bezier_struct.created)
+  {
+    RemoveBezier(bezier_struct.active_bezier);
+    RemoveControlPointCircles(0);
+    bezier_struct.created = false;
+    end_points_struct.found = false;
+  }
+  // Switch mouse tracking on
+  mouse_tracking(true);
+
+}
+
+/*  Save the Bezier */
+void OwnGraphicsScene::BezierReady()
+{
+  if (bezier_struct.active_bezier != nullptr && bezier_struct.created)
+  {
+    // Remove circles
+    RemoveControlPointCircles(0);
+    // Add start and end points to the dict
+    float x_start = bezier_struct.active_bezier->getStartX();
+    float y_start = bezier_struct.active_bezier->getStartY();
+    if (x_start >= 0 && y_start >= 0)
+    {
+      AddEndPoint((unsigned) x_start, (unsigned) y_start);
+    }
+    float x_end = bezier_struct.active_bezier->getEndX();
+    float y_end = bezier_struct.active_bezier->getEndY();
+    if (x_end >= 0 && y_end >= 0)
+    {
+      AddEndPoint((unsigned) x_end, (unsigned) y_end);
+    }
+
+    // Reset Bezier struct
+    bezier_struct.active_bezier = nullptr;
+    bezier_struct.created = false;
+    end_points_struct.found = false;
+  }
+
+  // Switch mouse tracking on
+  mouse_tracking(true);
+
 }
