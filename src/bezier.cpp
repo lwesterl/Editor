@@ -58,7 +58,7 @@ Bezier::Bezier(Vector2 p0, Vector2 p1, Vector2 p2, Vector2 p3)
     // Update prev_x and prev_y
     prev_x = it->getX();
     prev_y = it->getY();
-    qDebug() << "X: " << prev_x << " Y: " << prev_y << "\n";
+    //qDebug() << "X: " << prev_x << " Y: " << prev_y << "\n";
   }
 }
 

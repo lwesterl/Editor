@@ -11,6 +11,7 @@
 
 
 
+
 // Implementation of GUI class
 // first init base class
 GUI::GUI(QWidget *parent): QMainWindow(parent)
@@ -19,7 +20,6 @@ GUI::GUI(QWidget *parent): QMainWindow(parent)
   this->setWindowTitle ("Editor");
   setMouseTracking(true);
   setContextMenuPolicy(Qt::NoContextMenu); // don't allow clicking toolboxes
-
 
 
   // create a file options menu
