@@ -63,7 +63,9 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#signals">Signals</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="classOwnGraphicsScene-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">OwnGraphicsScene Class Reference</div>  </div>
@@ -83,6 +85,13 @@ Inheritance diagram for OwnGraphicsScene:</div>
 </map>
  </div></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="signals"></a>
+Signals</h2></td></tr>
+<tr class="memitem:af9c3dcf53da255fccf5fb2633d659299"><td class="memItemLeft" align="right" valign="top"><a id="af9c3dcf53da255fccf5fb2633d659299"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOwnGraphicsScene.html#af9c3dcf53da255fccf5fb2633d659299">switch_mouse_tracking</a> (bool enable)</td></tr>
+<tr class="memdesc:af9c3dcf53da255fccf5fb2633d659299"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to enable/disable mouse tracking from parent_view. <br /></td></tr>
+<tr class="separator:af9c3dcf53da255fccf5fb2633d659299"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a242b82147a469314e4c7fb5af69c265f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOwnGraphicsScene.html#a242b82147a469314e4c7fb5af69c265f">OwnGraphicsScene</a> (QWidget *parent)</td></tr>
@@ -162,21 +171,59 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOwnGraphicsScene.html#a8d2bbcfd1b3d28ca45802e53b046fe49">BezierMode</a> (bool active)</td></tr>
 <tr class="memdesc:a8d2bbcfd1b3d28ca45802e53b046fe49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Activates/deactivates bezier mode. <br /></td></tr>
 <tr class="separator:a8d2bbcfd1b3d28ca45802e53b046fe49"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17a6ce2b609b924aa05bbb64ff123669"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOwnGraphicsScene.html#a17a6ce2b609b924aa05bbb64ff123669">CreateBezier</a> (unsigned x, unsigned y, bool point_added)</td></tr>
-<tr class="memdesc:a17a6ce2b609b924aa05bbb64ff123669"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a Bezer object.  <a href="#a17a6ce2b609b924aa05bbb64ff123669">More...</a><br /></td></tr>
-<tr class="separator:a17a6ce2b609b924aa05bbb64ff123669"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c03d25db8eef3116adbaeba1fc9c4dc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOwnGraphicsScene.html#a9c03d25db8eef3116adbaeba1fc9c4dc">CreateBezier</a> (unsigned x, unsigned y, int point_added)</td></tr>
+<tr class="memdesc:a9c03d25db8eef3116adbaeba1fc9c4dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a Bezer object.  <a href="#a9c03d25db8eef3116adbaeba1fc9c4dc">More...</a><br /></td></tr>
+<tr class="separator:a9c03d25db8eef3116adbaeba1fc9c4dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0c5440d16675d6bf8c27767d2721622"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOwnGraphicsScene.html#ac0c5440d16675d6bf8c27767d2721622">AddBezier</a> (<a class="el" href="classBezier.html">Bezier</a> *bezier)</td></tr>
-<tr class="memdesc:ac0c5440d16675d6bf8c27767d2721622"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add <a class="el" href="classBezier.html">Bezier</a> to the scene.  <a href="#ac0c5440d16675d6bf8c27767d2721622">More...</a><br /></td></tr>
+<tr class="memdesc:ac0c5440d16675d6bf8c27767d2721622"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add <a class="el" href="classBezier.html" title="Creates bezier curves. ">Bezier</a> to the scene.  <a href="#ac0c5440d16675d6bf8c27767d2721622">More...</a><br /></td></tr>
 <tr class="separator:ac0c5440d16675d6bf8c27767d2721622"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a24d8270608b0bd56c6155d99d7722ab8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOwnGraphicsScene.html#a24d8270608b0bd56c6155d99d7722ab8">RemoveBezier</a> (<a class="el" href="classBezier.html">Bezier</a> *bezier)</td></tr>
-<tr class="memdesc:a24d8270608b0bd56c6155d99d7722ab8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove <a class="el" href="classBezier.html">Bezier</a> from the scene.  <a href="#a24d8270608b0bd56c6155d99d7722ab8">More...</a><br /></td></tr>
+<tr class="memdesc:a24d8270608b0bd56c6155d99d7722ab8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove <a class="el" href="classBezier.html" title="Creates bezier curves. ">Bezier</a> from the scene.  <a href="#a24d8270608b0bd56c6155d99d7722ab8">More...</a><br /></td></tr>
 <tr class="separator:a24d8270608b0bd56c6155d99d7722ab8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ad50d478944ef3200d1c59ddcf973a5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOwnGraphicsScene.html#a0ad50d478944ef3200d1c59ddcf973a5">CreateControlPointCircles</a> (int point)</td></tr>
+<tr class="memdesc:a0ad50d478944ef3200d1c59ddcf973a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create circles matching the bezier control points.  <a href="#a0ad50d478944ef3200d1c59ddcf973a5">More...</a><br /></td></tr>
+<tr class="separator:a0ad50d478944ef3200d1c59ddcf973a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6ad8eaab22c10b1a228f08d8bd5bb68"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOwnGraphicsScene.html#ad6ad8eaab22c10b1a228f08d8bd5bb68">RemoveControlPointCircles</a> (int point)</td></tr>
+<tr class="memdesc:ad6ad8eaab22c10b1a228f08d8bd5bb68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove circles matching the bezier control points.  <a href="#ad6ad8eaab22c10b1a228f08d8bd5bb68">More...</a><br /></td></tr>
+<tr class="separator:ad6ad8eaab22c10b1a228f08d8bd5bb68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc2de254d3e34b716eb36e33e0486f33"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classVector2.html">Vector2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOwnGraphicsScene.html#abc2de254d3e34b716eb36e33e0486f33">ControlPoint2Circle</a> (<a class="el" href="classVector2.html">Vector2</a> point)</td></tr>
+<tr class="memdesc:abc2de254d3e34b716eb36e33e0486f33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert control point coordinates to circle left top corner point.  <a href="#abc2de254d3e34b716eb36e33e0486f33">More...</a><br /></td></tr>
+<tr class="separator:abc2de254d3e34b716eb36e33e0486f33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8e0992d026eaeeda434d659c9c18a46"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOwnGraphicsScene.html#ab8e0992d026eaeeda434d659c9c18a46">isInsideControlPoint</a> (unsigned x, unsigned y)</td></tr>
+<tr class="memdesc:ab8e0992d026eaeeda434d659c9c18a46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether mouse is inside control points or not.  <a href="#ab8e0992d026eaeeda434d659c9c18a46">More...</a><br /></td></tr>
+<tr class="separator:ab8e0992d026eaeeda434d659c9c18a46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17930b28f2c5cb7ed14440e44d667951"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structX__Y__Coordinates.html">X_Y_Coordinates</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOwnGraphicsScene.html#a17930b28f2c5cb7ed14440e44d667951">LookEndPoints</a> (unsigned x, unsigned y)</td></tr>
+<tr class="memdesc:a17930b28f2c5cb7ed14440e44d667951"><td class="mdescLeft">&#160;</td><td class="mdescRight">Try to find end points that match mouse position.  <a href="#a17930b28f2c5cb7ed14440e44d667951">More...</a><br /></td></tr>
+<tr class="separator:a17930b28f2c5cb7ed14440e44d667951"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f029a37e96fc022295ce4e421319ddf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOwnGraphicsScene.html#a4f029a37e96fc022295ce4e421319ddf">RemoveEndPoint</a> (unsigned x, unsigned y)</td></tr>
+<tr class="memdesc:a4f029a37e96fc022295ce4e421319ddf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove an end point.  <a href="#a4f029a37e96fc022295ce4e421319ddf">More...</a><br /></td></tr>
+<tr class="separator:a4f029a37e96fc022295ce4e421319ddf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64ce3afc4e535576fedbfe3f172cea0d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOwnGraphicsScene.html#a64ce3afc4e535576fedbfe3f172cea0d">AddEndPoint</a> (unsigned x, unsigned y)</td></tr>
+<tr class="memdesc:a64ce3afc4e535576fedbfe3f172cea0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add an end point.  <a href="#a64ce3afc4e535576fedbfe3f172cea0d">More...</a><br /></td></tr>
+<tr class="separator:a64ce3afc4e535576fedbfe3f172cea0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf8d1495517483ba65c1ccbc95920a1c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOwnGraphicsScene.html#adf8d1495517483ba65c1ccbc95920a1c">UpdateEndPoints</a> (unsigned x, unsigned y)</td></tr>
+<tr class="memdesc:adf8d1495517483ba65c1ccbc95920a1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update <a class="el" href="structEnd__Points.html" title="Used to look up end points. ">End_Points</a>.  <a href="#adf8d1495517483ba65c1ccbc95920a1c">More...</a><br /></td></tr>
+<tr class="separator:adf8d1495517483ba65c1ccbc95920a1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b1ba1b97b89baad08c3ba5471ebb61f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOwnGraphicsScene.html#a4b1ba1b97b89baad08c3ba5471ebb61f">RemoveEndPointCircle</a> (void)</td></tr>
+<tr class="memdesc:a4b1ba1b97b89baad08c3ba5471ebb61f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove old end_circle from <a class="el" href="structEnd__Points.html" title="Used to look up end points. ">End_Points</a> struct.  <a href="#a4b1ba1b97b89baad08c3ba5471ebb61f">More...</a><br /></td></tr>
+<tr class="separator:a4b1ba1b97b89baad08c3ba5471ebb61f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8677d9cbb1f01943c303be0985c84fbe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOwnGraphicsScene.html#a8677d9cbb1f01943c303be0985c84fbe">addView</a> (<a class="el" href="classOwnGraphicsView.html">OwnGraphicsView</a> *view)</td></tr>
+<tr class="memdesc:a8677d9cbb1f01943c303be0985c84fbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add parent <a class="el" href="classOwnGraphicsView.html" title="Custom QGraphicsView which Implements mouse tracking. ">OwnGraphicsView</a>.  <a href="#a8677d9cbb1f01943c303be0985c84fbe">More...</a><br /></td></tr>
+<tr class="separator:a8677d9cbb1f01943c303be0985c84fbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbcfda0bade866b7e5db29b7bfb53e0c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOwnGraphicsScene.html#adbcfda0bade866b7e5db29b7bfb53e0c">mouse_tracking</a> (bool enable)</td></tr>
+<tr class="memdesc:adbcfda0bade866b7e5db29b7bfb53e0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set mouse tracking on or off.  <a href="#adbcfda0bade866b7e5db29b7bfb53e0c">More...</a><br /></td></tr>
+<tr class="separator:adbcfda0bade866b7e5db29b7bfb53e0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a511dd73ffc0a5f3ee28e8950d0636f5e"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOwnGraphicsScene.html#a511dd73ffc0a5f3ee28e8950d0636f5e">END_POINTS_ACTIVE</a> = true</td></tr>
+<tr class="separator:a511dd73ffc0a5f3ee28e8950d0636f5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Own QGraphicsScene implementation. </p>
 <p>This is an implementation for own QGraphicsScene which overloads mousePressEvent to update the scene </p>
 
-<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8hpp_source.html#l00151">151</a> of file <a class="el" href="owngraphicsscene_8hpp_source.html">owngraphicsscene.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8hpp_source.html#l00189">189</a> of file <a class="el" href="owngraphicsscene_8hpp_source.html">owngraphicsscene.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a242b82147a469314e4c7fb5af69c265f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a242b82147a469314e4c7fb5af69c265f">&#9670;&nbsp;</a></span>OwnGraphicsScene()</h2>
@@ -211,7 +258,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </dl>
 <p>Sets standard size for the view rect </p>
 
-<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8hpp_source.html#l00159">159</a> of file <a class="el" href="owngraphicsscene_8hpp_source.html">owngraphicsscene.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8hpp_source.html#l00198">198</a> of file <a class="el" href="owngraphicsscene_8hpp_source.html">owngraphicsscene.hpp</a>.</p>
 
 </div>
 </div>
@@ -232,15 +279,54 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
       </table>
 </div><div class="memdoc">
 
-<p>Add <a class="el" href="classBezier.html">Bezier</a> to the scene. </p>
-<p>To be more precise adds the LineItems matching the <a class="el" href="classBezier.html">Bezier</a> (line_items) to the scene </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Add <a class="el" href="classBezier.html" title="Creates bezier curves. ">Bezier</a> to the scene. </p>
+<p>To be more precise adds the LineItems matching the <a class="el" href="classBezier.html" title="Creates bezier curves. ">Bezier</a> (line_items) to the scene </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">bezier</td><td>Pointer to <a class="el" href="classBezier.html">Bezier</a> which is added to the scene </td></tr>
+    <tr><td class="paramname">bezier</td><td>Pointer to <a class="el" href="classBezier.html" title="Creates bezier curves. ">Bezier</a> which is added to the scene </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8cpp_source.html#l00660">660</a> of file <a class="el" href="owngraphicsscene_8cpp_source.html">owngraphicsscene.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8cpp_source.html#l00773">773</a> of file <a class="el" href="owngraphicsscene_8cpp_source.html">owngraphicsscene.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a64ce3afc4e535576fedbfe3f172cea0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64ce3afc4e535576fedbfe3f172cea0d">&#9670;&nbsp;</a></span>AddEndPoint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void OwnGraphicsScene::AddEndPoint </td>
+          <td>(</td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Add an end point. </p>
+<p>End point is added to end_points_dict. This method should be called when <a class="el" href="classLineItem.html" title="Own implementation of QGraphicsLineItem. ">LineItem</a> or <a class="el" href="classBezier.html" title="Creates bezier curves. ">Bezier</a> is created and added to the scene </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Item x coordinate </td></tr>
+    <tr><td class="paramname">y</td><td>Item y coordinate </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8cpp_source.html#l01077">1077</a> of file <a class="el" href="owngraphicsscene_8cpp_source.html">owngraphicsscene.cpp</a>.</p>
 
 </div>
 </div>
@@ -294,7 +380,35 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns pointer to the new item added to the scene </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8cpp_source.html#l00259">259</a> of file <a class="el" href="owngraphicsscene_8cpp_source.html">owngraphicsscene.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8cpp_source.html#l00312">312</a> of file <a class="el" href="owngraphicsscene_8cpp_source.html">owngraphicsscene.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a8677d9cbb1f01943c303be0985c84fbe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8677d9cbb1f01943c303be0985c84fbe">&#9670;&nbsp;</a></span>addView()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void OwnGraphicsScene::addView </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classOwnGraphicsView.html">OwnGraphicsView</a> *&#160;</td>
+          <td class="paramname"><em>view</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Add parent <a class="el" href="classOwnGraphicsView.html" title="Custom QGraphicsView which Implements mouse tracking. ">OwnGraphicsView</a>. </p>
+<p>After this it's possible to send signals to the view. The view must be added right after creating it </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">view</td><td><a class="el" href="classOwnGraphicsView.html" title="Custom QGraphicsView which Implements mouse tracking. ">OwnGraphicsView</a> parent view </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8cpp_source.html#l01144">1144</a> of file <a class="el" href="owngraphicsscene_8cpp_source.html">owngraphicsscene.cpp</a>.</p>
 
 </div>
 </div>
@@ -316,12 +430,41 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <p>Removes all temporary visual_items. </p>
 <p>Called after image cut is ready </p>
 
-<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8cpp_source.html#l00582">582</a> of file <a class="el" href="owngraphicsscene_8cpp_source.html">owngraphicsscene.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8cpp_source.html#l00652">652</a> of file <a class="el" href="owngraphicsscene_8cpp_source.html">owngraphicsscene.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a17a6ce2b609b924aa05bbb64ff123669"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a17a6ce2b609b924aa05bbb64ff123669">&#9670;&nbsp;</a></span>CreateBezier()</h2>
+<a id="abc2de254d3e34b716eb36e33e0486f33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc2de254d3e34b716eb36e33e0486f33">&#9670;&nbsp;</a></span>ControlPoint2Circle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classVector2.html">Vector2</a> OwnGraphicsScene::ControlPoint2Circle </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classVector2.html">Vector2</a>&#160;</td>
+          <td class="paramname"><em>point</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Convert control point coordinates to circle left top corner point. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">point</td><td><a class="el" href="classVector2.html" title="Class for a basic 2D vector. ">Vector2</a> containing control point </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns circle point as a <a class="el" href="classVector2.html" title="Class for a basic 2D vector. ">Vector2</a> object </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8cpp_source.html#l00964">964</a> of file <a class="el" href="owngraphicsscene_8cpp_source.html">owngraphicsscene.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a9c03d25db8eef3116adbaeba1fc9c4dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c03d25db8eef3116adbaeba1fc9c4dc">&#9670;&nbsp;</a></span>CreateBezier()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -341,7 +484,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">bool&#160;</td>
+          <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>point_added</em>&#160;</td>
         </tr>
         <tr>
@@ -357,12 +500,41 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   <table class="params">
     <tr><td class="paramname">x</td><td>Mouse x coordinate </td></tr>
     <tr><td class="paramname">y</td><td>Mouse y coordinate </td></tr>
-    <tr><td class="paramname">point_added</td><td>Whether user added a new point or just moved previous one </td></tr>
+    <tr><td class="paramname">point_added</td><td>Which point user moved, 0 means construct new <a class="el" href="classBezier.html" title="Creates bezier curves. ">Bezier</a> </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8cpp_source.html#l00612">612</a> of file <a class="el" href="owngraphicsscene_8cpp_source.html">owngraphicsscene.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8cpp_source.html#l00691">691</a> of file <a class="el" href="owngraphicsscene_8cpp_source.html">owngraphicsscene.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a0ad50d478944ef3200d1c59ddcf973a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ad50d478944ef3200d1c59ddcf973a5">&#9670;&nbsp;</a></span>CreateControlPointCircles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void OwnGraphicsScene::CreateControlPointCircles </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>point</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create circles matching the bezier control points. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">point</td><td>Which circle needs to be created </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section remark"><dt>Remarks</dt><dd>point 0 -&gt; create all circles, point 1 -&gt; create circle 1 etc. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8cpp_source.html#l00802">802</a> of file <a class="el" href="owngraphicsscene_8cpp_source.html">owngraphicsscene.cpp</a>.</p>
 
 </div>
 </div>
@@ -390,7 +562,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8cpp_source.html#l00451">451</a> of file <a class="el" href="owngraphicsscene_8cpp_source.html">owngraphicsscene.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8cpp_source.html#l00521">521</a> of file <a class="el" href="owngraphicsscene_8cpp_source.html">owngraphicsscene.cpp</a>.</p>
 
 </div>
 </div>
@@ -412,7 +584,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <p>Wrapper for <a class="el" href="classPixmapItem.html#a4a742318dce01d018da2f4b01790c210" title="Cut the item. ">PixmapItem::CutItem</a>. </p>
 <p>Cuts the image by adding painter points. Removes temporary LineItems which were used to display the cut path </p>
 
-<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8cpp_source.html#l00518">518</a> of file <a class="el" href="owngraphicsscene_8cpp_source.html">owngraphicsscene.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8cpp_source.html#l00588">588</a> of file <a class="el" href="owngraphicsscene_8cpp_source.html">owngraphicsscene.cpp</a>.</p>
 
 </div>
 </div>
@@ -451,7 +623,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8cpp_source.html#l00433">433</a> of file <a class="el" href="owngraphicsscene_8cpp_source.html">owngraphicsscene.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8cpp_source.html#l00503">503</a> of file <a class="el" href="owngraphicsscene_8cpp_source.html">owngraphicsscene.cpp</a>.</p>
 
 </div>
 </div>
@@ -479,7 +651,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8cpp_source.html#l00411">411</a> of file <a class="el" href="owngraphicsscene_8cpp_source.html">owngraphicsscene.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8cpp_source.html#l00481">481</a> of file <a class="el" href="owngraphicsscene_8cpp_source.html">owngraphicsscene.cpp</a>.</p>
 
 </div>
 </div>
@@ -507,7 +679,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8cpp_source.html#l00310">310</a> of file <a class="el" href="owngraphicsscene_8cpp_source.html">owngraphicsscene.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8cpp_source.html#l00367">367</a> of file <a class="el" href="owngraphicsscene_8cpp_source.html">owngraphicsscene.cpp</a>.</p>
 
 </div>
 </div>
@@ -537,7 +709,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <p>Get new mouse x coordinate. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns mouse_x value </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8hpp_source.html#l00194">194</a> of file <a class="el" href="owngraphicsscene_8hpp_source.html">owngraphicsscene.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8hpp_source.html#l00233">233</a> of file <a class="el" href="owngraphicsscene_8hpp_source.html">owngraphicsscene.hpp</a>.</p>
 
 </div>
 </div>
@@ -567,7 +739,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <p>Get new mouse y coordinate. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns mouse_y value </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8hpp_source.html#l00200">200</a> of file <a class="el" href="owngraphicsscene_8hpp_source.html">owngraphicsscene.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8hpp_source.html#l00239">239</a> of file <a class="el" href="owngraphicsscene_8hpp_source.html">owngraphicsscene.hpp</a>.</p>
 
 </div>
 </div>
@@ -595,7 +767,47 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8cpp_source.html#l00383">383</a> of file <a class="el" href="owngraphicsscene_8cpp_source.html">owngraphicsscene.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8cpp_source.html#l00453">453</a> of file <a class="el" href="owngraphicsscene_8cpp_source.html">owngraphicsscene.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ab8e0992d026eaeeda434d659c9c18a46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8e0992d026eaeeda434d659c9c18a46">&#9670;&nbsp;</a></span>isInsideControlPoint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int OwnGraphicsScene::isInsideControlPoint </td>
+          <td>(</td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check whether mouse is inside control points or not. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Mouse x coordinate </td></tr>
+    <tr><td class="paramname">y</td><td>Mouse y coordinate </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns 0 if not inside, else returns point number which is inside </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8cpp_source.html#l00982">982</a> of file <a class="el" href="owngraphicsscene_8cpp_source.html">owngraphicsscene.cpp</a>.</p>
 
 </div>
 </div>
@@ -623,7 +835,76 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8cpp_source.html#l00271">271</a> of file <a class="el" href="owngraphicsscene_8cpp_source.html">owngraphicsscene.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8cpp_source.html#l00328">328</a> of file <a class="el" href="owngraphicsscene_8cpp_source.html">owngraphicsscene.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a17930b28f2c5cb7ed14440e44d667951"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17930b28f2c5cb7ed14440e44d667951">&#9670;&nbsp;</a></span>LookEndPoints()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="structX__Y__Coordinates.html">X_Y_Coordinates</a> OwnGraphicsScene::LookEndPoints </td>
+          <td>(</td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Try to find end points that match mouse position. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Mouse x coordinate </td></tr>
+    <tr><td class="paramname">y</td><td>Mouse y coordinate </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns <a class="el" href="structX__Y__Coordinates.html" title="Struct that contains x and y coordinates. ">X_Y_Coordinates</a> which contain end point</dd></dl>
+<p>If no end point matches, returns negative coordinates </p>
+
+<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8cpp_source.html#l01024">1024</a> of file <a class="el" href="owngraphicsscene_8cpp_source.html">owngraphicsscene.cpp</a>.</p>
+
+</div>
+</div>
+<a id="adbcfda0bade866b7e5db29b7bfb53e0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbcfda0bade866b7e5db29b7bfb53e0c">&#9670;&nbsp;</a></span>mouse_tracking()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void OwnGraphicsScene::mouse_tracking </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>enable</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set mouse tracking on or off. </p>
+<p>Sends signal to parent_view to enable or disable mouse tracking </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">enable</td><td>true -&gt; enable, false -&gt; disable </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8cpp_source.html#l01152">1152</a> of file <a class="el" href="owngraphicsscene_8cpp_source.html">owngraphicsscene.cpp</a>.</p>
 
 </div>
 </div>
@@ -646,7 +927,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <p>Overload for mouseMoveEvent. </p>
 <p>Used to track user mouse when creating lines and cutting images </p>
 
-<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8cpp_source.html#l00135">135</a> of file <a class="el" href="owngraphicsscene_8cpp_source.html">owngraphicsscene.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8cpp_source.html#l00154">154</a> of file <a class="el" href="owngraphicsscene_8cpp_source.html">owngraphicsscene.cpp</a>.</p>
 
 </div>
 </div>
@@ -669,7 +950,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <p>Overload for mousePressEvent. </p>
 <p>Used to add new items to the scene, also to remove and cut old items </p>
 
-<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8cpp_source.html#l00026">26</a> of file <a class="el" href="owngraphicsscene_8cpp_source.html">owngraphicsscene.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8cpp_source.html#l00038">38</a> of file <a class="el" href="owngraphicsscene_8cpp_source.html">owngraphicsscene.cpp</a>.</p>
 
 </div>
 </div>
@@ -708,7 +989,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8cpp_source.html#l00232">232</a> of file <a class="el" href="owngraphicsscene_8cpp_source.html">owngraphicsscene.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8cpp_source.html#l00275">275</a> of file <a class="el" href="owngraphicsscene_8cpp_source.html">owngraphicsscene.cpp</a>.</p>
 
 </div>
 </div>
@@ -728,15 +1009,106 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
       </table>
 </div><div class="memdoc">
 
-<p>Remove <a class="el" href="classBezier.html">Bezier</a> from the scene. </p>
-<p>Removes the LineItems matching the <a class="el" href="classBezier.html">Bezier</a> and then deletes the object itself </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Remove <a class="el" href="classBezier.html" title="Creates bezier curves. ">Bezier</a> from the scene. </p>
+<p>Removes the LineItems matching the <a class="el" href="classBezier.html" title="Creates bezier curves. ">Bezier</a> and then deletes the object itself </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">bezier</td><td>Pointer to the <a class="el" href="classBezier.html">Bezier</a> to be removed </td></tr>
+    <tr><td class="paramname">bezier</td><td>Pointer to the <a class="el" href="classBezier.html" title="Creates bezier curves. ">Bezier</a> to be removed </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8cpp_source.html#l00672">672</a> of file <a class="el" href="owngraphicsscene_8cpp_source.html">owngraphicsscene.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8cpp_source.html#l00785">785</a> of file <a class="el" href="owngraphicsscene_8cpp_source.html">owngraphicsscene.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ad6ad8eaab22c10b1a228f08d8bd5bb68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6ad8eaab22c10b1a228f08d8bd5bb68">&#9670;&nbsp;</a></span>RemoveControlPointCircles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void OwnGraphicsScene::RemoveControlPointCircles </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>point</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Remove circles matching the bezier control points. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">point</td><td>Which circle needs to be removed </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section remark"><dt>Remarks</dt><dd>point 0 -&gt; remove all circles, point 1 -&gt; remove circle 1 etc. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8cpp_source.html#l00880">880</a> of file <a class="el" href="owngraphicsscene_8cpp_source.html">owngraphicsscene.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a4f029a37e96fc022295ce4e421319ddf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f029a37e96fc022295ce4e421319ddf">&#9670;&nbsp;</a></span>RemoveEndPoint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void OwnGraphicsScene::RemoveEndPoint </td>
+          <td>(</td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Remove an end point. </p>
+<p>End point is removed from end_points_dict. This method should be called when <a class="el" href="classLineItem.html" title="Own implementation of QGraphicsLineItem. ">LineItem</a> or <a class="el" href="classBezier.html" title="Creates bezier curves. ">Bezier</a> is removed from the scene. Removes only one end point matching x and y </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Item x coordinate </td></tr>
+    <tr><td class="paramname">y</td><td>Item y coordinate </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8cpp_source.html#l01052">1052</a> of file <a class="el" href="owngraphicsscene_8cpp_source.html">owngraphicsscene.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a4b1ba1b97b89baad08c3ba5471ebb61f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b1ba1b97b89baad08c3ba5471ebb61f">&#9670;&nbsp;</a></span>RemoveEndPointCircle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void OwnGraphicsScene::RemoveEndPointCircle </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Remove old end_circle from <a class="el" href="structEnd__Points.html" title="Used to look up end points. ">End_Points</a> struct. </p>
+<dl class="section remark"><dt>Remarks</dt><dd>Does nothing if the circle is nullptr </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8cpp_source.html#l01133">1133</a> of file <a class="el" href="owngraphicsscene_8cpp_source.html">owngraphicsscene.cpp</a>.</p>
 
 </div>
 </div>
@@ -758,7 +1130,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <p>Remove previous image cut point. </p>
 <p>Removes also the <a class="el" href="classLineItem.html" title="Own implementation of QGraphicsLineItem. ">LineItem</a> matching the point </p>
 
-<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8cpp_source.html#l00537">537</a> of file <a class="el" href="owngraphicsscene_8cpp_source.html">owngraphicsscene.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8cpp_source.html#l00607">607</a> of file <a class="el" href="owngraphicsscene_8cpp_source.html">owngraphicsscene.cpp</a>.</p>
 
 </div>
 </div>
@@ -780,7 +1152,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <p>Select image to be cut. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns true if image exists </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8cpp_source.html#l00481">481</a> of file <a class="el" href="owngraphicsscene_8cpp_source.html">owngraphicsscene.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8cpp_source.html#l00551">551</a> of file <a class="el" href="owngraphicsscene_8cpp_source.html">owngraphicsscene.cpp</a>.</p>
 
 </div>
 </div>
@@ -808,7 +1180,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8cpp_source.html#l00571">571</a> of file <a class="el" href="owngraphicsscene_8cpp_source.html">owngraphicsscene.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8cpp_source.html#l00641">641</a> of file <a class="el" href="owngraphicsscene_8cpp_source.html">owngraphicsscene.cpp</a>.</p>
 
 </div>
 </div>
@@ -831,7 +1203,73 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <p>Select image cut mode. </p>
 <p>Image cut modes are defined as macros </p>
 
-<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8cpp_source.html#l00505">505</a> of file <a class="el" href="owngraphicsscene_8cpp_source.html">owngraphicsscene.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8cpp_source.html#l00575">575</a> of file <a class="el" href="owngraphicsscene_8cpp_source.html">owngraphicsscene.cpp</a>.</p>
+
+</div>
+</div>
+<a id="adf8d1495517483ba65c1ccbc95920a1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf8d1495517483ba65c1ccbc95920a1c">&#9670;&nbsp;</a></span>UpdateEndPoints()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void OwnGraphicsScene::UpdateEndPoints </td>
+          <td>(</td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Update <a class="el" href="structEnd__Points.html" title="Used to look up end points. ">End_Points</a>. </p>
+<p>Checks if mouse is over an end point and possibly draws a circle representing the end point. Updates also end_y and end_x values </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Current mouse x coordinate </td></tr>
+    <tr><td class="paramname">y</td><td>Current mouse y coordinate </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section remark"><dt>Remarks</dt><dd>Depends heavily on LookEndPoints </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8cpp_source.html#l01084">1084</a> of file <a class="el" href="owngraphicsscene_8cpp_source.html">owngraphicsscene.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a511dd73ffc0a5f3ee28e8950d0636f5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a511dd73ffc0a5f3ee28e8950d0636f5e">&#9670;&nbsp;</a></span>END_POINTS_ACTIVE</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool OwnGraphicsScene::END_POINTS_ACTIVE = true</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Whether items end points are shown </p>
+
+<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8hpp_source.html#l00455">455</a> of file <a class="el" href="owngraphicsscene_8hpp_source.html">owngraphicsscene.hpp</a>.</p>
 
 </div>
 </div>

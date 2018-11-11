@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['endpoints',['endpoints',['../structPolygonToolbar.html#a78a569efc30754e02b7d8f5d74ede0ec',1,'PolygonToolbar']]],
-  ['endpoints_5ftext',['endpoints_text',['../structPolygonToolbar.html#a4ab3ad9905d894a2f166a4e1cbfb9e3a',1,'PolygonToolbar']]]
+  ['distance',['distance',['../structEnd__Points.html#a08442d5de0da7d680a5a0fba7df6cf3b',1,'End_Points']]]
 ];

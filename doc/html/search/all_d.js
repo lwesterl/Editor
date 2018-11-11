@@ -10,7 +10,6 @@ var searchData=
   ['pixmap_5fitem_2ehpp',['pixmap_item.hpp',['../pixmap__item_8hpp.html',1,'']]],
   ['pixmapitem',['PixmapItem',['../classPixmapItem.html',1,'PixmapItem'],['../classPixmapItem.html#a7e339e581be3c4892d2af89494bd137c',1,'PixmapItem::PixmapItem()']]],
   ['point',['point',['../structImage__Cut.html#a45fc996285a5ae8ef255d66655d63df2',1,'Image_Cut']]],
-  ['points',['points',['../structBezier__Mode.html#a5389426ea819f66e663684f6244c3960',1,'Bezier_Mode']]],
   ['polygon_5fimg_5fcut',['polygon_img_cut',['../owngraphicsscene_8hpp.html#a50ed0d21defcf82a075974b744283c79',1,'owngraphicsscene.hpp']]],
   ['polygon_5ftoolbar',['polygon_toolbar',['../structPolygonToolbar.html#a5388c77217c5bea7075cf234c508b8d6',1,'PolygonToolbar']]],
   ['polygontoolbar',['PolygonToolbar',['../structPolygonToolbar.html',1,'']]],

@@ -85,11 +85,14 @@ $(function() {
 <code>#include &lt;QList&gt;</code><br />
 <code>#include &lt;list&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;map&gt;</code><br />
 <code>#include &lt;QPixmap&gt;</code><br />
 <code>#include &lt;QString&gt;</code><br />
 <code>#include &lt;QGraphicsPixmapItem&gt;</code><br />
+<code>#include &lt;QGraphicsEllipseItem&gt;</code><br />
 <code>#include &quot;<a class="el" href="line__item_8hpp_source.html">line_item.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="pixmap__item_8hpp_source.html">pixmap_item.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="ownview_8hpp_source.html">ownview.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="bezier_8hpp_source.html">bezier.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="vector2_8hpp_source.html">vector2.hpp</a>&quot;</code><br />
 </div>
@@ -108,6 +111,12 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structBezier__Mode.html">Bezier_Mode</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Struct used during bezier_mode.  <a href="structBezier__Mode.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structEnd__Points.html">End_Points</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to look up end points.  <a href="structEnd__Points.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structX__Y__Coordinates.html">X_Y_Coordinates</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Struct that contains x and y coordinates.  <a href="structX__Y__Coordinates.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOwnGraphicsScene.html">OwnGraphicsScene</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Own QGraphicsScene implementation.  <a href="classOwnGraphicsScene.html#details">More...</a><br /></td></tr>
@@ -155,6 +164,10 @@ Macros</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="owngraphicsscene_8hpp.html#a5959059a6c672fa3c38efdbd568672c8">bezier_mode_value</a>&#160;&#160;&#160;6</td></tr>
 <tr class="memdesc:a5959059a6c672fa3c38efdbd568672c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for bezier mode. <br /></td></tr>
 <tr class="separator:a5959059a6c672fa3c38efdbd568672c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae48993439460cf1a6b3c8c39c74214cc"><td class="memItemLeft" align="right" valign="top"><a id="ae48993439460cf1a6b3c8c39c74214cc"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="owngraphicsscene_8hpp.html#ae48993439460cf1a6b3c8c39c74214cc">Control_point_circle_diameter</a>&#160;&#160;&#160;30</td></tr>
+<tr class="memdesc:ae48993439460cf1a6b3c8c39c74214cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for <a class="el" href="classBezier.html" title="Creates bezier curves. ">Bezier</a> control point circle diameter. <br /></td></tr>
+<tr class="separator:ae48993439460cf1a6b3c8c39c74214cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Header file for <a class="el" href="classOwnGraphicsScene.html" title="Own QGraphicsScene implementation. ">OwnGraphicsScene</a> class. </p>

@@ -1,7 +1,17 @@
 var searchData=
 [
-  ['hidemaintoolbar',['HideMainToolbar',['../classGUI.html#aa115b0163bfbf518dd201f4f02476b75',1,'GUI']]],
-  ['hidemodetoolbar',['HideModeToolbar',['../classGUI.html#a9517c0ad1e4c2b39faab8050f8133151',1,'GUI']]],
-  ['hidepolygontoolbar',['HidePolygonToolbar',['../classGUI.html#aaf633cd0904e4c3627c21219f330c177',1,'GUI']]],
-  ['hideselecttoolbar',['HideSelectToolbar',['../classGUI.html#a7f6d3b1fcbd874fccd93c5f29c468ed8',1,'GUI']]]
+  ['getlayout',['getLayout',['../classMainWidget.html#a639b465bb49eb31e1c09051ae047951f',1,'MainWidget']]],
+  ['getlineitems',['getLineItems',['../classBezier.html#ad4417fabe40db932edc57406d1ab302a',1,'Bezier']]],
+  ['getmousex',['getMouseX',['../classOwnGraphicsScene.html#a6e54bd43db758bcd4f7cc1dd4544232e',1,'OwnGraphicsScene']]],
+  ['getmousey',['getMouseY',['../classOwnGraphicsScene.html#a3fd2942e9930fc2dda41844622dc8a35',1,'OwnGraphicsScene']]],
+  ['getscene',['getScene',['../classMainWidget.html#ad40a8bd13b501a0ebe88c87426a5b591',1,'MainWidget']]],
+  ['getvectors',['getVectors',['../classBezier.html#a26bf332b0c831e0f302f1d72ec782436',1,'Bezier::getVectors()'],['../classBezier.html#a26bf332b0c831e0f302f1d72ec782436',1,'Bezier::getVectors()']]],
+  ['getview',['getView',['../classMainWidget.html#ae73e3dac6fb1e99dabe84aab683b3fbd',1,'MainWidget']]],
+  ['getx',['getX',['../classVector2.html#a808d02062efcc0c016491c04845e3e34',1,'Vector2']]],
+  ['getx1',['getX1',['../classLineItem.html#a8862ea60a3804d346e9801f79c67af76',1,'LineItem']]],
+  ['getx2',['getX2',['../classLineItem.html#addce0ef5af72c233e2c7bf019c7a693d',1,'LineItem']]],
+  ['gety',['getY',['../classVector2.html#a59bf838c0fc50305975e1679509fda83',1,'Vector2']]],
+  ['gety1',['getY1',['../classLineItem.html#abbdf5be2637561802ea22385c7c11df5',1,'LineItem']]],
+  ['gety2',['getY2',['../classLineItem.html#aa99afab282d1e7e25b5d1549a41984d2',1,'LineItem']]],
+  ['gui',['GUI',['../classGUI.html#acb0ba8c6fc121d814d30560e2c29f2fe',1,'GUI']]]
 ];

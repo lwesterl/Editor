@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['openimage',['openImage',['../classGUI.html#a925c89bd7b32ccc8d726063ed8076f8f',1,'GUI']]],
-  ['operator_2a',['operator*',['../classVector2.html#a2b00999bdfe377965239a8f44d7c192c',1,'Vector2::operator*()'],['../vector2_8cpp.html#abed1d1283eebca3cc8248543d219a937',1,'operator*():&#160;vector2.cpp']]],
-  ['operator_2b',['operator+',['../vector2_8cpp.html#aec551a9b18e5851febf60c555fc382ab',1,'operator+(const Vector2 &amp;vec1, const Vector2 &amp;vec2):&#160;vector2.cpp'],['../vector2_8cpp.html#a1ce2215611e761b7b1ca2f9f0dcdeb12',1,'operator+(const Vector2 &amp;vec1, float mult):&#160;vector2.cpp']]],
-  ['operator_3c_3c',['operator&lt;&lt;',['../vector2_8cpp.html#a3950745faeec98895d1446094d9c27dd',1,'operator&lt;&lt;(std::ostream &amp;os, Vector2 &amp;vector2):&#160;vector2.cpp'],['../vector2_8hpp.html#a3950745faeec98895d1446094d9c27dd',1,'operator&lt;&lt;(std::ostream &amp;os, Vector2 &amp;vector2):&#160;vector2.cpp']]],
-  ['owngraphicsscene',['OwnGraphicsScene',['../classOwnGraphicsScene.html#a242b82147a469314e4c7fb5af69c265f',1,'OwnGraphicsScene']]]
+  ['main',['main',['../gui__test_8cpp.html#a7be7b3f3b810d259483db57fef9b4c4c',1,'main(int args, char *argv[]):&#160;gui_test.cpp'],['../bezier__test_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;bezier_test.cpp'],['../vector2__test_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;vector2_test.cpp']]],
+  ['mainwidget',['MainWidget',['../classMainWidget.html#a62f5aa5fe2314c6221ac49b328b72e8b',1,'MainWidget']]],
+  ['mouse_5ftracking',['mouse_tracking',['../classOwnGraphicsScene.html#adbcfda0bade866b7e5db29b7bfb53e0c',1,'OwnGraphicsScene']]],
+  ['mousemoveevent',['mouseMoveEvent',['../classOwnGraphicsScene.html#ac7f6be2800f09463413459fed74bf34e',1,'OwnGraphicsScene']]],
+  ['mousepressevent',['mousePressEvent',['../classOwnGraphicsScene.html#a1a9916971af608d5331483606f72fbe4',1,'OwnGraphicsScene']]]
 ];

@@ -7,5 +7,7 @@ var searchData=
   ['operator_3c_3c',['operator&lt;&lt;',['../vector2_8cpp.html#a3950745faeec98895d1446094d9c27dd',1,'operator&lt;&lt;(std::ostream &amp;os, Vector2 &amp;vector2):&#160;vector2.cpp'],['../vector2_8hpp.html#a3950745faeec98895d1446094d9c27dd',1,'operator&lt;&lt;(std::ostream &amp;os, Vector2 &amp;vector2):&#160;vector2.cpp']]],
   ['owngraphicsscene',['OwnGraphicsScene',['../classOwnGraphicsScene.html',1,'OwnGraphicsScene'],['../classOwnGraphicsScene.html#a242b82147a469314e4c7fb5af69c265f',1,'OwnGraphicsScene::OwnGraphicsScene()']]],
   ['owngraphicsscene_2ecpp',['owngraphicsscene.cpp',['../owngraphicsscene_8cpp.html',1,'']]],
-  ['owngraphicsscene_2ehpp',['owngraphicsscene.hpp',['../owngraphicsscene_8hpp.html',1,'']]]
+  ['owngraphicsscene_2ehpp',['owngraphicsscene.hpp',['../owngraphicsscene_8hpp.html',1,'']]],
+  ['owngraphicsview',['OwnGraphicsView',['../classOwnGraphicsView.html',1,'OwnGraphicsView'],['../classOwnGraphicsView.html#a57f2f9617077ce2a1d30ec3f6c7144db',1,'OwnGraphicsView::OwnGraphicsView()']]],
+  ['ownview_2ehpp',['ownview.hpp',['../ownview_8hpp.html',1,'']]]
 ];

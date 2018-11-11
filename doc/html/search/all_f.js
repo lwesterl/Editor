@@ -11,5 +11,6 @@ var searchData=
   ['setimgcutmode',['SetImgCutMode',['../classOwnGraphicsScene.html#a656919c9fdd0827ae182d3d3f5f91e4f',1,'OwnGraphicsScene']]],
   ['setpolyfinal',['SetPolyFinal',['../classGUI.html#a6bf2d3ef382340365b5693245a2bd955',1,'GUI']]],
   ['setx',['setX',['../classPixmapItem.html#a692a0aca72ffbe102769fdc9246ed2f6',1,'PixmapItem']]],
-  ['sety',['setY',['../classPixmapItem.html#a6c6f4a872823f585edcf134d9bf209e1',1,'PixmapItem']]]
+  ['sety',['setY',['../classPixmapItem.html#a6c6f4a872823f585edcf134d9bf209e1',1,'PixmapItem']]],
+  ['switch_5fmouse_5ftracking',['switch_mouse_tracking',['../classOwnGraphicsScene.html#af9c3dcf53da255fccf5fb2633d659299',1,'OwnGraphicsScene']]]
 ];

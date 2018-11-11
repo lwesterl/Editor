@@ -85,15 +85,23 @@ Public Attributes</h2></td></tr>
 <tr class="separator:ad9fbff84a5248923ceb29433dc58f49b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a3df46137ba62eaf3f9c0ad1ee391ef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classVector2.html">Vector2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structBezier__Mode.html#a5a3df46137ba62eaf3f9c0ad1ee391ef">p4</a></td></tr>
 <tr class="separator:a5a3df46137ba62eaf3f9c0ad1ee391ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5389426ea819f66e663684f6244c3960"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structBezier__Mode.html#a5389426ea819f66e663684f6244c3960">points</a> = 0</td></tr>
-<tr class="separator:a5389426ea819f66e663684f6244c3960"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9aefbd869ef59854732e405886d334fb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classBezier.html">Bezier</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structBezier__Mode.html#a9aefbd869ef59854732e405886d334fb">active_bezier</a></td></tr>
+<tr class="memitem:ae2573f8601e7d9f439d2bfbc11c34ae9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structBezier__Mode.html#ae2573f8601e7d9f439d2bfbc11c34ae9">created</a> = false</td></tr>
+<tr class="separator:ae2573f8601e7d9f439d2bfbc11c34ae9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9aefbd869ef59854732e405886d334fb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classBezier.html">Bezier</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structBezier__Mode.html#a9aefbd869ef59854732e405886d334fb">active_bezier</a> = nullptr</td></tr>
 <tr class="separator:a9aefbd869ef59854732e405886d334fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab07833315488dc0d3c6f613c51de1d3f"><td class="memItemLeft" align="right" valign="top">QGraphicsEllipseItem *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structBezier__Mode.html#ab07833315488dc0d3c6f613c51de1d3f">circle1</a> = nullptr</td></tr>
+<tr class="separator:ab07833315488dc0d3c6f613c51de1d3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f6f2bdade3db15c0855820d86a5b98e"><td class="memItemLeft" align="right" valign="top">QGraphicsEllipseItem *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structBezier__Mode.html#a3f6f2bdade3db15c0855820d86a5b98e">circle2</a> = nullptr</td></tr>
+<tr class="separator:a3f6f2bdade3db15c0855820d86a5b98e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a342d3b970c6049b615ef356a902c0781"><td class="memItemLeft" align="right" valign="top">QGraphicsEllipseItem *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structBezier__Mode.html#a342d3b970c6049b615ef356a902c0781">circle3</a> = nullptr</td></tr>
+<tr class="separator:a342d3b970c6049b615ef356a902c0781"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f26e1fe7da425063b792dab9f3c1099"><td class="memItemLeft" align="right" valign="top">QGraphicsEllipseItem *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structBezier__Mode.html#a6f26e1fe7da425063b792dab9f3c1099">circle4</a> = nullptr</td></tr>
+<tr class="separator:a6f26e1fe7da425063b792dab9f3c1099"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Struct used during bezier_mode. </p>
 
-<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8hpp_source.html#l00098">98</a> of file <a class="el" href="owngraphicsscene_8hpp_source.html">owngraphicsscene.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8hpp_source.html#l00101">101</a> of file <a class="el" href="owngraphicsscene_8hpp_source.html">owngraphicsscene.hpp</a>.</p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="a9aefbd869ef59854732e405886d334fb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9aefbd869ef59854732e405886d334fb">&#9670;&nbsp;</a></span>active_bezier</h2>
@@ -102,13 +110,98 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classBezier.html">Bezier</a>* Bezier_Mode::active_bezier</td>
+          <td class="memname"><a class="el" href="classBezier.html">Bezier</a>* Bezier_Mode::active_bezier = nullptr</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Pointer to the <a class="el" href="classBezier.html">Bezier</a> being constructed </p>
+<p>Pointer to the <a class="el" href="classBezier.html" title="Creates bezier curves. ">Bezier</a> being constructed </p>
 
-<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8hpp_source.html#l00105">105</a> of file <a class="el" href="owngraphicsscene_8hpp_source.html">owngraphicsscene.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8hpp_source.html#l00108">108</a> of file <a class="el" href="owngraphicsscene_8hpp_source.html">owngraphicsscene.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ab07833315488dc0d3c6f613c51de1d3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab07833315488dc0d3c6f613c51de1d3f">&#9670;&nbsp;</a></span>circle1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QGraphicsEllipseItem* Bezier_Mode::circle1 = nullptr</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Circle which center is the first control point </p>
+
+<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8hpp_source.html#l00109">109</a> of file <a class="el" href="owngraphicsscene_8hpp_source.html">owngraphicsscene.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a3f6f2bdade3db15c0855820d86a5b98e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f6f2bdade3db15c0855820d86a5b98e">&#9670;&nbsp;</a></span>circle2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QGraphicsEllipseItem* Bezier_Mode::circle2 = nullptr</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Circle which center is the second control point </p>
+
+<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8hpp_source.html#l00110">110</a> of file <a class="el" href="owngraphicsscene_8hpp_source.html">owngraphicsscene.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a342d3b970c6049b615ef356a902c0781"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a342d3b970c6049b615ef356a902c0781">&#9670;&nbsp;</a></span>circle3</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QGraphicsEllipseItem* Bezier_Mode::circle3 = nullptr</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Circle which center is the third control point </p>
+
+<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8hpp_source.html#l00111">111</a> of file <a class="el" href="owngraphicsscene_8hpp_source.html">owngraphicsscene.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a6f26e1fe7da425063b792dab9f3c1099"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f26e1fe7da425063b792dab9f3c1099">&#9670;&nbsp;</a></span>circle4</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QGraphicsEllipseItem* Bezier_Mode::circle4 = nullptr</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Circle which center is the fourth control point </p>
+
+<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8hpp_source.html#l00112">112</a> of file <a class="el" href="owngraphicsscene_8hpp_source.html">owngraphicsscene.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ae2573f8601e7d9f439d2bfbc11c34ae9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2573f8601e7d9f439d2bfbc11c34ae9">&#9670;&nbsp;</a></span>created</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Bezier_Mode::created = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Whether the <a class="el" href="classBezier.html" title="Creates bezier curves. ">Bezier</a> is created or not </p>
+
+<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8hpp_source.html#l00107">107</a> of file <a class="el" href="owngraphicsscene_8hpp_source.html">owngraphicsscene.hpp</a>.</p>
 
 </div>
 </div>
@@ -125,7 +218,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The first bezier point </p>
 
-<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8hpp_source.html#l00100">100</a> of file <a class="el" href="owngraphicsscene_8hpp_source.html">owngraphicsscene.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8hpp_source.html#l00103">103</a> of file <a class="el" href="owngraphicsscene_8hpp_source.html">owngraphicsscene.hpp</a>.</p>
 
 </div>
 </div>
@@ -142,7 +235,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The second bezier point </p>
 
-<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8hpp_source.html#l00101">101</a> of file <a class="el" href="owngraphicsscene_8hpp_source.html">owngraphicsscene.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8hpp_source.html#l00104">104</a> of file <a class="el" href="owngraphicsscene_8hpp_source.html">owngraphicsscene.hpp</a>.</p>
 
 </div>
 </div>
@@ -159,7 +252,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The third bezier point </p>
 
-<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8hpp_source.html#l00102">102</a> of file <a class="el" href="owngraphicsscene_8hpp_source.html">owngraphicsscene.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8hpp_source.html#l00105">105</a> of file <a class="el" href="owngraphicsscene_8hpp_source.html">owngraphicsscene.hpp</a>.</p>
 
 </div>
 </div>
@@ -176,24 +269,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>The fourth bezier point </p>
 
-<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8hpp_source.html#l00103">103</a> of file <a class="el" href="owngraphicsscene_8hpp_source.html">owngraphicsscene.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a5389426ea819f66e663684f6244c3960"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5389426ea819f66e663684f6244c3960">&#9670;&nbsp;</a></span>points</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int Bezier_Mode::points = 0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>How many points have been added </p>
-
-<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8hpp_source.html#l00104">104</a> of file <a class="el" href="owngraphicsscene_8hpp_source.html">owngraphicsscene.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="owngraphicsscene_8hpp_source.html#l00106">106</a> of file <a class="el" href="owngraphicsscene_8hpp_source.html">owngraphicsscene.hpp</a>.</p>
 
 </div>
 </div>

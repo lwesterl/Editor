@@ -1,12 +1,10 @@
 var searchData=
 [
-  ['savechoices',['SaveChoices',['../classGUI.html#a00fb847ea0a8249acaaf70c0f3ba3fd4',1,'GUI']]],
-  ['saveimage',['saveImage',['../classGUI.html#a44684af7706c021022520e2c4829c3ee',1,'GUI']]],
-  ['selectcutimg',['SelectCutImg',['../classOwnGraphicsScene.html#ae79aa179ce90ab26f06d7d17eed96b93',1,'OwnGraphicsScene']]],
-  ['setconnectlines',['setConnectLines',['../classOwnGraphicsScene.html#ad62254e1884fa4817ff1beaa3bc6c011',1,'OwnGraphicsScene']]],
-  ['setimage',['setImage',['../classOwnGraphicsScene.html#ae83ee24e342b50c335af155a34295185',1,'OwnGraphicsScene']]],
-  ['setimgcutmode',['SetImgCutMode',['../classOwnGraphicsScene.html#a656919c9fdd0827ae182d3d3f5f91e4f',1,'OwnGraphicsScene']]],
-  ['setpolyfinal',['SetPolyFinal',['../classGUI.html#a6bf2d3ef382340365b5693245a2bd955',1,'GUI']]],
-  ['setx',['setX',['../classPixmapItem.html#a692a0aca72ffbe102769fdc9246ed2f6',1,'PixmapItem']]],
-  ['sety',['setY',['../classPixmapItem.html#a6c6f4a872823f585edcf134d9bf209e1',1,'PixmapItem']]]
+  ['remove_5fitem',['remove_Item',['../classOwnGraphicsScene.html#a5b4b466a697f83c23294a80067edac23',1,'OwnGraphicsScene']]],
+  ['removebezier',['RemoveBezier',['../classOwnGraphicsScene.html#a24d8270608b0bd56c6155d99d7722ab8',1,'OwnGraphicsScene']]],
+  ['removecontrolpointcircles',['RemoveControlPointCircles',['../classOwnGraphicsScene.html#ad6ad8eaab22c10b1a228f08d8bd5bb68',1,'OwnGraphicsScene']]],
+  ['removeendpoint',['RemoveEndPoint',['../classOwnGraphicsScene.html#a4f029a37e96fc022295ce4e421319ddf',1,'OwnGraphicsScene']]],
+  ['removeendpointcircle',['RemoveEndPointCircle',['../classOwnGraphicsScene.html#a4b1ba1b97b89baad08c3ba5471ebb61f',1,'OwnGraphicsScene']]],
+  ['removelatestpoint',['RemoveLatestPoint',['../classPixmapItem.html#ae2e67a7b69ef10dc613e14c1d3c1a327',1,'PixmapItem']]],
+  ['removepolyprevious',['RemovePolyPrevious',['../classGUI.html#abf8e1050ae4d599bf35af7b1f841d960',1,'GUI::RemovePolyPrevious()'],['../classOwnGraphicsScene.html#a4976a8e6f682612acd3e23b6c98bd8d8',1,'OwnGraphicsScene::RemovePolyPrevious()']]]
 ];

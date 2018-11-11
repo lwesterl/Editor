@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['info',['info',['../structSelectImgToolbar.html#a3cf6ac92fbe60877873c89939217e1de',1,'SelectImgToolbar']]],
-  ['initialized',['initialized',['../structImage__Cut.html#a7259136300a6eade3ee84743f3e47c1f',1,'Image_Cut']]]
+  ['final_5fpoint',['final_point',['../structPolygonToolbar.html#a25d471a6081bfa4107d5f1cd9a61d243',1,'PolygonToolbar']]],
+  ['final_5fpoint_5ftext',['final_point_text',['../structPolygonToolbar.html#a3af92f094b85ad63be4d9dcf37a88fa8',1,'PolygonToolbar']]],
+  ['found',['found',['../structEnd__Points.html#aff9dd173210b07bb087d70cf5ec9439f',1,'End_Points']]]
 ];
