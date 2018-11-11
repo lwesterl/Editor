@@ -64,6 +64,30 @@ public:
     */
   std::vector <LineItem*> getLineItems() {return line_items;}
 
+  /**
+    *   @brief Get Bezier end x coordinate
+    *   @return Returns the last x coordinate from vectors
+    */
+  float getEndX();
+
+  /**
+    *   @brief Get Bezier end y coordinate
+    *   @return Returns the last y coordinate from vectors
+    */
+  float getEndY();
+
+  /**
+    *   @brief Get Bezier start x coordinate
+    *   @return Returns the first x coordinate from vectors
+    */
+  float getStartX();
+
+  /**
+    *   @brief Get Bezier start y coordinate
+    *   @return Returns the first y coordinate from vectors 
+    */
+  float getStartY();
+
 private:
   std::vector <Vector2> vectors;
   std::vector <LineItem*> line_items;

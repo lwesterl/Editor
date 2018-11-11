@@ -72,3 +72,43 @@ Bezier::~Bezier()
   }
   line_items.clear();
 }
+
+/*  Return the last x coordinate */
+float Bezier::getEndX()
+{
+  if (!vectors.empty())
+  {
+    return vectors.back().getX();
+  }
+  return -1;
+}
+
+/*  Return the last y coordinate */
+float Bezier::getEndY()
+{
+  if (!vectors.empty())
+  {
+    return vectors.back().getY();
+  }
+  return -1;
+}
+
+/*  Return the first x coordinate */
+float Bezier::getStartX()
+{
+  if (!vectors.empty())
+  {
+    return vectors.front().getX();
+  }
+  return -1;
+}
+
+/*  Return the first y coordinate */
+float Bezier::getStartY()
+{
+  if (!vectors.empty())
+  {
+    return vectors.front().getY();
+  }
+  return -1;
+}
