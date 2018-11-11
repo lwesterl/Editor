@@ -8,6 +8,10 @@
 #include "../include/owngraphicsscene.hpp"
 
 
+// Set the scene class variable END_POINTS_ACTIVE
+bool OwnGraphicsScene::END_POINTS_ACTIVE = true;
+
+
 
 OwnGraphicsScene::~OwnGraphicsScene()
 {
@@ -16,9 +20,17 @@ OwnGraphicsScene::~OwnGraphicsScene()
   {
     it = line_items.erase(it);
   }
+
+  // remove pixmap_items
   for (auto it = pixmap_items.begin(); it != pixmap_items.end();)
   {
     it = pixmap_items.erase(it);
+  }
+
+  // remove Bezier objects
+  for (auto it = beziers.begin(); it != beziers.end();)
+  {
+    it = beziers.erase(it);
   }
   clear();
 }
@@ -58,11 +70,11 @@ void OwnGraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent  *event)
     // reassign mouse_x and mouse_y
     mouse_x = x_new;
     mouse_y = y_new;
-    qDebug() << "Clicked\n" << "X: " << mouse_x << "Y: " << mouse_y;
+    //qDebug() << "Clicked\n" << "X: " << mouse_x << "Y: " << mouse_y;
   }
   else if (mode == delete_mode_value)
   {
-    // Remove the elent user clicked
+    // Remove the element user clicked
     remove_Item(x_new, y_new);
   }
 
@@ -131,6 +143,8 @@ void OwnGraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent  *event)
     {
       // Create a new bezier
       CreateBezier(x_new, y_new, 0);
+      // Disable mouse tracking
+      mouse_tracking(false);
     }
 
   }
@@ -236,14 +250,23 @@ void OwnGraphicsScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
     QPointF point = event->scenePos();
     unsigned x_new = point.x();
     unsigned y_new = point.y();
-
-    // Check if user has moved the bezier
-    int is_moved = isInsideControlPoint(x_new, y_new);
-    if (is_moved)
+    if (! bezier_struct.created && OwnGraphicsScene::END_POINTS_ACTIVE)
     {
-      // Update the Bezier
-      CreateBezier(x_new, y_new, is_moved);
+      // Show possible end points
+      UpdateEndPoints(x_new, y_new);
+
     }
+    else if (bezier_struct.created)
+    {
+      // Check if user has moved the bezier
+      int is_moved = isInsideControlPoint(x_new, y_new);
+      if (is_moved)
+      {
+        // Update the Bezier
+        CreateBezier(x_new, y_new, is_moved);
+      }
+    }
+
   }
 }
 
@@ -263,9 +286,19 @@ void OwnGraphicsScene::remove_Item(unsigned x, unsigned y)
 
       {
         // Item found, remove it
+        unsigned x1 = (*it)->getX1();
+        unsigned x2 = (*it)->getX2();
+        unsigned y1 = (*it)->getY1();
+        unsigned y2 = (*it)->getY2();
+
         removeItem(*it); // remove from the scene
         line_items.remove(*it);
         delete(*it);
+
+        // Remove also the end and start points matching the item
+        RemoveEndPoint(x1, y1);
+        RemoveEndPoint(x2, y2);
+
         break;
       }
     }
@@ -283,6 +316,10 @@ LineItem* OwnGraphicsScene::addLine(unsigned x1, unsigned y1, unsigned x2, unsig
   // Add item to the scene and line items list
   addItem(line);
   line_items.push_back(line);
+
+  // Add entry for the end and start points of the line
+  AddEndPoint(x1, y1);
+  AddEndPoint(x2, y2);
   return line;
 }
 
@@ -632,6 +669,8 @@ void OwnGraphicsScene::BezierMode(bool active)
   if (active)
   {
     mode = bezier_mode_value;
+    // Enable mouse tracking
+    mouse_tracking(true);
   }
   else
   {
@@ -643,6 +682,9 @@ void OwnGraphicsScene::BezierMode(bool active)
     RemoveControlPointCircles(0);
 
     mode = view_mode_value;
+
+    // Disable mouse tracking
+    mouse_tracking(false);
   }
 }
 
@@ -650,8 +692,22 @@ void OwnGraphicsScene::CreateBezier(unsigned x, unsigned y, int point_added)
 {
   if (point_added  == 0)
   {
+    if (END_POINTS_ACTIVE && end_points_struct.found)
+    {
+      // Remove the end point circle
+      RemoveEndPointCircle();
+      // Use the end point as a starting point for new Bezier
+      bezier_struct.p1 = Vector2((float) end_points_struct.end_x, (float) end_points_struct.end_y);
+    }
+    else
+    {
+      // Create a complitely new Bezier using suplied coordinates
+      bezier_struct.p1 = Vector2((float) x, (float) y);
+    }
+
+
     // Create a new Bezier, all points to same position
-    bezier_struct.p1 = Vector2((float) x, (float) y);
+
     bezier_struct.p2 = bezier_struct.p1;
     bezier_struct.p3 = bezier_struct.p1;
     bezier_struct.p4 = bezier_struct.p1;
@@ -961,4 +1017,146 @@ int OwnGraphicsScene::isInsideControlPoint(unsigned x, unsigned y)
 
   // Not inside
   return 0;
+}
+
+/*  Looks up all the dictionary entries close to the mouse position
+    and tries to find an end point match                            */
+struct X_Y_Coordinates OwnGraphicsScene::LookEndPoints(unsigned x, unsigned y)
+{
+  struct X_Y_Coordinates coordinates;
+  std::map<unsigned, std::list<unsigned> >::iterator it;
+  for (int x_try = (int) x - (int) end_points_struct.distance; x_try <= (int) x + (int) end_points_struct.distance; x_try ++)
+  {
+    // Look up from the dict if there is a key match
+    it = end_points_dict.find(x_try);
+    if (it != end_points_dict.end())
+    {
+      // Found x coordinate match
+      for (auto i = it->second.begin(); i != it->second.end(); i++)
+      {
+        if (*i == y)
+        {
+          // Found matching y, return
+          coordinates.x = x_try;
+          coordinates.y = y;
+          return coordinates;
+        }
+      }
+    }
+  }
+  // No match found, return negative values
+  return coordinates;
+}
+
+/*  Remove an end point from end_points_dict */
+void OwnGraphicsScene::RemoveEndPoint(unsigned x, unsigned y)
+{
+  std::map<unsigned, std::list<unsigned> >::iterator it = end_points_dict.find(x);
+  // Check that element really exits
+  if (it != end_points_dict.end())
+  {
+    for (auto i = it->second.begin(); i != it->second.end(); i++)
+    {
+      if (*i == y)
+      {
+        i = it->second.erase(i);
+        if (it->second.empty())
+        {
+          // Remove also the map entry
+          end_points_dict.erase(x);
+        }
+        break;
+      }
+    }
+  }
+
+
+}
+
+/*  Add an end point to end_points_dict */
+void OwnGraphicsScene::AddEndPoint(unsigned x, unsigned y)
+{
+  end_points_dict[x].push_back(y);
+}
+
+
+/*  Updates End_Points using LookEndPoints */
+void OwnGraphicsScene::UpdateEndPoints(unsigned x, unsigned y)
+{
+  RemoveEndPointCircle();
+  struct X_Y_Coordinates coordinates = LookEndPoints(x, y);
+  if (coordinates.x > 0 && coordinates.y > 0)
+  {
+    // LookEndPoints found an end point
+
+    // Circle (ellips) 'width' and 'height'
+    unsigned width = 2 * end_points_struct.distance;
+    unsigned height = 2 * end_points_struct.distance;
+
+    // Shift x to the circle (ellips) left corner
+    float x = coordinates.x - end_points_struct.distance;
+    if (x < 0)
+    {
+      // Reduce width by x
+      width += x;
+      x = 0;
+    }
+    // Shift y to the circle (ellips) top corner
+    float y = coordinates.y - end_points_struct.distance;
+    if (y < 0)
+    {
+      // Reduce height by y
+      height += y;
+      y = 0;
+    }
+
+    // Draw matching circle
+    end_points_struct.end_circle = new QGraphicsEllipseItem(x, y, width, height);
+    // Add the circle to the scene
+    addItem(end_points_struct.end_circle);
+
+    // Update the end point also to the struct
+    end_points_struct.end_x = (unsigned) coordinates.x;
+    end_points_struct.end_y = (unsigned) coordinates.y;
+    end_points_struct.found = true;
+
+  }
+
+  else
+  {
+    end_points_struct.found = false;
+  }
+
+}
+
+/*  Remove old end_circle if possible */
+void OwnGraphicsScene::RemoveEndPointCircle(void)
+{
+  if (end_points_struct.end_circle != nullptr)
+  {
+    // Remove the old circle
+    removeItem(end_points_struct.end_circle);
+    delete(end_points_struct.end_circle);
+    end_points_struct.end_circle = nullptr;
+  }
+}
+
+void OwnGraphicsScene::addView(OwnGraphicsView *view)
+{
+  parent_view = view;
+  // Connect signals
+  connect(this, SIGNAL(switch_mouse_tracking(bool)), view,
+          SLOT(enable_mouse_tracking(bool)));
+}
+
+void OwnGraphicsScene::mouse_tracking(bool enable)
+{
+  if (enable)
+  {
+    emit switch_mouse_tracking(true);
+  }
+  else
+  {
+    emit switch_mouse_tracking(false);
+  }
 }

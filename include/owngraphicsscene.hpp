@@ -21,12 +21,14 @@
  #include <QList>
  #include <list>
  #include <vector>
+ #include <map>
  #include <QPixmap>
  #include <QString>
  #include <QGraphicsPixmapItem>
  #include <QGraphicsEllipseItem>
  #include "line_item.hpp"
  #include "pixmap_item.hpp"
+ #include "ownview.hpp"
  #include "bezier.hpp"
  #include "vector2.hpp"
 
@@ -110,6 +112,32 @@
    QGraphicsEllipseItem *circle4 = nullptr; /**< Circle which center is the fourth control point */
  };
 
+/**
+  *   @struct End_Points
+  *   @brief Used to look up end points
+  *   @details End points are used as starting points for new objects
+  */
+ struct End_Points
+ {
+   bool found = false; /**< Tells whether end points are found or not */
+   unsigned distance = 10; /**< Tells how far points are tried to find */
+   unsigned end_x; /**< x coordinate of the end point */
+   unsigned end_y; /**< y coordinate of the end point */
+   QGraphicsEllipseItem *end_circle = nullptr; /**< Circle drawn to the end points */
+
+ };
+
+/**
+  *   @struct X_Y_Coordinates
+  *   @brief Struct that contains x and y coordinates
+  *   @details Used with LookEndPoints
+  */
+ struct X_Y_Coordinates
+ {
+   int x = -1; /**< x coordinate */
+   int y = -1; /**< y coordinate */
+ };
+
 
 /*    MACROS    */
 
@@ -160,7 +188,8 @@
 
  class OwnGraphicsScene : public QGraphicsScene
  {
- public:
+  Q_OBJECT
+  public:
   /**
     *   @brief Constructor for OwnGraphicsScene
     *   @param parent The QWidget parent
@@ -362,7 +391,79 @@
   */
   int isInsideControlPoint(unsigned x, unsigned y);
 
- private:
+/**
+  *   @brief Try to find end points that match mouse position
+  *   @param x Mouse x coordinate
+  *   @param y Mouse y coordinate
+  *   @return Returns X_Y_Coordinates which contain end point
+  *   @details If no end point matches, returns negative coordinates
+  */
+  struct X_Y_Coordinates LookEndPoints(unsigned x, unsigned y);
+
+/**
+  *   @brief Remove an end point
+  *   @details End point is removed from end_points_dict. This method should
+  *   be called when LineItem or Bezier is removed from the scene. Removes only
+  *   one end point matching x and y
+  *   @param x Item x coordinate
+  *   @param y Item y coordinate
+  */
+  void RemoveEndPoint(unsigned x, unsigned y);
+
+
+/**
+  *   @brief Add an end point
+  *   @details End point is added to end_points_dict. This method should
+  *   be called when LineItem or Bezier is created and added to the scene
+  *   @param x Item x coordinate
+  *   @param y Item y coordinate
+  */
+  void AddEndPoint(unsigned x, unsigned y);
+
+/**
+  *   @brief Update End_Points
+  *   @details Checks if mouse is over an end point and possibly draws a
+  *   circle representing the end point. Updates also end_y and end_x values
+  *   @param x Current mouse x coordinate
+  *   @param y Current mouse y coordinate
+  *   @remark Depends heavily on LookEndPoints
+  */
+  void UpdateEndPoints(unsigned x, unsigned y);
+
+/**
+  *   @brief Remove old end_circle from End_Points struct
+  *   @remark Does nothing if the circle is nullptr
+  */
+  void RemoveEndPointCircle(void);
+
+/**
+  *   @brief Add parent OwnGraphicsView
+  *   @details After this it's possible to send signals to the view. The view
+  *   must be added right after creating it
+  *   @param view OwnGraphicsView parent view
+  */
+  void addView(OwnGraphicsView *view);
+
+/**
+  *   @brief Set mouse tracking on or off
+  *   @details Sends signal to parent_view to enable or disable mouse tracking
+  *   @param enable true -> enable, false -> disable
+  */
+  void mouse_tracking(bool enable);
+
+
+  static bool END_POINTS_ACTIVE; /**< Whether items end points are shown */
+
+signals:
+
+/**
+  *   @brief Used to enable/disable mouse tracking from parent_view
+  */
+  void switch_mouse_tracking(bool enable);
+
+
+private:
+   OwnGraphicsView *parent_view;
    std::list <LineItem*> line_items;
    std::list <PixmapItem*> pixmap_items;
    std::list <Bezier*> beziers;
@@ -381,6 +482,9 @@
    //bool cut_image_mode = false;
    struct Image_Cut image_cut;
    struct Bezier_Mode bezier_struct;
+   struct End_Points end_points_struct;
+   std::map<unsigned, std::list<unsigned> > end_points_dict; /**< Dictionary
+   where end points are stored with x coordinate as key and then list of y coordinates */
 
  };
 
