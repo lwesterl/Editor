@@ -5,5 +5,5 @@ Editor
 .*
 
 #compiled static and dynamic libraries
-*.lib
+*.a
 *.so
