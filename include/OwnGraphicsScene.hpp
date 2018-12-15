@@ -226,14 +226,19 @@
     *   @details Used to add new items to the scene, also  to remove and cut
     *   old items
     */
-   void mousePressEvent(QGraphicsSceneMouseEvent *event);
+   virtual void mousePressEvent(QGraphicsSceneMouseEvent *event);
 
   /**
     *   @brief Overload for mouseMoveEvent
     *   @details Used to track user mouse when creating lines and cutting
     *    images
     */
-   void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
+   virtual void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
+
+   /**
+     *   @brief Overload for keyPressEvents
+     */
+   virtual void keyPressEvent(QKeyEvent *keyEvent);
 
   /**
     *   @brief Add a LineItem

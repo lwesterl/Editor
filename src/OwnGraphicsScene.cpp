@@ -42,8 +42,14 @@ void OwnGraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent  *event)
   unsigned x_new = point.x();
   unsigned y_new = point.y();
 
+  if (event->buttons() == Qt::MidButton)
+  {
+    // change view center
+    parent_view->centerOn(x_new, y_new);
+  }
+
   // Add a line from previous points if line adding mode activated
-  if (mode == line_mode_value)
+  else if (mode == line_mode_value)
   {
     if (first_line)
     {
@@ -275,7 +281,36 @@ void OwnGraphicsScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
   }
 }
 
-// This method goes throw OwnGraphicsScene items and tries to remove item
+void OwnGraphicsScene::keyPressEvent(QKeyEvent *keyEvent)
+{
+  if (keyEvent->key() == Qt::Key_Backspace)
+  {
+    // remove current item
+    if (mode == image_mode_value)
+    {
+      if (image_active.added_scene)
+      {
+        // remove image from the scene and container (last item)
+        removeItem(image_active.pixmap_item);
+        if (pixmap_items.size())
+        {
+          pixmap_items.pop_back();
+        }
+        // init values
+        image_active.pixmap_item = nullptr;
+        image_active.added_scene = false;
+        image_active.clicks = 0;
+      }
+    }
+    else if (mode == bezier_mode_value)
+    {
+      // remove current Bezier
+      EraseBezier();
+    }
+  }
+}
+
+// This method goes through OwnGraphicsScene items and tries to remove item
 // at location x , y
 void OwnGraphicsScene::remove_Item(unsigned x, unsigned y)
 {
