@@ -3,6 +3,7 @@
 Editor
 *_test
 .*
+moc_*
 
 #compiled static and dynamic libraries
 *.a
