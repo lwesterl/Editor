@@ -1,0 +1,9 @@
+#ignore compiled and hidden files
+*.o
+Editor
+*_test
+.*
+
+#compiled static and dynamic libraries
+*.lib
+*.so

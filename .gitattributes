@@ -1,0 +1,15 @@
+# Use linefeed in text files
+* text eol=lf
+
+# Convert these files to have linefeed (text files)
+*.cc text
+*.cpp text
+*.h text
+*.hpp text
+
+# Ignore these binary files
+*.png binary
+*.jpg binary
+*.pdf binary
+*.ttf binary
+*.wav binary
