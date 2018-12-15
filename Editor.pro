@@ -24,7 +24,8 @@ SOURCES += src/Bezier.cpp \
            src/GUI_test.cpp \
            src/MainWidget.cpp \
            src/OwnGraphicsScene.cpp \
-           src/PixmapItem.cpp \
+           src/OwnGraphicsView.cpp \
+	   src/PixmapItem.cpp \
            src/PromtWindow.cpp \
            src/Vector2.cpp \
 

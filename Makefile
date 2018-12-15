@@ -54,6 +54,7 @@ SOURCES       = src/Bezier.cpp \
 		src/GUI_test.cpp \
 		src/MainWidget.cpp \
 		src/OwnGraphicsScene.cpp \
+		src/OwnGraphicsView.cpp \
 		src/PixmapItem.cpp \
 		src/PromtWindow.cpp \
 		src/Vector2.cpp moc_OwnGraphicsScene.cpp \
@@ -65,6 +66,7 @@ OBJECTS       = Bezier.o \
 		GUI_test.o \
 		MainWidget.o \
 		OwnGraphicsScene.o \
+		OwnGraphicsView.o \
 		PixmapItem.o \
 		PromtWindow.o \
 		Vector2.o \
@@ -141,12 +143,13 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		include/PixmapItem.hpp \
 		include/PromtWindow.hpp \
 		include/Vector2.hpp \
-		test_src/test_bezier.hpp src/Bezier.cpp \
+		test_src/Test_bezier.hpp src/Bezier.cpp \
 		src/ComboboxAction.cpp \
 		src/GUI.cpp \
 		src/GUI_test.cpp \
 		src/MainWidget.cpp \
 		src/OwnGraphicsScene.cpp \
+		src/OwnGraphicsView.cpp \
 		src/PixmapItem.cpp \
 		src/PromtWindow.cpp \
 		src/Vector2.cpp
@@ -304,8 +307,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents include/Bezier.hpp include/ComboboxAction.hpp include/GUI.hpp include/LineItem.hpp include/MainWidget.hpp include/OwnGraphicsScene.hpp include/OwnGraphicsView.hpp include/PixmapItem.hpp include/PromtWindow.hpp include/Vector2.hpp test_src/test_bezier.hpp $(DISTDIR)/
-	$(COPY_FILE) --parents src/Bezier.cpp src/ComboboxAction.cpp src/GUI.cpp src/GUI_test.cpp src/MainWidget.cpp src/OwnGraphicsScene.cpp src/PixmapItem.cpp src/PromtWindow.cpp src/Vector2.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents include/Bezier.hpp include/ComboboxAction.hpp include/GUI.hpp include/LineItem.hpp include/MainWidget.hpp include/OwnGraphicsScene.hpp include/OwnGraphicsView.hpp include/PixmapItem.hpp include/PromtWindow.hpp include/Vector2.hpp test_src/Test_bezier.hpp $(DISTDIR)/
+	$(COPY_FILE) --parents src/Bezier.cpp src/ComboboxAction.cpp src/GUI.cpp src/GUI_test.cpp src/MainWidget.cpp src/OwnGraphicsScene.cpp src/OwnGraphicsView.cpp src/PixmapItem.cpp src/PromtWindow.cpp src/Vector2.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -384,7 +387,15 @@ GUI.o: src/GUI.cpp include/GUI.hpp \
 		include/ComboboxAction.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o GUI.o src/GUI.cpp
 
-GUI_test.o: src/GUI_test.cpp 
+GUI_test.o: src/GUI_test.cpp include/GUI.hpp \
+		include/OwnGraphicsScene.hpp \
+		include/LineItem.hpp \
+		include/PixmapItem.hpp \
+		include/OwnGraphicsView.hpp \
+		include/Bezier.hpp \
+		include/Vector2.hpp \
+		include/MainWidget.hpp \
+		include/ComboboxAction.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o GUI_test.o src/GUI_test.cpp
 
 MainWidget.o: src/MainWidget.cpp include/MainWidget.hpp \
@@ -403,6 +414,9 @@ OwnGraphicsScene.o: src/OwnGraphicsScene.cpp include/OwnGraphicsScene.hpp \
 		include/Bezier.hpp \
 		include/Vector2.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o OwnGraphicsScene.o src/OwnGraphicsScene.cpp
+
+OwnGraphicsView.o: src/OwnGraphicsView.cpp include/OwnGraphicsView.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o OwnGraphicsView.o src/OwnGraphicsView.cpp
 
 PixmapItem.o: src/PixmapItem.cpp include/PixmapItem.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o PixmapItem.o src/PixmapItem.cpp
