@@ -1,21 +1,19 @@
 /**
-  *   @file test_bezier.hpp
+  *   @file Test_bezier.hpp
   *   @author Lauri Westerholm
   *   @brief Test header for Bezier class
   *   @remark This is not intended to be directly used with Editor
   */
 
 
-
-#ifndef TEST_BEZIER_HEADER
-#define TEST_BEZIER_HEADER
+#pragma once
 
 /*    INCLUDES    */
 
 #include <vector>
 #include <iostream>
 #include <list>
-#include "../include/vector2.hpp"
+#include "../include/Vector2.hpp"
 
 /*    MACROS    */
 
@@ -75,6 +73,3 @@ Vector2 createBezier(Vector2 p0, Vector2 p1, Vector2 p2, Vector2 p3, double t);
   *   @details Calculates linear vector interpolation
   */
 Vector2 Lerp(Vector2 a, Vector2 b, double t);
-
-
-#endif

@@ -1,10 +1,10 @@
 /**
-  *   @file vector2_test.cpp
+  *   @file Vector2_test.cpp
   *   @author Lauri Westerholm
   *   @brief Contains a test main for Vector2 class
   */
 
-#include "../include/vector2.hpp"
+#include "../include/Vector2.hpp"
 
 
 /**

@@ -1,11 +1,10 @@
 /**
-  *   @file ownview.hpp
+  *   @file OwnGraphicsView.hpp
   *   @author Lauri Westerholm
   *   @brief Contains custom QGraphicsView which Implements mouse tracking
   */
 
-#ifndef OWN_VIEW_HEADER
-#define OWN_VIEW_HEADER
+#pragma once
 
 /*    INCLUDES    */
 
@@ -48,8 +47,3 @@ class OwnGraphicsView : public QGraphicsView
       }
     }
 };
-
-
-
-
-#endif

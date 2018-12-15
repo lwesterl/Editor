@@ -1,13 +1,11 @@
 /**
-  *   @file pixmap_item.hpp
+  *   @file PixmapItem.hpp
   *   @author Lauri Westerholm
   *   @brief Header for PixmapItem class
   */
 
 
-
-#ifndef PIXMAP_ITEM_HEADER
-#define PIXMAP_ITEM_HEADER
+#pragma once
 
 /*    INCLUDES    */
 
@@ -128,6 +126,3 @@ class PixmapItem: public QGraphicsPixmapItem
     QString imagename; // not used at the moment
 
 };
-
-
-#endif

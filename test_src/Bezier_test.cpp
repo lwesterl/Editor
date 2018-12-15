@@ -1,11 +1,11 @@
 /**
-  *   @file bezier_test.cpp
+  *   @file Bezier_test.cpp
   *   @author Lauri Westerholm
   *   @brief Contains a test main for Bezier class
   */
 
 
-#include "test_bezier.hpp"
+#include "Test_bezier.hpp"
 
 
 /**

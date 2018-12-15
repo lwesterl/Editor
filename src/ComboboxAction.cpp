@@ -1,11 +1,11 @@
 /**
-  *   @file combobox_action.cpp
+  *   @file ComboboxAction.cpp
   *   @author Lauri Westerholm
   *   @brief Contains ComboboxAction class
   */
 
 
-#include "../include/combobox_action.hpp"
+#include "../include/ComboboxAction.hpp"
 
 
 // Constructor

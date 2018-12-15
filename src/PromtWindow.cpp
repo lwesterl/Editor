@@ -1,5 +1,5 @@
 /**
-  *   @file promtwindow.cpp
+  *   @file PromtWindow.cpp
   *   @author Lauri Westerholm
   *   @brief Contains PromtWindow class
   *   @remark This class/file is not used
@@ -7,7 +7,7 @@
 
 
 
-  #include "../include/promtwindow.hpp"
+  #include "../include/PromtWindow.hpp"
 
 // THIS CLASS IS NOT USED
 

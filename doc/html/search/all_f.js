@@ -1,8 +1,8 @@
 var searchData=
 [
   ['save_5fbezier',['save_bezier',['../structBezierToolbar.html#a2848e3a1e3d0eb3dfe63959c12538782',1,'BezierToolbar']]],
-  ['save_5fbutton_5fimg',['save_button_img',['../gui_8hpp.html#a0f92fdbd49ece66b3525e38ba1037749',1,'gui.hpp']]],
-  ['save_5fimg',['save_img',['../gui_8hpp.html#ae14474955e229d006688f31321aeef30',1,'gui.hpp']]],
+  ['save_5fbutton_5fimg',['save_button_img',['../GUI_8hpp.html#a0f92fdbd49ece66b3525e38ba1037749',1,'GUI.hpp']]],
+  ['save_5fimg',['save_img',['../GUI_8hpp.html#ae14474955e229d006688f31321aeef30',1,'GUI.hpp']]],
   ['save_5foptions',['save_options',['../structBezierToolbar.html#a9d3e4ffe8c28b246dafd257110e28994',1,'BezierToolbar']]],
   ['savechoices',['SaveChoices',['../classGUI.html#a00fb847ea0a8249acaaf70c0f3ba3fd4',1,'GUI']]],
   ['saveimage',['saveImage',['../classGUI.html#a44684af7706c021022520e2c4829c3ee',1,'GUI']]],

@@ -48,27 +48,29 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = src/bezier.cpp \
-		src/combobox_action.cpp \
-		src/gui_test.cpp \
-		src/mainwidget.cpp \
-		src/owngraphicsscene.cpp \
-		src/pixmap_item.cpp \
-		src/promtwindow.cpp \
-		src/vector2.cpp moc_owngraphicsscene.cpp \
-		moc_ownview.cpp \
-		moc_promtwindow.cpp
-OBJECTS       = bezier.o \
-		combobox_action.o \
-		gui_test.o \
-		mainwidget.o \
-		owngraphicsscene.o \
-		pixmap_item.o \
-		promtwindow.o \
-		vector2.o \
-		moc_owngraphicsscene.o \
-		moc_ownview.o \
-		moc_promtwindow.o
+SOURCES       = src/Bezier.cpp \
+		src/ComboboxAction.cpp \
+		src/GUI.cpp \
+		src/GUI_test.cpp \
+		src/MainWidget.cpp \
+		src/OwnGraphicsScene.cpp \
+		src/PixmapItem.cpp \
+		src/PromtWindow.cpp \
+		src/Vector2.cpp moc_OwnGraphicsScene.cpp \
+		moc_OwnGraphicsView.cpp \
+		moc_PromtWindow.cpp
+OBJECTS       = Bezier.o \
+		ComboboxAction.o \
+		GUI.o \
+		GUI_test.o \
+		MainWidget.o \
+		OwnGraphicsScene.o \
+		PixmapItem.o \
+		PromtWindow.o \
+		Vector2.o \
+		moc_OwnGraphicsScene.o \
+		moc_OwnGraphicsView.o \
+		moc_PromtWindow.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/linux.conf \
@@ -129,23 +131,25 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
-		Editor.pro include/bezier.hpp \
-		include/combobox_action.hpp \
-		include/gui.hpp \
-		include/line_item.hpp \
-		include/mainwidget.hpp \
-		include/owngraphicsscene.hpp \
-		include/ownview.hpp \
-		include/pixmap_item.hpp \
-		include/promtwindow.hpp \
-		include/vector2.hpp src/bezier.cpp \
-		src/combobox_action.cpp \
-		src/gui_test.cpp \
-		src/mainwidget.cpp \
-		src/owngraphicsscene.cpp \
-		src/pixmap_item.cpp \
-		src/promtwindow.cpp \
-		src/vector2.cpp
+		Editor.pro include/Bezier.hpp \
+		include/ComboboxAction.hpp \
+		include/GUI.hpp \
+		include/LineItem.hpp \
+		include/MainWidget.hpp \
+		include/OwnGraphicsScene.hpp \
+		include/OwnGraphicsView.hpp \
+		include/PixmapItem.hpp \
+		include/PromtWindow.hpp \
+		include/Vector2.hpp \
+		test_src/test_bezier.hpp src/Bezier.cpp \
+		src/ComboboxAction.cpp \
+		src/GUI.cpp \
+		src/GUI_test.cpp \
+		src/MainWidget.cpp \
+		src/OwnGraphicsScene.cpp \
+		src/PixmapItem.cpp \
+		src/PromtWindow.cpp \
+		src/Vector2.cpp
 QMAKE_TARGET  = Editor
 DESTDIR       = 
 TARGET        = Editor
@@ -300,8 +304,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents include/bezier.hpp include/combobox_action.hpp include/gui.hpp include/line_item.hpp include/mainwidget.hpp include/owngraphicsscene.hpp include/ownview.hpp include/pixmap_item.hpp include/promtwindow.hpp include/vector2.hpp $(DISTDIR)/
-	$(COPY_FILE) --parents src/bezier.cpp src/combobox_action.cpp src/gui_test.cpp src/mainwidget.cpp src/owngraphicsscene.cpp src/pixmap_item.cpp src/promtwindow.cpp src/vector2.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents include/Bezier.hpp include/ComboboxAction.hpp include/GUI.hpp include/LineItem.hpp include/MainWidget.hpp include/OwnGraphicsScene.hpp include/OwnGraphicsView.hpp include/PixmapItem.hpp include/PromtWindow.hpp include/Vector2.hpp test_src/test_bezier.hpp $(DISTDIR)/
+	$(COPY_FILE) --parents src/Bezier.cpp src/ComboboxAction.cpp src/GUI.cpp src/GUI_test.cpp src/MainWidget.cpp src/OwnGraphicsScene.cpp src/PixmapItem.cpp src/PromtWindow.cpp src/Vector2.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -327,25 +331,25 @@ benchmark: first
 
 compiler_rcc_make_all:
 compiler_rcc_clean:
-compiler_moc_header_make_all: moc_owngraphicsscene.cpp moc_ownview.cpp moc_promtwindow.cpp
+compiler_moc_header_make_all: moc_OwnGraphicsScene.cpp moc_OwnGraphicsView.cpp moc_PromtWindow.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_owngraphicsscene.cpp moc_ownview.cpp moc_promtwindow.cpp
-moc_owngraphicsscene.cpp: include/line_item.hpp \
-		include/pixmap_item.hpp \
-		include/ownview.hpp \
-		include/bezier.hpp \
-		include/vector2.hpp \
-		include/owngraphicsscene.hpp \
+	-$(DEL_FILE) moc_OwnGraphicsScene.cpp moc_OwnGraphicsView.cpp moc_PromtWindow.cpp
+moc_OwnGraphicsScene.cpp: include/LineItem.hpp \
+		include/PixmapItem.hpp \
+		include/OwnGraphicsView.hpp \
+		include/Bezier.hpp \
+		include/Vector2.hpp \
+		include/OwnGraphicsScene.hpp \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/lauri/Documents/Game_project/Editor -I/home/lauri/Documents/Game_project/Editor -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/owngraphicsscene.hpp -o moc_owngraphicsscene.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/lauri/Documents/Game_project/Editor -I/home/lauri/Documents/Game_project/Editor -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/OwnGraphicsScene.hpp -o moc_OwnGraphicsScene.cpp
 
-moc_ownview.cpp: include/ownview.hpp \
+moc_OwnGraphicsView.cpp: include/OwnGraphicsView.hpp \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/lauri/Documents/Game_project/Editor -I/home/lauri/Documents/Game_project/Editor -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/ownview.hpp -o moc_ownview.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/lauri/Documents/Game_project/Editor -I/home/lauri/Documents/Game_project/Editor -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/OwnGraphicsView.hpp -o moc_OwnGraphicsView.cpp
 
-moc_promtwindow.cpp: include/promtwindow.hpp \
+moc_PromtWindow.cpp: include/PromtWindow.hpp \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/lauri/Documents/Game_project/Editor -I/home/lauri/Documents/Game_project/Editor -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/promtwindow.hpp -o moc_promtwindow.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/lauri/Documents/Game_project/Editor -I/home/lauri/Documents/Game_project/Editor -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/PromtWindow.hpp -o moc_PromtWindow.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -361,60 +365,62 @@ compiler_clean: compiler_moc_header_clean
 
 ####### Compile
 
-bezier.o: src/bezier.cpp include/bezier.hpp \
-		include/line_item.hpp \
-		include/vector2.hpp
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o bezier.o src/bezier.cpp
+Bezier.o: src/Bezier.cpp include/Bezier.hpp \
+		include/LineItem.hpp \
+		include/Vector2.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Bezier.o src/Bezier.cpp
 
-combobox_action.o: src/combobox_action.cpp include/combobox_action.hpp
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o combobox_action.o src/combobox_action.cpp
+ComboboxAction.o: src/ComboboxAction.cpp include/ComboboxAction.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ComboboxAction.o src/ComboboxAction.cpp
 
-gui_test.o: src/gui_test.cpp src/gui.cpp \
-		include/gui.hpp \
-		include/owngraphicsscene.hpp \
-		include/line_item.hpp \
-		include/pixmap_item.hpp \
-		include/ownview.hpp \
-		include/bezier.hpp \
-		include/vector2.hpp \
-		include/mainwidget.hpp \
-		include/combobox_action.hpp
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o gui_test.o src/gui_test.cpp
+GUI.o: src/GUI.cpp include/GUI.hpp \
+		include/OwnGraphicsScene.hpp \
+		include/LineItem.hpp \
+		include/PixmapItem.hpp \
+		include/OwnGraphicsView.hpp \
+		include/Bezier.hpp \
+		include/Vector2.hpp \
+		include/MainWidget.hpp \
+		include/ComboboxAction.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o GUI.o src/GUI.cpp
 
-mainwidget.o: src/mainwidget.cpp include/mainwidget.hpp \
-		include/owngraphicsscene.hpp \
-		include/line_item.hpp \
-		include/pixmap_item.hpp \
-		include/ownview.hpp \
-		include/bezier.hpp \
-		include/vector2.hpp
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwidget.o src/mainwidget.cpp
+GUI_test.o: src/GUI_test.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o GUI_test.o src/GUI_test.cpp
 
-owngraphicsscene.o: src/owngraphicsscene.cpp include/owngraphicsscene.hpp \
-		include/line_item.hpp \
-		include/pixmap_item.hpp \
-		include/ownview.hpp \
-		include/bezier.hpp \
-		include/vector2.hpp
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o owngraphicsscene.o src/owngraphicsscene.cpp
+MainWidget.o: src/MainWidget.cpp include/MainWidget.hpp \
+		include/OwnGraphicsScene.hpp \
+		include/LineItem.hpp \
+		include/PixmapItem.hpp \
+		include/OwnGraphicsView.hpp \
+		include/Bezier.hpp \
+		include/Vector2.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MainWidget.o src/MainWidget.cpp
 
-pixmap_item.o: src/pixmap_item.cpp include/pixmap_item.hpp
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o pixmap_item.o src/pixmap_item.cpp
+OwnGraphicsScene.o: src/OwnGraphicsScene.cpp include/OwnGraphicsScene.hpp \
+		include/LineItem.hpp \
+		include/PixmapItem.hpp \
+		include/OwnGraphicsView.hpp \
+		include/Bezier.hpp \
+		include/Vector2.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o OwnGraphicsScene.o src/OwnGraphicsScene.cpp
 
-promtwindow.o: src/promtwindow.cpp include/promtwindow.hpp
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o promtwindow.o src/promtwindow.cpp
+PixmapItem.o: src/PixmapItem.cpp include/PixmapItem.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o PixmapItem.o src/PixmapItem.cpp
 
-vector2.o: src/vector2.cpp include/vector2.hpp
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o vector2.o src/vector2.cpp
+PromtWindow.o: src/PromtWindow.cpp include/PromtWindow.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o PromtWindow.o src/PromtWindow.cpp
 
-moc_owngraphicsscene.o: moc_owngraphicsscene.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_owngraphicsscene.o moc_owngraphicsscene.cpp
+Vector2.o: src/Vector2.cpp include/Vector2.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Vector2.o src/Vector2.cpp
 
-moc_ownview.o: moc_ownview.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_ownview.o moc_ownview.cpp
+moc_OwnGraphicsScene.o: moc_OwnGraphicsScene.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_OwnGraphicsScene.o moc_OwnGraphicsScene.cpp
 
-moc_promtwindow.o: moc_promtwindow.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_promtwindow.o moc_promtwindow.cpp
+moc_OwnGraphicsView.o: moc_OwnGraphicsView.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_OwnGraphicsView.o moc_OwnGraphicsView.cpp
+
+moc_PromtWindow.o: moc_PromtWindow.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_PromtWindow.o moc_PromtWindow.cpp
 
 ####### Install
 

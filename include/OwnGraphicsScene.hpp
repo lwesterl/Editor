@@ -1,13 +1,12 @@
 /**
-  *   @file owngraphicsscene.hpp
+  *   @file OwnGraphicsScene.hpp
   *   @author Lauri Westerholm
   *   @brief Header file for OwnGraphicsScene class
   */
 
 
 
-#ifndef OWN_SCENE_HEADER
-#define OWN_SCENE_HEADER
+#pragma once
 
 
 /*    INCLUDES    */
@@ -26,11 +25,11 @@
  #include <QString>
  #include <QGraphicsPixmapItem>
  #include <QGraphicsEllipseItem>
- #include "line_item.hpp"
- #include "pixmap_item.hpp"
- #include "ownview.hpp"
- #include "bezier.hpp"
- #include "vector2.hpp"
+ #include "LineItem.hpp"
+ #include "PixmapItem.hpp"
+ #include "OwnGraphicsView.hpp"
+ #include "Bezier.hpp"
+ #include "Vector2.hpp"
 
 /**
   *   @brief Macro for no image cut mode selected
@@ -525,6 +524,3 @@ private:
    where end points are stored with x coordinate as key and then list of y coordinates */
 
  };
-
-
- #endif

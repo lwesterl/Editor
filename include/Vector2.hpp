@@ -1,12 +1,11 @@
 /**
-  *   @file vector2.hpp
+  *   @file Vector2.hpp
   *   @author Lauri Westerholm
   *   @brief Header for Vector2 class
   */
 
 
-#ifndef VECTOR2_HEADER
-#define VECTOR2_HEADER
+#pragma once
 
 
 /*    INCLUDES    */
@@ -99,7 +98,3 @@ private:
   */
 
 std::ostream& operator <<(std::ostream &os, Vector2 &vector2);
-
-
-
-#endif

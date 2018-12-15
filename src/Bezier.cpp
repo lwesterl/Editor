@@ -1,10 +1,10 @@
 /**
-  *   @file bezier.cpp
+  *   @file Bezier.cpp
   *   @author Lauri Westerholm
   *   @brief Contains Bezier class related functions
   */
 
-#include "../include/bezier.hpp"
+#include "../include/Bezier.hpp"
 
 
 /**

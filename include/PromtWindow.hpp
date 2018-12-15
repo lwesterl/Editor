@@ -1,13 +1,11 @@
 /**
-  *   @file promtwindow.hpp
+  *   @file PromtWindow.hpp
   *   @author Lauri Westerholm
   *   @brief Header for PromtWindow class
   *   @remark Not used
   */
 
-
-#ifndef Promt_window
-#define Promt_window
+#pragma once
 
 
 /*    INCLUDES    */
@@ -49,7 +47,7 @@ class PromtWindow: public QDialog
       *   @param directory Path to the directory to be listed
       */
     void ListImages(QDir directory);
-    
+
   private slots:
     void backButton();
     void homeButton();
@@ -65,5 +63,3 @@ class PromtWindow: public QDialog
 
 
 };
-
-#endif

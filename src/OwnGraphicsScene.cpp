@@ -1,11 +1,11 @@
 /**
-  *   @file owngraphicsscene.cpp
+  *   @file OwnGraphicsScene.cpp
   *   @author Lauri Westerholm
   *   @brief Contains OwnGraphicsScene class
   */
 
 
-#include "../include/owngraphicsscene.hpp"
+#include "../include/OwnGraphicsScene.hpp"
 
 
 // Set the scene class variable END_POINTS_ACTIVE

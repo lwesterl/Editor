@@ -1,14 +1,13 @@
 
 /**
-  *   @file mainwidget.hpp
+  *   @file MainWidget.hpp
   *   @author Lauri Westerholm
   *   @brief Header file for MainWidget class
   */
 
 
 
-#ifndef MAIN_WIDGET_HEADER
-#define MAIN_WIDGET_HEADER
+#pragma once
 
 
 /*    INCLUDES    */
@@ -21,8 +20,8 @@
 #include <QGraphicsItem>
 #include <QHBoxLayout>
 #include <QScrollBar>
-#include "owngraphicsscene.hpp"
-#include "ownview.hpp"
+#include "OwnGraphicsScene.hpp"
+#include "OwnGraphicsView.hpp"
 
 
 /**
@@ -80,7 +79,3 @@ private:
   QHBoxLayout *layout;
 
 };
-
-
-
-#endif

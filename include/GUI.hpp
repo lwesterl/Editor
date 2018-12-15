@@ -1,14 +1,13 @@
 
 /**
-  *   @file gui.hpp
+  *   @file GUI.hpp
   *   @author Lauri Westerholm
   *   @brief Header for GUI class.
   */
 
 
 
-#ifndef GUI_HEADER
-#define GUI_HEADER
+#pragma once
 
 
 /*    INCLUDES    */
@@ -38,9 +37,9 @@
 #include <QToolButton>
 #include <QLabel>
 #include <QComboBox>
-#include "owngraphicsscene.hpp"
-#include "mainwidget.hpp"
-#include "combobox_action.hpp"
+#include "OwnGraphicsScene.hpp"
+#include "MainWidget.hpp"
+#include "ComboboxAction.hpp"
 
 
 /*    MACROS    */
@@ -178,7 +177,7 @@ struct BezierToolbar
 
 
 /**
-  *   @class GUI gui.hpp
+  *   @class GUI
   *   @brief Graphical user interface
   *   @details Inherits QMainWindow. Implements inteface to mainwidget
   */
@@ -394,6 +393,3 @@ private:
 
 
 };
-
-
-#endif

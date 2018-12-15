@@ -1,13 +1,13 @@
 
 /**
-  *   @file gui_test.cpp
+  *   @file GUI_test.cpp
   *   @author Lauri Westerholm
   *   @brief Test main for Editor program
   */
 
 
 
-#include "gui.cpp"
+#include "../include/GUI.hpp"
 
 /**
   *   @brief Simple main for Editor program

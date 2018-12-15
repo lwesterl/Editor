@@ -6,9 +6,8 @@
 
 CC = g++
 CFLAGS = -Wall -pedantic -Wextra
-Files = lib vector2_test bezier_test
-O_Files = test_bezier.o vector2.o
-EXE = bezier_test vector2_test
+Files = lib Vector2_test Bezier_test
+EXE = Bezier_test Vector2_test
 STATIC_F = ar rcs
 SRC = ../src/
 
@@ -17,15 +16,15 @@ default: all
 
 all: $(Files)
 
-lib:	vector2.o test_bezier.o
+lib:	Vector2.o Test_bezier.o
 	$(STATIC_F) libbezier.a $^
 
 
-bezier_test:	lib
-	$(CC) $(CFLAGS) bezier_test.cpp -L. -lbezier -o $@
+Bezier_test:	lib
+	$(CC) $(CFLAGS) Bezier_test.cpp -L. -lbezier -o $@
 
-vector2_test:	lib
-	$(CC) $(CFLAGS) vector2_test.cpp -L. -lbezier -o $@
+Vector2_test:	lib
+	$(CC) $(CFLAGS) Vector2_test.cpp -L. -lbezier -o $@
 
 # auto compile objects
 %.o:	$(SRC)%.cpp

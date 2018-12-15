@@ -1,12 +1,10 @@
 /**
-  *   @file combobox_action.hpp
+  *   @file ComboboxAction.hpp
   *   @author Lauri Westerholm
   *   @brief Header for ComboboxAction class
   */
 
-
-#ifndef COMBOBOX_ACTION_HEADER
-#define COMBOBOX_ACTION_HEADER
+#pragma once
 
 
 /*    INCLUDES    */
@@ -48,5 +46,3 @@ class ComboboxAction: public QWidgetAction
     QWidget *default_widget;
 
 };
-
-#endif

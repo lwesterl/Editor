@@ -1,13 +1,12 @@
 /**
-  *   @file bezier.hpp
+  *   @file Bezier.hpp
   *   @author Lauri Westerholm
   *   @brief Header for Bezier class
   */
 
 
 
-#ifndef BEZIER_HEADER
-#define BEZIER_HEADER
+#pragma once
 
 /*    INCLUDES    */
 
@@ -15,8 +14,8 @@
 #include <iostream>
 #include <list>
 #include <QDebug>
-#include "line_item.hpp"
-#include "vector2.hpp"
+#include "LineItem.hpp"
+#include "Vector2.hpp"
 
 /*    MACROS    */
 
@@ -84,7 +83,7 @@ public:
 
   /**
     *   @brief Get Bezier start y coordinate
-    *   @return Returns the first y coordinate from vectors 
+    *   @return Returns the first y coordinate from vectors
     */
   float getStartY();
 
@@ -113,6 +112,3 @@ Vector2 createBezier(Vector2 p0, Vector2 p1, Vector2 p2, Vector2 p3, float t);
   *   @details Calculates linear vector interpolation
   */
 Vector2 Lerp(Vector2 a, Vector2 b, float t);
-
-
-#endif

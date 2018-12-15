@@ -18,7 +18,7 @@ var searchData=
   ['gety1',['getY1',['../classLineItem.html#abbdf5be2637561802ea22385c7c11df5',1,'LineItem']]],
   ['gety2',['getY2',['../classLineItem.html#aa99afab282d1e7e25b5d1549a41984d2',1,'LineItem']]],
   ['gui',['GUI',['../classGUI.html',1,'GUI'],['../classGUI.html#acb0ba8c6fc121d814d30560e2c29f2fe',1,'GUI::GUI()']]],
-  ['gui_2ecpp',['gui.cpp',['../gui_8cpp.html',1,'']]],
-  ['gui_2ehpp',['gui.hpp',['../gui_8hpp.html',1,'']]],
-  ['gui_5ftest_2ecpp',['gui_test.cpp',['../gui__test_8cpp.html',1,'']]]
+  ['gui_2ecpp',['GUI.cpp',['../GUI_8cpp.html',1,'']]],
+  ['gui_2ehpp',['GUI.hpp',['../GUI_8hpp.html',1,'']]],
+  ['gui_5ftest_2ecpp',['GUI_test.cpp',['../GUI__test_8cpp.html',1,'']]]
 ];

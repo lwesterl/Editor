@@ -1,12 +1,12 @@
 /**
-  *   @file vector2.cpp
+  *   @file Vector2.cpp
   *   @author Lauri Westerholm
   *   @brief Contains Vector2 class
   */
 
 
 
-#include "../include/vector2.hpp"
+#include "../include/Vector2.hpp"
 
 /*  Multiplication overload */
 Vector2& Vector2::operator * (float mult)

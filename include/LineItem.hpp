@@ -1,12 +1,11 @@
 /**
-  *   @file line_item.hpp
+  *   @file LineItem.hpp
   *   @author Lauri Westerholm
   *   @brief Contains header for LineItem class
   */
 
 
-#ifndef LINE_ITEM_HEADER
-#define LINE_ITEM_HEADER
+#pragma once
 
 /*    INCLUDES    */
 
@@ -73,5 +72,3 @@ class LineItem : public QGraphicsLineItem
     unsigned y1;
     unsigned y2;
 };
-
-#endif

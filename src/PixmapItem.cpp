@@ -1,5 +1,5 @@
 /**
-  *   @file pixmap_item.cpp
+  *   @file PixmapItem.cpp
   *   @author Lauri Westerholm
   *   @brief Contains PixmapItem class
   */
@@ -7,7 +7,7 @@
 
 
 
-#include "../include/pixmap_item.hpp"
+#include "../include/PixmapItem.hpp"
 
 
 // Constructor

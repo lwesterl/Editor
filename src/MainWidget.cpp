@@ -1,12 +1,12 @@
 /**
-  *   @file mainwidget.cpp
+  *   @file MainWidget.cpp
   *   @author Lauri Westerholm
   *   @brief Contains MainWidget class
   */
 
 
 
-#include "../include/mainwidget.hpp"
+#include "../include/MainWidget.hpp"
 
 
 // Constructor

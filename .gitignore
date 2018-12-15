@@ -8,3 +8,6 @@ moc_*
 #compiled static and dynamic libraries
 *.a
 *.so
+
+#ignore doxygen docs
+doc/*

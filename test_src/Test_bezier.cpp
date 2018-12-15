@@ -1,11 +1,11 @@
 /**
-  *   @file test_bezier.cpp
+  *   @file Test_bezier.cpp
   *   @author Lauri Westerholm
   *   @brief Contains Bezier class related functions
   *   @remark Not intended to be used directly with Editor
   */
 
-#include "test_bezier.hpp"
+#include "Test_bezier.hpp"
 
 
 /**
