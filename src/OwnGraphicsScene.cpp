@@ -11,6 +11,10 @@
 // Set the scene class variable END_POINTS_ACTIVE
 bool OwnGraphicsScene::END_POINTS_ACTIVE = true;
 
+OwnGraphicsScene::OwnGraphicsScene(QWidget *parent):QGraphicsScene(parent)
+{
+  setSceneRect(0, 0, 10000, 10000);
+}
 
 
 OwnGraphicsScene::~OwnGraphicsScene()

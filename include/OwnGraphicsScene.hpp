@@ -214,7 +214,7 @@
     *   @param parent The QWidget parent
     *   @details Sets standard size for the view rect
     */
-   OwnGraphicsScene(QWidget *parent):QGraphicsScene(parent) {setSceneRect(0, 0, 10000, 10000);}
+   OwnGraphicsScene(QWidget *parent);
 
   /**
     *   @brief Destructor for OwnGraphicsScene
