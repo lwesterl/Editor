@@ -45,11 +45,11 @@ public:
     */
   ~MainWidget();
 
-  //void addLine(int x1, int y1, int x2, int y2);
-
-  /*void set_Scene(OwnGraphicsScene *scene) {this->scene = scene;}
-  void set_View(QGraphicsView *view) {this->view = view;}
-  void set_Layout(QHBoxLayout *layout);*/
+  /**
+    *   @brief Overload for resizeEvent
+    *   @param event resizeEvent
+    */
+  virtual void resizeEvent(QResizeEvent *event);
 
   /**
     *   @brief Get the scene
@@ -60,7 +60,7 @@ public:
     *   @brief Get the view
     *   @return Returns the graphics view
     */
-  QGraphicsView* getView() {return view;}
+  OwnGraphicsView* getView() {return view;}
   /**
     *   @brief Get the layout
     *   @return Returns the graphics layout

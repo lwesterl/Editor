@@ -34,6 +34,13 @@ MainWidget::~MainWidget()
   delete layout;
 }
 
+/*  Overload for resizeEvent */
+void MainWidget::resizeEvent(QResizeEvent *event)
+{
+  //  update view size
+  view->updateSize(event->size());
+}
+
 
 // Inits scrollbar to horizontally left position and vertical scrollbar to center
 void MainWidget::InitScrollBar()
