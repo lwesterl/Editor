@@ -371,6 +371,16 @@ public:
 
 
 private:
+
+  /**
+    *   @brief Set OwnGraphicsScene size
+    *   @details calls setSceneRect for OwnGraphicsScene
+    *   @param width New rect width
+    *   @param height New rect height
+    */
+  void setSceneSize(unsigned width, unsigned height);
+
+  /*  Variables */
   MainWidget *mainWidget;
   QAction *line_mode;
   QAction *delete_mode;

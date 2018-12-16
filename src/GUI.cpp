@@ -10,9 +10,8 @@
 
 
 
-
-
 // Implementation of GUI class
+
 // first init base class
 GUI::GUI(QWidget *parent): QMainWindow(parent)
 {
@@ -52,51 +51,13 @@ GUI::GUI(QWidget *parent): QMainWindow(parent)
   // connect the action
   connect(save_choices, &QAction::triggered, this, &GUI::SaveChoices);
 
-
-
-
-
   // create all toolbars
   createToolbars();
 
-
-  //add_lower_toolbar->setVisible(false);
-  //lToolbar.lower_toolbar->toggleViewAction()->setChecked(false)->trigger();
-  //toggle_lower_toolbar->setChecked(true);
-
-
-  //test
-
-
-  //QPixmap quit_pic("exit.png");
-  //QAction *quit = toolbar->addAction(QIcon(quit_pic),"Quit");
-  //connect(quit, &QAction::triggered, qApp, &QApplication::quit);
-
   // MainWidget
-
   mainWidget = new MainWidget(this);
   this->setCentralWidget(mainWidget);
   mainWidget->InitScrollBar();
-  //h_layout = new QHBoxLayout();
-  //mainWidget->setLayout(h_layout);
-  //mainWidget->set_Layout(new QHBoxLayout());
-
-  // create QGraphicsScene
-  //scene = new QGraphicsScene(this);
-  //scene = new QGraphicsScene(mainWidget);
-  //mainWidget->set_Scene(new QGraphicsScene(mainWidget));
-  //mainWidget->set_Scene(new OwnGraphicsScene(mainWidget));
-
-  // create a view for it and add the view to the layout
-  //view = new QGraphicsView(scene, mainWidget);
-  //mainWidget->set_View(new QGraphicsView(mainWidget->getScene(), mainWidget));
-  //h_layout->addWidget(view);
-  //mainWidget->getLayout()->addWidget(mainWidget->getView());
-
-  // make the view central widget
-  //this->setCentralWidget(view);
-
-
 
 }
 
@@ -660,6 +621,8 @@ void GUI::SaveChoices()
   int combo_index = line_options_combo->ComboIndex();
   mainWidget->getScene()->setConnectLines(combo_index);
 
+  setSceneSize(500, 500);
+
   // Show a QMessageBox to user
   QMessageBox::information(this, "Information", "Selected options saved");
 }
@@ -732,4 +695,11 @@ void GUI::HideBezierToolbar(bool hide)
   {
     bezierToolbar.bezier_toolbar->setVisible(true);
   }
+}
+
+/*  Set OwnGraphicsScene rect size */
+void GUI::setSceneSize(unsigned width, unsigned height)
+{
+  mainWidget->getScene()->setSceneRect(0, 0, width, height);
+  mainWidget->getView()->updateSceneSize(width, height);
 }
