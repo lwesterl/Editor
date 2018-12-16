@@ -40,6 +40,7 @@
 #include "OwnGraphicsScene.hpp"
 #include "MainWidget.hpp"
 #include "ComboboxAction.hpp"
+#include "SpinBoxAction.hpp"
 
 
 /*    MACROS    */
@@ -400,6 +401,8 @@ private:
   struct BezierToolbar bezierToolbar;
 
   ComboboxAction *line_options_combo;
+  SpinBoxAction *window_width;
+  SpinBoxAction *window_height;
 
 
 };

@@ -45,6 +45,18 @@ GUI::GUI(QWidget *parent): QMainWindow(parent)
   // Add a ComboboxAction
   line_options_combo = new ComboboxAction("New lines connect to previous one: ");
   options->addAction(line_options_combo);
+  options->addSeparator();
+  // add spinboxes for width and height to options QMenu
+  window_width = new SpinBoxAction("Width");
+  window_width->setLimits(1, 20000, " px");
+  window_width->setDefaultValue(10000); // this needs to match OwnGraphicsScene size in the constructor
+  window_height = new SpinBoxAction("Height");
+  window_height->setLimits(1, 20000, " px");
+  window_height->setDefaultValue(10000);
+  options->addAction(window_width);
+  options->addAction(window_height);
+  options->addSeparator();
+
   // Add a save choices
   QAction *save_choices = new QAction("Save choices");
   options->addAction(save_choices);
@@ -621,7 +633,13 @@ void GUI::SaveChoices()
   int combo_index = line_options_combo->ComboIndex();
   mainWidget->getScene()->setConnectLines(combo_index);
 
-  setSceneSize(500, 500);
+  // get scene size from SpinBoxActions
+  int width = window_width->getCurrentValue();
+  int height = window_height->getCurrentValue();
+  setSceneSize(width, height);
+  // update default values to spinboxes
+  window_width->setDefaultValue(width);
+  window_height->setDefaultValue(height);
 
   // Show a QMessageBox to user
   QMessageBox::information(this, "Information", "Selected options saved");
