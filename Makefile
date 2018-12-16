@@ -57,6 +57,7 @@ SOURCES       = src/Bezier.cpp \
 		src/OwnGraphicsView.cpp \
 		src/PixmapItem.cpp \
 		src/PromtWindow.cpp \
+		src/SpinBoxAction.cpp \
 		src/Vector2.cpp moc_OwnGraphicsScene.cpp \
 		moc_OwnGraphicsView.cpp \
 		moc_PromtWindow.cpp
@@ -69,6 +70,7 @@ OBJECTS       = Bezier.o \
 		OwnGraphicsView.o \
 		PixmapItem.o \
 		PromtWindow.o \
+		SpinBoxAction.o \
 		Vector2.o \
 		moc_OwnGraphicsScene.o \
 		moc_OwnGraphicsView.o \
@@ -142,8 +144,8 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		include/OwnGraphicsView.hpp \
 		include/PixmapItem.hpp \
 		include/PromtWindow.hpp \
-		include/Vector2.hpp \
-		test_src/Test_bezier.hpp src/Bezier.cpp \
+		include/SpinBoxAction.hpp \
+		include/Vector2.hpp src/Bezier.cpp \
 		src/ComboboxAction.cpp \
 		src/GUI.cpp \
 		src/GUI_test.cpp \
@@ -152,6 +154,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		src/OwnGraphicsView.cpp \
 		src/PixmapItem.cpp \
 		src/PromtWindow.cpp \
+		src/SpinBoxAction.cpp \
 		src/Vector2.cpp
 QMAKE_TARGET  = Editor
 DESTDIR       = 
@@ -307,8 +310,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents include/Bezier.hpp include/ComboboxAction.hpp include/GUI.hpp include/LineItem.hpp include/MainWidget.hpp include/OwnGraphicsScene.hpp include/OwnGraphicsView.hpp include/PixmapItem.hpp include/PromtWindow.hpp include/Vector2.hpp test_src/Test_bezier.hpp $(DISTDIR)/
-	$(COPY_FILE) --parents src/Bezier.cpp src/ComboboxAction.cpp src/GUI.cpp src/GUI_test.cpp src/MainWidget.cpp src/OwnGraphicsScene.cpp src/OwnGraphicsView.cpp src/PixmapItem.cpp src/PromtWindow.cpp src/Vector2.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents include/Bezier.hpp include/ComboboxAction.hpp include/GUI.hpp include/LineItem.hpp include/MainWidget.hpp include/OwnGraphicsScene.hpp include/OwnGraphicsView.hpp include/PixmapItem.hpp include/PromtWindow.hpp include/SpinBoxAction.hpp include/Vector2.hpp $(DISTDIR)/
+	$(COPY_FILE) --parents src/Bezier.cpp src/ComboboxAction.cpp src/GUI.cpp src/GUI_test.cpp src/MainWidget.cpp src/OwnGraphicsScene.cpp src/OwnGraphicsView.cpp src/PixmapItem.cpp src/PromtWindow.cpp src/SpinBoxAction.cpp src/Vector2.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -384,7 +387,8 @@ GUI.o: src/GUI.cpp include/GUI.hpp \
 		include/Bezier.hpp \
 		include/Vector2.hpp \
 		include/MainWidget.hpp \
-		include/ComboboxAction.hpp
+		include/ComboboxAction.hpp \
+		include/SpinBoxAction.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o GUI.o src/GUI.cpp
 
 GUI_test.o: src/GUI_test.cpp include/GUI.hpp \
@@ -395,7 +399,8 @@ GUI_test.o: src/GUI_test.cpp include/GUI.hpp \
 		include/Bezier.hpp \
 		include/Vector2.hpp \
 		include/MainWidget.hpp \
-		include/ComboboxAction.hpp
+		include/ComboboxAction.hpp \
+		include/SpinBoxAction.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o GUI_test.o src/GUI_test.cpp
 
 MainWidget.o: src/MainWidget.cpp include/MainWidget.hpp \
@@ -423,6 +428,9 @@ PixmapItem.o: src/PixmapItem.cpp include/PixmapItem.hpp
 
 PromtWindow.o: src/PromtWindow.cpp include/PromtWindow.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o PromtWindow.o src/PromtWindow.cpp
+
+SpinBoxAction.o: src/SpinBoxAction.cpp include/SpinBoxAction.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o SpinBoxAction.o src/SpinBoxAction.cpp
 
 Vector2.o: src/Vector2.cpp include/Vector2.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Vector2.o src/Vector2.cpp

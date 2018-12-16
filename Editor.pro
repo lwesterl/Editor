@@ -16,8 +16,9 @@ HEADERS += include/Bezier.hpp \
            include/OwnGraphicsView.hpp \
            include/PixmapItem.hpp \
            include/PromtWindow.hpp \
+           include/SpinBoxAction.hpp \
            include/Vector2.hpp \
-           test_src/test_bezier.hpp
+           
 SOURCES += src/Bezier.cpp \
            src/ComboboxAction.cpp \
            src/GUI.cpp \
@@ -25,8 +26,9 @@ SOURCES += src/Bezier.cpp \
            src/MainWidget.cpp \
            src/OwnGraphicsScene.cpp \
            src/OwnGraphicsView.cpp \
-	   src/PixmapItem.cpp \
+	         src/PixmapItem.cpp \
            src/PromtWindow.cpp \
+           src/SpinBoxAction.cpp \
            src/Vector2.cpp \
 
 QT += widgets
