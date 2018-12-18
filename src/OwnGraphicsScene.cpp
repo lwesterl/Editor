@@ -19,23 +19,31 @@ OwnGraphicsScene::OwnGraphicsScene(QWidget *parent):QGraphicsScene(parent)
 
 OwnGraphicsScene::~OwnGraphicsScene()
 {
+  // remove control and end point circles
+  RemoveControlPointCircles(0);
+  RemoveEndPointCircle();
+
   // remove list objects
-  for (auto it = line_items.begin(); it !=line_items.end();)
+  for (auto it = line_items.begin(); it !=line_items.end(); it++)
   {
-    it = line_items.erase(it);
+    delete (*it);
   }
+  line_items.clear();
 
   // remove pixmap_items
-  for (auto it = pixmap_items.begin(); it != pixmap_items.end();)
+  for (auto it = pixmap_items.begin(); it != pixmap_items.end(); it++)
   {
-    it = pixmap_items.erase(it);
+    delete (*it);
   }
+  pixmap_items.clear();
 
   // remove Bezier objects
-  for (auto it = beziers.begin(); it != beziers.end();)
+  for (auto it = beziers.begin(); it != beziers.end(); it++)
   {
-    it = beziers.erase(it);
+    delete(*it);
   }
+  beziers.clear();
+  // clear whole scene
   clear();
 }
 
@@ -443,26 +451,30 @@ void OwnGraphicsScene::ClearAll()
   bezier_struct.circle4 = nullptr;
 
   // remove list objects
-  for (auto it = line_items.begin(); it !=line_items.end();)
+  for (auto it = line_items.begin(); it !=line_items.end(); it++)
   {
-    it = line_items.erase(it);
+    delete (*it);
   }
+  line_items.clear();
 
   // clear all pixmap_items
-  for (auto it = pixmap_items.begin(); it != pixmap_items.end();)
+  for (auto it = pixmap_items.begin(); it != pixmap_items.end(); it++)
   {
-    it = pixmap_items.erase(it);
+    delete(*it);
   }
+  pixmap_items.clear();
+
   // these must be initialized because all imgs were erased
   image_active.added_scene = false;
   image_active.pixmap_item = nullptr;
   image_active.clicks = 0;
 
   // clear all Beziers
-  for (auto it = beziers.begin(); it != beziers.end();)
+  for (auto it = beziers.begin(); it != beziers.end(); it++)
   {
-    it = beziers.erase(it);
+    delete(*it);
   }
+  beziers.clear();
 
   // Clear all end points from the map
   end_points_dict.clear();
@@ -695,12 +707,14 @@ void OwnGraphicsScene::ClearVisualItems()
   image_cut.visual_created = false;
 
   // delete items
-  for (auto it = image_cut.visual_items.begin(); it != image_cut.visual_items.end();)
+  for (auto it = image_cut.visual_items.begin(); it != image_cut.visual_items.end(); it++)
   {
     // remove the item from the scene
     removeItem(*it);
-    it = image_cut.visual_items.erase(it);
+    delete (*it);
   }
+  image_cut.visual_items.clear();
+
 }
 
 // Activate or deactivate bezier mode
@@ -829,6 +843,8 @@ void OwnGraphicsScene::AddBezier(Bezier *bezier)
   {
     addItem(*it);
   }
+  // add bezier to beziers container
+  beziers.push_back(bezier);
 }
 
 /*  Remove all LineItems from Bezier and then delete the Bezier */
@@ -841,6 +857,14 @@ void OwnGraphicsScene::RemoveBezier(Bezier *bezier)
     for (auto it = items.begin(); it != items.end(); it++)
     {
       removeItem(*it);
+    }
+    // remove bezier from beziers container
+    for (auto it = beziers.begin(); it != beziers.end(); it++)
+    {
+      if ((*it) == bezier) {
+        beziers.erase(it);
+        break;
+      }
     }
     // Delete the Bezier (Bezier destructor should delete all items)
     delete(bezier);
