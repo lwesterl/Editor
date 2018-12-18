@@ -199,7 +199,7 @@ public:
     *   @brief GUI deconstructor
     *   @details Deletes mainwidget
     */
-  ~GUI() {delete mainWidget;}
+  ~GUI();
 
   /**
     *   @brief Line drawing mode

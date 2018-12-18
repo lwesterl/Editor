@@ -73,6 +73,49 @@ GUI::GUI(QWidget *parent): QMainWindow(parent)
 
 }
 
+GUI::~GUI()
+{
+  delete mainWidget;
+  delete line_mode;
+  delete delete_mode;
+  delete clear_mode;
+  delete bezier_mode;
+  delete clear_all_mode;
+  delete add_img_mode;
+  delete delete_img_mode;
+  delete cut_image_mode;
+  delete continue_img_cut;
+  delete cancel_img_cut;
+  delete main_toolbar;
+  delete line_options_combo;
+  delete window_width;
+  delete window_height;
+  // PolygonToolbar
+  delete polyToolbar.final_point;
+  delete polyToolbar.final_point_text;
+  delete polyToolbar.remove;
+  delete polyToolbar.remove_text;
+  delete polyToolbar.cancel;
+  delete polyToolbar.polygon_toolbar;
+
+  // ModeToolbar
+  delete modeToolbar.combobox;
+  delete modeToolbar.continue_button;
+  delete modeToolbar.cancel;
+  delete modeToolbar.mode_toolbar;
+  // selectToolbar
+  delete selectToolbar.info;
+  delete selectToolbar.continue_button;
+  delete selectToolbar.cancel;
+  delete selectToolbar.select_img_toolbar;
+  // BezierToolbar
+  delete bezierToolbar.options;
+  delete bezierToolbar.save_options;
+  delete bezierToolbar.save_bezier;
+  delete bezierToolbar.remove_bezier;
+  delete bezierToolbar.cancel;
+  delete bezierToolbar.bezier_toolbar;  
+}
 
 void GUI::LineMode()
 {
