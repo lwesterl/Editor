@@ -453,12 +453,19 @@ void OwnGraphicsScene::ClearAll()
   {
     it = pixmap_items.erase(it);
   }
+  // these must be initialized because all imgs were erased
+  image_active.added_scene = false;
+  image_active.pixmap_item = nullptr;
+  image_active.clicks = 0;
 
   // clear all Beziers
   for (auto it = beziers.begin(); it != beziers.end();)
   {
     it = beziers.erase(it);
   }
+
+  // Clear all end points from the map
+  end_points_dict.clear();
 
   clear(); // removes all objects and deletes them
 
@@ -532,6 +539,13 @@ void OwnGraphicsScene::DeleteImg(unsigned x1, unsigned y1)
     if ((*it)->isXinside(x1) && (*it)->isYinside(y1))
     {
       // item found at clicked position
+      if (*it == image_active.pixmap_item)
+      {
+        // init image_active related values
+        image_active.pixmap_item = nullptr;
+        image_active.clicks = 0;
+        image_active.added_scene = false;
+      }
       // remove item from the scene
       removeItem(*it);
       // remove item from the list and delete it
