@@ -24,6 +24,12 @@ SpinBoxAction::SpinBoxAction(const QString &name): QWidgetAction(NULL)
   setDefaultWidget(widget);
 }
 
+SpinBoxAction::~SpinBoxAction()
+{
+  // delete spinbox
+  delete spinbox;
+}
+
 /*  Set min and max values, set also suffix */
 void SpinBoxAction::setLimits(int min, int max, const QString suffix)
 {

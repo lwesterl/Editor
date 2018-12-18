@@ -27,6 +27,11 @@ class SpinBoxAction: public QWidgetAction
     SpinBoxAction(const QString &name);
 
     /**
+      *   @brief Deconstructor
+      */
+    ~SpinBoxAction();
+
+    /**
       *   @brief Set limits for spinbox
       *   @param min Min int value
       *   @param max Max int value
