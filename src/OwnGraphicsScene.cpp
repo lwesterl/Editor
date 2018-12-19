@@ -701,13 +701,13 @@ void OwnGraphicsScene::RemovePolyPrevious()
 }
 
 // Set correct connect_lines value based on input value
-void OwnGraphicsScene::setConnectLines(int value)
+void OwnGraphicsScene::setEndPointsActive(int value)
 {
   if (value == 0)
   {
-    connect_lines = true;
+    OwnGraphicsScene::END_POINTS_ACTIVE = true;
   }
-  else connect_lines = false;
+  else OwnGraphicsScene::END_POINTS_ACTIVE = false;
 
 }
 

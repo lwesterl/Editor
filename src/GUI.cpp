@@ -43,7 +43,7 @@ GUI::GUI(QWidget *parent): QMainWindow(parent)
   QMenu *options;
   options = menuBar()->addMenu("&Options");
   // Add a ComboboxAction
-  line_options_combo = new ComboboxAction("New lines connect to previous one: ");
+  line_options_combo = new ComboboxAction("Show & connect to line and bezier end points:");
   options->addAction(line_options_combo);
   options->addSeparator();
   // add spinboxes for width and height to options QMenu
@@ -114,7 +114,7 @@ GUI::~GUI()
   delete bezierToolbar.save_bezier;
   delete bezierToolbar.remove_bezier;
   delete bezierToolbar.cancel;
-  delete bezierToolbar.bezier_toolbar;  
+  delete bezierToolbar.bezier_toolbar;
 }
 
 void GUI::LineMode()
@@ -674,7 +674,7 @@ void GUI::SaveChoices()
 {
   // Set the correct line_connect value to OwnGraphicsScene
   int combo_index = line_options_combo->ComboIndex();
-  mainWidget->getScene()->setConnectLines(combo_index);
+  mainWidget->getScene()->setEndPointsActive(combo_index);
 
   // get scene size from SpinBoxActions
   int width = window_width->getCurrentValue();

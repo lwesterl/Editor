@@ -237,10 +237,14 @@
 
    /**
      *   @brief Overload for keyPressEvents
-     *    @param keyEvent Key event
+     *   @param keyEvent Key event
      */
    virtual void keyPressEvent(QKeyEvent *keyEvent);
 
+  /**
+    *   @brief Overload for mouseReleaseEvent
+    *   @param event mouseReleaseEvent
+    */
    virtual void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
 
   /**
@@ -350,10 +354,10 @@
    void RemovePolyPrevious();
 
   /**
-    *   @brief Update connect_lines value
-    *   @param value New connect_lines value matching combobox options
+    *   @brief Update END_POINTS_ACTIVE value
+    *   @param value New END_POINTS_ACTIVE value matching combobox options
     */
-   void setConnectLines(int value);
+   void setEndPointsActive(int value);
 
   /**
     *   @brief Removes all temporary visual_items
@@ -520,7 +524,6 @@ private:
    unsigned mouse_x;
    unsigned mouse_y;
    bool first_line = true;
-   bool connect_lines = true; // This controls whether first_line is reset
    struct Line_Mode line_struct;
    unsigned char mode = line_mode_value;
    struct Image_Active image_active;
