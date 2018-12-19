@@ -65,30 +65,27 @@ void OwnGraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent  *event)
   {
     if (first_line)
     {
-      // no previous points
-      line_struct.prev_x = x_new;
-      line_struct.prev_y = y_new;
-      first_line = false;
-    }
-    else if (line_struct.created)
-    {
-      // user has set the final position for the line
-      // set previous points to the current item end coordinates
-      line_struct.prev_x = line_struct.line_item->getX2();
-      line_struct.prev_y = line_struct.line_item->getY2();
-      line_struct.positioned = true;
-      line_struct.created = false;
-      if (!connect_lines)
-      {
-        // reset first_line to true not to connect lines
-        first_line = true;
-      }
-    }
 
-    // reassign mouse_x and mouse_y
-    mouse_x = x_new;
-    mouse_y = y_new;
-    //qDebug() << "Clicked\n" << "X: " << mouse_x << "Y: " << mouse_y;
+      // first line means that the line is not connected to the previous one
+      UpdateEndPoints(x_new, y_new);
+      if (OwnGraphicsScene::END_POINTS_ACTIVE && end_points_struct.found)
+      {
+        // reassign mouse values
+        mouse_x = end_points_struct.end_x;
+        mouse_y = end_points_struct.end_y;
+      }
+
+      else
+      {
+        // no previous points
+        mouse_x = x_new;
+        mouse_y = y_new;
+      }
+
+      first_line = false;
+      line_struct.positioned = false;
+      mouse_tracking(false);
+    }
   }
   else if (mode == delete_mode_value)
   {
@@ -171,126 +168,112 @@ void OwnGraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent  *event)
 // Move image according to user mouse movements
 void OwnGraphicsScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
-  if (mode == image_mode_value)
-  {
-    // user is moving the image
-    if (image_active.added_scene)
-    {
-      // convert mouse coordinates to scene position
-      QPointF point = event->scenePos();
-      unsigned x_new = point.x();
-      unsigned y_new = point.y();
+  // Convert point to scene coordinates
+  QPointF point = event->scenePos();
+  unsigned x_new = point.x();
+  unsigned y_new = point.y();
 
-      // move the image accordinly
-      // mouse tells x1 and y1 positions so upper left corner
-      image_active.pixmap_item->setPos(x_new, y_new);
-      // add position also to the item itself
-      image_active.pixmap_item->setX(x_new);
-      image_active.pixmap_item->setY(y_new);
-    }
-
-  }
-  else if (mode == line_mode_value)
+  if (event->buttons() != Qt::MidButton)
   {
-    if (first_line == false)
+    if (mode == image_mode_value)
     {
-      // convert mouse coordinates to a scene position
-      QPointF point = event->scenePos();
-      unsigned x_new = point.x();
-      unsigned y_new = point.y();
-      if (line_struct.created)
+      // user is moving the image
+      if (image_active.added_scene)
       {
-        // Don't create a new item , move previosly created
-        if (connect_lines)
+        // move the image accordinly
+        // mouse tells x1 and y1 positions so upper left corner
+        image_active.pixmap_item->setPos(x_new, y_new);
+        // add position also to the item itself
+        image_active.pixmap_item->setX(x_new);
+        image_active.pixmap_item->setY(y_new);
+      }
+
+    }
+    else if (mode == line_mode_value)
+    {
+      if (OwnGraphicsScene::END_POINTS_ACTIVE)
+      {
+        // update end points
+        UpdateEndPoints(x_new, y_new);
+        if (end_points_struct.found)
         {
-          // connect item to the last one
-          line_struct.line_item->setLine(line_struct.prev_x, line_struct.prev_y, x_new, y_new);
+          // use end point center rather than raw mouse position
+          x_new = end_points_struct.end_x;
+          y_new = end_points_struct.end_y;
         }
-        else
+      }
+
+      if (first_line == false)
+      {
+        // convert mouse coordinates to a scene position
+        if (line_struct.created)
         {
-          // don't connect to the prev item
+          // Don't create a new item , move previosly created
           line_struct.line_item->setLine(mouse_x, mouse_y, x_new, y_new);
-        }
 
-        // Correct end point positions
-        RemoveEndPoint(line_struct.line_item->getX2(), line_struct.line_item->getY2());
-        AddEndPoint(x_new, y_new);
+          // Note: end points aren't added before the line is fully positioned and created
 
-        // Then also update x2 and y2 values to item itself (crusial)
-        line_struct.line_item->updatePosition(x_new, y_new);
-      }
-      else
-      {
-        // create a new line_item
-        if (connect_lines)
-        {
-          // connect item to the last item
-          line_struct.line_item = addLine(line_struct.prev_x, line_struct.prev_y, x_new, y_new);
+          // Then also update x2 and y2 values to item itself (crusial)
+          line_struct.line_item->updatePosition(x_new, y_new);
         }
         else
         {
-          // create a complitely new element without connection to the previous one
+          // create a complitely new element without connection to the any previous one
           line_struct.line_item = addLine(mouse_x, mouse_y, x_new, y_new);
+          line_struct.created = true;
+          line_struct.positioned = true;
+          // disable mouse_tracking
+          mouse_tracking(false);
         }
 
-        line_struct.created = true;
-        line_struct.positioned = false;
+      }
+    }
+
+    else if (mode == cut_image_mode_value)
+    {
+      if (image_cut.initialized && (image_cut.cut_mode == polygon_img_cut))
+      {
+        // construct visual items
+        if (image_cut.visual_created)
+        {
+          // move already created element
+          image_cut.current_item->setLine(image_cut.prev_x, image_cut.prev_y, x_new, y_new);
+          // also update x2 and y2 values to item itself (crusial)
+          image_cut.current_item->updatePosition(x_new, y_new);
+        }
+        else
+        {
+          // add a new visual item
+          image_cut.current_item = new LineItem(image_cut.prev_x, image_cut.prev_y, x_new, y_new);
+          image_cut.visual_items.push_back(image_cut.current_item); // adds item to end of the vector
+          addItem(image_cut.current_item); // adds item to the scene
+          image_cut.visual_created = true;
+        }
+      }
+
+    }
+
+    else if (mode == bezier_mode_value)
+    {
+      if (! bezier_struct.created && OwnGraphicsScene::END_POINTS_ACTIVE)
+      {
+        // Show possible end points
+        UpdateEndPoints(x_new, y_new);
+      }
+      else if (bezier_struct.created)
+      {
+        // Check if user has moved the bezier
+        int is_moved = isInsideControlPoint(x_new, y_new);
+        if (is_moved)
+        {
+          // Update the Bezier
+          CreateBezier(x_new, y_new, is_moved);
+        }
       }
 
     }
   }
 
-  else if (mode == cut_image_mode_value)
-  {
-    if (image_cut.initialized && (image_cut.cut_mode == polygon_img_cut))
-    {
-      QPointF point = event->scenePos();
-      unsigned x_new = point.x();
-      unsigned y_new = point.y();
-
-      // construct visual items
-      if (image_cut.visual_created)
-      {
-        // move already created element
-        image_cut.current_item->setLine(image_cut.prev_x, image_cut.prev_y, x_new, y_new);
-        // also update x2 and y2 values to item itself (crusial)
-        image_cut.current_item->updatePosition(x_new, y_new);
-      }
-      else
-      {
-        // add a new visual item
-        image_cut.current_item = new LineItem(image_cut.prev_x, image_cut.prev_y, x_new, y_new);
-        image_cut.visual_items.push_back(image_cut.current_item); // adds item to end of the vector
-        addItem(image_cut.current_item); // adds item to the scene
-        image_cut.visual_created = true;
-      }
-    }
-
-  }
-
-  else if (mode == bezier_mode_value)
-  {
-    QPointF point = event->scenePos();
-    unsigned x_new = point.x();
-    unsigned y_new = point.y();
-    if (! bezier_struct.created && OwnGraphicsScene::END_POINTS_ACTIVE)
-    {
-      // Show possible end points
-      UpdateEndPoints(x_new, y_new);
-
-    }
-    else if (bezier_struct.created)
-    {
-      // Check if user has moved the bezier
-      int is_moved = isInsideControlPoint(x_new, y_new);
-      if (is_moved)
-      {
-        // Update the Bezier
-        CreateBezier(x_new, y_new, is_moved);
-      }
-    }
-
-  }
 }
 
 void OwnGraphicsScene::keyPressEvent(QKeyEvent *keyEvent)
@@ -322,6 +305,39 @@ void OwnGraphicsScene::keyPressEvent(QKeyEvent *keyEvent)
   }
 }
 
+void OwnGraphicsScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
+{
+  if (event->button() != Qt::MidButton)
+  {
+    if (mode == line_mode_value && line_struct.created)
+    {
+      // user has set the final position for the line
+      // set previous points to the current item end coordinates
+      // also add line start and end points to end_points_dict
+      line_struct.prev_x = line_struct.line_item->getX2();
+      line_struct.prev_y = line_struct.line_item->getY2();
+      line_struct.positioned = false;
+      line_struct.created = false;
+      AddEndPoint(line_struct.line_item->getX1(), line_struct.line_item->getY1());
+      AddEndPoint(line_struct.prev_x, line_struct.prev_y);
+      first_line = true;
+
+      mouse_tracking(true);
+      // remove end point circle
+      RemoveEndPointCircle();
+    }
+    else if (mode == line_mode_value)
+    {
+      // remove unwanted dot user created
+      first_line = true;
+      RemoveEndPointCircle();
+      mouse_tracking(true);
+    }
+  }
+
+}
+
+
 // This method goes through OwnGraphicsScene items and tries to remove item
 // at location x , y
 void OwnGraphicsScene::remove_Item(unsigned x, unsigned y)
@@ -342,7 +358,6 @@ void OwnGraphicsScene::remove_Item(unsigned x, unsigned y)
         unsigned x2 = (*it)->getX2();
         unsigned y1 = (*it)->getY1();
         unsigned y2 = (*it)->getY2();
-
         removeItem(*it); // remove from the scene
         line_items.remove(*it);
         delete(*it);
@@ -363,15 +378,11 @@ void OwnGraphicsScene::remove_Item(unsigned x, unsigned y)
 
 LineItem* OwnGraphicsScene::addLine(unsigned x1, unsigned y1, unsigned x2, unsigned y2)
 {
-  //QGraphicsLineItem *line = new QGraphicsLineItem(x1, y1, x2, y2);
   LineItem *line = new LineItem(x1, y1, x2, y2);
   // Add item to the scene and line items list
   addItem(line);
   line_items.push_back(line);
 
-  // Add entry for the end and start points of the line
-  AddEndPoint(x1, y1);
-  AddEndPoint(x2, y2);
   return line;
 }
 
@@ -382,9 +393,8 @@ void OwnGraphicsScene::LineMode(bool activate)
 
   if (activate)
   {
-    //qDebug() << "LineMode actived\n";
     mode = line_mode_value;
-    mouse_tracking(false);
+    mouse_tracking(true);
   }
   else
   {
@@ -398,6 +408,7 @@ void OwnGraphicsScene::LineMode(bool activate)
       line_struct.created = false;
       line_struct.positioned = true;
     }
+    mouse_tracking(false);
   }
 }
 
@@ -773,7 +784,6 @@ void OwnGraphicsScene::CreateBezier(unsigned x, unsigned y, int point_added)
 
   else
   {
-
     if (point_added == 1)
     {
       // Check lock_mode
@@ -1194,14 +1204,11 @@ void OwnGraphicsScene::UpdateEndPoints(unsigned x, unsigned y)
     end_points_struct.end_x = (unsigned) coordinates.x;
     end_points_struct.end_y = (unsigned) coordinates.y;
     end_points_struct.found = true;
-
   }
-
   else
   {
     end_points_struct.found = false;
   }
-
 }
 
 /*  Remove old end_circle if possible */

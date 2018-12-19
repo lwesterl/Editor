@@ -237,8 +237,11 @@
 
    /**
      *   @brief Overload for keyPressEvents
+     *    @param keyEvent Key event
      */
    virtual void keyPressEvent(QKeyEvent *keyEvent);
+
+   virtual void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
 
   /**
     *   @brief Add a LineItem
@@ -453,6 +456,7 @@
   *   @param x Current mouse x coordinate
   *   @param y Current mouse y coordinate
   *   @remark Depends heavily on LookEndPoints
+  *   @bug Cannot find end points which x or y coordinate is 0
   */
   void UpdateEndPoints(unsigned x, unsigned y);
 
