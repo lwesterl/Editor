@@ -113,6 +113,12 @@ class PixmapItem: public QGraphicsPixmapItem
       */
     void RemoveLatestPoint();
 
+    /**
+      *   @brief Cut item based on a LineItem
+      *   @details Connects lines from lower edges of the pixmap to the LineItem points
+      */
+    void LineCut();
+
   private:
     QPixmap pixmap_;
     std::vector<QPoint> painter_points;

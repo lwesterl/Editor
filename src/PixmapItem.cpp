@@ -129,6 +129,23 @@ void PixmapItem::RemoveLatestPoint()
   }
 }
 
+/*  Cut Pixmap based on LineItem */
+void PixmapItem::LineCut()
+{
+  if (painter_points.size() == 2)
+  {
+    int x_min = painter_points[0].x();
+    int x_max = painter_points[1].x();
+    int y_min = painter_points[0].y();
+    // connect lines from lower edges to the LineItem points
+    painter_points.push_back(QPoint(x_max, height));
+    painter_points.push_back(QPoint(x_min, height));
+    painter_points.push_back(QPoint(x_min, y_min));
+    CutItem();
+  }
+  clearPointsVector();
+}
+
 
 // THIS IS NOT A PART OF THE CLASS
 // Return a valid point within the coordinate boundaries
