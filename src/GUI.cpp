@@ -29,7 +29,7 @@ GUI::GUI(QWidget *parent): QMainWindow(parent)
   QPixmap save_pic(save_img);
   QPixmap open_pic(open_img);
   QAction *save = new QAction(save_pic, "&Save", this);
-  QAction *open = new QAction(open_pic, "&Open", this);
+  QAction *open = new QAction(open_pic, "&Load image", this);
   QAction *quit_option = new QAction(quit_pic, "&Quit", this);
   file_options->addAction(save);
   file_options->addAction(open);
@@ -76,44 +76,26 @@ GUI::GUI(QWidget *parent): QMainWindow(parent)
 GUI::~GUI()
 {
   delete mainWidget;
-  delete line_mode;
-  delete delete_mode;
-  delete clear_mode;
-  delete bezier_mode;
-  delete clear_all_mode;
-  delete add_img_mode;
-  delete delete_img_mode;
-  delete cut_image_mode;
-  delete continue_img_cut;
-  delete cancel_img_cut;
-  delete main_toolbar;
+
   delete line_options_combo;
   delete window_width;
   delete window_height;
+  delete main_toolbar;
+  delete pathcutToolbar;
+
   // PolygonToolbar
-  delete polyToolbar.final_point;
   delete polyToolbar.final_point_text;
-  delete polyToolbar.remove;
   delete polyToolbar.remove_text;
-  delete polyToolbar.cancel;
   delete polyToolbar.polygon_toolbar;
 
   // ModeToolbar
   delete modeToolbar.combobox;
-  delete modeToolbar.continue_button;
-  delete modeToolbar.cancel;
   delete modeToolbar.mode_toolbar;
   // selectToolbar
   delete selectToolbar.info;
-  delete selectToolbar.continue_button;
-  delete selectToolbar.cancel;
   delete selectToolbar.select_img_toolbar;
   // BezierToolbar
   delete bezierToolbar.options;
-  delete bezierToolbar.save_options;
-  delete bezierToolbar.save_bezier;
-  delete bezierToolbar.remove_bezier;
-  delete bezierToolbar.cancel;
   delete bezierToolbar.bezier_toolbar;
 }
 
@@ -476,13 +458,6 @@ void GUI::createToolbars()
   addToolBarBreak();
   polyToolbar.polygon_toolbar = addToolBar("Polygon toolbar");
 
-  /*polyToolbar.endpoints_text = new QLabel(" Previous point endpoint enabled ");
-  polyToolbar.polygon_toolbar->addWidget(polyToolbar.endpoints_text);
-  polyToolbar.endpoints = polyToolbar.polygon_toolbar->addAction("Endpoints");
-  // Set endpoints always enabled
-  polyToolbar.endpoints->setCheckable(true);
-  polyToolbar.endpoints->setChecked(true);*/
-
   polyToolbar.polygon_toolbar->addSeparator();
   polyToolbar.final_point_text = new QLabel("Finished cut: connects the first and the last point ");
   polyToolbar.polygon_toolbar->addWidget(polyToolbar.final_point_text);
@@ -540,6 +515,17 @@ void GUI::createToolbars()
   // Hide the toolbar
   HideBezierToolbar(true);
 
+  // create QToolBar for image path cutting
+  pathcutToolbar = addToolBar("Path cut Toolbar");
+  pathcutToolbar->addWidget(new QLabel("Select cut path and continue"));
+  QAction *continue_path = pathcutToolbar->addAction(continue_pic, "Continue");
+  pathcutToolbar->addSeparator();
+  QAction *cancel_path = pathcutToolbar->addAction(cancel_pic, "Cancel");
+  //  connect actions
+  connect(continue_path, &QAction::triggered, this, &GUI::PathCut_Continue);
+  connect(cancel_path, &QAction::triggered, this, &GUI::PathCut_Cancel);
+  // hide pathcutToolbar
+  pathcutToolbar->setVisible(false);
 
 
 }
@@ -625,8 +611,11 @@ void GUI::ContinueFromMode()
   }
   else if (index == 2)
   {
-    // not implemented yet
-    CancelFromMode();
+    // Path cut, assign correct mode to the scene
+    mainWidget->getScene()->SetImgCutMode(index);
+    // set pathcutToolbar visible
+    HideModeToolbar(true);
+    pathcutToolbar->setVisible(true);
   }
 }
 
@@ -763,4 +752,20 @@ void GUI::setSceneSize(unsigned width, unsigned height)
 {
   mainWidget->getScene()->setSceneRect(0, 0, width, height);
   mainWidget->getView()->updateSceneSize(width, height);
+}
+
+void GUI::PathCut_Continue()
+{
+  mainWidget->getScene()->pathImageCut();
+}
+
+void GUI::PathCut_Cancel()
+{
+  // hide pathcutToolbar
+  pathcutToolbar->setVisible(false);
+  // cancel to main toolbar
+  HideMainToolbar(false);
+  // Set also image cutting mode disabled
+  mainWidget->getScene()->CutImageMode(false);
+  cut_image_mode->setChecked(false);
 }
