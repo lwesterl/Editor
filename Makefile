@@ -12,9 +12,9 @@ MAKEFILE      = Makefile
 
 CC            = gcc
 CXX           = g++
-DEFINES       = -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
-CFLAGS        = -m64 -pipe -O2 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
-CXXFLAGS      = -m64 -pipe -O2 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
+DEFINES       = -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
+CFLAGS        = -m64 -pipe -g -D_REENTRANT -Wall -W -fPIC $(DEFINES)
+CXXFLAGS      = -m64 -pipe -g -D_REENTRANT -Wall -W -fPIC $(DEFINES)
 INCPATH       = -I. -I. -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64
 QMAKE         = /usr/lib/x86_64-linux-gnu/qt5/bin/qmake
 DEL_FILE      = rm -f
@@ -35,7 +35,7 @@ COMPRESS      = gzip -9f
 DISTNAME      = Editor1.0.0
 DISTDIR = /home/lauri/Documents/Game_project/Editor/.tmp/Editor1.0.0
 LINK          = g++
-LFLAGS        = -m64 -Wl,-O1
+LFLAGS        = -m64
 LIBS          = $(SUBLIBS) -L/usr/X11R6/lib64 -lQt5Widgets -lQt5Gui -lQt5Core -lGL -lpthread 
 AR            = ar cqs
 RANLIB        = 
@@ -52,6 +52,7 @@ SOURCES       = src/Bezier.cpp \
 		src/ComboboxAction.cpp \
 		src/GUI.cpp \
 		src/GUI_test.cpp \
+		src/LineItem.cpp \
 		src/MainWidget.cpp \
 		src/OwnGraphicsScene.cpp \
 		src/OwnGraphicsView.cpp \
@@ -65,6 +66,7 @@ OBJECTS       = Bezier.o \
 		ComboboxAction.o \
 		GUI.o \
 		GUI_test.o \
+		LineItem.o \
 		MainWidget.o \
 		OwnGraphicsScene.o \
 		OwnGraphicsView.o \
@@ -123,13 +125,13 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/resolve_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_post.prf \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/warn_on.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/resources.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/moc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/unix/opengl.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/uic.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/unix/thread.prf \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/warn_on.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/file_copies.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/testcase_targets.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf \
@@ -149,6 +151,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		src/ComboboxAction.cpp \
 		src/GUI.cpp \
 		src/GUI_test.cpp \
+		src/LineItem.cpp \
 		src/MainWidget.cpp \
 		src/OwnGraphicsScene.cpp \
 		src/OwnGraphicsView.cpp \
@@ -215,13 +218,13 @@ Makefile: Editor.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.co
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/resolve_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_post.prf \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/warn_on.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/resources.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/moc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/unix/opengl.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/uic.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/unix/thread.prf \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/warn_on.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/file_copies.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/testcase_targets.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf \
@@ -280,13 +283,13 @@ Makefile: Editor.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.co
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/resolve_config.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_post.prf:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/warn_on.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/resources.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/moc.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/unix/opengl.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/uic.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/unix/thread.prf:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/warn_on.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/file_copies.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/testcase_targets.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf:
@@ -311,7 +314,7 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents include/Bezier.hpp include/ComboboxAction.hpp include/GUI.hpp include/LineItem.hpp include/MainWidget.hpp include/OwnGraphicsScene.hpp include/OwnGraphicsView.hpp include/PixmapItem.hpp include/PromtWindow.hpp include/SpinBoxAction.hpp include/Vector2.hpp $(DISTDIR)/
-	$(COPY_FILE) --parents src/Bezier.cpp src/ComboboxAction.cpp src/GUI.cpp src/GUI_test.cpp src/MainWidget.cpp src/OwnGraphicsScene.cpp src/OwnGraphicsView.cpp src/PixmapItem.cpp src/PromtWindow.cpp src/SpinBoxAction.cpp src/Vector2.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents src/Bezier.cpp src/ComboboxAction.cpp src/GUI.cpp src/GUI_test.cpp src/LineItem.cpp src/MainWidget.cpp src/OwnGraphicsScene.cpp src/OwnGraphicsView.cpp src/PixmapItem.cpp src/PromtWindow.cpp src/SpinBoxAction.cpp src/Vector2.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -402,6 +405,9 @@ GUI_test.o: src/GUI_test.cpp include/GUI.hpp \
 		include/ComboboxAction.hpp \
 		include/SpinBoxAction.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o GUI_test.o src/GUI_test.cpp
+
+LineItem.o: src/LineItem.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o LineItem.o src/LineItem.cpp
 
 MainWidget.o: src/MainWidget.cpp include/MainWidget.hpp \
 		include/OwnGraphicsScene.hpp \

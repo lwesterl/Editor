@@ -5,7 +5,7 @@
 TEMPLATE = app
 TARGET = Editor
 INCLUDEPATH += .
-
+CONFIG += qt debug
 # Input
 HEADERS += include/Bezier.hpp \
            include/ComboboxAction.hpp \
@@ -23,10 +23,11 @@ SOURCES += src/Bezier.cpp \
            src/ComboboxAction.cpp \
            src/GUI.cpp \
            src/GUI_test.cpp \
+	   src/LineItem.cpp \
            src/MainWidget.cpp \
            src/OwnGraphicsScene.cpp \
            src/OwnGraphicsView.cpp \
-	         src/PixmapItem.cpp \
+	   src/PixmapItem.cpp \
            src/PromtWindow.cpp \
            src/SpinBoxAction.cpp \
            src/Vector2.cpp \
