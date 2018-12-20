@@ -119,6 +119,13 @@ class PixmapItem: public QGraphicsPixmapItem
       */
     void LineCut();
 
+    /**
+      *   @brief Cut item based on a Bezier (its LineItems)
+      *   @details Connects lines from the last painter_point to the first using
+      *   lower edge as a connection point
+      */
+    void BezierCut();
+
   private:
     QPixmap pixmap_;
     std::vector<QPoint> painter_points;

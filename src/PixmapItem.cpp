@@ -146,6 +146,23 @@ void PixmapItem::LineCut()
   clearPointsVector();
 }
 
+/*  Cut Pixmap based on a Bezier and its LineItems */
+void PixmapItem::BezierCut()
+{
+  if (painter_points.size() > 1)
+  {
+    int x_start = painter_points.front().x();
+    int x_end = painter_points.back().x();
+    int y_start = painter_points.back().y();
+    // connect lines from the points using lower edges
+    painter_points.push_back(QPoint(x_end, height));
+    painter_points.push_back(QPoint(x_start, height));
+    painter_points.push_back(QPoint(x_start, y_start));
+    CutItem();
+  }
+  clearPointsVector();
+}
+
 
 // THIS IS NOT A PART OF THE CLASS
 // Return a valid point within the coordinate boundaries
