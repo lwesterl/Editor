@@ -1306,7 +1306,8 @@ void OwnGraphicsScene::BezierReady()
 void OwnGraphicsScene::pathImageCut()
 {
   // try to find the item user clicked (can be either line item or bezier)
-  for (auto line : line_items)
+  bool found_item = false;
+  for (auto &line : line_items)
   {
     if (line->isInside(image_cut.point.x(), image_cut.point.y()))
     {
@@ -1316,6 +1317,26 @@ void OwnGraphicsScene::pathImageCut()
       image_cut.pixmap_item->addPainterPoint(line->getX2(), line->getY2());
       // cut the image
       image_cut.pixmap_item->LineCut();
+      found_item = true;
+    }
+  }
+  if (!found_item)
+  {
+    // go through also all beziers
+    for (auto &bezier : beziers)
+    {
+      if (bezier->isInside(image_cut.point.x(), image_cut.point.y()))
+      {
+        std::vector <LineItem*> temp_lines = bezier->getLineItems();
+        for (auto &line : temp_lines)
+        {
+          // add a painter point
+          image_cut.pixmap_item->addPainterPoint(line->getX1(), line->getY1());
+          image_cut.pixmap_item->addPainterPoint(line->getX2(), line->getY2());
+        }
+        // cut the pixmap
+        image_cut.pixmap_item->BezierCut();
+      }
     }
   }
 }
