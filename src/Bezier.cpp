@@ -112,3 +112,14 @@ float Bezier::getStartY()
   }
   return -1;
 }
+
+/*  Check if position is inside */
+bool Bezier::isInside(unsigned x, unsigned y)
+{
+  // go through all the LineItems
+  for (auto &line : line_items)
+  {
+    if (line->isInside(x, y)) return true;
+  }
+  return false;
+}

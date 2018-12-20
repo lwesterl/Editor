@@ -87,6 +87,15 @@ public:
     */
   float getStartY();
 
+  /**
+    *   @brief Check whether position is inside bezier or not
+    *   @param x x coordinate
+    *   @param y y coordinate
+    *   @return Returns true if position is inside
+    *   @remark This is relatively heavy method
+    */
+  bool isInside(unsigned x, unsigned y);
+
 private:
   std::vector <Vector2> vectors;
   std::vector <LineItem*> line_items;
