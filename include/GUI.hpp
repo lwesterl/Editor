@@ -126,8 +126,6 @@
 struct PolygonToolbar
 {
   QToolBar *polygon_toolbar; /**< Pointer to the QToolBar */
-  QAction *endpoints; /**< Not used */
-  QLabel *endpoints_text; /**< Not used */
   QAction *final_point; /**< Connects to SetPolyFinal */
   QLabel *final_point_text; /**< Info text for user about cutting */
   QAction *remove; /**< Connects to RemovePolyPrevious */
@@ -370,6 +368,9 @@ public:
     */
   void HideBezierToolbar(bool hide);
 
+  void PathCut_Continue();
+  void PathCut_Cancel();
+
 
 private:
 
@@ -399,6 +400,7 @@ private:
   struct ModeToolbar modeToolbar;
   struct SelectImgToolbar selectToolbar;
   struct BezierToolbar bezierToolbar;
+  QToolBar *pathcutToolbar;
 
   ComboboxAction *line_options_combo;
   SpinBoxAction *window_width;
