@@ -70,7 +70,7 @@
    unsigned char cut_mode = no_img_cut; /**< Stores the cut mode */
    QPoint point; /**< Tells which image should be cutted */
    std::vector<LineItem*> visual_items; /**< These are used to visualize the cutting pattern and just temporarily added to the scene */
-   LineItem *current_item; /**< LineiItem which is curretly under construction */
+   LineItem *current_item; /**< LineItem which is curretly under construction */
    unsigned prev_x; /**< Previous x position */
    unsigned prev_y; /**< Previous y position */
    bool visual_created = false; /**< Whether the LineItem is added to the scene or not */
@@ -505,6 +505,12 @@
   *   @details Called from GUI, BezierToolbar_SaveBezier
   */
   void BezierReady();
+
+/**
+  *   @brief Cut image according to selected path
+  *   @remark Called from GUI when pathcutToolbar continue button is pressed
+  */
+  void pathImageCut();
 
   static bool END_POINTS_ACTIVE; /**< Whether items end points are shown */
 

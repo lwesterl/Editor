@@ -149,6 +149,11 @@ void OwnGraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent  *event)
       image_cut.pixmap_item->addPainterPoint(image_cut.prev_x, image_cut.prev_y);
 
     }
+    else if (image_cut.initialized && (image_cut.cut_mode == path_img_cut))
+    {
+      // store click position
+      image_cut.point = QPoint(x_new, y_new);
+    }
   }
   else if (mode == bezier_mode_value)
   {
@@ -342,7 +347,7 @@ void OwnGraphicsScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 // at location x , y
 void OwnGraphicsScene::remove_Item(unsigned x, unsigned y)
 {
-  for (std::list<LineItem*>::iterator it = line_items.begin(); it != line_items.end(); it++)
+  for (auto it = line_items.begin(); it != line_items.end(); it++)
   {
     // remove list item if coordinates match
     if ( ( ((*it)->getX1() <= x ) && ((*it)->getX2() >= x) ) ||
@@ -359,8 +364,8 @@ void OwnGraphicsScene::remove_Item(unsigned x, unsigned y)
         unsigned y1 = (*it)->getY1();
         unsigned y2 = (*it)->getY2();
         removeItem(*it); // remove from the scene
-        line_items.remove(*it);
         delete(*it);
+        line_items.erase(it);
 
         // Remove also the end and start points matching the item
         RemoveEndPoint(x1, y1);
@@ -1296,4 +1301,21 @@ void OwnGraphicsScene::BezierReady()
   // Switch mouse tracking on
   mouse_tracking(true);
 
+}
+
+void OwnGraphicsScene::pathImageCut()
+{
+  // try to find the item user clicked (can be either line item or bezier)
+  for (auto line : line_items)
+  {
+    if (line->isInside(image_cut.point.x(), image_cut.point.y()))
+    {
+      // clicked item found
+      // add painter points
+      image_cut.pixmap_item->addPainterPoint(line->getX1(), line->getY1());
+      image_cut.pixmap_item->addPainterPoint(line->getX2(), line->getY2());
+      // cut the image
+      image_cut.pixmap_item->LineCut();
+    }
+  }
 }
