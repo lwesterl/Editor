@@ -19,6 +19,7 @@
  #include <QWidget>
  #include <QList>
  #include <list>
+ #include <deque>
  #include <vector>
  #include <map>
  #include <QPixmap>
@@ -525,7 +526,7 @@ signals:
 private:
    OwnGraphicsView *parent_view;
    std::list <LineItem*> line_items;
-   std::list <PixmapItem*> pixmap_items;
+   std::deque <PixmapItem*> pixmap_items;
    std::list <Bezier*> beziers;
    unsigned mouse_x;
    unsigned mouse_y;

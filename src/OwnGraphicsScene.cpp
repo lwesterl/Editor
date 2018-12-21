@@ -100,8 +100,8 @@ void OwnGraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent  *event)
       // add a new image to the scene
       image_active.pixmap_item = new PixmapItem(image, current_imagename);
       addItem(image_active.pixmap_item);
-      // add item also to the pixmap_items list
-      pixmap_items.push_back(image_active.pixmap_item);
+      // add item also to the pixmap_items deque front so that it can be found before possible items under it
+      pixmap_items.push_front(image_active.pixmap_item);
       image_active.added_scene = true;
       image_active.clicks = 1;
     }
@@ -290,11 +290,11 @@ void OwnGraphicsScene::keyPressEvent(QKeyEvent *keyEvent)
     {
       if (image_active.added_scene)
       {
-        // remove image from the scene and container (last item)
+        // remove image from the scene and container (the item added last, added to front)
         removeItem(image_active.pixmap_item);
         if (pixmap_items.size())
         {
-          pixmap_items.pop_back();
+          pixmap_items.pop_front();
         }
         // init values
         image_active.pixmap_item = nullptr;
@@ -583,7 +583,7 @@ void OwnGraphicsScene::DeleteImgMode(bool activate)
 
 void OwnGraphicsScene::DeleteImg(unsigned x1, unsigned y1)
 {
-  for (std::list <PixmapItem*>::iterator it = pixmap_items.begin(); it != pixmap_items.end(); it++)
+  for (std::deque <PixmapItem*>::iterator it = pixmap_items.begin(); it != pixmap_items.end(); it++)
   {
     if ((*it)->isXinside(x1) && (*it)->isYinside(y1))
     {
@@ -597,9 +597,9 @@ void OwnGraphicsScene::DeleteImg(unsigned x1, unsigned y1)
       }
       // remove item from the scene
       removeItem(*it);
-      // remove item from the list and delete it
-      pixmap_items.remove(*it);
+      // delete item and erase it
       delete(*it);
+      pixmap_items.erase(it);
       break;
     }
   }
