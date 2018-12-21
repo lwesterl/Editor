@@ -8,12 +8,15 @@
 /*  Class LineItem */
 
 const int LineItem::CompensationValue = 10;
+QColor LineItem::LineColor = Qt::black;
 
-LineItem::LineItem(unsigned x1, unsigned y1, unsigned x2, unsigned y2):QGraphicsLineItem(x1, y1, x2, y2),
+LineItem::LineItem(unsigned x1, unsigned y1, unsigned x2, unsigned y2): QGraphicsLineItem(x1, y1, x2, y2),
 x1(x1), x2(x2), y1(y1), y2(y2)
 {
   // calculate angle between world x-axis and item x-axis (use arctan)
   calculateAngle();
+  // set QPen for item which has the correct color
+  setPen(QPen(LineColor));
 }
 
 unsigned LineItem::getX1()

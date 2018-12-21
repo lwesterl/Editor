@@ -10,6 +10,7 @@
 /*    INCLUDES    */
 
 #include <QGraphicsLineItem>
+#include <QPen>
 #include <QDebug>
 #include <cmath>
 
@@ -25,6 +26,7 @@ class LineItem : public QGraphicsLineItem
   public:
 
     static const int CompensationValue; /**< Value used to compensate clicking the item to make it easier */
+    static QColor LineColor; /**< Color for LineItems, can be reset via GUI */
 
   /**
     *   @brief Constructor for LineItem
