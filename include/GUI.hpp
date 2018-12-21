@@ -43,6 +43,7 @@
 #include "ComboboxAction.hpp"
 #include "SpinBoxAction.hpp"
 #include "PixmapItem.hpp"
+#include "LineItem.hpp"
 
 /**
   *   @enum ColorSetting
@@ -52,7 +53,8 @@ enum ColorSetting
 {
   SceneColor,
   HighlightColor,
-  LineColor
+  LineColor,
+  SpecialColor
 };
 
 /*    MACROS    */
@@ -391,20 +393,24 @@ public:
   void PathCut_Cancel();
 
   /**
-    *   @brief Open colorDialog for changing backgroundcolor
+    *   @brief Open colorDialog for changing backgroundcolor (OwnGraphicsScene backgroundcolor)
     */
   void BackgroundColorDialog();
 
   /**
-    *   @brief Open colorDialog for changing LineColor
+    *   @brief Open colorDialog for changing LineColor (LineItem::LineColor)
     */
   void LineColorDialog();
 
   /**
-    *   @brief Open colorDialog for changing HighlightColor
+    *   @brief Open colorDialog for changing HighlightColor (MainWidget backgroundcolor)
     */
   void HighlightColorDialog();
 
+  /**
+    *   @brief Open colorDialog for changing SpecialColor (OwnGraphicsScene::SpecialColor)
+    */
+  void SpecialColorDialog();
 
 public slots:
 

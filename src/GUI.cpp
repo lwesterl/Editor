@@ -75,9 +75,11 @@ GUI::GUI(QWidget *parent): QMainWindow(parent)
   QAction *background_color = colors->addAction("Background color");
   QAction *line_color = colors->addAction("Line color");
   QAction *highlight_color = colors->addAction("Highlight color");
+  QAction *special_color = colors->addAction("Special item color");
   connect(background_color, &QAction::triggered, this, &GUI::BackgroundColorDialog);
   connect(line_color, &QAction::triggered, this, &GUI::LineColorDialog);
   connect(highlight_color, &QAction::triggered, this, &GUI::HighlightColorDialog);
+  connect(special_color, &QAction::triggered, this, &GUI::SpecialColorDialog);
   // create all toolbars
   createToolbars();
 
@@ -816,20 +818,35 @@ void GUI::HighlightColorDialog()
   colorDialog->open();
 }
 
+/*  Open colorDialog for SpecialColor */
+void GUI::SpecialColorDialog()
+{
+  color_setting = ColorSetting::SpecialColor;
+  colorDialog->open();
+}
+
 /*  Change correct color */
 void GUI::ColorChanged(const QColor &color)
 {
   if (color_setting == ColorSetting::SceneColor)
   {
+    // change OwnGraphicsScene backgroundcolor
     mainWidget->getScene()->changeBackgroundColor(color);
   }
   else if (color_setting == ColorSetting::HighlightColor)
   {
+    // change MainWidget backgroundcolor
     mainWidget->changeBackgroundColor(color);
+  }
+  else if (color_setting == ColorSetting::LineColor)
+  {
+    // change LineItem LineColor
+    LineItem::LineColor = color;
   }
   else
   {
-    //TODO
+    // change OwnGraphicsScene::SpecialColor
+    OwnGraphicsScene::SpecialColor = color;
   }
 
 
