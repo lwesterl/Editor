@@ -10,6 +10,9 @@
 #include "../include/PixmapItem.hpp"
 
 
+ConnectPoint PixmapItem::connect_point = ConnectPoint::ConnectZero;
+
+
 // Constructor
 // Assign correct width and heigth values based on the pixmap
 
@@ -137,11 +140,22 @@ void PixmapItem::LineCut()
     int x_min = painter_points[0].x();
     int x_max = painter_points[1].x();
     int y_min = painter_points[0].y();
-    // connect lines from lower edges to the LineItem points
-    painter_points.push_back(QPoint(x_max, height));
-    painter_points.push_back(QPoint(x_min, height));
-    painter_points.push_back(QPoint(x_min, y_min));
-    CutItem();
+    if (connect_point == ConnectPoint::ConnectHeight)
+    {
+      // connect lines from lower edges to the LineItem points
+      painter_points.push_back(QPoint(x_max, height));
+      painter_points.push_back(QPoint(x_min, height));
+      painter_points.push_back(QPoint(x_min, y_min));
+      CutItem();
+    }
+    else
+    {
+      // connect lines from upper edges to the LineItem points
+      painter_points.push_back(QPoint(x_max, 0));
+      painter_points.push_back(QPoint(x_min, 0));
+      painter_points.push_back(QPoint(x_min, y_min));
+      CutItem();
+    }
   }
   clearPointsVector();
 }
@@ -154,10 +168,21 @@ void PixmapItem::BezierCut()
     int x_start = painter_points.front().x();
     int x_end = painter_points.back().x();
     int y_start = painter_points.back().y();
-    // connect lines from the points using lower edges
-    painter_points.push_back(QPoint(x_end, height));
-    painter_points.push_back(QPoint(x_start, height));
-    painter_points.push_back(QPoint(x_start, y_start));
+    if (connect_point == ConnectPoint::ConnectHeight)
+    {
+      // connect lines from the points using lower edges
+      painter_points.push_back(QPoint(x_end, height));
+      painter_points.push_back(QPoint(x_start, height));
+      painter_points.push_back(QPoint(x_start, y_start));
+    }
+    else
+    {
+      // connect lines from the points using upper edges
+      painter_points.push_back(QPoint(x_end, 0));
+      painter_points.push_back(QPoint(x_start, 0));
+      painter_points.push_back(QPoint(x_start, y_start));
+    }
+
     CutItem();
   }
   clearPointsVector();
