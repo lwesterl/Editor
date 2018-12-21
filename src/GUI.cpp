@@ -49,6 +49,7 @@ GUI::GUI(QWidget *parent): QMainWindow(parent)
   connect_options_combo = new ComboboxAction("Path cut connection edge:") ;
   connect_options_combo->setItemText(0, "Item top edge");
   connect_options_combo->setItemText(1, "Item bottom edge");
+  connect_options_combo->addItem("Item centerline");
   options->addAction(connect_options_combo);
   options->addSeparator();
   // add spinboxes for width and height to options QMenu
@@ -674,7 +675,8 @@ void GUI::SaveChoices()
   // change PixmapItem connect_point based on connect_options_combo
   int connect_option = connect_options_combo->ComboIndex();
   if (connect_option == 0) PixmapItem::connect_point = ConnectPoint::ConnectZero;
-  else PixmapItem::connect_point = ConnectPoint::ConnectHeight;
+  else if (connect_option == 1) PixmapItem::connect_point = ConnectPoint::ConnectHeight;
+  else PixmapItem::connect_point = ConnectPoint::ConnectCenter;
 
   // get scene size from SpinBoxActions
   int width = window_width->getCurrentValue();
