@@ -1361,3 +1361,10 @@ void OwnGraphicsScene::pathImageCut()
     }
   }
 }
+
+/*  Change backgroundcolor */
+void OwnGraphicsScene::changeBackgroundColor(const QColor &color)
+{
+  QBrush brush = QBrush(color);
+  setBackgroundBrush(brush);
+}

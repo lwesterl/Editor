@@ -26,6 +26,7 @@
  #include <QString>
  #include <QGraphicsPixmapItem>
  #include <QGraphicsEllipseItem>
+ #include <QBrush>
  #include "LineItem.hpp"
  #include "PixmapItem.hpp"
  #include "OwnGraphicsView.hpp"
@@ -210,6 +211,8 @@
  {
   Q_OBJECT
   public:
+    static bool END_POINTS_ACTIVE; /**< Whether items end points are shown */
+
   /**
     *   @brief Constructor for OwnGraphicsScene
     *   @param parent The QWidget parent
@@ -513,7 +516,11 @@
   */
   void pathImageCut();
 
-  static bool END_POINTS_ACTIVE; /**< Whether items end points are shown */
+/**
+  *   @brief Change scene backgroundcolor
+  *   @param color New backgroundcolor
+  */
+  void changeBackgroundColor(const QColor &color);
 
 signals:
 
