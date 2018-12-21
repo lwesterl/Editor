@@ -48,6 +48,12 @@ class ComboboxAction: public QWidgetAction
     */
     void setItemText(int index, const QString text);
 
+  /**
+    *   @brief Add new item to the combobox
+    *   @param text Item text
+    */
+    void addItem(const QString text);
+
   private:
     QComboBox *combobox;
     QVBoxLayout *layout;

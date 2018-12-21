@@ -46,3 +46,9 @@ void ComboboxAction::setItemText(int index, const QString text)
     combobox->setItemText(index, text);
   }
 }
+
+/*  Add a new item */
+void ComboboxAction::addItem(const QString text)
+{
+  combobox->addItem(text);
+}
