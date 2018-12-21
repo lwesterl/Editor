@@ -11,3 +11,6 @@ moc_*
 
 #ignore doxygen docs
 doc/*
+
+#ignore color relating files
+data/config/*.dat
