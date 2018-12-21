@@ -91,6 +91,9 @@ GUI::GUI(QWidget *parent): QMainWindow(parent)
   colorDialog = new QColorDialog(mainWidget);
   connect(colorDialog, &QColorDialog::colorSelected, this, &GUI::ColorChanged);
   colorDialog->setOption(QColorDialog::ShowAlphaChannel, true);
+
+  // set correct colors
+  ReadAllColors();
 }
 
 GUI::~GUI()
@@ -848,6 +851,74 @@ void GUI::ColorChanged(const QColor &color)
     // change OwnGraphicsScene::SpecialColor
     OwnGraphicsScene::SpecialColor = color;
   }
+  // store color also to correct file
+  writeColorFile(color, color_setting);
+}
 
+/*  Write color to data file */
+void GUI::writeColorFile(const QColor &color, ColorSetting color_type)
+{
+  QString filename = getFilename(color_type);
 
+  // open file (remove possible old content)
+  QFile file(filename);
+  if (! file.open(QIODevice::WriteOnly | QIODevice::Truncate)) {
+    // error
+    return;
+  }
+  QDataStream out(&file); // serialize using QDataStream
+  // write color
+  out << color;
+}
+
+/*  Read color from specific file */
+QColor GUI::readColorFile(ColorSetting color_type)
+{
+  QColor color = Qt::black;
+  QString filename = getFilename(color_type);
+  // open the file for reading
+  QFile file(filename);
+  if (! file.open(QIODevice::ReadOnly)) {
+    // error
+    return color;
+  }
+  QDataStream in(&file);
+  // read color
+  in >> color;
+  return color;
+}
+
+/*  Get correct color filename */
+QString GUI::getFilename(ColorSetting color_type)
+{
+  QString filename;
+  switch (color_type)
+  {
+    case ColorSetting::SceneColor:
+      filename = "data/config/SceneColor.dat";
+      break;
+    case ColorSetting::HighlightColor:
+      filename = "data/config/HighlightColor.dat";
+      break;
+    case ColorSetting::LineColor:
+      filename = "data/config/LineColor.dat";
+      break;
+    case ColorSetting::SpecialColor:
+      filename = "data/config/SpecialColor.dat";
+      break;
+  }
+  return filename;
+}
+
+/*  Read all color from colorfiles */
+void GUI::ReadAllColors()
+{
+  // set scene backgroundcolor
+  mainWidget->getScene()->changeBackgroundColor(readColorFile(ColorSetting::SceneColor));
+  // set mainWidget backgroundcolor
+  mainWidget->changeBackgroundColor(readColorFile(ColorSetting::HighlightColor));
+  // assign LineItem::LineColor
+  LineItem::LineColor = readColorFile(ColorSetting::LineColor);
+  // assign OwnGraphicsScene::SpecialColor
+  OwnGraphicsScene::SpecialColor = readColorFile(ColorSetting::SpecialColor);
 }

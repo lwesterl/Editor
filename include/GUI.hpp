@@ -38,6 +38,8 @@
 #include <QLabel>
 #include <QComboBox>
 #include <QColorDialog>
+#include <QFile>
+#include <QDataStream>
 #include "OwnGraphicsScene.hpp"
 #include "MainWidget.hpp"
 #include "ComboboxAction.hpp"
@@ -412,6 +414,14 @@ public:
     */
   void SpecialColorDialog();
 
+  /**
+    *   @brief Reads all colors using readColorFile
+    *   @details This method should be called from init to restore previous color values.
+    *   Assigns colors to correct elements.
+    *   @remark mainWidget and scene must be created prior calling this method
+    */
+  void ReadAllColors();
+
 public slots:
 
 /**
@@ -430,6 +440,26 @@ private:
     *   @param height New rect height
     */
   void setSceneSize(unsigned width, unsigned height);
+
+  /**
+    *   @brief Write color to data file
+    *   @param color Color to be written
+    *   @param color_type This is used to detect which file color should be written
+    */
+  void writeColorFile(const QColor &color, ColorSetting color_type);
+
+  /**
+    *   @brief Read one color from specific data file
+    *   @param color_type This is used to detect from which file color shold be read from
+    *   @return Return the read color
+    */
+  QColor readColorFile(ColorSetting color_type);
+
+  /**
+    *   @brief Get correct filename based on color_type
+    *   @param color_type Tells which file should contain the specific color
+    */
+  QString getFilename(ColorSetting color_type);
 
   /*  Variables */
   MainWidget *mainWidget;
