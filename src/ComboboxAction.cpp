@@ -36,3 +36,13 @@ int ComboboxAction::ComboIndex()
 {
   return combobox->currentIndex();
 }
+
+/*  Change item text */
+void ComboboxAction::setItemText(int index, const QString text)
+{
+  if (index < combobox->count() && index > -1)
+  {
+    // index ok
+    combobox->setItemText(index, text);
+  }
+}

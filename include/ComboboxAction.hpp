@@ -40,6 +40,14 @@ class ComboboxAction: public QWidgetAction
     */
     int ComboIndex();
 
+  /**
+    *   @brief Set Item text
+    *   @details This allows set other text than yes / no which are the defaults
+    *   @param index Index of the item which text is changed
+    *   @param text New item text
+    */
+    void setItemText(int index, const QString text);
+
   private:
     QComboBox *combobox;
     QVBoxLayout *layout;
