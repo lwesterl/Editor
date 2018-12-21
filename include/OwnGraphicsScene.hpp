@@ -27,6 +27,7 @@
  #include <QGraphicsPixmapItem>
  #include <QGraphicsEllipseItem>
  #include <QBrush>
+ #include <QPen>
  #include "LineItem.hpp"
  #include "PixmapItem.hpp"
  #include "OwnGraphicsView.hpp"
@@ -212,6 +213,7 @@
   Q_OBJECT
   public:
     static bool END_POINTS_ACTIVE; /**< Whether items end points are shown */
+    static QColor SpecialColor; /**< Color used with special items (End points circles) */
 
   /**
     *   @brief Constructor for OwnGraphicsScene

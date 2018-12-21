@@ -10,6 +10,7 @@
 
 // Set the scene class variable END_POINTS_ACTIVE
 bool OwnGraphicsScene::END_POINTS_ACTIVE = true;
+QColor OwnGraphicsScene::SpecialColor = Qt::black; // reset via GUI
 
 OwnGraphicsScene::OwnGraphicsScene(QWidget *parent):QGraphicsScene(parent)
 {
@@ -921,12 +922,16 @@ void OwnGraphicsScene::CreateControlPointCircles(int point)
     // Construct QGraphicsEllipseItems
     bezier_struct.circle1 = new QGraphicsEllipseItem(point1.getX(), point1.getY(),
                             Control_point_circle_diameter, Control_point_circle_diameter);
+    bezier_struct.circle1->setPen(QPen(SpecialColor));
     bezier_struct.circle2 = new QGraphicsEllipseItem(point1.getX(), point1.getY(),
                               Control_point_circle_diameter, Control_point_circle_diameter);
+    bezier_struct.circle2->setPen(QPen(SpecialColor));
     bezier_struct.circle3 = new QGraphicsEllipseItem(point1.getX(), point1.getY(),
                             Control_point_circle_diameter, Control_point_circle_diameter);
+    bezier_struct.circle3->setPen(QPen(SpecialColor));
     bezier_struct.circle4 = new QGraphicsEllipseItem(point1.getX(), point1.getY(),
                             Control_point_circle_diameter, Control_point_circle_diameter);
+    bezier_struct.circle4->setPen(QPen(SpecialColor));
 
     // Add the circles to the scene
     addItem(bezier_struct.circle1);
@@ -944,6 +949,7 @@ void OwnGraphicsScene::CreateControlPointCircles(int point)
     Vector2 point1 = ControlPoint2Circle(bezier_struct.p1);
     bezier_struct.circle1 = new QGraphicsEllipseItem(point1.getX(), point1.getY(),
                             Control_point_circle_diameter, Control_point_circle_diameter);
+    bezier_struct.circle1->setPen(QPen(SpecialColor));
     // Add to the scene
     addItem(bezier_struct.circle1);
 
@@ -957,6 +963,7 @@ void OwnGraphicsScene::CreateControlPointCircles(int point)
     Vector2 point2 = ControlPoint2Circle(bezier_struct.p2);
     bezier_struct.circle2 = new QGraphicsEllipseItem(point2.getX(), point2.getY(),
                             Control_point_circle_diameter, Control_point_circle_diameter);
+    bezier_struct.circle2->setPen(QPen(SpecialColor));
     // Add to the scene
     addItem(bezier_struct.circle2);
   }
@@ -969,6 +976,7 @@ void OwnGraphicsScene::CreateControlPointCircles(int point)
     Vector2 point3 = ControlPoint2Circle(bezier_struct.p3);
     bezier_struct.circle3 = new QGraphicsEllipseItem(point3.getX(), point3.getY(),
                             Control_point_circle_diameter, Control_point_circle_diameter);
+    bezier_struct.circle3->setPen(QPen(SpecialColor));
     // Add to the scene
     addItem(bezier_struct.circle3);
   }
@@ -981,6 +989,7 @@ void OwnGraphicsScene::CreateControlPointCircles(int point)
     Vector2 point4 = ControlPoint2Circle(bezier_struct.p4);
     bezier_struct.circle4 = new QGraphicsEllipseItem(point4.getX(), point4.getY(),
                             Control_point_circle_diameter, Control_point_circle_diameter);
+    bezier_struct.circle4->setPen(QPen(SpecialColor));
     // Add to the scene
     addItem(bezier_struct.circle4);
   }
@@ -1223,6 +1232,7 @@ void OwnGraphicsScene::UpdateEndPoints(unsigned x, unsigned y)
 
     // Draw matching circle
     end_points_struct.end_circle = new QGraphicsEllipseItem(x, y, width, height);
+    end_points_struct.end_circle->setPen(QPen(SpecialColor));
     // Add the circle to the scene
     addItem(end_points_struct.end_circle);
 
