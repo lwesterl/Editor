@@ -41,6 +41,7 @@
 #include "MainWidget.hpp"
 #include "ComboboxAction.hpp"
 #include "SpinBoxAction.hpp"
+#include "PixmapItem.hpp"
 
 
 /*    MACROS    */
@@ -403,6 +404,7 @@ private:
   QToolBar *pathcutToolbar;
 
   ComboboxAction *line_options_combo;
+  ComboboxAction *connect_options_combo;
   SpinBoxAction *window_width;
   SpinBoxAction *window_height;
 

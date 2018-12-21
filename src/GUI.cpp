@@ -43,8 +43,13 @@ GUI::GUI(QWidget *parent): QMainWindow(parent)
   QMenu *options;
   options = menuBar()->addMenu("&Options");
   // Add a ComboboxAction
-  line_options_combo = new ComboboxAction("Show & connect to line and bezier end points:");
+  line_options_combo = new ComboboxAction("Line and bezier end points activated:");
   options->addAction(line_options_combo);
+  options->addSeparator();
+  connect_options_combo = new ComboboxAction("Path cut connection edge:") ;
+  connect_options_combo->setItemText(0, "Item top edge");
+  connect_options_combo->setItemText(1, "Item bottom edge");
+  options->addAction(connect_options_combo);
   options->addSeparator();
   // add spinboxes for width and height to options QMenu
   window_width = new SpinBoxAction("Width");
@@ -78,6 +83,7 @@ GUI::~GUI()
   delete mainWidget;
 
   delete line_options_combo;
+  delete connect_options_combo;
   delete window_width;
   delete window_height;
   delete main_toolbar;
@@ -664,6 +670,11 @@ void GUI::SaveChoices()
   // Set the correct line_connect value to OwnGraphicsScene
   int combo_index = line_options_combo->ComboIndex();
   mainWidget->getScene()->setEndPointsActive(combo_index);
+
+  // change PixmapItem connect_point based on connect_options_combo
+  int connect_option = connect_options_combo->ComboIndex();
+  if (connect_option == 0) PixmapItem::connect_point = ConnectPoint::ConnectZero;
+  else PixmapItem::connect_point = ConnectPoint::ConnectHeight;
 
   // get scene size from SpinBoxActions
   int width = window_width->getCurrentValue();
