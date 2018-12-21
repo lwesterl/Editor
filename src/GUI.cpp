@@ -69,6 +69,15 @@ GUI::GUI(QWidget *parent): QMainWindow(parent)
   // connect the action
   connect(save_choices, &QAction::triggered, this, &GUI::SaveChoices);
 
+  // create colors menu
+  QMenu *colors;
+  colors = menuBar()->addMenu("&Colors");
+  QAction *background_color = colors->addAction("Background color");
+  QAction *line_color = colors->addAction("Line color");
+  QAction *highlight_color = colors->addAction("Highlight color");
+  connect(background_color, &QAction::triggered, this, &GUI::BackgroundColorDialog);
+  connect(line_color, &QAction::triggered, this, &GUI::LineColorDialog);
+  connect(highlight_color, &QAction::triggered, this, &GUI::HighlightColorDialog);
   // create all toolbars
   createToolbars();
 
@@ -76,7 +85,10 @@ GUI::GUI(QWidget *parent): QMainWindow(parent)
   mainWidget = new MainWidget(this);
   this->setCentralWidget(mainWidget);
   mainWidget->InitScrollBar();
-
+  // create QColorDialog
+  colorDialog = new QColorDialog(mainWidget);
+  connect(colorDialog, &QColorDialog::colorSelected, this, &GUI::ColorChanged);
+  colorDialog->setOption(QColorDialog::ShowAlphaChannel, true);
 }
 
 GUI::~GUI()
@@ -781,4 +793,44 @@ void GUI::PathCut_Cancel()
   // Set also image cutting mode disabled
   mainWidget->getScene()->CutImageMode(false);
   cut_image_mode->setChecked(false);
+}
+
+/*  Open colorDialog for BackgroundColor */
+void GUI::BackgroundColorDialog()
+{
+  color_setting = ColorSetting::SceneColor;
+  colorDialog->open();
+}
+
+/*  Open colorDialog for LineColor */
+void GUI::LineColorDialog()
+{
+  color_setting = ColorSetting::LineColor;
+  colorDialog->open();
+}
+
+/*  Open colorDialog for HighlightColor */
+void GUI::HighlightColorDialog()
+{
+  color_setting = ColorSetting::HighlightColor;
+  colorDialog->open();
+}
+
+/*  Change correct color */
+void GUI::ColorChanged(const QColor &color)
+{
+  if (color_setting == ColorSetting::SceneColor)
+  {
+    mainWidget->getScene()->changeBackgroundColor(color);
+  }
+  else if (color_setting == ColorSetting::HighlightColor)
+  {
+    mainWidget->changeBackgroundColor(color);
+  }
+  else
+  {
+    //TODO
+  }
+
+
 }

@@ -37,12 +37,23 @@
 #include <QToolButton>
 #include <QLabel>
 #include <QComboBox>
+#include <QColorDialog>
 #include "OwnGraphicsScene.hpp"
 #include "MainWidget.hpp"
 #include "ComboboxAction.hpp"
 #include "SpinBoxAction.hpp"
 #include "PixmapItem.hpp"
 
+/**
+  *   @enum ColorSetting
+  *   @brief Tells which color colorDialog changes
+  */
+enum ColorSetting
+{
+  SceneColor,
+  HighlightColor,
+  LineColor
+};
 
 /*    MACROS    */
 
@@ -186,6 +197,7 @@ struct BezierToolbar
 
 class GUI: public QMainWindow
 {
+  Q_OBJECT
 public:
 
   /**
@@ -362,16 +374,46 @@ public:
     */
   void BezierToolbar_Remove();
 
-
   /**
     *   @brief Hide or unhide BezierToolbar
     *   @param hide true -> hide, false -> unhide
     */
   void HideBezierToolbar(bool hide);
 
+  /**
+    *   @brief Triggered action for path cut continue button
+    */
   void PathCut_Continue();
+
+  /**
+    *   @brief Triggered action for path cut cancel button
+    */
   void PathCut_Cancel();
 
+  /**
+    *   @brief Open colorDialog for changing backgroundcolor
+    */
+  void BackgroundColorDialog();
+
+  /**
+    *   @brief Open colorDialog for changing LineColor
+    */
+  void LineColorDialog();
+
+  /**
+    *   @brief Open colorDialog for changing HighlightColor
+    */
+  void HighlightColorDialog();
+
+
+public slots:
+
+/**
+  *   @brief Slot that is connected to colorDialog select color
+  *   @param color Color user selected
+  *   @details This sets new color for correct element based on color_setting
+  */
+  void ColorChanged(const QColor &color);
 
 private:
 
@@ -385,6 +427,8 @@ private:
 
   /*  Variables */
   MainWidget *mainWidget;
+  QColorDialog *colorDialog;
+  ColorSetting color_setting; /**< Used to detect which color should be changed */
   QAction *line_mode;
   QAction *delete_mode;
   QAction *clear_mode;
