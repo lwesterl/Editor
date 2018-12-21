@@ -343,39 +343,61 @@ void OwnGraphicsScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 }
 
 
-// This method goes through OwnGraphicsScene items and tries to remove item
+// This method goes through OwnGraphicsScene line_items and beziers and tries to remove item
 // at location x , y
 void OwnGraphicsScene::remove_Item(unsigned x, unsigned y)
 {
+  bool line_found = false;
   for (auto it = line_items.begin(); it != line_items.end(); it++)
   {
     // remove list item if coordinates match
-    if ( ( ((*it)->getX1() <= x ) && ((*it)->getX2() >= x) ) ||
-      ( ((*it)->getX1() >= x ) && ((*it)->getX2() <= x) ) )
-
+    if ((*it)->isInside(x, y))
     {
-      if ( ( ((*it)->getY1() >= y) && ((*it)->getY2() <= y) ) ||
-      ( ((*it)->getY1() <= y) && ((*it)->getY2() >= y) ) )
+      // Item found, remove it
+      unsigned x1 = (*it)->getX1();
+      unsigned x2 = (*it)->getX2();
+      unsigned y1 = (*it)->getY1();
+      unsigned y2 = (*it)->getY2();
+      removeItem(*it); // remove from the scene
+      delete(*it);
+      line_items.erase(it);
 
+      // Remove also the end and start points matching the item
+      RemoveEndPoint(x1, y1);
+      RemoveEndPoint(x2, y2);
+      line_found = true;
+      break;
+    }
+  }
+  if (! line_found)
+  {
+    // go through also all beziers
+    for (auto it = beziers.begin(); it != beziers.end(); it++)
+    {
+      if ((*it)->isInside(x, y))
       {
-        // Item found, remove it
-        unsigned x1 = (*it)->getX1();
-        unsigned x2 = (*it)->getX2();
-        unsigned y1 = (*it)->getY1();
-        unsigned y2 = (*it)->getY2();
-        removeItem(*it); // remove from the scene
+        unsigned x1 = static_cast<unsigned> ((*it)->getStartX());
+        unsigned x2 = static_cast<unsigned> ((*it)->getEndX());
+        unsigned y1 = static_cast<unsigned> ((*it)->getStartY());
+        unsigned y2 = static_cast<unsigned> ((*it)->getEndY());
+        // remove all beziers LineItems from the scene
+        std::vector <LineItem*> bezier_lines = (*it)->getLineItems();
+        for (auto &line : bezier_lines)
+        {
+          removeItem(line);
+        }
+        // remove and delete bezier itself (deletes also its LineItems)
         delete(*it);
-        line_items.erase(it);
-
+        beziers.erase(it);
         // Remove also the end and start points matching the item
         RemoveEndPoint(x1, y1);
         RemoveEndPoint(x2, y2);
-
         break;
       }
     }
-
   }
+
+
 }
 
 
@@ -422,7 +444,6 @@ void OwnGraphicsScene::DeleteMode(bool activate)
 {
   if (activate)
   {
-    qDebug() << "DeleteMode actived\n";
     // enable delete mode
     mode = delete_mode_value;
     mouse_tracking(true);
@@ -763,12 +784,12 @@ void OwnGraphicsScene::CreateBezier(unsigned x, unsigned y, int point_added)
       // Remove the end point circle
       RemoveEndPointCircle();
       // Use the end point as a starting point for new Bezier
-      bezier_struct.p1 = Vector2((float) end_points_struct.end_x, (float) end_points_struct.end_y);
+      bezier_struct.p1 = Vector2(static_cast<float> (end_points_struct.end_x), static_cast<float> (end_points_struct.end_y));
     }
     else
     {
       // Create a complitely new Bezier using suplied coordinates
-      bezier_struct.p1 = Vector2((float) x, (float) y);
+      bezier_struct.p1 = Vector2(static_cast<float> (x), static_cast<float> (y));
     }
 
 
@@ -800,7 +821,7 @@ void OwnGraphicsScene::CreateBezier(unsigned x, unsigned y, int point_added)
             RemoveBezier(bezier_struct.active_bezier);
 
             // Move point 1
-            bezier_struct.p1 = Vector2((float) x, (float) y);
+            bezier_struct.p1 = Vector2(static_cast<float> (x), static_cast<float> (y));
             bezier_struct.active_bezier = new Bezier(bezier_struct.p1, bezier_struct.p2, bezier_struct.p3, bezier_struct.p4);
             AddBezier(bezier_struct.active_bezier);
             // Create also new control circle1
@@ -816,7 +837,7 @@ void OwnGraphicsScene::CreateBezier(unsigned x, unsigned y, int point_added)
       if(point_added == 2)
       {
         // Move point 2
-        bezier_struct.p2 = Vector2((float) x, (float) y);
+        bezier_struct.p2 = Vector2(static_cast<float> (x), static_cast<float> (y));
         bezier_struct.active_bezier = new Bezier(bezier_struct.p1, bezier_struct.p2, bezier_struct.p3, bezier_struct.p4);
         AddBezier(bezier_struct.active_bezier);
         // Create also new control circle2
@@ -826,7 +847,7 @@ void OwnGraphicsScene::CreateBezier(unsigned x, unsigned y, int point_added)
       else if (point_added == 3)
       {
         // Move point 3
-        bezier_struct.p3 = Vector2((float) x, (float) y);
+        bezier_struct.p3 = Vector2(static_cast<float> (x), static_cast<float> (y));
         bezier_struct.active_bezier = new Bezier(bezier_struct.p1, bezier_struct.p2, bezier_struct.p3, bezier_struct.p4);
         AddBezier(bezier_struct.active_bezier);
         // Create also new control circle3
@@ -835,7 +856,7 @@ void OwnGraphicsScene::CreateBezier(unsigned x, unsigned y, int point_added)
       else if (point_added == 4)
       {
         // Move point 4
-        bezier_struct.p4 = Vector2((float) x, (float) y);
+        bezier_struct.p4 = Vector2(static_cast<float> (x), static_cast<float> (y));
         bezier_struct.active_bezier = new Bezier(bezier_struct.p1, bezier_struct.p2, bezier_struct.p3, bezier_struct.p4);
         AddBezier(bezier_struct.active_bezier);
         // Create also new control circle4
@@ -1115,7 +1136,7 @@ struct X_Y_Coordinates OwnGraphicsScene::LookEndPoints(unsigned x, unsigned y)
 {
   struct X_Y_Coordinates coordinates;
   std::map<unsigned, std::list<unsigned> >::iterator it;
-  for (int x_try = (int) x - (int) end_points_struct.distance; x_try <= (int) x + (int) end_points_struct.distance; x_try ++)
+  for (int x_try = static_cast<int> (x) - static_cast<int> (end_points_struct.distance); x_try <= static_cast<int> (x) + static_cast<int> (end_points_struct.distance); x_try ++)
   {
     // Look up from the dict if there is a key match
     it = end_points_dict.find(x_try);
@@ -1206,8 +1227,8 @@ void OwnGraphicsScene::UpdateEndPoints(unsigned x, unsigned y)
     addItem(end_points_struct.end_circle);
 
     // Update the end point also to the struct
-    end_points_struct.end_x = (unsigned) coordinates.x;
-    end_points_struct.end_y = (unsigned) coordinates.y;
+    end_points_struct.end_x = static_cast<unsigned> (coordinates.x);
+    end_points_struct.end_y = static_cast<unsigned> (coordinates.y);
     end_points_struct.found = true;
   }
   else
@@ -1283,13 +1304,13 @@ void OwnGraphicsScene::BezierReady()
     float y_start = bezier_struct.active_bezier->getStartY();
     if (x_start >= 0 && y_start >= 0)
     {
-      AddEndPoint((unsigned) x_start, (unsigned) y_start);
+      AddEndPoint(static_cast<unsigned> (x_start), static_cast<unsigned> (y_start));
     }
     float x_end = bezier_struct.active_bezier->getEndX();
     float y_end = bezier_struct.active_bezier->getEndY();
     if (x_end >= 0 && y_end >= 0)
     {
-      AddEndPoint((unsigned) x_end, (unsigned) y_end);
+      AddEndPoint(static_cast<unsigned> (x_end), static_cast<unsigned> (y_end));
     }
 
     // Reset Bezier struct
