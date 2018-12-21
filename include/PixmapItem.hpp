@@ -26,7 +26,8 @@
 enum ConnectPoint
 {
   ConnectHeight,
-  ConnectZero
+  ConnectZero,
+  ConnectCenter
 };
 
 /**

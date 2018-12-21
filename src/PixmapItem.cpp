@@ -148,6 +148,14 @@ void PixmapItem::LineCut()
       painter_points.push_back(QPoint(x_min, y_min));
       CutItem();
     }
+    else if (connect_point == ConnectPoint::ConnectCenter)
+    {
+      // connect lines from centerline to the LineItem points
+      painter_points.push_back(QPoint(x_max, height / 2));
+      painter_points.push_back(QPoint(x_min, height / 2));
+      painter_points.push_back(QPoint(x_min, y_min));
+      CutItem();
+    }
     else
     {
       // connect lines from upper edges to the LineItem points
@@ -173,6 +181,13 @@ void PixmapItem::BezierCut()
       // connect lines from the points using lower edges
       painter_points.push_back(QPoint(x_end, height));
       painter_points.push_back(QPoint(x_start, height));
+      painter_points.push_back(QPoint(x_start, y_start));
+    }
+    else if (connect_point == ConnectPoint::ConnectCenter)
+    {
+      // connect lines from the points using centerline
+      painter_points.push_back(QPoint(x_end, height / 2));
+      painter_points.push_back(QPoint(x_start, height / 2));
       painter_points.push_back(QPoint(x_start, y_start));
     }
     else
