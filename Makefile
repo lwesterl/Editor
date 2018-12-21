@@ -13,8 +13,8 @@ MAKEFILE      = Makefile
 CC            = gcc
 CXX           = g++
 DEFINES       = -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
-CFLAGS        = -m64 -pipe -g -D_REENTRANT -Wall -W -fPIC $(DEFINES)
-CXXFLAGS      = -m64 -pipe -g -D_REENTRANT -Wall -W -fPIC $(DEFINES)
+CFLAGS        = -m64 -pipe -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)
+CXXFLAGS      = -m64 -pipe -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)
 INCPATH       = -I. -I. -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64
 QMAKE         = /usr/lib/x86_64-linux-gnu/qt5/bin/qmake
 DEL_FILE      = rm -f
@@ -59,7 +59,8 @@ SOURCES       = src/Bezier.cpp \
 		src/PixmapItem.cpp \
 		src/PromtWindow.cpp \
 		src/SpinBoxAction.cpp \
-		src/Vector2.cpp moc_OwnGraphicsScene.cpp \
+		src/Vector2.cpp moc_GUI.cpp \
+		moc_OwnGraphicsScene.cpp \
 		moc_OwnGraphicsView.cpp \
 		moc_PromtWindow.cpp
 OBJECTS       = Bezier.o \
@@ -74,6 +75,7 @@ OBJECTS       = Bezier.o \
 		PromtWindow.o \
 		SpinBoxAction.o \
 		Vector2.o \
+		moc_GUI.o \
 		moc_OwnGraphicsScene.o \
 		moc_OwnGraphicsView.o \
 		moc_PromtWindow.o
@@ -125,13 +127,13 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/resolve_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_post.prf \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/warn_on.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/resources.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/moc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/unix/opengl.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/uic.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/unix/thread.prf \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/warn_on.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/file_copies.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/testcase_targets.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf \
@@ -218,13 +220,13 @@ Makefile: Editor.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.co
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/resolve_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_post.prf \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/warn_on.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/resources.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/moc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/unix/opengl.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/uic.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/unix/thread.prf \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/warn_on.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/file_copies.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/testcase_targets.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf \
@@ -283,13 +285,13 @@ Makefile: Editor.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.co
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/resolve_config.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_post.prf:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/warn_on.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/resources.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/moc.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/unix/opengl.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/uic.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/unix/thread.prf:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/warn_on.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/file_copies.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/testcase_targets.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf:
@@ -340,9 +342,22 @@ benchmark: first
 
 compiler_rcc_make_all:
 compiler_rcc_clean:
-compiler_moc_header_make_all: moc_OwnGraphicsScene.cpp moc_OwnGraphicsView.cpp moc_PromtWindow.cpp
+compiler_moc_header_make_all: moc_GUI.cpp moc_OwnGraphicsScene.cpp moc_OwnGraphicsView.cpp moc_PromtWindow.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_OwnGraphicsScene.cpp moc_OwnGraphicsView.cpp moc_PromtWindow.cpp
+	-$(DEL_FILE) moc_GUI.cpp moc_OwnGraphicsScene.cpp moc_OwnGraphicsView.cpp moc_PromtWindow.cpp
+moc_GUI.cpp: include/OwnGraphicsScene.hpp \
+		include/LineItem.hpp \
+		include/PixmapItem.hpp \
+		include/OwnGraphicsView.hpp \
+		include/Bezier.hpp \
+		include/Vector2.hpp \
+		include/MainWidget.hpp \
+		include/ComboboxAction.hpp \
+		include/SpinBoxAction.hpp \
+		include/GUI.hpp \
+		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/lauri/Documents/Game_project/Editor -I/home/lauri/Documents/Game_project/Editor -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/GUI.hpp -o moc_GUI.cpp
+
 moc_OwnGraphicsScene.cpp: include/LineItem.hpp \
 		include/PixmapItem.hpp \
 		include/OwnGraphicsView.hpp \
@@ -406,7 +421,7 @@ GUI_test.o: src/GUI_test.cpp include/GUI.hpp \
 		include/SpinBoxAction.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o GUI_test.o src/GUI_test.cpp
 
-LineItem.o: src/LineItem.cpp 
+LineItem.o: src/LineItem.cpp include/LineItem.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o LineItem.o src/LineItem.cpp
 
 MainWidget.o: src/MainWidget.cpp include/MainWidget.hpp \
@@ -440,6 +455,9 @@ SpinBoxAction.o: src/SpinBoxAction.cpp include/SpinBoxAction.hpp
 
 Vector2.o: src/Vector2.cpp include/Vector2.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Vector2.o src/Vector2.cpp
+
+moc_GUI.o: moc_GUI.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_GUI.o moc_GUI.cpp
 
 moc_OwnGraphicsScene.o: moc_OwnGraphicsScene.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_OwnGraphicsScene.o moc_OwnGraphicsScene.cpp
