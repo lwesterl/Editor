@@ -20,6 +20,7 @@
 #include <QGraphicsItem>
 #include <QHBoxLayout>
 #include <QScrollBar>
+#include <QPalette>
 #include "OwnGraphicsScene.hpp"
 #include "OwnGraphicsView.hpp"
 
@@ -72,6 +73,12 @@ public:
     *   @details Set view scrollbar to left and center of the scene
     */
   void InitScrollBar();
+
+  /**
+    *   @brief Change backgroundcolor of the widget
+    *   @param color New backgroundcolor
+    */
+  void changeBackgroundColor(const QColor &color);
 
 private:
   OwnGraphicsScene *scene;

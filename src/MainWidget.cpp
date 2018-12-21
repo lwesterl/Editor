@@ -53,37 +53,11 @@ void MainWidget::InitScrollBar()
   view->verticalScrollBar()->setValue( center );
 }
 
-
-/*
-// Sets layout
-void MainWidget::set_Layout(QHBoxLayout *layout)
+/*  Set new backgroundcolor */
+void MainWidget::changeBackgroundColor(const QColor &color)
 {
-  this->layout = layout;
-  this->setLayout(layout);
+  QPalette palette = QPalette();
+  palette.setColor(QPalette::Background, color);
+  setAutoFillBackground(true);
+  setPalette(palette);
 }
-
-
-
-
-void MainWidget::mousePressEvent(QMouseEvent *event)
-{
-  unsigned x_new = event->x();
-  unsigned y_new = event->y();
-
-  // Add a line from previous points if line adding mode activated
-  addLine(mouse_x, mouse_y, x_new, y_new);
-
-  // reassign mouse_x and mouse_y
-  mouse_x = x_new;
-  mouse_y = y_new;
-  qDebug() << "Clicked\n" << "X: " << mouse_x << "Y: " << mouse_y;
-}
-
-
-// This adds a line to the graphics scene
-
-void MainWidget::addLine(int x1, int y1, int x2, int y2)
-{
-  scene->addItem(new QGraphicsLineItem(x1, y1, x2, y2));
-}
-*/
