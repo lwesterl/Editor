@@ -7,6 +7,7 @@
 
 /*  Class LineItem */
 
+/*  Member initializations */
 const int LineItem::CompensationValue = 10;
 QColor LineItem::LineColor = Qt::black;
 

@@ -75,13 +75,17 @@ class LineItem : public QGraphicsLineItem
       */
     bool isInside(unsigned x, unsigned y);
 
+
+
+  private:
+
     /**
       *   @brief Calculate angle
       *   @remark Angle is between world x-axis and item x-axis
       */
     void calculateAngle();
 
-  private:
+    
     unsigned x1;
     unsigned x2;
     unsigned y1;
