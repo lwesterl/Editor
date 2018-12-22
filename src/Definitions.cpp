@@ -32,7 +32,8 @@ namespace Path
     { ImageName::remove_point_img, "data/img/remove_point.png" },
     { ImageName::bezier_pic_img, "data/img/bezier_pic.png" },
     { ImageName::save_button_img, "data/img/save_button.png" },
-    { ImageName::bezier_remove_img, "data/img/bezier_remove.png" }
+    { ImageName::bezier_remove_img, "data/img/bezier_remove.png" },
+    { ImageName::app_icon, "data/img/editor.png" }
   };
 
   std::map<Editor::ColorSetting, QString> ColorFiles

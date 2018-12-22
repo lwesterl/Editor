@@ -119,7 +119,8 @@ namespace Path
     remove_point_img,
     bezier_pic_img,
     save_button_img,
-    bezier_remove_img
+    bezier_remove_img,
+    app_icon
   };
 
   extern std::map<ImageName, QString> Images; /**< Map from enum value to correct image path */
