@@ -50,6 +50,7 @@ OBJECTS_DIR   = ./
 
 SOURCES       = src/Bezier.cpp \
 		src/ComboboxAction.cpp \
+		src/Definitions.cpp \
 		src/GUI.cpp \
 		src/GUI_test.cpp \
 		src/LineItem.cpp \
@@ -67,6 +68,7 @@ SOURCES       = src/Bezier.cpp \
 		moc_PromtWindow.cpp
 OBJECTS       = Bezier.o \
 		ComboboxAction.o \
+		Definitions.o \
 		GUI.o \
 		GUI_test.o \
 		LineItem.o \
@@ -145,6 +147,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
 		Editor.pro include/Bezier.hpp \
 		include/ComboboxAction.hpp \
+		include/Definitions.hpp \
 		include/GUI.hpp \
 		include/LineItem.hpp \
 		include/MainWidget.hpp \
@@ -153,8 +156,10 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		include/PixmapItem.hpp \
 		include/PromtWindow.hpp \
 		include/SpinBoxAction.hpp \
+		include/TextItem.hpp \
 		include/Vector2.hpp src/Bezier.cpp \
 		src/ComboboxAction.cpp \
+		src/Definitions.cpp \
 		src/GUI.cpp \
 		src/GUI_test.cpp \
 		src/LineItem.cpp \
@@ -320,8 +325,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents include/Bezier.hpp include/ComboboxAction.hpp include/GUI.hpp include/LineItem.hpp include/MainWidget.hpp include/OwnGraphicsScene.hpp include/OwnGraphicsView.hpp include/PixmapItem.hpp include/PromtWindow.hpp include/SpinBoxAction.hpp include/Vector2.hpp $(DISTDIR)/
-	$(COPY_FILE) --parents src/Bezier.cpp src/ComboboxAction.cpp src/GUI.cpp src/GUI_test.cpp src/LineItem.cpp src/MainWidget.cpp src/OwnGraphicsScene.cpp src/OwnGraphicsView.cpp src/PixmapItem.cpp src/PromtWindow.cpp src/SpinBoxAction.cpp src/TextItem.cpp src/Vector2.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents include/Bezier.hpp include/ComboboxAction.hpp include/Definitions.hpp include/GUI.hpp include/LineItem.hpp include/MainWidget.hpp include/OwnGraphicsScene.hpp include/OwnGraphicsView.hpp include/PixmapItem.hpp include/PromtWindow.hpp include/SpinBoxAction.hpp include/TextItem.hpp include/Vector2.hpp $(DISTDIR)/
+	$(COPY_FILE) --parents src/Bezier.cpp src/ComboboxAction.cpp src/Definitions.cpp src/GUI.cpp src/GUI_test.cpp src/LineItem.cpp src/MainWidget.cpp src/OwnGraphicsScene.cpp src/OwnGraphicsView.cpp src/PixmapItem.cpp src/PromtWindow.cpp src/SpinBoxAction.cpp src/TextItem.cpp src/Vector2.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -351,6 +356,7 @@ compiler_moc_header_make_all: moc_GUI.cpp moc_MainWidget.cpp moc_OwnGraphicsScen
 compiler_moc_header_clean:
 	-$(DEL_FILE) moc_GUI.cpp moc_MainWidget.cpp moc_OwnGraphicsScene.cpp moc_OwnGraphicsView.cpp moc_PromtWindow.cpp
 moc_GUI.cpp: include/OwnGraphicsScene.hpp \
+		include/Definitions.hpp \
 		include/LineItem.hpp \
 		include/PixmapItem.hpp \
 		include/OwnGraphicsView.hpp \
@@ -365,6 +371,7 @@ moc_GUI.cpp: include/OwnGraphicsScene.hpp \
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/lauri/Documents/Game_project/Editor -I/home/lauri/Documents/Game_project/Editor -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/GUI.hpp -o moc_GUI.cpp
 
 moc_MainWidget.cpp: include/OwnGraphicsScene.hpp \
+		include/Definitions.hpp \
 		include/LineItem.hpp \
 		include/PixmapItem.hpp \
 		include/OwnGraphicsView.hpp \
@@ -375,7 +382,8 @@ moc_MainWidget.cpp: include/OwnGraphicsScene.hpp \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/lauri/Documents/Game_project/Editor -I/home/lauri/Documents/Game_project/Editor -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/MainWidget.hpp -o moc_MainWidget.cpp
 
-moc_OwnGraphicsScene.cpp: include/LineItem.hpp \
+moc_OwnGraphicsScene.cpp: include/Definitions.hpp \
+		include/LineItem.hpp \
 		include/PixmapItem.hpp \
 		include/OwnGraphicsView.hpp \
 		include/Bezier.hpp \
@@ -415,8 +423,12 @@ Bezier.o: src/Bezier.cpp include/Bezier.hpp \
 ComboboxAction.o: src/ComboboxAction.cpp include/ComboboxAction.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ComboboxAction.o src/ComboboxAction.cpp
 
+Definitions.o: src/Definitions.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Definitions.o src/Definitions.cpp
+
 GUI.o: src/GUI.cpp include/GUI.hpp \
 		include/OwnGraphicsScene.hpp \
+		include/Definitions.hpp \
 		include/LineItem.hpp \
 		include/PixmapItem.hpp \
 		include/OwnGraphicsView.hpp \
@@ -430,6 +442,7 @@ GUI.o: src/GUI.cpp include/GUI.hpp \
 
 GUI_test.o: src/GUI_test.cpp include/GUI.hpp \
 		include/OwnGraphicsScene.hpp \
+		include/Definitions.hpp \
 		include/LineItem.hpp \
 		include/PixmapItem.hpp \
 		include/OwnGraphicsView.hpp \
@@ -446,6 +459,7 @@ LineItem.o: src/LineItem.cpp include/LineItem.hpp
 
 MainWidget.o: src/MainWidget.cpp include/MainWidget.hpp \
 		include/OwnGraphicsScene.hpp \
+		include/Definitions.hpp \
 		include/LineItem.hpp \
 		include/PixmapItem.hpp \
 		include/OwnGraphicsView.hpp \
@@ -455,6 +469,7 @@ MainWidget.o: src/MainWidget.cpp include/MainWidget.hpp \
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MainWidget.o src/MainWidget.cpp
 
 OwnGraphicsScene.o: src/OwnGraphicsScene.cpp include/OwnGraphicsScene.hpp \
+		include/Definitions.hpp \
 		include/LineItem.hpp \
 		include/PixmapItem.hpp \
 		include/OwnGraphicsView.hpp \
