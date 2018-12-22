@@ -33,6 +33,7 @@
  #include "OwnGraphicsView.hpp"
  #include "Bezier.hpp"
  #include "Vector2.hpp"
+ #include "TextItem.hpp"
 
 /**
   *   @brief Macro for no image cut mode selected
@@ -174,6 +175,11 @@
  #define bezier_mode_value 6
 
 /**
+  *   @brief Macro for text mode
+  */
+ #define text_mode_value 7
+
+/**
   *   @brief Macro for Bezier control point circle diameter
   */
 #define Control_point_circle_diameter 30
@@ -288,9 +294,10 @@
    void DeleteMode(bool activate);
 
   /**
-    *   @brief Clear previous line points
+    *   @brief Activate text_mode
+    *   @param activate Activate / deactivate TextMode
     */
-   void ClearMode();
+   void TextMode(bool activate);
 
   /**
     *   @brief Remove LineItem from the scene
@@ -533,10 +540,43 @@ signals:
 
 
 private:
+
+/**
+  *   @brief Add QGraphicsTextItem
+  *   @param x x coordinate
+  *   @param y y coordinate
+  */
+  void addTextItem(unsigned x, unsigned y);
+
+/**
+  *   @brief Move current_text
+  *   @param x New x coordinate
+  *   @param y New y coordinate
+  */
+  void moveTextItem(unsigned x, unsigned y);
+
+/**
+  *   @brief Enable text item editing
+  *   @details Goes through all text_items and enables item editing if there is an
+  *   item at (x,y). Sets item to current_text
+  *   @param x x coordinate
+  *   @param y y coordinate
+  */
+  void enableTextEditing(unsigned x, unsigned y);
+
+/**
+  *   @brief Deactivate all text_items
+  *   @remark This should be used when user moves out of text_mode
+  */
+  void deactivateTextItems();
+
+  /*  Variables */
    OwnGraphicsView *parent_view;
    std::list <LineItem*> line_items;
    std::deque <PixmapItem*> pixmap_items;
    std::list <Bezier*> beziers;
+   std::deque <TextItem*> text_items;
+   TextItem *current_text = nullptr;
    unsigned mouse_x;
    unsigned mouse_y;
    bool first_line = true;

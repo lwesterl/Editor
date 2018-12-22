@@ -41,9 +41,17 @@ OwnGraphicsScene::~OwnGraphicsScene()
   // remove Bezier objects
   for (auto it = beziers.begin(); it != beziers.end(); it++)
   {
-    delete(*it);
+    delete (*it);
   }
   beziers.clear();
+
+  // remove text_items
+  for (auto it = text_items.begin(); it != text_items.end(); it++)
+  {
+    delete (*it);
+  }
+  text_items.clear();
+
   // clear whole scene
   clear();
 }
@@ -59,6 +67,14 @@ void OwnGraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent  *event)
   {
     // change view center
     parent_view->centerOn(x_new, y_new);
+  }
+  else if (event->buttons() == Qt::RightButton)
+  {
+    if (mode == text_mode_value)
+    {
+      // enable text editing on the current item
+      enableTextEditing(x_new, y_new);
+    }
   }
 
   // Add a line from previous points if line adding mode activated
@@ -169,6 +185,10 @@ void OwnGraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent  *event)
     }
 
   }
+  else if (mode == text_mode_value)
+  {
+    addTextItem(x_new, y_new);
+  }
 }
 
 // Move image according to user mouse movements
@@ -278,6 +298,10 @@ void OwnGraphicsScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
       }
 
     }
+    else if (mode == text_mode_value)
+    {
+      moveTextItem(x_new, y_new);
+    }
   }
 
 }
@@ -307,6 +331,14 @@ void OwnGraphicsScene::keyPressEvent(QKeyEvent *keyEvent)
     {
       // remove current Bezier
       EraseBezier();
+    }
+
+  }
+  if (mode == text_mode_value)
+  {
+    if (current_text != nullptr)
+    {
+      current_text->KeyEventWrapper(keyEvent);
     }
   }
 }
@@ -344,33 +376,52 @@ void OwnGraphicsScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 }
 
 
-// This method goes through OwnGraphicsScene line_items and beziers and tries to remove item
+// This method goes through OwnGraphicsScene text_items, line_items and beziers and tries to remove item
 // at location x , y
 void OwnGraphicsScene::remove_Item(unsigned x, unsigned y)
 {
-  bool line_found = false;
-  for (auto it = line_items.begin(); it != line_items.end(); it++)
+  bool item_found = false;
+  for (auto it = text_items.begin(); it != text_items.end(); it++)
   {
-    // remove list item if coordinates match
     if ((*it)->isInside(x, y))
     {
-      // Item found, remove it
-      unsigned x1 = (*it)->getX1();
-      unsigned x2 = (*it)->getX2();
-      unsigned y1 = (*it)->getY1();
-      unsigned y2 = (*it)->getY2();
-      removeItem(*it); // remove from the scene
-      delete(*it);
-      line_items.erase(it);
-
-      // Remove also the end and start points matching the item
-      RemoveEndPoint(x1, y1);
-      RemoveEndPoint(x2, y2);
-      line_found = true;
+      // found TextItem
+      if (current_text == *it)
+      {
+        current_text = nullptr;
+      }
+      delete (*it);
+      text_items.erase(it);
+      item_found = true;
       break;
     }
   }
-  if (! line_found)
+  if (! item_found)
+  {
+    for (auto it = line_items.begin(); it != line_items.end(); it++)
+    {
+      // remove list item if coordinates match
+      if ((*it)->isInside(x, y))
+      {
+        // Item found, remove it
+        unsigned x1 = (*it)->getX1();
+        unsigned x2 = (*it)->getX2();
+        unsigned y1 = (*it)->getY1();
+        unsigned y2 = (*it)->getY2();
+        removeItem(*it); // remove from the scene
+        delete(*it);
+        line_items.erase(it);
+
+        // Remove also the end and start points matching the item
+        RemoveEndPoint(x1, y1);
+        RemoveEndPoint(x2, y2);
+        item_found = true;
+        break;
+      }
+    }
+  }
+
+  if (! item_found)
   {
     // go through also all beziers
     for (auto it = beziers.begin(); it != beziers.end(); it++)
@@ -418,11 +469,11 @@ LineItem* OwnGraphicsScene::addLine(unsigned x1, unsigned y1, unsigned x2, unsig
 // Swap to the line mode
 void OwnGraphicsScene::LineMode(bool activate)
 {
-
   if (activate)
   {
     mode = line_mode_value;
     mouse_tracking(true);
+    deactivateTextItems(); // deactivate all text_items
   }
   else
   {
@@ -448,6 +499,7 @@ void OwnGraphicsScene::DeleteMode(bool activate)
     // enable delete mode
     mode = delete_mode_value;
     mouse_tracking(true);
+    deactivateTextItems(); // deactivate all text_items
 
     // store the (current) item if created
     if (line_struct.created)
@@ -459,16 +511,28 @@ void OwnGraphicsScene::DeleteMode(bool activate)
     }
 
   }
-  else mode = view_mode_value;
-  mouse_tracking(false);
+  else
+  {
+    mode = view_mode_value;
+    mouse_tracking(false);
+  }
 }
 
-void OwnGraphicsScene::ClearMode()
+void OwnGraphicsScene::TextMode(bool activate)
 {
-  // store the (current) item
-  line_struct.positioned = true; // now the item isn't overwritten
-  line_struct.created = false;
-  first_line = true;
+  if (activate)
+  {
+    // enable text mode
+    mode = text_mode_value;
+    mouse_tracking(true);
+  }
+  else
+  {
+    current_text = nullptr;
+    mode = view_mode_value;
+    mouse_tracking(false);
+    deactivateTextItems(); // deactivate all text_items
+  }
 }
 
 // Remove & delete all scene objects
@@ -514,11 +578,18 @@ void OwnGraphicsScene::ClearAll()
   }
   beziers.clear();
 
+  // clear all TextItems
+  for (auto it = text_items.begin(); it != text_items.end(); it++)
+  {
+    delete(*it);
+  }
+  text_items.clear();
+  current_text = nullptr; // this must be reassigned to nullptr
+
   // Clear all end points from the map
   end_points_dict.clear();
 
   clear(); // removes all objects and deletes them
-
 
 }
 
@@ -541,6 +612,8 @@ bool OwnGraphicsScene::setImage(QString imagename)
 // Also don't activate img mode if the image can't be added (inform gui)
 bool OwnGraphicsScene::imgMode(bool activate)
 {
+  deactivateTextItems(); // deactivate all text_items
+
   if (activate == false)
   {
     mode = view_mode_value;
@@ -570,6 +643,7 @@ void OwnGraphicsScene::DeleteImgMode(bool activate)
     // enable delete_img_mode and disable other modes
     mode = delete_img_mode_value;
     mouse_tracking(true);
+    deactivateTextItems(); // deactivate all text_items
   }
   else
   {
@@ -613,6 +687,7 @@ void OwnGraphicsScene::CutImageMode(bool activate)
   {
     mode = cut_image_mode_value;
     mouse_tracking(false);
+    deactivateTextItems(); // deactivate all text_items
   }
   else
   {
@@ -763,6 +838,7 @@ void OwnGraphicsScene::BezierMode(bool active)
     mode = bezier_mode_value;
     // Enable mouse tracking
     mouse_tracking(true);
+    deactivateTextItems(); // deactivate all text_items
   }
   else
   {
@@ -1377,4 +1453,69 @@ void OwnGraphicsScene::changeBackgroundColor(const QColor &color)
 {
   QBrush brush = QBrush(color);
   setBackgroundBrush(brush);
+}
+
+/*  Add / lock in place QGraphicsTextItem */
+void OwnGraphicsScene::addTextItem(unsigned x, unsigned y)
+{
+  if (current_text == nullptr)
+  {
+    // add new item
+    current_text = new TextItem("Right click to modify text...");
+    current_text->setPos(x, y);
+    // make text editable
+    text_items.push_front(current_text);
+    // add also to the scene
+    addItem(current_text);
+  }
+  else
+  {
+    // make text non-editable
+    current_text->deactivateItem();
+    // lock the previous text in place by setting current_text to nullptr
+    current_text = nullptr;
+  }
+}
+
+/*  Move current_text */
+void OwnGraphicsScene::moveTextItem(unsigned x, unsigned y)
+{
+  // move current_text if its not a nullptr
+  if (current_text != nullptr)
+  {
+    current_text->setPos(x, y);
+  }
+}
+
+/*  Try to enable editing on a text item */
+void OwnGraphicsScene::enableTextEditing(unsigned x, unsigned y)
+{
+  // go through all text_items
+  for (auto text : text_items)
+  {
+    if (text->isInside(x, y))
+    {
+      // update current_text to contain the clicked item
+      current_text = text;
+      if (! text->activateItem())
+      {
+        // clicked item another time -> deactivates the item
+        current_text = nullptr;
+      }
+      break;
+    }
+  }
+  // no text item clicked, current_text not updated
+}
+
+/*  Deactivate all TextItems */
+void OwnGraphicsScene::deactivateTextItems()
+{
+  // set current_text to nullptr
+  current_text = nullptr;
+  for (auto &text: text_items)
+  {
+    // deactivate all items
+    text->deactivateItem();
+  }
 }
