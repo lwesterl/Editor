@@ -52,8 +52,8 @@ SOURCES       = src/Bezier.cpp \
 		src/ComboboxAction.cpp \
 		src/Definitions.cpp \
 		src/GUI.cpp \
-		src/GUI_test.cpp \
 		src/LineItem.cpp \
+		src/main.cpp \
 		src/MainWidget.cpp \
 		src/OwnGraphicsScene.cpp \
 		src/OwnGraphicsView.cpp \
@@ -70,8 +70,8 @@ OBJECTS       = Bezier.o \
 		ComboboxAction.o \
 		Definitions.o \
 		GUI.o \
-		GUI_test.o \
 		LineItem.o \
+		main.o \
 		MainWidget.o \
 		OwnGraphicsScene.o \
 		OwnGraphicsView.o \
@@ -161,8 +161,8 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		src/ComboboxAction.cpp \
 		src/Definitions.cpp \
 		src/GUI.cpp \
-		src/GUI_test.cpp \
 		src/LineItem.cpp \
+		src/main.cpp \
 		src/MainWidget.cpp \
 		src/OwnGraphicsScene.cpp \
 		src/OwnGraphicsView.cpp \
@@ -326,7 +326,7 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents include/Bezier.hpp include/ComboboxAction.hpp include/Definitions.hpp include/GUI.hpp include/LineItem.hpp include/MainWidget.hpp include/OwnGraphicsScene.hpp include/OwnGraphicsView.hpp include/PixmapItem.hpp include/PromtWindow.hpp include/SpinBoxAction.hpp include/TextItem.hpp include/Vector2.hpp $(DISTDIR)/
-	$(COPY_FILE) --parents src/Bezier.cpp src/ComboboxAction.cpp src/Definitions.cpp src/GUI.cpp src/GUI_test.cpp src/LineItem.cpp src/MainWidget.cpp src/OwnGraphicsScene.cpp src/OwnGraphicsView.cpp src/PixmapItem.cpp src/PromtWindow.cpp src/SpinBoxAction.cpp src/TextItem.cpp src/Vector2.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents src/Bezier.cpp src/ComboboxAction.cpp src/Definitions.cpp src/GUI.cpp src/LineItem.cpp src/main.cpp src/MainWidget.cpp src/OwnGraphicsScene.cpp src/OwnGraphicsView.cpp src/PixmapItem.cpp src/PromtWindow.cpp src/SpinBoxAction.cpp src/TextItem.cpp src/Vector2.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -423,7 +423,7 @@ Bezier.o: src/Bezier.cpp include/Bezier.hpp \
 ComboboxAction.o: src/ComboboxAction.cpp include/ComboboxAction.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ComboboxAction.o src/ComboboxAction.cpp
 
-Definitions.o: src/Definitions.cpp 
+Definitions.o: src/Definitions.cpp include/Definitions.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Definitions.o src/Definitions.cpp
 
 GUI.o: src/GUI.cpp include/GUI.hpp \
@@ -440,7 +440,10 @@ GUI.o: src/GUI.cpp include/GUI.hpp \
 		include/SpinBoxAction.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o GUI.o src/GUI.cpp
 
-GUI_test.o: src/GUI_test.cpp include/GUI.hpp \
+LineItem.o: src/LineItem.cpp include/LineItem.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o LineItem.o src/LineItem.cpp
+
+main.o: src/main.cpp include/GUI.hpp \
 		include/OwnGraphicsScene.hpp \
 		include/Definitions.hpp \
 		include/LineItem.hpp \
@@ -452,10 +455,7 @@ GUI_test.o: src/GUI_test.cpp include/GUI.hpp \
 		include/MainWidget.hpp \
 		include/ComboboxAction.hpp \
 		include/SpinBoxAction.hpp
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o GUI_test.o src/GUI_test.cpp
-
-LineItem.o: src/LineItem.cpp include/LineItem.hpp
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o LineItem.o src/LineItem.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o src/main.cpp
 
 MainWidget.o: src/MainWidget.cpp include/MainWidget.hpp \
 		include/OwnGraphicsScene.hpp \
@@ -481,7 +481,8 @@ OwnGraphicsScene.o: src/OwnGraphicsScene.cpp include/OwnGraphicsScene.hpp \
 OwnGraphicsView.o: src/OwnGraphicsView.cpp include/OwnGraphicsView.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o OwnGraphicsView.o src/OwnGraphicsView.cpp
 
-PixmapItem.o: src/PixmapItem.cpp include/PixmapItem.hpp
+PixmapItem.o: src/PixmapItem.cpp include/PixmapItem.hpp \
+		include/Definitions.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o PixmapItem.o src/PixmapItem.cpp
 
 PromtWindow.o: src/PromtWindow.cpp include/PromtWindow.hpp
