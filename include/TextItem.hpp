@@ -11,6 +11,12 @@
 #include <QPointF>
 #include <QGraphicsSceneContextMenuEvent>
 
+/**
+  *   @class TextItem
+  *   @brief QGraphicsTextItem inherited class
+  *   @details TextItem reimplementations couple QGraphicsTextItem methods and adds wrappers
+  */
+
 class TextItem: public QGraphicsTextItem
 {
   public:

@@ -35,7 +35,6 @@ class SpinBoxAction: public QWidgetAction
       *   @brief Set limits for spinbox
       *   @param min Min int value
       *   @param max Max int value
-      *   @param default_value Default (starting) value for spinbox
       *   @param suffix Suffix which is shown after values
       */
     void setLimits(int min, int max, const QString suffix);
