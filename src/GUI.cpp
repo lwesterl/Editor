@@ -405,7 +405,6 @@ void GUI::createToolbars()
   QPixmap draw_line(draw_line_img);
   line_mode = main_toolbar->addAction(QIcon(draw_line),"Line mode");
   line_mode->setCheckable(true);
-  line_mode->setChecked(true);
   connect(line_mode, &QAction::triggered, this, &GUI::LineMode);
 
   // add a checkable delete item button
