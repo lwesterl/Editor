@@ -34,4 +34,13 @@ namespace Path
     { ImageName::save_button_img, "data/img/save_button.png" },
     { ImageName::bezier_remove_img, "data/img/bezier_remove.png" }
   };
+
+  std::map<Editor::ColorSetting, QString> ColorFiles
+  {
+    { Editor::ColorSetting::SceneColor, "data/config/SceneColor.dat" },
+    { Editor::ColorSetting::HighlightColor, "data/config/HighlightColor.dat" },
+    { Editor::ColorSetting::LineColor, "data/config/LineColor.dat" },
+    { Editor::ColorSetting::SpecialColor, "data/config/SpecialColor.dat" },
+    { Editor::ColorSetting::TextColor, "data/config/TextColor.dat" }
+  };
 };

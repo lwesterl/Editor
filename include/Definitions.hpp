@@ -112,4 +112,5 @@ namespace Path
   };
 
   extern std::map<ImageName, QString> Images; /**< Map from enum value to correct image path */
+  extern std::map<Editor::ColorSetting, QString> ColorFiles; /**< Map from enum value to correct file path */
 }
