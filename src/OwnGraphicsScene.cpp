@@ -70,7 +70,7 @@ void OwnGraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent  *event)
   }
   else if (event->buttons() == Qt::RightButton)
   {
-    if (mode == text_mode_value)
+    if (mode == Scene::Mode::text_mode_value)
     {
       // enable text editing on the current item
       enableTextEditing(x_new, y_new);
@@ -78,7 +78,7 @@ void OwnGraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent  *event)
   }
 
   // Add a line from previous points if line adding mode activated
-  else if (mode == line_mode_value)
+  else if (mode == Scene::Mode::line_mode_value)
   {
     if (first_line)
     {
@@ -104,13 +104,13 @@ void OwnGraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent  *event)
       mouse_tracking(false);
     }
   }
-  else if (mode == delete_mode_value)
+  else if (mode == Scene::Mode::delete_mode_value)
   {
     // Remove the element user clicked
     remove_Item(x_new, y_new);
   }
 
-  else if (mode == image_mode_value)
+  else if (mode == Scene::Mode::image_mode_value)
   {
     if (image_active.clicks == 0)
     {
@@ -132,20 +132,20 @@ void OwnGraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent  *event)
     }
 
   }
-  else if (mode == delete_img_mode_value)
+  else if (mode == Scene::Mode::delete_img_mode_value)
   {
     // try to delete the PixmapItem user clicked
     DeleteImg(x_new, y_new);
   }
 
-  else if (mode == cut_image_mode_value)
+  else if (mode == Scene::Mode::cut_image_mode_value)
   {
     if (image_cut.initialized == false)
     {
       // store the point
       image_cut.point = QPoint(x_new, y_new);
     }
-    else if (image_cut.initialized && (image_cut.cut_mode == polygon_img_cut))
+    else if (image_cut.initialized && (image_cut.cut_mode == Scene::ImageCutMode::polygon_img_cut))
     {
       // Polygon cut activated
       // Add a new point to match the visual item
@@ -166,13 +166,13 @@ void OwnGraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent  *event)
       image_cut.pixmap_item->addPainterPoint(image_cut.prev_x, image_cut.prev_y);
 
     }
-    else if (image_cut.initialized && (image_cut.cut_mode == path_img_cut))
+    else if (image_cut.initialized && (image_cut.cut_mode == Scene::ImageCutMode::path_img_cut))
     {
       // store click position
       image_cut.point = QPoint(x_new, y_new);
     }
   }
-  else if (mode == bezier_mode_value)
+  else if (mode == Scene::Mode::bezier_mode_value)
   {
     // Add a new bezier
     //qDebug() << "Bezier mode point added\n";
@@ -185,7 +185,7 @@ void OwnGraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent  *event)
     }
 
   }
-  else if (mode == text_mode_value)
+  else if (mode == Scene::Mode::text_mode_value)
   {
     addTextItem(x_new, y_new);
   }
@@ -201,7 +201,7 @@ void OwnGraphicsScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 
   if (event->buttons() != Qt::MidButton)
   {
-    if (mode == image_mode_value)
+    if (mode == Scene::Mode::image_mode_value)
     {
       // user is moving the image
       if (image_active.added_scene)
@@ -215,7 +215,7 @@ void OwnGraphicsScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
       }
 
     }
-    else if (mode == line_mode_value)
+    else if (mode == Scene::Mode::line_mode_value)
     {
       if (OwnGraphicsScene::END_POINTS_ACTIVE)
       {
@@ -255,9 +255,9 @@ void OwnGraphicsScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
       }
     }
 
-    else if (mode == cut_image_mode_value)
+    else if (mode == Scene::Mode::cut_image_mode_value)
     {
-      if (image_cut.initialized && (image_cut.cut_mode == polygon_img_cut))
+      if (image_cut.initialized && (image_cut.cut_mode == Scene::ImageCutMode::polygon_img_cut))
       {
         // construct visual items
         if (image_cut.visual_created)
@@ -279,7 +279,7 @@ void OwnGraphicsScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 
     }
 
-    else if (mode == bezier_mode_value)
+    else if (mode == Scene::Mode::bezier_mode_value)
     {
       if (! bezier_struct.created && OwnGraphicsScene::END_POINTS_ACTIVE)
       {
@@ -298,7 +298,7 @@ void OwnGraphicsScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
       }
 
     }
-    else if (mode == text_mode_value)
+    else if (mode == Scene::Mode::text_mode_value)
     {
       moveTextItem(x_new, y_new);
     }
@@ -311,7 +311,7 @@ void OwnGraphicsScene::keyPressEvent(QKeyEvent *keyEvent)
   if (keyEvent->key() == Qt::Key_Backspace)
   {
     // remove current item
-    if (mode == image_mode_value)
+    if (mode == Scene::Mode::image_mode_value)
     {
       if (image_active.added_scene)
       {
@@ -327,14 +327,14 @@ void OwnGraphicsScene::keyPressEvent(QKeyEvent *keyEvent)
         image_active.clicks = 0;
       }
     }
-    else if (mode == bezier_mode_value)
+    else if (mode == Scene::Mode::bezier_mode_value)
     {
       // remove current Bezier
       EraseBezier();
     }
 
   }
-  if (mode == text_mode_value)
+  if (mode == Scene::Mode::text_mode_value)
   {
     if (current_text != nullptr)
     {
@@ -347,7 +347,7 @@ void OwnGraphicsScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
   if (event->button() != Qt::MidButton)
   {
-    if (mode == line_mode_value && line_struct.created)
+    if (mode == Scene::Mode::line_mode_value && line_struct.created)
     {
       // user has set the final position for the line
       // set previous points to the current item end coordinates
@@ -364,7 +364,7 @@ void OwnGraphicsScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
       // remove end point circle
       RemoveEndPointCircle();
     }
-    else if (mode == line_mode_value)
+    else if (mode == Scene::Mode::line_mode_value)
     {
       // remove unwanted dot user created
       first_line = true;
@@ -471,13 +471,13 @@ void OwnGraphicsScene::LineMode(bool activate)
 {
   if (activate)
   {
-    mode = line_mode_value;
+    mode = Scene::Mode::line_mode_value;
     mouse_tracking(true);
     deactivateTextItems(); // deactivate all text_items
   }
   else
   {
-    mode = view_mode_value;
+    mode = Scene::Mode::view_mode_value;
     // Clear the line_struct if item created
     if (line_struct.created)
     {
@@ -497,7 +497,7 @@ void OwnGraphicsScene::DeleteMode(bool activate)
   if (activate)
   {
     // enable delete mode
-    mode = delete_mode_value;
+    mode = Scene::Mode::delete_mode_value;
     mouse_tracking(true);
     deactivateTextItems(); // deactivate all text_items
 
@@ -513,7 +513,7 @@ void OwnGraphicsScene::DeleteMode(bool activate)
   }
   else
   {
-    mode = view_mode_value;
+    mode = Scene::Mode::view_mode_value;
     mouse_tracking(false);
   }
 }
@@ -523,13 +523,13 @@ void OwnGraphicsScene::TextMode(bool activate)
   if (activate)
   {
     // enable text mode
-    mode = text_mode_value;
+    mode = Scene::Mode::text_mode_value;
     mouse_tracking(true);
   }
   else
   {
     current_text = nullptr;
-    mode = view_mode_value;
+    mode = Scene::Mode::view_mode_value;
     mouse_tracking(false);
     deactivateTextItems(); // deactivate all text_items
   }
@@ -616,7 +616,7 @@ bool OwnGraphicsScene::imgMode(bool activate)
 
   if (activate == false)
   {
-    mode = view_mode_value;
+    mode = Scene::Mode::view_mode_value;
     mouse_tracking(false);
     return false;
   }
@@ -625,12 +625,12 @@ bool OwnGraphicsScene::imgMode(bool activate)
   if (image.isNull())
   {
     // can't add the image
-    mode = view_mode_value;
+    mode = Scene::Mode::view_mode_value;
     return false;
   }
 
   // update mode status
-  mode = image_mode_value;
+  mode = Scene::Mode::image_mode_value;
   mouse_tracking(true);
 
   return true;
@@ -641,13 +641,13 @@ void OwnGraphicsScene::DeleteImgMode(bool activate)
   if (activate)
   {
     // enable delete_img_mode and disable other modes
-    mode = delete_img_mode_value;
+    mode = Scene::Mode::delete_img_mode_value;
     mouse_tracking(true);
     deactivateTextItems(); // deactivate all text_items
   }
   else
   {
-    mode = view_mode_value;
+    mode = Scene::Mode::view_mode_value;
     mouse_tracking(false);
   }
 
@@ -685,7 +685,7 @@ void OwnGraphicsScene::CutImageMode(bool activate)
 {
   if (activate)
   {
-    mode = cut_image_mode_value;
+    mode = Scene::Mode::cut_image_mode_value;
     mouse_tracking(false);
     deactivateTextItems(); // deactivate all text_items
   }
@@ -697,14 +697,14 @@ void OwnGraphicsScene::CutImageMode(bool activate)
       image_cut.pixmap_item->clearPointsVector();
       image_cut.pixmap_item = nullptr; // dont't delete original pointer
       image_cut.initialized = false;
-      image_cut.cut_mode = no_img_cut;
+      image_cut.cut_mode = Scene::ImageCutMode::no_img_cut;
       // clear also the point by constructing a null point
       image_cut.point = QPoint();
       // clear also visual items
       ClearVisualItems();
 
     }
-    mode = view_mode_value;
+    mode = Scene::Mode::view_mode_value;
   }
 }
 
@@ -741,11 +741,11 @@ void OwnGraphicsScene::SetImgCutMode(int cut_mode)
 {
   if (cut_mode == 1)
   {
-    image_cut.cut_mode = polygon_img_cut;
+    image_cut.cut_mode = Scene::ImageCutMode::polygon_img_cut;
   }
   else if (cut_mode == 2)
   {
-    image_cut.cut_mode = path_img_cut;
+    image_cut.cut_mode = Scene::ImageCutMode::path_img_cut;
   }
 }
 
@@ -835,7 +835,7 @@ void OwnGraphicsScene::BezierMode(bool active)
 {
   if (active)
   {
-    mode = bezier_mode_value;
+    mode = Scene::Mode::bezier_mode_value;
     // Enable mouse tracking
     mouse_tracking(true);
     deactivateTextItems(); // deactivate all text_items
@@ -845,7 +845,7 @@ void OwnGraphicsScene::BezierMode(bool active)
     // Remove possible current Bezier, clean bezier_struct
     EraseBezier();
 
-    mode = view_mode_value;
+    mode = Scene::Mode::view_mode_value;
 
     // Disable mouse tracking
     mouse_tracking(false);
@@ -890,8 +890,8 @@ void OwnGraphicsScene::CreateBezier(unsigned x, unsigned y, int point_added)
     if (point_added == 1)
     {
       // Check lock_mode
-      if ( (bezier_struct.lock_mode == Bezier_option_unlocked) ||
-          (bezier_struct.lock_mode == Bezier_option_partially_locked && !end_points_struct.found) )
+      if ( (bezier_struct.lock_mode == Scene::BezierLockMode::unlocked) ||
+          (bezier_struct.lock_mode == Scene::BezierLockMode::partially_locked && !end_points_struct.found) )
          {
             // Ok to move the first point
             // Destroy the old Bezier
@@ -997,16 +997,16 @@ void OwnGraphicsScene::CreateControlPointCircles(int point)
 
     // Construct QGraphicsEllipseItems
     bezier_struct.circle1 = new QGraphicsEllipseItem(point1.getX(), point1.getY(),
-                            Control_point_circle_diameter, Control_point_circle_diameter);
+                            Scene::Control_point_circle_diameter, Scene::Control_point_circle_diameter);
     bezier_struct.circle1->setPen(QPen(SpecialColor));
     bezier_struct.circle2 = new QGraphicsEllipseItem(point1.getX(), point1.getY(),
-                              Control_point_circle_diameter, Control_point_circle_diameter);
+                            Scene::Control_point_circle_diameter, Scene::Control_point_circle_diameter);
     bezier_struct.circle2->setPen(QPen(SpecialColor));
     bezier_struct.circle3 = new QGraphicsEllipseItem(point1.getX(), point1.getY(),
-                            Control_point_circle_diameter, Control_point_circle_diameter);
+                            Scene::Control_point_circle_diameter, Scene::Control_point_circle_diameter);
     bezier_struct.circle3->setPen(QPen(SpecialColor));
     bezier_struct.circle4 = new QGraphicsEllipseItem(point1.getX(), point1.getY(),
-                            Control_point_circle_diameter, Control_point_circle_diameter);
+                            Scene::Control_point_circle_diameter, Scene::Control_point_circle_diameter);
     bezier_struct.circle4->setPen(QPen(SpecialColor));
 
     // Add the circles to the scene
@@ -1024,7 +1024,7 @@ void OwnGraphicsScene::CreateControlPointCircles(int point)
 
     Vector2 point1 = ControlPoint2Circle(bezier_struct.p1);
     bezier_struct.circle1 = new QGraphicsEllipseItem(point1.getX(), point1.getY(),
-                            Control_point_circle_diameter, Control_point_circle_diameter);
+                            Scene::Control_point_circle_diameter, Scene::Control_point_circle_diameter);
     bezier_struct.circle1->setPen(QPen(SpecialColor));
     // Add to the scene
     addItem(bezier_struct.circle1);
@@ -1038,7 +1038,7 @@ void OwnGraphicsScene::CreateControlPointCircles(int point)
 
     Vector2 point2 = ControlPoint2Circle(bezier_struct.p2);
     bezier_struct.circle2 = new QGraphicsEllipseItem(point2.getX(), point2.getY(),
-                            Control_point_circle_diameter, Control_point_circle_diameter);
+                            Scene::Control_point_circle_diameter, Scene::Control_point_circle_diameter);
     bezier_struct.circle2->setPen(QPen(SpecialColor));
     // Add to the scene
     addItem(bezier_struct.circle2);
@@ -1051,7 +1051,7 @@ void OwnGraphicsScene::CreateControlPointCircles(int point)
 
     Vector2 point3 = ControlPoint2Circle(bezier_struct.p3);
     bezier_struct.circle3 = new QGraphicsEllipseItem(point3.getX(), point3.getY(),
-                            Control_point_circle_diameter, Control_point_circle_diameter);
+                            Scene::Control_point_circle_diameter, Scene::Control_point_circle_diameter);
     bezier_struct.circle3->setPen(QPen(SpecialColor));
     // Add to the scene
     addItem(bezier_struct.circle3);
@@ -1064,7 +1064,7 @@ void OwnGraphicsScene::CreateControlPointCircles(int point)
 
     Vector2 point4 = ControlPoint2Circle(bezier_struct.p4);
     bezier_struct.circle4 = new QGraphicsEllipseItem(point4.getX(), point4.getY(),
-                            Control_point_circle_diameter, Control_point_circle_diameter);
+                            Scene::Control_point_circle_diameter, Scene::Control_point_circle_diameter);
     bezier_struct.circle4->setPen(QPen(SpecialColor));
     // Add to the scene
     addItem(bezier_struct.circle4);
@@ -1156,15 +1156,15 @@ void OwnGraphicsScene::RemoveControlPointCircles(int point)
 }
 
 /*  Convert control point to the circle top left point */
-/*  Control_point_circle_diameter tells the diameter of the circles */
+/*  Scene::Control_point_circle_diameter tells the diameter of the circles */
 Vector2 OwnGraphicsScene::ControlPoint2Circle(Vector2 point)
 {
-  float x = point.getX() - Control_point_circle_diameter / 2;
+  float x = point.getX() - Scene::Control_point_circle_diameter / 2;
   if (x < 0)
   {
     x = 0;
   }
-  float y = point.getY() - Control_point_circle_diameter / 2;
+  float y = point.getY() - Scene::Control_point_circle_diameter / 2;
   if (y < 0)
   {
     y = 0;
@@ -1177,35 +1177,35 @@ Vector2 OwnGraphicsScene::ControlPoint2Circle(Vector2 point)
 /*  Go through points in reverse order so thet 1 point remains the start point */
 int OwnGraphicsScene::isInsideControlPoint(unsigned x, unsigned y)
 {
-  if ( (x >= bezier_struct.p4.getX() - Control_point_circle_diameter/2 ) &&
-        (x <= bezier_struct.p4.getX() + Control_point_circle_diameter/2) &&
-        (y >= bezier_struct.p4.getY() - Control_point_circle_diameter/2) &&
-        (y <= bezier_struct.p4.getY() + Control_point_circle_diameter/2) )
+  if ( (x >= bezier_struct.p4.getX() - Scene::Control_point_circle_diameter/2 ) &&
+        (x <= bezier_struct.p4.getX() + Scene::Control_point_circle_diameter/2) &&
+        (y >= bezier_struct.p4.getY() - Scene::Control_point_circle_diameter/2) &&
+        (y <= bezier_struct.p4.getY() + Scene::Control_point_circle_diameter/2) )
         {
           // Inside the first control point
           return 4;
         }
-  else if ( (x >= bezier_struct.p3.getX() - Control_point_circle_diameter/2 ) &&
-        (x <= bezier_struct.p3.getX() + Control_point_circle_diameter/2) &&
-        (y >= bezier_struct.p3.getY() - Control_point_circle_diameter/2) &&
-        (y <= bezier_struct.p3.getY() + Control_point_circle_diameter/2) )
+  else if ( (x >= bezier_struct.p3.getX() - Scene::Control_point_circle_diameter/2 ) &&
+        (x <= bezier_struct.p3.getX() + Scene::Control_point_circle_diameter/2) &&
+        (y >= bezier_struct.p3.getY() - Scene::Control_point_circle_diameter/2) &&
+        (y <= bezier_struct.p3.getY() + Scene::Control_point_circle_diameter/2) )
         {
           // Inside the second control point
           return 3;
         }
-  else if ( (x >= bezier_struct.p2.getX() - Control_point_circle_diameter/2 ) &&
-        (x <= bezier_struct.p2.getX() + Control_point_circle_diameter/2) &&
-        (y >= bezier_struct.p2.getY() - Control_point_circle_diameter/2) &&
-        (y <= bezier_struct.p2.getY() + Control_point_circle_diameter/2) )
+  else if ( (x >= bezier_struct.p2.getX() - Scene::Control_point_circle_diameter/2 ) &&
+        (x <= bezier_struct.p2.getX() + Scene::Control_point_circle_diameter/2) &&
+        (y >= bezier_struct.p2.getY() - Scene::Control_point_circle_diameter/2) &&
+        (y <= bezier_struct.p2.getY() + Scene::Control_point_circle_diameter/2) )
         {
           // Inside the third control point
           return 2;
         }
 
-  else if ( (x >= bezier_struct.p1.getX() - Control_point_circle_diameter/2 ) &&
-        (x <= bezier_struct.p1.getX() + Control_point_circle_diameter/2) &&
-        (y >= bezier_struct.p1.getY() - Control_point_circle_diameter/2) &&
-        (y <= bezier_struct.p1.getY() + Control_point_circle_diameter/2) )
+  else if ( (x >= bezier_struct.p1.getX() - Scene::Control_point_circle_diameter/2 ) &&
+        (x <= bezier_struct.p1.getX() + Scene::Control_point_circle_diameter/2) &&
+        (y >= bezier_struct.p1.getY() - Scene::Control_point_circle_diameter/2) &&
+        (y <= bezier_struct.p1.getY() + Scene::Control_point_circle_diameter/2) )
         {
           // Inside the fourth control point
           return 1;

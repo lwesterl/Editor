@@ -11,6 +11,7 @@
 
 /*    INCLUDES    */
 
+#include "Definitions.hpp"
 #include "LineItem.hpp"
 #include "PixmapItem.hpp"
 #include "OwnGraphicsView.hpp"
@@ -35,18 +36,6 @@
 #include <QBrush>
 #include <QPen>
 
-/**
-  *   @brief Macro for no image cut mode selected
-  */
- #define no_img_cut 0
- /**
-   *   @brief Macro for polygon cut mode selected
-   */
- #define polygon_img_cut 1
- /**
-   *   @brief Macro for path cut mode selected
-   */
- #define path_img_cut 2
 
 /**
   *   @struct Image_Active
@@ -71,7 +60,7 @@
  {
    PixmapItem *pixmap_item; /**< Original image pixmap item */
    bool initialized = false;  /**< Is user selected which image to cut */
-   unsigned char cut_mode = no_img_cut; /**< Stores the cut mode */
+   unsigned char cut_mode = Scene::ImageCutMode::no_img_cut; /**< Stores the cut mode */
    QPoint point; /**< Tells which image should be cutted */
    std::vector<LineItem*> visual_items; /**< These are used to visualize the cutting pattern and just temporarily added to the scene */
    LineItem *current_item; /**< LineItem which is curretly under construction */
@@ -141,69 +130,6 @@
    int x = -1; /**< x coordinate */
    int y = -1; /**< y coordinate */
  };
-
-
-/*    MACROS    */
-
-/**
-  *   @brief Macro for view mode (drawing modes not active)
-  */
- #define view_mode_value 0
- /**
-   *   @brief Macro for view mode
-   */
- #define line_mode_value 1
- /**
-   *   @brief Macro for delete mode
-   */
- #define delete_mode_value 2
- /**
-   *   @brief Macro for image adding mode
-   */
- #define image_mode_value 3
- /**
-   *   @brief Macro for delete image mode
-   */
- #define delete_img_mode_value 4
- /**
-   *   @brief Macro for image cutting mode
-   */
- #define cut_image_mode_value 5
- /**
-   *   @brief Macro for bezier mode
-   */
- #define bezier_mode_value 6
-
-/**
-  *   @brief Macro for text mode
-  */
- #define text_mode_value 7
-
-/**
-  *   @brief Macro for Bezier control point circle diameter
-  */
-#define Control_point_circle_diameter 30
-
-/**
-  *   @brief Macro for BezierMode lock_mode
-  *   @details During this mode moving control points which are joined to an end
-  *   point isn't allowed
-  */
-#define Bezier_option_partially_locked 1
-
-/**
-  *   @brief Macro for BezierMode lock_mode
-  *   @details During this mode the first control point cannot be moved
-  */
-#define Bezier_option_locked 2
-
-/**
-  *   @brief Macro for BezierMode lock_mode
-  *   @details During this mode the first control point can be always moved
-  */
-#define Bezier_option_unlocked 3
-
-
 
 
  /**
@@ -581,7 +507,7 @@ private:
       unsigned mouse_y;
       bool first_line = true;
       struct Line_Mode line_struct;
-      unsigned char mode = line_mode_value;
+      unsigned char mode = Scene::Mode::view_mode_value;
       struct Image_Active image_active;
       QPixmap image = QPixmap(); // construct a Null pixmap
       QString current_imagename;
