@@ -47,93 +47,6 @@
 #include <QFile>
 #include <QDataStream>
 
-/**
-  *   @enum ColorSetting
-  *   @brief Tells which color colorDialog changes
-  */
-enum ColorSetting
-{
-  SceneColor,
-  HighlightColor,
-  LineColor,
-  SpecialColor,
-  TextColor
-};
-
-/*    MACROS    */
-
-/**
-  *   @brief Exit image macro
-  */
-#define exit_img "img_src/exit.png"
-/**
-  *   @brief Open image macro
-  */
-#define open_img "img_src/open.png"
-/**
-  *   @brief Save image macro
-  */
-#define save_img "img_src/save.png"
-/**
-  *   @brief Draw line image macro
-  */
-#define draw_line_img "img_src/draw_line.png"
-/**
-  *   @brief Delete line image macro
-  */
-#define delete_line_img "img_src/delete_line.png"
-/**
-  *   @brief Clear points image macro
-  */
-#define text_item_img "img_src/text_item.png"
-/**
-  *   @brief Clear all image macro
-  */
-#define clear_all_img "img_src/clear_all.png"
-/**
-  *   @brief Image sketch macro
-  */
-#define image_sketch_img "img_src/image_sketch.png"
-/**
-  *   @brief Image delete image macro
-  */
-#define image_delete_img "img_src/image_delete.png"
-/**
-  *   @brief Image cut image macro
-  */
-#define image_cut_img "img_src/image_cut.png"
-/**
-  *   @brief Continue image macro
-  */
-#define continue_img "img_src/continue.png"
-/**
-  *   @brief Cancel image macro
-  */
-#define cancel_img "img_src/cancel.png"
-/**
-  *   @brief Finish image macro
-  */
-#define finish_img "img_src/finish.png"
-/**
-  *   @brief Remove point image macro
-  */
-#define remove_point_img "img_src/remove_point.png"
-
-/**
-  *   @brief Bezier pic image macro
-  */
-#define bezier_pic_img "img_src/bezier_pic.png"
-
-/**
-  *   @brief Save button image macro
-  */
-#define save_button_img "img_src/save_button.png"
-
-/**
-  *   @brief Bezier remove image macro
-  */
-#define bezier_remove_img "img_src/bezier_remove.png"
-
 
 /**
   *   @struct PolygonToolbar
@@ -452,20 +365,20 @@ public:
       *   @param color Color to be written
       *   @param color_type This is used to detect which file color should be written
       */
-    void writeColorFile(const QColor &color, ColorSetting color_type);
+    void writeColorFile(const QColor &color, Editor::ColorSetting color_type);
 
     /**
       *   @brief Read one color from specific data file
       *   @param color_type This is used to detect from which file color shold be read from
       *   @return Return the read color
       */
-    QColor readColorFile(ColorSetting color_type);
+    QColor readColorFile(Editor::ColorSetting color_type);
 
     /**
       *   @brief Get correct filename based on color_type
       *   @param color_type Tells which file should contain the specific color
       */
-    QString getFilename(ColorSetting color_type);
+    QString getFilename(Editor::ColorSetting color_type);
 
 
 
@@ -473,7 +386,7 @@ public:
 
     MainWidget *mainWidget;
     QColorDialog *colorDialog;
-    ColorSetting color_setting; /**< Used to detect which color should be changed */
+    Editor::ColorSetting color_setting; /**< Used to detect which color should be changed */
     QAction *line_mode;
     QAction *delete_mode;
     QAction *text_mode;

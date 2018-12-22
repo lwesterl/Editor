@@ -24,10 +24,10 @@ GUI::GUI(QWidget *parent): QMainWindow(parent)
   QMenu *file_options;
   file_options = menuBar()->addMenu("&File");
 
-  // create a quit action
-  QPixmap quit_pic(exit_img);
-  QPixmap save_pic(save_img);
-  QPixmap open_pic(open_img);
+  // create actions for quitting, saving and loading an image
+  QPixmap quit_pic(Path::Images[Path::ImageName::exit_img]);
+  QPixmap save_pic(Path::Images[Path::ImageName::save_img]);
+  QPixmap open_pic(Path::Images[Path::ImageName::open_img]);
   QAction *save = new QAction(save_pic, "&Save", this);
   QAction *open = new QAction(open_pic, "&Load image", this);
   QAction *quit_option = new QAction(quit_pic, "&Quit", this);
@@ -402,28 +402,28 @@ void GUI::createToolbars()
   main_toolbar = addToolBar("Main Toolbar");
 
   // add a checkable line mode button
-  QPixmap draw_line(draw_line_img);
+  QPixmap draw_line(Path::Images[Path::ImageName::draw_line_img]);
   line_mode = main_toolbar->addAction(QIcon(draw_line),"Line mode");
   line_mode->setCheckable(true);
   connect(line_mode, &QAction::triggered, this, &GUI::LineMode);
 
   // add a checkable delete item button
   main_toolbar->addSeparator();
-  QPixmap delete_line(delete_line_img);
+  QPixmap delete_line(Path::Images[Path::ImageName::delete_line_img]);
   delete_mode = main_toolbar->addAction(QIcon(delete_line),"Delete item");
   delete_mode->setCheckable(true);
   connect(delete_mode, &QAction::triggered, this, &GUI::DeleteMode);
 
   // add a action for textmode
   main_toolbar->addSeparator();
-  QPixmap text_item(text_item_img);
+  QPixmap text_item(Path::Images[Path::ImageName::text_item_img]);
   text_mode = main_toolbar->addAction(QIcon(text_item),"Text mode");
   text_mode->setCheckable(true);
   connect(text_mode, &QAction::triggered, this, &GUI::TextMode);
 
   // add a action for bezier mode
   main_toolbar->addSeparator();
-  QPixmap bezier_img(bezier_pic_img);
+  QPixmap bezier_img(Path::Images[Path::ImageName::bezier_pic_img]);
   bezier_mode = main_toolbar->addAction(QIcon(bezier_img), "Bezier mode");
   //bezier_mode->setCheckable(true);
   //bezier_mode->setChecked(false);
@@ -432,13 +432,13 @@ void GUI::createToolbars()
 
   // add a clear all button
   main_toolbar->addSeparator();
-  QPixmap clear_all(clear_all_img);
+  QPixmap clear_all(Path::Images[Path::ImageName::clear_all_img]);
   clear_all_mode = main_toolbar->addAction(QIcon(clear_all), "Clear all");
   connect(clear_all_mode, &QAction::triggered, this, &GUI::ClearAll);
 
   // add an add image button
   main_toolbar->addSeparator();
-  QPixmap add_img(image_sketch_img);
+  QPixmap add_img(Path::Images[Path::ImageName::image_sketch_img]);
   add_img_mode = main_toolbar->addAction(QIcon(add_img),"Add image");
   add_img_mode->setCheckable(true);
   add_img_mode->setChecked(false);
@@ -446,7 +446,7 @@ void GUI::createToolbars()
 
 
   // add an image delete mode button
-  QPixmap delete_img(image_delete_img);
+  QPixmap delete_img(Path::Images[Path::ImageName::image_delete_img]);
   delete_img_mode = main_toolbar->addAction(QIcon(delete_img), "Delete image");
   delete_img_mode->setCheckable(true);
   delete_img_mode->setChecked(false);
@@ -454,7 +454,7 @@ void GUI::createToolbars()
 
 
   // add a cut image mode button
-  QPixmap image_cut(image_cut_img);
+  QPixmap image_cut(Path::Images[Path::ImageName::image_cut_img]);
   cut_image_mode = main_toolbar->addAction(QIcon(image_cut), "Cut image");
   cut_image_mode->setCheckable(true);
   cut_image_mode->setChecked(false);
@@ -467,8 +467,8 @@ void GUI::createToolbars()
   selectToolbar.select_img_toolbar->addWidget(selectToolbar.info);
   selectToolbar.select_img_toolbar->addSeparator();
   // Add the continue button
-  QPixmap continue_pic = QPixmap(continue_img);
-  QPixmap cancel_pic = QPixmap(cancel_img);
+  QPixmap continue_pic = QPixmap(Path::Images[Path::ImageName::continue_img]);
+  QPixmap cancel_pic = QPixmap(Path::Images[Path::ImageName::cancel_img]);
   selectToolbar.continue_button = selectToolbar.select_img_toolbar->addAction(continue_pic, "Continue");
   selectToolbar.continue_button->setCheckable(true);
   selectToolbar.continue_button->setChecked(false);
@@ -509,7 +509,6 @@ void GUI::createToolbars()
   polyToolbar.polygon_toolbar->addSeparator();
   polyToolbar.final_point_text = new QLabel("Finished cut: connects the first and the last point ");
   polyToolbar.polygon_toolbar->addWidget(polyToolbar.final_point_text);
-  //QPixmap finish_pic = QPixmap(finish_img);
   polyToolbar.final_point = polyToolbar.polygon_toolbar->addAction(continue_pic, "Finished cut");
   // Set checkable and disabled, connect
   polyToolbar.final_point->setCheckable(true);
@@ -518,7 +517,7 @@ void GUI::createToolbars()
 
   polyToolbar.polygon_toolbar->addSeparator();
   polyToolbar.remove_text = new QLabel("Remove previous point ");
-  QPixmap remove_point_pic = QPixmap(remove_point_img);
+  QPixmap remove_point_pic = QPixmap(Path::Images[Path::ImageName::remove_point_img]);
   polyToolbar.polygon_toolbar->addWidget(polyToolbar.remove_text);
   polyToolbar.remove = polyToolbar.polygon_toolbar->addAction(remove_point_pic, "Remove point");
   // Set checkable and disabled, connect
@@ -546,13 +545,13 @@ void GUI::createToolbars()
   bezierToolbar.options->addItem(tr("Lock always"));
   bezierToolbar.options->addItem(tr("Never lock"));
   bezierToolbar.bezier_toolbar->addWidget(bezierToolbar.options);
-  QPixmap save_button = QPixmap(save_button_img);
+  QPixmap save_button = QPixmap(Path::Images[Path::ImageName::save_button_img]);
   bezierToolbar.save_options = bezierToolbar.bezier_toolbar->addAction(save_button, "Save options");
   // Connect save options
   connect(bezierToolbar.save_options, &QAction::triggered, this, &GUI::BezierToolbar_OptionsSaved);
   bezierToolbar.bezier_toolbar->addSeparator();
   bezierToolbar.save_bezier = bezierToolbar.bezier_toolbar->addAction(continue_pic, "Save Bezier");
-  QPixmap bezier_remove_pic = QPixmap(bezier_remove_img);
+  QPixmap bezier_remove_pic = QPixmap(Path::Images[Path::ImageName::bezier_remove_img]);
   bezierToolbar.remove_bezier = bezierToolbar.bezier_toolbar->addAction(bezier_remove_pic, "Remove Bezier");
   bezierToolbar.bezier_toolbar->addSeparator();
   bezierToolbar.cancel = bezierToolbar.bezier_toolbar->addAction(cancel_pic, "Cancel");
@@ -828,57 +827,57 @@ void GUI::PathCut_Cancel()
 /*  Open colorDialog for BackgroundColor */
 void GUI::BackgroundColorDialog()
 {
-  color_setting = ColorSetting::SceneColor;
+  color_setting = Editor::ColorSetting::SceneColor;
   colorDialog->open();
 }
 
 /*  Open colorDialog for LineColor */
 void GUI::LineColorDialog()
 {
-  color_setting = ColorSetting::LineColor;
+  color_setting = Editor::ColorSetting::LineColor;
   colorDialog->open();
 }
 
 /*  Open colorDialog for HighlightColor */
 void GUI::HighlightColorDialog()
 {
-  color_setting = ColorSetting::HighlightColor;
+  color_setting = Editor::ColorSetting::HighlightColor;
   colorDialog->open();
 }
 
 /*  Open colorDialog for SpecialColor */
 void GUI::SpecialColorDialog()
 {
-  color_setting = ColorSetting::SpecialColor;
+  color_setting = Editor::ColorSetting::SpecialColor;
   colorDialog->open();
 }
 
 /*  Open colorDialog for TextColor */
 void GUI::TextColorDialog()
 {
-  color_setting = ColorSetting::TextColor;
+  color_setting = Editor::ColorSetting::TextColor;
   colorDialog->open();
 }
 
 /*  Change correct color */
 void GUI::ColorChanged(const QColor &color)
 {
-  if (color_setting == ColorSetting::SceneColor)
+  if (color_setting == Editor::ColorSetting::SceneColor)
   {
     // change OwnGraphicsScene backgroundcolor
     mainWidget->getScene()->changeBackgroundColor(color);
   }
-  else if (color_setting == ColorSetting::HighlightColor)
+  else if (color_setting == Editor::ColorSetting::HighlightColor)
   {
     // change MainWidget backgroundcolor
     mainWidget->changeBackgroundColor(color);
   }
-  else if (color_setting == ColorSetting::LineColor)
+  else if (color_setting == Editor::ColorSetting::LineColor)
   {
     // change LineItem LineColor
     LineItem::LineColor = color;
   }
-  else if (color_setting == ColorSetting::SpecialColor)
+  else if (color_setting == Editor::ColorSetting::SpecialColor)
   {
     // change OwnGraphicsScene::SpecialColor
     OwnGraphicsScene::SpecialColor = color;
@@ -893,7 +892,7 @@ void GUI::ColorChanged(const QColor &color)
 }
 
 /*  Write color to data file */
-void GUI::writeColorFile(const QColor &color, ColorSetting color_type)
+void GUI::writeColorFile(const QColor &color, Editor::ColorSetting color_type)
 {
   QString filename = getFilename(color_type);
 
@@ -909,7 +908,7 @@ void GUI::writeColorFile(const QColor &color, ColorSetting color_type)
 }
 
 /*  Read color from specific file */
-QColor GUI::readColorFile(ColorSetting color_type)
+QColor GUI::readColorFile(Editor::ColorSetting color_type)
 {
   QColor color = Qt::black;
   QString filename = getFilename(color_type);
@@ -926,24 +925,24 @@ QColor GUI::readColorFile(ColorSetting color_type)
 }
 
 /*  Get correct color filename */
-QString GUI::getFilename(ColorSetting color_type)
+QString GUI::getFilename(Editor::ColorSetting color_type)
 {
   QString filename;
   switch (color_type)
   {
-    case ColorSetting::SceneColor:
+    case Editor::ColorSetting::SceneColor:
       filename = "data/config/SceneColor.dat";
       break;
-    case ColorSetting::HighlightColor:
+    case Editor::ColorSetting::HighlightColor:
       filename = "data/config/HighlightColor.dat";
       break;
-    case ColorSetting::LineColor:
+    case Editor::ColorSetting::LineColor:
       filename = "data/config/LineColor.dat";
       break;
-    case ColorSetting::SpecialColor:
+    case Editor::ColorSetting::SpecialColor:
       filename = "data/config/SpecialColor.dat";
       break;
-    case ColorSetting::TextColor:
+    case Editor::ColorSetting::TextColor:
       filename = "data/config/TextColor.dat";
       break;
   }
@@ -954,13 +953,13 @@ QString GUI::getFilename(ColorSetting color_type)
 void GUI::ReadAllColors()
 {
   // set scene backgroundcolor
-  mainWidget->getScene()->changeBackgroundColor(readColorFile(ColorSetting::SceneColor));
+  mainWidget->getScene()->changeBackgroundColor(readColorFile(Editor::ColorSetting::SceneColor));
   // set mainWidget backgroundcolor
-  mainWidget->changeBackgroundColor(readColorFile(ColorSetting::HighlightColor));
+  mainWidget->changeBackgroundColor(readColorFile(Editor::ColorSetting::HighlightColor));
   // assign LineItem::LineColor
-  LineItem::LineColor = readColorFile(ColorSetting::LineColor);
+  LineItem::LineColor = readColorFile(Editor::ColorSetting::LineColor);
   // assign OwnGraphicsScene::SpecialColor
-  OwnGraphicsScene::SpecialColor = readColorFile(ColorSetting::SpecialColor);
+  OwnGraphicsScene::SpecialColor = readColorFile(Editor::ColorSetting::SpecialColor);
   // assign TextItem::TextColor
-  TextItem::TextColor = readColorFile(ColorSetting::TextColor);
+  TextItem::TextColor = readColorFile(Editor::ColorSetting::TextColor);
 }
