@@ -6,10 +6,27 @@
 #pragma once
 
 #include <map>
+#include <QString>
 
+/**
+  *   @namespace Editor
+  *   @brief NameSpace for enums GUI uses
+  */
 namespace Editor
 {
 
+  /**
+    *   @enum ColorSetting
+    *   @brief Tells which color colorDialog changes
+    */
+  enum ColorSetting
+  {
+    SceneColor,
+    HighlightColor,
+    LineColor,
+    SpecialColor,
+    TextColor
+  };
 };
 
 /**
@@ -61,3 +78,38 @@ namespace Scene
     unlocked
   };
 };
+
+
+/**
+  *   @namespace Path
+  *   @brief Namespace for all paths
+  */
+namespace Path
+{
+  /**
+    *   @enum ImageName
+    *   @brief Enum for all image names used in GUI
+    */
+  enum ImageName
+  {
+    exit_img,
+    open_img,
+    save_img,
+    draw_line_img,
+    delete_line_img,
+    text_item_img,
+    clear_all_img,
+    image_sketch_img,
+    image_delete_img,
+    image_cut_img,
+    continue_img,
+    cancel_img,
+    finish_img,
+    remove_point_img,
+    bezier_pic_img,
+    save_button_img,
+    bezier_remove_img
+  };
+
+  extern std::map<ImageName, QString> Images; /**< Map from enum value to correct image path */
+}
