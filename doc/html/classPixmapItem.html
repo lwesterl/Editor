@@ -64,6 +64,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="classPixmapItem-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">PixmapItem Class Reference</div>  </div>
@@ -112,12 +113,23 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae2e67a7b69ef10dc613e14c1d3c1a327"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPixmapItem.html#ae2e67a7b69ef10dc613e14c1d3c1a327">RemoveLatestPoint</a> ()</td></tr>
 <tr class="memdesc:ae2e67a7b69ef10dc613e14c1d3c1a327"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove the latest point added.  <a href="#ae2e67a7b69ef10dc613e14c1d3c1a327">More...</a><br /></td></tr>
 <tr class="separator:ae2e67a7b69ef10dc613e14c1d3c1a327"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab71710e3b66024a62fe56a43e60141b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPixmapItem.html#ab71710e3b66024a62fe56a43e60141b3">LineCut</a> ()</td></tr>
+<tr class="memdesc:ab71710e3b66024a62fe56a43e60141b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cut item based on a <a class="el" href="classLineItem.html" title="Own implementation of QGraphicsLineItem. ">LineItem</a>.  <a href="#ab71710e3b66024a62fe56a43e60141b3">More...</a><br /></td></tr>
+<tr class="separator:ab71710e3b66024a62fe56a43e60141b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a660c7d73c4f915e6673a3b602affb568"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPixmapItem.html#a660c7d73c4f915e6673a3b602affb568">BezierCut</a> ()</td></tr>
+<tr class="memdesc:a660c7d73c4f915e6673a3b602affb568"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cut item based on a <a class="el" href="classBezier.html" title="Creates bezier curves. ">Bezier</a> (its LineItems)  <a href="#a660c7d73c4f915e6673a3b602affb568">More...</a><br /></td></tr>
+<tr class="separator:a660c7d73c4f915e6673a3b602affb568"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a3733ea98fc45c24acc1bc1552e969895"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="namespaceEditor.html#aad9ecf07f59416285836e79f1b1d2bd8">Editor::ConnectPoint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPixmapItem.html#a3733ea98fc45c24acc1bc1552e969895">connect_point</a> = Editor::ConnectPoint::ConnectZero</td></tr>
+<tr class="separator:a3733ea98fc45c24acc1bc1552e969895"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Own QGraphicsPixmapItem implementation. </p>
 <p>This class inherits QGraphicsPixmapItem Adds a position specifiers to the base class </p>
 
-<p class="definition">Definition at line <a class="el" href="PixmapItem_8hpp_source.html#l00051">51</a> of file <a class="el" href="PixmapItem_8hpp_source.html">PixmapItem.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PixmapItem_8hpp_source.html#l00060">60</a> of file <a class="el" href="PixmapItem_8hpp_source.html">PixmapItem.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a7e339e581be3c4892d2af89494bd137c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7e339e581be3c4892d2af89494bd137c">&#9670;&nbsp;</a></span>PixmapItem()</h2>
@@ -154,7 +166,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="PixmapItem_8cpp_source.html#l00016">16</a> of file <a class="el" href="PixmapItem_8cpp_source.html">PixmapItem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PixmapItem_8cpp_source.html#l00019">19</a> of file <a class="el" href="PixmapItem_8cpp_source.html">PixmapItem.cpp</a>.</p>
 
 </div>
 </div>
@@ -195,7 +207,29 @@ Public Member Functions</h2></td></tr>
 </dl>
 <p>The painter point is used in cut image mode to create a polygon cut </p>
 
-<p class="definition">Definition at line <a class="el" href="PixmapItem_8cpp_source.html#l00099">99</a> of file <a class="el" href="PixmapItem_8cpp_source.html">PixmapItem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PixmapItem_8cpp_source.html#l00102">102</a> of file <a class="el" href="PixmapItem_8cpp_source.html">PixmapItem.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a660c7d73c4f915e6673a3b602affb568"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a660c7d73c4f915e6673a3b602affb568">&#9670;&nbsp;</a></span>BezierCut()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PixmapItem::BezierCut </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Cut item based on a <a class="el" href="classBezier.html" title="Creates bezier curves. ">Bezier</a> (its LineItems) </p>
+<p>Connects lines from the last painter_point to the first using lower edge as a connection point </p>
+
+<p class="definition">Definition at line <a class="el" href="PixmapItem_8cpp_source.html#l00172">172</a> of file <a class="el" href="PixmapItem_8cpp_source.html">PixmapItem.cpp</a>.</p>
 
 </div>
 </div>
@@ -217,7 +251,7 @@ Public Member Functions</h2></td></tr>
 <p>Clear all QPoints of the item. </p>
 <p>Points are cleared from painter_points vector </p>
 
-<p class="definition">Definition at line <a class="el" href="PixmapItem_8cpp_source.html#l00113">113</a> of file <a class="el" href="PixmapItem_8cpp_source.html">PixmapItem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PixmapItem_8cpp_source.html#l00116">116</a> of file <a class="el" href="PixmapItem_8cpp_source.html">PixmapItem.cpp</a>.</p>
 
 </div>
 </div>
@@ -239,7 +273,7 @@ Public Member Functions</h2></td></tr>
 <p>Cut the item. </p>
 <p>Cut path is defined by QPainterPath which is created from QPoints in painter_points </p>
 
-<p class="definition">Definition at line <a class="el" href="PixmapItem_8cpp_source.html#l00030">30</a> of file <a class="el" href="PixmapItem_8cpp_source.html">PixmapItem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PixmapItem_8cpp_source.html#l00033">33</a> of file <a class="el" href="PixmapItem_8cpp_source.html">PixmapItem.cpp</a>.</p>
 
 </div>
 </div>
@@ -268,7 +302,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns true if x is inside the item </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="PixmapItem_8cpp_source.html#l00065">65</a> of file <a class="el" href="PixmapItem_8cpp_source.html">PixmapItem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PixmapItem_8cpp_source.html#l00068">68</a> of file <a class="el" href="PixmapItem_8cpp_source.html">PixmapItem.cpp</a>.</p>
 
 </div>
 </div>
@@ -297,7 +331,29 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns true if y is inside the item </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="PixmapItem_8cpp_source.html#l00077">77</a> of file <a class="el" href="PixmapItem_8cpp_source.html">PixmapItem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PixmapItem_8cpp_source.html#l00080">80</a> of file <a class="el" href="PixmapItem_8cpp_source.html">PixmapItem.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ab71710e3b66024a62fe56a43e60141b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab71710e3b66024a62fe56a43e60141b3">&#9670;&nbsp;</a></span>LineCut()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PixmapItem::LineCut </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Cut item based on a <a class="el" href="classLineItem.html" title="Own implementation of QGraphicsLineItem. ">LineItem</a>. </p>
+<p>Connects lines from lower edges of the pixmap to the <a class="el" href="classLineItem.html" title="Own implementation of QGraphicsLineItem. ">LineItem</a> points </p>
+
+<p class="definition">Definition at line <a class="el" href="PixmapItem_8cpp_source.html#l00136">136</a> of file <a class="el" href="PixmapItem_8cpp_source.html">PixmapItem.cpp</a>.</p>
 
 </div>
 </div>
@@ -319,7 +375,7 @@ Public Member Functions</h2></td></tr>
 <p>Remove the latest point added. </p>
 <p>Removes the latest entry from painter_points vector </p>
 
-<p class="definition">Definition at line <a class="el" href="PixmapItem_8cpp_source.html#l00123">123</a> of file <a class="el" href="PixmapItem_8cpp_source.html">PixmapItem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PixmapItem_8cpp_source.html#l00126">126</a> of file <a class="el" href="PixmapItem_8cpp_source.html">PixmapItem.cpp</a>.</p>
 
 </div>
 </div>
@@ -347,7 +403,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="PixmapItem_8cpp_source.html#l00086">86</a> of file <a class="el" href="PixmapItem_8cpp_source.html">PixmapItem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PixmapItem_8cpp_source.html#l00089">89</a> of file <a class="el" href="PixmapItem_8cpp_source.html">PixmapItem.cpp</a>.</p>
 
 </div>
 </div>
@@ -375,7 +431,33 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="PixmapItem_8cpp_source.html#l00091">91</a> of file <a class="el" href="PixmapItem_8cpp_source.html">PixmapItem.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PixmapItem_8cpp_source.html#l00094">94</a> of file <a class="el" href="PixmapItem_8cpp_source.html">PixmapItem.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a3733ea98fc45c24acc1bc1552e969895"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3733ea98fc45c24acc1bc1552e969895">&#9670;&nbsp;</a></span>connect_point</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceEditor.html#aad9ecf07f59416285836e79f1b1d2bd8">Editor::ConnectPoint</a> PixmapItem::connect_point = Editor::ConnectPoint::ConnectZero</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Tells to which point LineCut and BezierCut connect cut paths in y dimension. </p>
+
+<p class="definition">Definition at line <a class="el" href="PixmapItem_8hpp_source.html#l00063">63</a> of file <a class="el" href="PixmapItem_8hpp_source.html">PixmapItem.hpp</a>.</p>
 
 </div>
 </div>

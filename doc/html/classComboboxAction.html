@@ -91,6 +91,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:adfe475154e5b88eddbc9a51759bdf312"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComboboxAction.html#adfe475154e5b88eddbc9a51759bdf312">ComboIndex</a> ()</td></tr>
 <tr class="memdesc:adfe475154e5b88eddbc9a51759bdf312"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get combobox index.  <a href="#adfe475154e5b88eddbc9a51759bdf312">More...</a><br /></td></tr>
 <tr class="separator:adfe475154e5b88eddbc9a51759bdf312"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac216fa96660ef568af946eb2fc58746e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComboboxAction.html#ac216fa96660ef568af946eb2fc58746e">setItemText</a> (int index, const QString text)</td></tr>
+<tr class="memdesc:ac216fa96660ef568af946eb2fc58746e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set Item text.  <a href="#ac216fa96660ef568af946eb2fc58746e">More...</a><br /></td></tr>
+<tr class="separator:ac216fa96660ef568af946eb2fc58746e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3472e15614e868dbf300fdbcbc5a011c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComboboxAction.html#a3472e15614e868dbf300fdbcbc5a011c">addItem</a> (const QString text)</td></tr>
+<tr class="memdesc:a3472e15614e868dbf300fdbcbc5a011c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add new item to the combobox.  <a href="#a3472e15614e868dbf300fdbcbc5a011c">More...</a><br /></td></tr>
+<tr class="separator:a3472e15614e868dbf300fdbcbc5a011c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implements own QComboBox. </p>
@@ -127,6 +133,34 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a3472e15614e868dbf300fdbcbc5a011c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3472e15614e868dbf300fdbcbc5a011c">&#9670;&nbsp;</a></span>addItem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ComboboxAction::addItem </td>
+          <td>(</td>
+          <td class="paramtype">const QString&#160;</td>
+          <td class="paramname"><em>text</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Add new item to the combobox. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>Item text </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="ComboboxAction_8cpp_source.html#l00051">51</a> of file <a class="el" href="ComboboxAction_8cpp_source.html">ComboboxAction.cpp</a>.</p>
+
+</div>
+</div>
 <a id="adfe475154e5b88eddbc9a51759bdf312"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adfe475154e5b88eddbc9a51759bdf312">&#9670;&nbsp;</a></span>ComboIndex()</h2>
 
@@ -147,6 +181,45 @@ Public Member Functions</h2></td></tr>
 <p>Calls QComboBox currentIndex() </p>
 
 <p class="definition">Definition at line <a class="el" href="ComboboxAction_8cpp_source.html#l00035">35</a> of file <a class="el" href="ComboboxAction_8cpp_source.html">ComboboxAction.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ac216fa96660ef568af946eb2fc58746e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac216fa96660ef568af946eb2fc58746e">&#9670;&nbsp;</a></span>setItemText()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ComboboxAction::setItemText </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString&#160;</td>
+          <td class="paramname"><em>text</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set Item text. </p>
+<p>This allows set other text than yes / no which are the defaults </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>Index of the item which text is changed </td></tr>
+    <tr><td class="paramname">text</td><td>New item text </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="ComboboxAction_8cpp_source.html#l00041">41</a> of file <a class="el" href="ComboboxAction_8cpp_source.html">ComboboxAction.cpp</a>.</p>
 
 </div>
 </div>

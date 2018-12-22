@@ -6,8 +6,12 @@ var searchData=
   ['circle3',['circle3',['../structBezier__Mode.html#a342d3b970c6049b615ef356a902c0781',1,'Bezier_Mode']]],
   ['circle4',['circle4',['../structBezier__Mode.html#a6f26e1fe7da425063b792dab9f3c1099',1,'Bezier_Mode']]],
   ['clicks',['clicks',['../structImage__Active.html#abb039226daf0372a8d88c842f5eb140f',1,'Image_Active']]],
+  ['colorfiles',['ColorFiles',['../namespacePath.html#a21da476e044885fbf3a6739fb5eddc12',1,'Path']]],
   ['combobox',['combobox',['../structModeToolbar.html#ad0ba4f03ef2a44e2543add404a50b4f1',1,'ModeToolbar']]],
+  ['compensationvalue',['CompensationValue',['../classLineItem.html#af02da5c4e14746431c760eb075e3220e',1,'LineItem']]],
+  ['connect_5fpoint',['connect_point',['../classPixmapItem.html#a3733ea98fc45c24acc1bc1552e969895',1,'PixmapItem']]],
   ['continue_5fbutton',['continue_button',['../structModeToolbar.html#af7d7766f5b1710abb382c42689e963ca',1,'ModeToolbar::continue_button()'],['../structSelectImgToolbar.html#a82569764f9d7e13b406a668e9e50290a',1,'SelectImgToolbar::continue_button()']]],
+  ['control_5fpoint_5fcircle_5fdiameter',['Control_point_circle_diameter',['../namespaceScene.html#a9748945cd0ead6ce381d71b419154c55',1,'Scene']]],
   ['created',['created',['../structLine__Mode.html#ae48257668288a2a284bef66727fa68e5',1,'Line_Mode::created()'],['../structBezier__Mode.html#ae2573f8601e7d9f439d2bfbc11c34ae9',1,'Bezier_Mode::created()']]],
   ['current_5fitem',['current_item',['../structImage__Cut.html#aa3fcac1ab311c38947b343d8913fb2e8',1,'Image_Cut']]],
   ['cut_5fmode',['cut_mode',['../structImage__Cut.html#ad4904a8753086961301a91050f6b2794',1,'Image_Cut']]]

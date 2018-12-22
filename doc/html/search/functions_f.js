@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['vector2',['Vector2',['../classVector2.html#a061ab58a0e216c759d64e3746d712b12',1,'Vector2::Vector2(float x, float y)'],['../classVector2.html#a22104d1809be26a419ef1f959e3761bf',1,'Vector2::Vector2()']]]
+  ['updateposition',['updatePosition',['../classLineItem.html#acea090c7b9ff53dcc7a95ab7939b2cb9',1,'LineItem']]],
+  ['updatescenesize',['updateSceneSize',['../classOwnGraphicsView.html#aed25dd7c6e958838fcfa7709363ffc9c',1,'OwnGraphicsView']]],
+  ['updatesize',['updateSize',['../classOwnGraphicsView.html#ac44fdf0870779587fcaf8855f905cdf3',1,'OwnGraphicsView']]]
 ];

@@ -64,6 +64,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="classLineItem-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">LineItem Class Reference</div>  </div>
@@ -103,21 +104,28 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:acea090c7b9ff53dcc7a95ab7939b2cb9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLineItem.html#acea090c7b9ff53dcc7a95ab7939b2cb9">updatePosition</a> (unsigned x_new, unsigned y_new)</td></tr>
 <tr class="memdesc:acea090c7b9ff53dcc7a95ab7939b2cb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update end x and y coordinates.  <a href="#acea090c7b9ff53dcc7a95ab7939b2cb9">More...</a><br /></td></tr>
 <tr class="separator:acea090c7b9ff53dcc7a95ab7939b2cb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7dc675a032b27d6424536994095a95e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLineItem.html#af7dc675a032b27d6424536994095a95e">isInside</a> (unsigned x, unsigned y)</td></tr>
+<tr class="memdesc:af7dc675a032b27d6424536994095a95e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if coordinate is inside the item.  <a href="#af7dc675a032b27d6424536994095a95e">More...</a><br /></td></tr>
+<tr class="separator:af7dc675a032b27d6424536994095a95e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:af02da5c4e14746431c760eb075e3220e"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLineItem.html#af02da5c4e14746431c760eb075e3220e">CompensationValue</a> = 10</td></tr>
+<tr class="separator:af02da5c4e14746431c760eb075e3220e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a290f246bf61be323ebd52f68bfe9ab4d"><td class="memItemLeft" align="right" valign="top">static QColor&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLineItem.html#a290f246bf61be323ebd52f68bfe9ab4d">LineColor</a> = Qt::black</td></tr>
+<tr class="separator:a290f246bf61be323ebd52f68bfe9ab4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Own implementation of QGraphicsLineItem. </p>
 <p>Adds coordinate positions variables to QGraphicsLineItem </p>
 
-<p class="definition">Definition at line <a class="el" href="LineItem_8hpp_source.html#l00021">21</a> of file <a class="el" href="LineItem_8hpp_source.html">LineItem.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LineItem_8hpp_source.html#l00024">24</a> of file <a class="el" href="LineItem_8hpp_source.html">LineItem.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="af79b99800cc44a69b53940bdb88ddd1b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af79b99800cc44a69b53940bdb88ddd1b">&#9670;&nbsp;</a></span>LineItem()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">LineItem::LineItem </td>
@@ -149,11 +157,6 @@ Public Member Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Constructor for <a class="el" href="classLineItem.html" title="Own implementation of QGraphicsLineItem. ">LineItem</a>. </p>
@@ -167,7 +170,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="LineItem_8hpp_source.html#l00032">32</a> of file <a class="el" href="LineItem_8hpp_source.html">LineItem.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LineItem_8cpp_source.html#l00014">14</a> of file <a class="el" href="LineItem_8cpp_source.html">LineItem.cpp</a>.</p>
 
 </div>
 </div>
@@ -177,9 +180,6 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">unsigned LineItem::getX1 </td>
@@ -188,17 +188,12 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Get start x coordinate. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns x1 </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="LineItem_8hpp_source.html#l00039">39</a> of file <a class="el" href="LineItem_8hpp_source.html">LineItem.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LineItem_8cpp_source.html#l00023">23</a> of file <a class="el" href="LineItem_8cpp_source.html">LineItem.cpp</a>.</p>
 
 </div>
 </div>
@@ -207,9 +202,6 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">unsigned LineItem::getX2 </td>
@@ -218,17 +210,12 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Get end x coordinate. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns x2 </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="LineItem_8hpp_source.html#l00045">45</a> of file <a class="el" href="LineItem_8hpp_source.html">LineItem.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LineItem_8cpp_source.html#l00028">28</a> of file <a class="el" href="LineItem_8cpp_source.html">LineItem.cpp</a>.</p>
 
 </div>
 </div>
@@ -237,9 +224,6 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">unsigned LineItem::getY1 </td>
@@ -248,17 +232,12 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Get start y coordinate. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns y1 </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="LineItem_8hpp_source.html#l00051">51</a> of file <a class="el" href="LineItem_8hpp_source.html">LineItem.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LineItem_8cpp_source.html#l00033">33</a> of file <a class="el" href="LineItem_8cpp_source.html">LineItem.cpp</a>.</p>
 
 </div>
 </div>
@@ -267,9 +246,6 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">unsigned LineItem::getY2 </td>
@@ -278,17 +254,52 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Get end y coordinate. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns y2 </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="LineItem_8hpp_source.html#l00057">57</a> of file <a class="el" href="LineItem_8hpp_source.html">LineItem.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LineItem_8cpp_source.html#l00038">38</a> of file <a class="el" href="LineItem_8cpp_source.html">LineItem.cpp</a>.</p>
+
+</div>
+</div>
+<a id="af7dc675a032b27d6424536994095a95e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7dc675a032b27d6424536994095a95e">&#9670;&nbsp;</a></span>isInside()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool LineItem::isInside </td>
+          <td>(</td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check if coordinate is inside the item. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>x coordinate </td></tr>
+    <tr><td class="paramname">y</td><td>y coordinate </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns true if the coordinate is inside the item </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="LineItem_8cpp_source.html#l00051">51</a> of file <a class="el" href="LineItem_8cpp_source.html">LineItem.cpp</a>.</p>
 
 </div>
 </div>
@@ -297,9 +308,6 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void LineItem::updatePosition </td>
@@ -319,11 +327,6 @@ Public Member Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Update end x and y coordinates. </p>
@@ -335,12 +338,64 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="LineItem_8hpp_source.html#l00064">64</a> of file <a class="el" href="LineItem_8hpp_source.html">LineItem.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="LineItem_8cpp_source.html#l00043">43</a> of file <a class="el" href="LineItem_8cpp_source.html">LineItem.cpp</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="af02da5c4e14746431c760eb075e3220e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af02da5c4e14746431c760eb075e3220e">&#9670;&nbsp;</a></span>CompensationValue</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int LineItem::CompensationValue = 10</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Value used to compensate clicking the item to make it easier </p>
+
+<p class="definition">Definition at line <a class="el" href="LineItem_8hpp_source.html#l00028">28</a> of file <a class="el" href="LineItem_8hpp_source.html">LineItem.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a290f246bf61be323ebd52f68bfe9ab4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a290f246bf61be323ebd52f68bfe9ab4d">&#9670;&nbsp;</a></span>LineColor</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QColor LineItem::LineColor = Qt::black</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Color for LineItems, can be reset via <a class="el" href="classGUI.html" title="Graphical user interface. ">GUI</a> </p>
+
+<p class="definition">Definition at line <a class="el" href="LineItem_8hpp_source.html#l00029">29</a> of file <a class="el" href="LineItem_8hpp_source.html">LineItem.hpp</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>include/<a class="el" href="LineItem_8hpp_source.html">LineItem.hpp</a></li>
+<li>src/<a class="el" href="LineItem_8cpp_source.html">LineItem.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

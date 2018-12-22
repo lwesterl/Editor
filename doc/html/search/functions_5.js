@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['getcurrentvalue',['getCurrentValue',['../classSpinBoxAction.html#a5d002c4cee2c3a9db59da9b75bfdce16',1,'SpinBoxAction']]],
   ['getendx',['getEndX',['../classBezier.html#aef4b9fbe3b5d30ea6b42de7fc38cf796',1,'Bezier']]],
   ['getendy',['getEndY',['../classBezier.html#abb9094c95311d916aad946d90a9b5c12',1,'Bezier']]],
   ['getlayout',['getLayout',['../classMainWidget.html#a639b465bb49eb31e1c09051ae047951f',1,'MainWidget']]],
@@ -10,7 +11,7 @@ var searchData=
   ['getstartx',['getStartX',['../classBezier.html#a81efbcfa1f2bc8bf3c539dba1a4b80e0',1,'Bezier']]],
   ['getstarty',['getStartY',['../classBezier.html#ae310b53e4d8b3d586bbc4d335ac4cc08',1,'Bezier']]],
   ['getvectors',['getVectors',['../classBezier.html#a26bf332b0c831e0f302f1d72ec782436',1,'Bezier::getVectors()'],['../classBezier.html#a26bf332b0c831e0f302f1d72ec782436',1,'Bezier::getVectors()']]],
-  ['getview',['getView',['../classMainWidget.html#ae73e3dac6fb1e99dabe84aab683b3fbd',1,'MainWidget']]],
+  ['getview',['getView',['../classMainWidget.html#ad23c8b31116d474ce1a19fe78ad6db07',1,'MainWidget']]],
   ['getx',['getX',['../classVector2.html#a808d02062efcc0c016491c04845e3e34',1,'Vector2']]],
   ['getx1',['getX1',['../classLineItem.html#a8862ea60a3804d346e9801f79c67af76',1,'LineItem']]],
   ['getx2',['getX2',['../classLineItem.html#addce0ef5af72c233e2c7bf019c7a693d',1,'LineItem']]],

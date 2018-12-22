@@ -29,6 +29,8 @@ float \mbox{\hyperlink{classBezier_a81efbcfa1f2bc8bf3c539dba1a4b80e0}{get\+Start
 \begin{DoxyCompactList}\small\item\em Get \mbox{\hyperlink{classBezier}{Bezier}} start x coordinate. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{classBezier_ae310b53e4d8b3d586bbc4d335ac4cc08}{get\+StartY}} ()
 \begin{DoxyCompactList}\small\item\em Get \mbox{\hyperlink{classBezier}{Bezier}} start y coordinate. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classBezier_a1ea801d6578a5858939b87775a9ea654}{is\+Inside}} (unsigned x, unsigned y)
+\begin{DoxyCompactList}\small\item\em Check whether position is inside bezier or not. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classBezier_aeee0e41ed64d1a61d7ac103d2300093b}{Bezier}} (\mbox{\hyperlink{classVector2}{Vector2}} p0, \mbox{\hyperlink{classVector2}{Vector2}} p1, \mbox{\hyperlink{classVector2}{Vector2}} p2, \mbox{\hyperlink{classVector2}{Vector2}} p3)
 \begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{classBezier}{Bezier}}. \end{DoxyCompactList}\item 
 std\+::vector$<$ \mbox{\hyperlink{classVector2}{Vector2}} $>$ \& \mbox{\hyperlink{classBezier_a26bf332b0c831e0f302f1d72ec782436}{get\+Vectors}} ()
@@ -38,11 +40,11 @@ std\+::vector$<$ \mbox{\hyperlink{classVector2}{Vector2}} $>$ \& \mbox{\hyperlin
 \subsection{Detailed Description}
 Creates bezier curves. 
 
-Used in Editor to draw bezier curves
+Used in \mbox{\hyperlink{namespaceEditor}{Editor}} to draw bezier curves
 
 @brief Creates bezier curves
 
-Used in Editor to draw bezier curves 
+Used in \mbox{\hyperlink{namespaceEditor}{Editor}} to draw bezier curves 
 
 Definition at line 34 of file Bezier.\+hpp.
 
@@ -213,6 +215,33 @@ Returns reference to the vector object containing \mbox{\hyperlink{classVector2}
 
 
 Definition at line 59 of file Bezier.\+hpp.
+
+\mbox{\Hypertarget{classBezier_a1ea801d6578a5858939b87775a9ea654}\label{classBezier_a1ea801d6578a5858939b87775a9ea654}} 
+\index{Bezier@{Bezier}!is\+Inside@{is\+Inside}}
+\index{is\+Inside@{is\+Inside}!Bezier@{Bezier}}
+\subsubsection{\texorpdfstring{is\+Inside()}{isInside()}}
+{\footnotesize\ttfamily bool Bezier\+::is\+Inside (\begin{DoxyParamCaption}\item[{unsigned}]{x,  }\item[{unsigned}]{y }\end{DoxyParamCaption})}
+
+
+
+Check whether position is inside bezier or not. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & x coordinate \\
+\hline
+{\em y} & y coordinate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true if position is inside 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+This is relatively heavy method 
+\end{DoxyRemark}
+
+
+Definition at line 117 of file Bezier.\+cpp.
 
 
 

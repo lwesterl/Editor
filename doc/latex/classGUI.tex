@@ -15,72 +15,18 @@ Inheritance diagram for G\+UI\+:\begin{figure}[H]
 \includegraphics[height=2.000000cm]{classGUI}
 \end{center}
 \end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classGUI_a38e10347906d9b19c2970a8cef79a455}{Color\+Changed}} (const Q\+Color \&color)
+\begin{DoxyCompactList}\small\item\em Slot that is connected to color\+Dialog select color. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classGUI_acb0ba8c6fc121d814d30560e2c29f2fe}{G\+UI}} (Q\+Widget $\ast$parent=0)
 \begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classGUI}{G\+UI}} constructor. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classGUI_ac9cae2328dcb5d83bdfaeca49a2eb695}{$\sim$\+G\+UI}} ()
-\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classGUI}{G\+UI}} deconstructor. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classGUI_a91fab5d31617ad5631d17dfceb5a0fad}{Line\+Mode}} ()
-\begin{DoxyCompactList}\small\item\em Line drawing mode. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classGUI_aac66154aaa763aac4d20e55cbd1bdc0d}{Delete\+Mode}} ()
-\begin{DoxyCompactList}\small\item\em Delete lines mode. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classGUI_afb6e169c9372800e69c70a3889420325}{Clear\+Mode}} ()
-\begin{DoxyCompactList}\small\item\em Clear previous points. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classGUI_a19c82a62a2b41460c81317fa967e3a1e}{Clear\+All}} ()
-\begin{DoxyCompactList}\small\item\em Clear all objects. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classGUI_a44684af7706c021022520e2c4829c3ee}{save\+Image}} ()
-\begin{DoxyCompactList}\small\item\em Save scene content to an image. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classGUI_a925c89bd7b32ccc8d726063ed8076f8f}{open\+Image}} ()
-\begin{DoxyCompactList}\small\item\em Open an image. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classGUI_a5281fa4256d3ff14df9a95c1c6613bb2}{Img\+Mode}} ()
-\begin{DoxyCompactList}\small\item\em Mode for adding images to the scene. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classGUI_a453b758a292b4a0e6f52f25b1bb2de77}{Delete\+Img\+Mode}} ()
-\begin{DoxyCompactList}\small\item\em Delete images from the scene. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classGUI_ae8acfcce2ea4da241c920076b72f1c93}{Cut\+Image\+Mode}} ()
-\begin{DoxyCompactList}\small\item\em Mode for cutting images. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classGUI_a26cdc4a989f3637301f0afb9cc5e23b0}{create\+Toolbars}} ()
-\begin{DoxyCompactList}\small\item\em Create different toolbars. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classGUI_aaf633cd0904e4c3627c21219f330c177}{Hide\+Polygon\+Toolbar}} (bool hide)
-\begin{DoxyCompactList}\small\item\em Hide \mbox{\hyperlink{structPolygonToolbar}{Polygon\+Toolbar}}. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classGUI_a9517c0ad1e4c2b39faab8050f8133151}{Hide\+Mode\+Toolbar}} (bool hide)
-\begin{DoxyCompactList}\small\item\em Hide \mbox{\hyperlink{structModeToolbar}{Mode\+Toolbar}}. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classGUI_aa115b0163bfbf518dd201f4f02476b75}{Hide\+Main\+Toolbar}} (bool hide)
-\begin{DoxyCompactList}\small\item\em Hide Main\+Toolbar. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classGUI_a7f6d3b1fcbd874fccd93c5f29c468ed8}{Hide\+Select\+Toolbar}} (bool hide)
-\begin{DoxyCompactList}\small\item\em Hide \mbox{\hyperlink{structSelectImgToolbar}{Select\+Img\+Toolbar}}. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classGUI_a3547730e0fae81b59fcb19d00a370782}{Continue\+From\+Mode}} ()
-\begin{DoxyCompactList}\small\item\em Continue to image cutting. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classGUI_a8188dd01b2dc9354afbbf2f4b18fd19a}{Cancel\+From\+Mode}} ()
-\begin{DoxyCompactList}\small\item\em Cancel to the main view, toolbar. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classGUI_a6bf2d3ef382340365b5693245a2bd955}{Set\+Poly\+Final}} ()
-\begin{DoxyCompactList}\small\item\em Create polygon cut to an image. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classGUI_abf8e1050ae4d599bf35af7b1f841d960}{Remove\+Poly\+Previous}} ()
-\begin{DoxyCompactList}\small\item\em Remove previous cut line from an image. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classGUI_a9f2b3abf533a7c720b817caed653da2e}{Cancel\+From\+Poly}} ()
-\begin{DoxyCompactList}\small\item\em Return to the main view. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classGUI_a0cddf3859f457495040857f4868f32e3}{Continue\+From\+Select}} ()
-\begin{DoxyCompactList}\small\item\em Continue to image mode select. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classGUI_a3e6d9c2c9482bf8cb9655899b36e8bc1}{Cancel\+From\+Select}} ()
-\begin{DoxyCompactList}\small\item\em Return to the main view. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classGUI_a00fb847ea0a8249acaaf70c0f3ba3fd4}{Save\+Choices}} ()
-\begin{DoxyCompactList}\small\item\em Save options. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classGUI_ac0cb178a0a36573f7d99a104dd84f5ed}\label{classGUI_ac0cb178a0a36573f7d99a104dd84f5ed}} 
-void \mbox{\hyperlink{classGUI_ac0cb178a0a36573f7d99a104dd84f5ed}{Bezier\+Mode}} ()
-\begin{DoxyCompactList}\small\item\em Activates/deactivates bezier\+\_\+mode. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classGUI_a593ffaac7d8a664f20893aed2536988b}{Bezier\+Toolbar\+\_\+\+Options\+Saved}} ()
-\begin{DoxyCompactList}\small\item\em Driggered when \mbox{\hyperlink{structBezierToolbar}{Bezier\+Toolbar}} options are saved. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classGUI_a6f27f73cf15f18dfa206630cc77bc7df}{Bezier\+Toolbar\+\_\+\+Save\+Bezier}} ()
-\begin{DoxyCompactList}\small\item\em Save the current \mbox{\hyperlink{classBezier}{Bezier}}. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classGUI_a8e851696d9c01c19a3afc7bdc0fbe54f}\label{classGUI_a8e851696d9c01c19a3afc7bdc0fbe54f}} 
-void \mbox{\hyperlink{classGUI_a8e851696d9c01c19a3afc7bdc0fbe54f}{Bezier\+Toolbar\+\_\+\+Cancel}} ()
-\begin{DoxyCompactList}\small\item\em Remove the current \mbox{\hyperlink{classBezier}{Bezier}} and cancel to main toolbar. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classGUI_a508f3c222bb40b6cf139fc346e562564}\label{classGUI_a508f3c222bb40b6cf139fc346e562564}} 
-void \mbox{\hyperlink{classGUI_a508f3c222bb40b6cf139fc346e562564}{Bezier\+Toolbar\+\_\+\+Remove}} ()
-\begin{DoxyCompactList}\small\item\em Remove current \mbox{\hyperlink{classBezier}{Bezier}}. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classGUI_ae36c91ff70502eeecb985c3b84aa3a07}{Hide\+Bezier\+Toolbar}} (bool hide)
-\begin{DoxyCompactList}\small\item\em Hide or unhide \mbox{\hyperlink{structBezierToolbar}{Bezier\+Toolbar}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classGUI}{G\+UI}} deconstructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -88,7 +34,7 @@ Graphical user interface.
 
 Inherits Q\+Main\+Window. Implements inteface to mainwidget 
 
-Definition at line 187 of file G\+U\+I.\+hpp.
+Definition at line 116 of file G\+U\+I.\+hpp.
 
 
 
@@ -110,13 +56,13 @@ Definition at line 187 of file G\+U\+I.\+hpp.
 \end{DoxyParams}
 
 
-Definition at line 17 of file G\+U\+I.\+cpp.
+Definition at line 16 of file G\+U\+I.\+cpp.
 
 \mbox{\Hypertarget{classGUI_ac9cae2328dcb5d83bdfaeca49a2eb695}\label{classGUI_ac9cae2328dcb5d83bdfaeca49a2eb695}} 
 \index{G\+UI@{G\+UI}!````~G\+UI@{$\sim$\+G\+UI}}
 \index{````~G\+UI@{$\sim$\+G\+UI}!G\+UI@{G\+UI}}
 \subsubsection{\texorpdfstring{$\sim$\+G\+U\+I()}{~GUI()}}
-{\footnotesize\ttfamily G\+U\+I\+::$\sim$\+G\+UI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily G\+U\+I\+::$\sim$\+G\+UI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -124,385 +70,29 @@ Definition at line 17 of file G\+U\+I.\+cpp.
 
 Deletes mainwidget 
 
-Definition at line 201 of file G\+U\+I.\+hpp.
+Definition at line 101 of file G\+U\+I.\+cpp.
 
 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{classGUI_a593ffaac7d8a664f20893aed2536988b}\label{classGUI_a593ffaac7d8a664f20893aed2536988b}} 
-\index{G\+UI@{G\+UI}!Bezier\+Toolbar\+\_\+\+Options\+Saved@{Bezier\+Toolbar\+\_\+\+Options\+Saved}}
-\index{Bezier\+Toolbar\+\_\+\+Options\+Saved@{Bezier\+Toolbar\+\_\+\+Options\+Saved}!G\+UI@{G\+UI}}
-\subsubsection{\texorpdfstring{Bezier\+Toolbar\+\_\+\+Options\+Saved()}{BezierToolbar\_OptionsSaved()}}
-{\footnotesize\ttfamily void G\+U\+I\+::\+Bezier\+Toolbar\+\_\+\+Options\+Saved (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{classGUI_a38e10347906d9b19c2970a8cef79a455}\label{classGUI_a38e10347906d9b19c2970a8cef79a455}} 
+\index{G\+UI@{G\+UI}!Color\+Changed@{Color\+Changed}}
+\index{Color\+Changed@{Color\+Changed}!G\+UI@{G\+UI}}
+\subsubsection{\texorpdfstring{Color\+Changed}{ColorChanged}}
+{\footnotesize\ttfamily void G\+U\+I\+::\+Color\+Changed (\begin{DoxyParamCaption}\item[{const Q\+Color \&}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
 
 
 
-Driggered when \mbox{\hyperlink{structBezierToolbar}{Bezier\+Toolbar}} options are saved. 
-
-Used to update \mbox{\hyperlink{classOwnGraphicsScene}{Own\+Graphics\+Scene}} \mbox{\hyperlink{classBezier}{Bezier}} drawing 
-
-Definition at line 685 of file G\+U\+I.\+cpp.
-
-\mbox{\Hypertarget{classGUI_a6f27f73cf15f18dfa206630cc77bc7df}\label{classGUI_a6f27f73cf15f18dfa206630cc77bc7df}} 
-\index{G\+UI@{G\+UI}!Bezier\+Toolbar\+\_\+\+Save\+Bezier@{Bezier\+Toolbar\+\_\+\+Save\+Bezier}}
-\index{Bezier\+Toolbar\+\_\+\+Save\+Bezier@{Bezier\+Toolbar\+\_\+\+Save\+Bezier}!G\+UI@{G\+UI}}
-\subsubsection{\texorpdfstring{Bezier\+Toolbar\+\_\+\+Save\+Bezier()}{BezierToolbar\_SaveBezier()}}
-{\footnotesize\ttfamily void G\+U\+I\+::\+Bezier\+Toolbar\+\_\+\+Save\+Bezier (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Save the current \mbox{\hyperlink{classBezier}{Bezier}}. 
-
-Used to signal \mbox{\hyperlink{classOwnGraphicsScene}{Own\+Graphics\+Scene}} that the \mbox{\hyperlink{classBezier}{Bezier}} should be saved 
-
-Definition at line 703 of file G\+U\+I.\+cpp.
-
-\mbox{\Hypertarget{classGUI_a8188dd01b2dc9354afbbf2f4b18fd19a}\label{classGUI_a8188dd01b2dc9354afbbf2f4b18fd19a}} 
-\index{G\+UI@{G\+UI}!Cancel\+From\+Mode@{Cancel\+From\+Mode}}
-\index{Cancel\+From\+Mode@{Cancel\+From\+Mode}!G\+UI@{G\+UI}}
-\subsubsection{\texorpdfstring{Cancel\+From\+Mode()}{CancelFromMode()}}
-{\footnotesize\ttfamily void G\+U\+I\+::\+Cancel\+From\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Cancel to the main view, toolbar. 
-
-Called after user has canceled from image cutting mode 
-
-Definition at line 573 of file G\+U\+I.\+cpp.
-
-\mbox{\Hypertarget{classGUI_a9f2b3abf533a7c720b817caed653da2e}\label{classGUI_a9f2b3abf533a7c720b817caed653da2e}} 
-\index{G\+UI@{G\+UI}!Cancel\+From\+Poly@{Cancel\+From\+Poly}}
-\index{Cancel\+From\+Poly@{Cancel\+From\+Poly}!G\+UI@{G\+UI}}
-\subsubsection{\texorpdfstring{Cancel\+From\+Poly()}{CancelFromPoly()}}
-{\footnotesize\ttfamily void G\+U\+I\+::\+Cancel\+From\+Poly (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Return to the main view. 
-
-Called after user has canceled from polygon image cut 
-
-Definition at line 618 of file G\+U\+I.\+cpp.
-
-\mbox{\Hypertarget{classGUI_a3e6d9c2c9482bf8cb9655899b36e8bc1}\label{classGUI_a3e6d9c2c9482bf8cb9655899b36e8bc1}} 
-\index{G\+UI@{G\+UI}!Cancel\+From\+Select@{Cancel\+From\+Select}}
-\index{Cancel\+From\+Select@{Cancel\+From\+Select}!G\+UI@{G\+UI}}
-\subsubsection{\texorpdfstring{Cancel\+From\+Select()}{CancelFromSelect()}}
-{\footnotesize\ttfamily void G\+U\+I\+::\+Cancel\+From\+Select (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Return to the main view. 
-
-Called after user has canceled from image select 
-
-Definition at line 534 of file G\+U\+I.\+cpp.
-
-\mbox{\Hypertarget{classGUI_a19c82a62a2b41460c81317fa967e3a1e}\label{classGUI_a19c82a62a2b41460c81317fa967e3a1e}} 
-\index{G\+UI@{G\+UI}!Clear\+All@{Clear\+All}}
-\index{Clear\+All@{Clear\+All}!G\+UI@{G\+UI}}
-\subsubsection{\texorpdfstring{Clear\+All()}{ClearAll()}}
-{\footnotesize\ttfamily void G\+U\+I\+::\+Clear\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Clear all objects. 
-
-User triggered Q\+Action sends a signal and clears all 
-
-Definition at line 149 of file G\+U\+I.\+cpp.
-
-\mbox{\Hypertarget{classGUI_afb6e169c9372800e69c70a3889420325}\label{classGUI_afb6e169c9372800e69c70a3889420325}} 
-\index{G\+UI@{G\+UI}!Clear\+Mode@{Clear\+Mode}}
-\index{Clear\+Mode@{Clear\+Mode}!G\+UI@{G\+UI}}
-\subsubsection{\texorpdfstring{Clear\+Mode()}{ClearMode()}}
-{\footnotesize\ttfamily void G\+U\+I\+::\+Clear\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Clear previous points. 
-
-Triggers clear mode in the scene 
-
-Definition at line 143 of file G\+U\+I.\+cpp.
-
-\mbox{\Hypertarget{classGUI_a3547730e0fae81b59fcb19d00a370782}\label{classGUI_a3547730e0fae81b59fcb19d00a370782}} 
-\index{G\+UI@{G\+UI}!Continue\+From\+Mode@{Continue\+From\+Mode}}
-\index{Continue\+From\+Mode@{Continue\+From\+Mode}!G\+UI@{G\+UI}}
-\subsubsection{\texorpdfstring{Continue\+From\+Mode()}{ContinueFromMode()}}
-{\footnotesize\ttfamily void G\+U\+I\+::\+Continue\+From\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Continue to image cutting. 
-
-Called after user has selected image cutting mode 
-
-Definition at line 586 of file G\+U\+I.\+cpp.
-
-\mbox{\Hypertarget{classGUI_a0cddf3859f457495040857f4868f32e3}\label{classGUI_a0cddf3859f457495040857f4868f32e3}} 
-\index{G\+UI@{G\+UI}!Continue\+From\+Select@{Continue\+From\+Select}}
-\index{Continue\+From\+Select@{Continue\+From\+Select}!G\+UI@{G\+UI}}
-\subsubsection{\texorpdfstring{Continue\+From\+Select()}{ContinueFromSelect()}}
-{\footnotesize\ttfamily void G\+U\+I\+::\+Continue\+From\+Select (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Continue to image mode select. 
-
-Called after user has selected which image to cut 
-
-Definition at line 550 of file G\+U\+I.\+cpp.
-
-\mbox{\Hypertarget{classGUI_a26cdc4a989f3637301f0afb9cc5e23b0}\label{classGUI_a26cdc4a989f3637301f0afb9cc5e23b0}} 
-\index{G\+UI@{G\+UI}!create\+Toolbars@{create\+Toolbars}}
-\index{create\+Toolbars@{create\+Toolbars}!G\+UI@{G\+UI}}
-\subsubsection{\texorpdfstring{create\+Toolbars()}{createToolbars()}}
-{\footnotesize\ttfamily void G\+U\+I\+::create\+Toolbars (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Create different toolbars. 
-
-Called from \mbox{\hyperlink{classGUI}{G\+UI}} constructor to create all toolbars 
-
-Definition at line 354 of file G\+U\+I.\+cpp.
-
-\mbox{\Hypertarget{classGUI_ae8acfcce2ea4da241c920076b72f1c93}\label{classGUI_ae8acfcce2ea4da241c920076b72f1c93}} 
-\index{G\+UI@{G\+UI}!Cut\+Image\+Mode@{Cut\+Image\+Mode}}
-\index{Cut\+Image\+Mode@{Cut\+Image\+Mode}!G\+UI@{G\+UI}}
-\subsubsection{\texorpdfstring{Cut\+Image\+Mode()}{CutImageMode()}}
-{\footnotesize\ttfamily void G\+U\+I\+::\+Cut\+Image\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Mode for cutting images. 
-
-Images can be cut to multiple shapes. Starts a toolbar which promts user to choose which image is being cut. Then user chooses cut style and finally cuts the image 
-
-Definition at line 263 of file G\+U\+I.\+cpp.
-
-\mbox{\Hypertarget{classGUI_a453b758a292b4a0e6f52f25b1bb2de77}\label{classGUI_a453b758a292b4a0e6f52f25b1bb2de77}} 
-\index{G\+UI@{G\+UI}!Delete\+Img\+Mode@{Delete\+Img\+Mode}}
-\index{Delete\+Img\+Mode@{Delete\+Img\+Mode}!G\+UI@{G\+UI}}
-\subsubsection{\texorpdfstring{Delete\+Img\+Mode()}{DeleteImgMode()}}
-{\footnotesize\ttfamily void G\+U\+I\+::\+Delete\+Img\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Delete images from the scene. 
-
-User holds cursor over an image and clicks to delete the image 
-
-Definition at line 244 of file G\+U\+I.\+cpp.
-
-\mbox{\Hypertarget{classGUI_aac66154aaa763aac4d20e55cbd1bdc0d}\label{classGUI_aac66154aaa763aac4d20e55cbd1bdc0d}} 
-\index{G\+UI@{G\+UI}!Delete\+Mode@{Delete\+Mode}}
-\index{Delete\+Mode@{Delete\+Mode}!G\+UI@{G\+UI}}
-\subsubsection{\texorpdfstring{Delete\+Mode()}{DeleteMode()}}
-{\footnotesize\ttfamily void G\+U\+I\+::\+Delete\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Delete lines mode. 
-
-Q\+Action sends a signal and activates or deactivates delete mode 
-
-Definition at line 123 of file G\+U\+I.\+cpp.
-
-\mbox{\Hypertarget{classGUI_ae36c91ff70502eeecb985c3b84aa3a07}\label{classGUI_ae36c91ff70502eeecb985c3b84aa3a07}} 
-\index{G\+UI@{G\+UI}!Hide\+Bezier\+Toolbar@{Hide\+Bezier\+Toolbar}}
-\index{Hide\+Bezier\+Toolbar@{Hide\+Bezier\+Toolbar}!G\+UI@{G\+UI}}
-\subsubsection{\texorpdfstring{Hide\+Bezier\+Toolbar()}{HideBezierToolbar()}}
-{\footnotesize\ttfamily void G\+U\+I\+::\+Hide\+Bezier\+Toolbar (\begin{DoxyParamCaption}\item[{bool}]{hide }\end{DoxyParamCaption})}
-
-
-
-Hide or unhide \mbox{\hyperlink{structBezierToolbar}{Bezier\+Toolbar}}. 
+Slot that is connected to color\+Dialog select color. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em hide} & true -\/$>$ hide, false -\/$>$ unhide \\
+{\em color} & Color user selected\\
 \hline
 \end{DoxyParams}
+This sets new color for correct element based on color\+\_\+setting 
 
-
-Definition at line 725 of file G\+U\+I.\+cpp.
-
-\mbox{\Hypertarget{classGUI_aa115b0163bfbf518dd201f4f02476b75}\label{classGUI_aa115b0163bfbf518dd201f4f02476b75}} 
-\index{G\+UI@{G\+UI}!Hide\+Main\+Toolbar@{Hide\+Main\+Toolbar}}
-\index{Hide\+Main\+Toolbar@{Hide\+Main\+Toolbar}!G\+UI@{G\+UI}}
-\subsubsection{\texorpdfstring{Hide\+Main\+Toolbar()}{HideMainToolbar()}}
-{\footnotesize\ttfamily void G\+U\+I\+::\+Hide\+Main\+Toolbar (\begin{DoxyParamCaption}\item[{bool}]{hide }\end{DoxyParamCaption})}
-
-
-
-Hide Main\+Toolbar. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em hide} & if true hides the toolbar \\
-\hline
-\end{DoxyParams}
-
-
-Definition at line 323 of file G\+U\+I.\+cpp.
-
-\mbox{\Hypertarget{classGUI_a9517c0ad1e4c2b39faab8050f8133151}\label{classGUI_a9517c0ad1e4c2b39faab8050f8133151}} 
-\index{G\+UI@{G\+UI}!Hide\+Mode\+Toolbar@{Hide\+Mode\+Toolbar}}
-\index{Hide\+Mode\+Toolbar@{Hide\+Mode\+Toolbar}!G\+UI@{G\+UI}}
-\subsubsection{\texorpdfstring{Hide\+Mode\+Toolbar()}{HideModeToolbar()}}
-{\footnotesize\ttfamily void G\+U\+I\+::\+Hide\+Mode\+Toolbar (\begin{DoxyParamCaption}\item[{bool}]{hide }\end{DoxyParamCaption})}
-
-
-
-Hide \mbox{\hyperlink{structModeToolbar}{Mode\+Toolbar}}. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em hide} & if true hides the toolbar \\
-\hline
-\end{DoxyParams}
-
-
-Definition at line 308 of file G\+U\+I.\+cpp.
-
-\mbox{\Hypertarget{classGUI_aaf633cd0904e4c3627c21219f330c177}\label{classGUI_aaf633cd0904e4c3627c21219f330c177}} 
-\index{G\+UI@{G\+UI}!Hide\+Polygon\+Toolbar@{Hide\+Polygon\+Toolbar}}
-\index{Hide\+Polygon\+Toolbar@{Hide\+Polygon\+Toolbar}!G\+UI@{G\+UI}}
-\subsubsection{\texorpdfstring{Hide\+Polygon\+Toolbar()}{HidePolygonToolbar()}}
-{\footnotesize\ttfamily void G\+U\+I\+::\+Hide\+Polygon\+Toolbar (\begin{DoxyParamCaption}\item[{bool}]{hide }\end{DoxyParamCaption})}
-
-
-
-Hide \mbox{\hyperlink{structPolygonToolbar}{Polygon\+Toolbar}}. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em hide} & if true hides the toolbar \\
-\hline
-\end{DoxyParams}
-
-
-Definition at line 293 of file G\+U\+I.\+cpp.
-
-\mbox{\Hypertarget{classGUI_a7f6d3b1fcbd874fccd93c5f29c468ed8}\label{classGUI_a7f6d3b1fcbd874fccd93c5f29c468ed8}} 
-\index{G\+UI@{G\+UI}!Hide\+Select\+Toolbar@{Hide\+Select\+Toolbar}}
-\index{Hide\+Select\+Toolbar@{Hide\+Select\+Toolbar}!G\+UI@{G\+UI}}
-\subsubsection{\texorpdfstring{Hide\+Select\+Toolbar()}{HideSelectToolbar()}}
-{\footnotesize\ttfamily void G\+U\+I\+::\+Hide\+Select\+Toolbar (\begin{DoxyParamCaption}\item[{bool}]{hide }\end{DoxyParamCaption})}
-
-
-
-Hide \mbox{\hyperlink{structSelectImgToolbar}{Select\+Img\+Toolbar}}. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em hide} & if true hides the toolbar \\
-\hline
-\end{DoxyParams}
-
-
-Definition at line 337 of file G\+U\+I.\+cpp.
-
-\mbox{\Hypertarget{classGUI_a5281fa4256d3ff14df9a95c1c6613bb2}\label{classGUI_a5281fa4256d3ff14df9a95c1c6613bb2}} 
-\index{G\+UI@{G\+UI}!Img\+Mode@{Img\+Mode}}
-\index{Img\+Mode@{Img\+Mode}!G\+UI@{G\+UI}}
-\subsubsection{\texorpdfstring{Img\+Mode()}{ImgMode()}}
-{\footnotesize\ttfamily void G\+U\+I\+::\+Img\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Mode for adding images to the scene. 
-
-User can drag image and then save it to the scene 
-
-Definition at line 216 of file G\+U\+I.\+cpp.
-
-\mbox{\Hypertarget{classGUI_a91fab5d31617ad5631d17dfceb5a0fad}\label{classGUI_a91fab5d31617ad5631d17dfceb5a0fad}} 
-\index{G\+UI@{G\+UI}!Line\+Mode@{Line\+Mode}}
-\index{Line\+Mode@{Line\+Mode}!G\+UI@{G\+UI}}
-\subsubsection{\texorpdfstring{Line\+Mode()}{LineMode()}}
-{\footnotesize\ttfamily void G\+U\+I\+::\+Line\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Line drawing mode. 
-
-Q\+Action sends a signal and activates or deactivates line mode 
-
-Definition at line 104 of file G\+U\+I.\+cpp.
-
-\mbox{\Hypertarget{classGUI_a925c89bd7b32ccc8d726063ed8076f8f}\label{classGUI_a925c89bd7b32ccc8d726063ed8076f8f}} 
-\index{G\+UI@{G\+UI}!open\+Image@{open\+Image}}
-\index{open\+Image@{open\+Image}!G\+UI@{G\+UI}}
-\subsubsection{\texorpdfstring{open\+Image()}{openImage()}}
-{\footnotesize\ttfamily void G\+U\+I\+::open\+Image (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Open an image. 
-
-By activating image mode user can place the image to the scene 
-
-Definition at line 195 of file G\+U\+I.\+cpp.
-
-\mbox{\Hypertarget{classGUI_abf8e1050ae4d599bf35af7b1f841d960}\label{classGUI_abf8e1050ae4d599bf35af7b1f841d960}} 
-\index{G\+UI@{G\+UI}!Remove\+Poly\+Previous@{Remove\+Poly\+Previous}}
-\index{Remove\+Poly\+Previous@{Remove\+Poly\+Previous}!G\+UI@{G\+UI}}
-\subsubsection{\texorpdfstring{Remove\+Poly\+Previous()}{RemovePolyPrevious()}}
-{\footnotesize\ttfamily void G\+U\+I\+::\+Remove\+Poly\+Previous (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Remove previous cut line from an image. 
-
-Triggered by user action 
-
-Definition at line 648 of file G\+U\+I.\+cpp.
-
-\mbox{\Hypertarget{classGUI_a00fb847ea0a8249acaaf70c0f3ba3fd4}\label{classGUI_a00fb847ea0a8249acaaf70c0f3ba3fd4}} 
-\index{G\+UI@{G\+UI}!Save\+Choices@{Save\+Choices}}
-\index{Save\+Choices@{Save\+Choices}!G\+UI@{G\+UI}}
-\subsubsection{\texorpdfstring{Save\+Choices()}{SaveChoices()}}
-{\footnotesize\ttfamily void G\+U\+I\+::\+Save\+Choices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Save options. 
-
-Called after user has modified options combobox and wants to save the options 
-
-Definition at line 657 of file G\+U\+I.\+cpp.
-
-\mbox{\Hypertarget{classGUI_a44684af7706c021022520e2c4829c3ee}\label{classGUI_a44684af7706c021022520e2c4829c3ee}} 
-\index{G\+UI@{G\+UI}!save\+Image@{save\+Image}}
-\index{save\+Image@{save\+Image}!G\+UI@{G\+UI}}
-\subsubsection{\texorpdfstring{save\+Image()}{saveImage()}}
-{\footnotesize\ttfamily void G\+U\+I\+::save\+Image (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Save scene content to an image. 
-
-User can specify where the image is saved 
-
-Definition at line 156 of file G\+U\+I.\+cpp.
-
-\mbox{\Hypertarget{classGUI_a6bf2d3ef382340365b5693245a2bd955}\label{classGUI_a6bf2d3ef382340365b5693245a2bd955}} 
-\index{G\+UI@{G\+UI}!Set\+Poly\+Final@{Set\+Poly\+Final}}
-\index{Set\+Poly\+Final@{Set\+Poly\+Final}!G\+UI@{G\+UI}}
-\subsubsection{\texorpdfstring{Set\+Poly\+Final()}{SetPolyFinal()}}
-{\footnotesize\ttfamily void G\+U\+I\+::\+Set\+Poly\+Final (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Create polygon cut to an image. 
-
-Triggered by user when user is ready to cut the image 
-
-Definition at line 634 of file G\+U\+I.\+cpp.
+Definition at line 863 of file G\+U\+I.\+cpp.
 
 
 

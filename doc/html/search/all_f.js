@@ -1,19 +1,10 @@
 var searchData=
 [
-  ['save_5fbezier',['save_bezier',['../structBezierToolbar.html#a2848e3a1e3d0eb3dfe63959c12538782',1,'BezierToolbar']]],
-  ['save_5fbutton_5fimg',['save_button_img',['../GUI_8hpp.html#a0f92fdbd49ece66b3525e38ba1037749',1,'GUI.hpp']]],
-  ['save_5fimg',['save_img',['../GUI_8hpp.html#ae14474955e229d006688f31321aeef30',1,'GUI.hpp']]],
-  ['save_5foptions',['save_options',['../structBezierToolbar.html#a9d3e4ffe8c28b246dafd257110e28994',1,'BezierToolbar']]],
-  ['savechoices',['SaveChoices',['../classGUI.html#a00fb847ea0a8249acaaf70c0f3ba3fd4',1,'GUI']]],
-  ['saveimage',['saveImage',['../classGUI.html#a44684af7706c021022520e2c4829c3ee',1,'GUI']]],
-  ['select_5fimg_5ftoolbar',['select_img_toolbar',['../structSelectImgToolbar.html#a779bc326cf08c9fbcd1ffebb43a664eb',1,'SelectImgToolbar']]],
-  ['selectcutimg',['SelectCutImg',['../classOwnGraphicsScene.html#ae79aa179ce90ab26f06d7d17eed96b93',1,'OwnGraphicsScene']]],
-  ['selectimgtoolbar',['SelectImgToolbar',['../structSelectImgToolbar.html',1,'']]],
-  ['setconnectlines',['setConnectLines',['../classOwnGraphicsScene.html#ad62254e1884fa4817ff1beaa3bc6c011',1,'OwnGraphicsScene']]],
-  ['setimage',['setImage',['../classOwnGraphicsScene.html#ae83ee24e342b50c335af155a34295185',1,'OwnGraphicsScene']]],
-  ['setimgcutmode',['SetImgCutMode',['../classOwnGraphicsScene.html#a656919c9fdd0827ae182d3d3f5f91e4f',1,'OwnGraphicsScene']]],
-  ['setpolyfinal',['SetPolyFinal',['../classGUI.html#a6bf2d3ef382340365b5693245a2bd955',1,'GUI']]],
-  ['setx',['setX',['../classPixmapItem.html#a692a0aca72ffbe102769fdc9246ed2f6',1,'PixmapItem']]],
-  ['sety',['setY',['../classPixmapItem.html#a6c6f4a872823f585edcf134d9bf209e1',1,'PixmapItem']]],
-  ['switch_5fmouse_5ftracking',['switch_mouse_tracking',['../classOwnGraphicsScene.html#af9c3dcf53da255fccf5fb2633d659299',1,'OwnGraphicsScene']]]
+  ['test_5fbezier_2ecpp',['Test_bezier.cpp',['../Test__bezier_8cpp.html',1,'']]],
+  ['test_5fbezier_2ehpp',['Test_bezier.hpp',['../Test__bezier_8hpp.html',1,'']]],
+  ['textcolor',['TextColor',['../classTextItem.html#a9aefbe0aa9d961e23d3a88f4a0268b57',1,'TextItem']]],
+  ['textitem',['TextItem',['../classTextItem.html',1,'TextItem'],['../classTextItem.html#ad9cb0e0bbf9a469f7c6275148014e3cf',1,'TextItem::TextItem()']]],
+  ['textitem_2ecpp',['TextItem.cpp',['../TextItem_8cpp.html',1,'']]],
+  ['textitem_2ehpp',['TextItem.hpp',['../TextItem_8hpp.html',1,'']]],
+  ['textmode',['TextMode',['../classOwnGraphicsScene.html#a6dd98dd7fd32a22016f4f8d4d6a8f400',1,'OwnGraphicsScene']]]
 ];

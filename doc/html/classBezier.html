@@ -102,6 +102,9 @@ std::vector&lt; <a class="el" href="classLineItem.html">LineItem</a> * &gt;&#160
 <tr class="memitem:ae310b53e4d8b3d586bbc4d335ac4cc08"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBezier.html#ae310b53e4d8b3d586bbc4d335ac4cc08">getStartY</a> ()</td></tr>
 <tr class="memdesc:ae310b53e4d8b3d586bbc4d335ac4cc08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get <a class="el" href="classBezier.html" title="Creates bezier curves. ">Bezier</a> start y coordinate.  <a href="#ae310b53e4d8b3d586bbc4d335ac4cc08">More...</a><br /></td></tr>
 <tr class="separator:ae310b53e4d8b3d586bbc4d335ac4cc08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ea801d6578a5858939b87775a9ea654"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBezier.html#a1ea801d6578a5858939b87775a9ea654">isInside</a> (unsigned x, unsigned y)</td></tr>
+<tr class="memdesc:a1ea801d6578a5858939b87775a9ea654"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether position is inside bezier or not.  <a href="#a1ea801d6578a5858939b87775a9ea654">More...</a><br /></td></tr>
+<tr class="separator:a1ea801d6578a5858939b87775a9ea654"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeee0e41ed64d1a61d7ac103d2300093b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBezier.html#aeee0e41ed64d1a61d7ac103d2300093b">Bezier</a> (<a class="el" href="classVector2.html">Vector2</a> p0, <a class="el" href="classVector2.html">Vector2</a> p1, <a class="el" href="classVector2.html">Vector2</a> p2, <a class="el" href="classVector2.html">Vector2</a> p3)</td></tr>
 <tr class="memdesc:aeee0e41ed64d1a61d7ac103d2300093b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="classBezier.html" title="Creates bezier curves. ">Bezier</a>.  <a href="#aeee0e41ed64d1a61d7ac103d2300093b">More...</a><br /></td></tr>
 <tr class="separator:aeee0e41ed64d1a61d7ac103d2300093b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -111,9 +114,9 @@ std::vector&lt; <a class="el" href="classLineItem.html">LineItem</a> * &gt;&#160
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Creates bezier curves. </p>
-<p>Used in Editor to draw bezier curves</p>
+<p>Used in <a class="el" href="namespaceEditor.html" title="NameSpace for enums GUI uses. ">Editor</a> to draw bezier curves</p>
 <p>@brief Creates bezier curves</p>
-<p>Used in Editor to draw bezier curves </p>
+<p>Used in <a class="el" href="namespaceEditor.html" title="NameSpace for enums GUI uses. ">Editor</a> to draw bezier curves </p>
 
 <p class="definition">Definition at line <a class="el" href="Bezier_8hpp_source.html#l00034">34</a> of file <a class="el" href="Bezier_8hpp_source.html">Bezier.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -391,6 +394,47 @@ std::vector&lt; <a class="el" href="classLineItem.html">LineItem</a> * &gt;&#160
 <dl class="section return"><dt>Returns</dt><dd>Returns reference to the vector object containing <a class="el" href="classVector2.html" title="Class for a basic 2D vector. ">Vector2</a> 2D-vectors </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="Bezier_8hpp_source.html#l00059">59</a> of file <a class="el" href="Bezier_8hpp_source.html">Bezier.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a1ea801d6578a5858939b87775a9ea654"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ea801d6578a5858939b87775a9ea654">&#9670;&nbsp;</a></span>isInside()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Bezier::isInside </td>
+          <td>(</td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check whether position is inside bezier or not. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>x coordinate </td></tr>
+    <tr><td class="paramname">y</td><td>y coordinate </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns true if position is inside </dd></dl>
+<dl class="section remark"><dt>Remarks</dt><dd>This is relatively heavy method </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Bezier_8cpp_source.html#l00117">117</a> of file <a class="el" href="Bezier_8cpp_source.html">Bezier.cpp</a>.</p>
 
 </div>
 </div>

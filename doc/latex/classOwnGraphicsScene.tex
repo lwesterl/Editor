@@ -29,12 +29,6 @@ void \mbox{\hyperlink{classOwnGraphicsScene_af9c3dcf53da255fccf5fb2633d659299}{s
 \mbox{\Hypertarget{classOwnGraphicsScene_a4c77674db1854f2b228c7aefbd9ea688}\label{classOwnGraphicsScene_a4c77674db1854f2b228c7aefbd9ea688}} 
 \mbox{\hyperlink{classOwnGraphicsScene_a4c77674db1854f2b228c7aefbd9ea688}{$\sim$\+Own\+Graphics\+Scene}} ()
 \begin{DoxyCompactList}\small\item\em Destructor for \mbox{\hyperlink{classOwnGraphicsScene}{Own\+Graphics\+Scene}}. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classOwnGraphicsScene_a1a9916971af608d5331483606f72fbe4}{mouse\+Press\+Event}} (Q\+Graphics\+Scene\+Mouse\+Event $\ast$event)
-\begin{DoxyCompactList}\small\item\em Overload for mouse\+Press\+Event. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classOwnGraphicsScene_ac7f6be2800f09463413459fed74bf34e}{mouse\+Move\+Event}} (Q\+Graphics\+Scene\+Mouse\+Event $\ast$event)
-\begin{DoxyCompactList}\small\item\em Overload for mouse\+Move\+Event. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classLineItem}{Line\+Item}} $\ast$ \mbox{\hyperlink{classOwnGraphicsScene_a4251b836ee575083f4eeaa73254723f4}{add\+Line}} (unsigned x1, unsigned y1, unsigned x2, unsigned y2)
-\begin{DoxyCompactList}\small\item\em Add a \mbox{\hyperlink{classLineItem}{Line\+Item}}. \end{DoxyCompactList}\item 
 unsigned \mbox{\hyperlink{classOwnGraphicsScene_a6e54bd43db758bcd4f7cc1dd4544232e}{get\+MouseX}} ()
 \begin{DoxyCompactList}\small\item\em Get new mouse x coordinate. \end{DoxyCompactList}\item 
 unsigned \mbox{\hyperlink{classOwnGraphicsScene_a3fd2942e9930fc2dda41844622dc8a35}{get\+MouseY}} ()
@@ -43,78 +37,51 @@ void \mbox{\hyperlink{classOwnGraphicsScene_a6b7e69131827f0ae64626af378ff9974}{L
 \begin{DoxyCompactList}\small\item\em Activate or deactivate line\+\_\+mode. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classOwnGraphicsScene_aca454942ecf6c472d020e063862464d4}{Delete\+Mode}} (bool activate)
 \begin{DoxyCompactList}\small\item\em Activate or deactivate delete\+\_\+mode. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classOwnGraphicsScene_a31221ca321dde1e684f9cdf23dd1c225}\label{classOwnGraphicsScene_a31221ca321dde1e684f9cdf23dd1c225}} 
-void \mbox{\hyperlink{classOwnGraphicsScene_a31221ca321dde1e684f9cdf23dd1c225}{Clear\+Mode}} ()
-\begin{DoxyCompactList}\small\item\em Clear previous line points. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classOwnGraphicsScene_a5b4b466a697f83c23294a80067edac23}{remove\+\_\+\+Item}} (unsigned x, unsigned y)
-\begin{DoxyCompactList}\small\item\em Remove \mbox{\hyperlink{classLineItem}{Line\+Item}} from the scene. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classOwnGraphicsScene_a6dd98dd7fd32a22016f4f8d4d6a8f400}{Text\+Mode}} (bool activate)
+\begin{DoxyCompactList}\small\item\em Activate text\+\_\+mode. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classOwnGraphicsScene_acc6e7978a3f10889e439ceabd155a341}{img\+Mode}} (bool activate)
+\begin{DoxyCompactList}\small\item\em Activate or deactivate image\+\_\+mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classOwnGraphicsScene_aefe52a5b20dbb38dcc9d9510ecfabe52}{Delete\+Img\+Mode}} (bool activate)
+\begin{DoxyCompactList}\small\item\em Activate or deactivate delete\+\_\+img\+\_\+mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classOwnGraphicsScene_a3ce5a34cebcc134ecb20323c48e5812b}{Cut\+Image\+Mode}} (bool active)
+\begin{DoxyCompactList}\small\item\em Activate or deactivate cut\+\_\+image\+\_\+mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classOwnGraphicsScene_a656919c9fdd0827ae182d3d3f5f91e4f}{Set\+Img\+Cut\+Mode}} (int cut\+\_\+mode)
+\begin{DoxyCompactList}\small\item\em Select image cut mode. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classOwnGraphicsScene_a8d2bbcfd1b3d28ca45802e53b046fe49}\label{classOwnGraphicsScene_a8d2bbcfd1b3d28ca45802e53b046fe49}} 
+void \mbox{\hyperlink{classOwnGraphicsScene_a8d2bbcfd1b3d28ca45802e53b046fe49}{Bezier\+Mode}} (bool active)
+\begin{DoxyCompactList}\small\item\em Activates/deactivates bezier mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classOwnGraphicsScene_a8677d9cbb1f01943c303be0985c84fbe}{add\+View}} (\mbox{\hyperlink{classOwnGraphicsView}{Own\+Graphics\+View}} $\ast$view)
+\begin{DoxyCompactList}\small\item\em Add parent \mbox{\hyperlink{classOwnGraphicsView}{Own\+Graphics\+View}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classOwnGraphicsScene_abf700184c967b526194bfab096396850}{change\+Background\+Color}} (const Q\+Color \&color)
+\begin{DoxyCompactList}\small\item\em Change scene backgroundcolor. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classOwnGraphicsScene_a8d133a1b72a853772d2d89da4d4e1afa}\label{classOwnGraphicsScene_a8d133a1b72a853772d2d89da4d4e1afa}} 
 void \mbox{\hyperlink{classOwnGraphicsScene_a8d133a1b72a853772d2d89da4d4e1afa}{Clear\+All}} ()
 \begin{DoxyCompactList}\small\item\em Remove all items from the scene. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classOwnGraphicsScene_ae83ee24e342b50c335af155a34295185}\label{classOwnGraphicsScene_ae83ee24e342b50c335af155a34295185}} 
 bool \mbox{\hyperlink{classOwnGraphicsScene_ae83ee24e342b50c335af155a34295185}{set\+Image}} (Q\+String imagename)
 \begin{DoxyCompactList}\small\item\em Construct Q\+Pixmap from an image. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{classOwnGraphicsScene_acc6e7978a3f10889e439ceabd155a341}{img\+Mode}} (bool activate)
-\begin{DoxyCompactList}\small\item\em Activate or deactivate image\+\_\+mode. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classOwnGraphicsScene_aefe52a5b20dbb38dcc9d9510ecfabe52}{Delete\+Img\+Mode}} (bool activate)
-\begin{DoxyCompactList}\small\item\em Activate or deactivate delete\+\_\+img\+\_\+mode. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classOwnGraphicsScene_abda962c04f88920377d3bb23b30b9267}{Delete\+Img}} (unsigned x1, unsigned y1)
-\begin{DoxyCompactList}\small\item\em Delete image from the scene. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classOwnGraphicsScene_a3ce5a34cebcc134ecb20323c48e5812b}{Cut\+Image\+Mode}} (bool active)
-\begin{DoxyCompactList}\small\item\em Activate or deactivate cut\+\_\+image\+\_\+mode. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classOwnGraphicsScene_ae79aa179ce90ab26f06d7d17eed96b93}{Select\+Cut\+Img}} ()
 \begin{DoxyCompactList}\small\item\em Select image to be cut. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classOwnGraphicsScene_a656919c9fdd0827ae182d3d3f5f91e4f}{Set\+Img\+Cut\+Mode}} (int cut\+\_\+mode)
-\begin{DoxyCompactList}\small\item\em Select image cut mode. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classOwnGraphicsScene_a7e3d97c27cca1df796b75cc4a99e24cd}{Cut\+Pixmap\+Item}} ()
 \begin{DoxyCompactList}\small\item\em Wrapper for \mbox{\hyperlink{classPixmapItem_a4a742318dce01d018da2f4b01790c210}{Pixmap\+Item\+::\+Cut\+Item}}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classOwnGraphicsScene_a4976a8e6f682612acd3e23b6c98bd8d8}{Remove\+Poly\+Previous}} ()
 \begin{DoxyCompactList}\small\item\em Remove previous image cut point. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classOwnGraphicsScene_ad62254e1884fa4817ff1beaa3bc6c011}{set\+Connect\+Lines}} (int value)
-\begin{DoxyCompactList}\small\item\em Update connect\+\_\+lines value. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classOwnGraphicsScene_a158c6430ca8e07642b693e37ec05119e}{Clear\+Visual\+Items}} ()
-\begin{DoxyCompactList}\small\item\em Removes all temporary visual\+\_\+items. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classOwnGraphicsScene_a8d2bbcfd1b3d28ca45802e53b046fe49}\label{classOwnGraphicsScene_a8d2bbcfd1b3d28ca45802e53b046fe49}} 
-void \mbox{\hyperlink{classOwnGraphicsScene_a8d2bbcfd1b3d28ca45802e53b046fe49}{Bezier\+Mode}} (bool active)
-\begin{DoxyCompactList}\small\item\em Activates/deactivates bezier mode. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classOwnGraphicsScene_a9c03d25db8eef3116adbaeba1fc9c4dc}{Create\+Bezier}} (unsigned x, unsigned y, int point\+\_\+added)
-\begin{DoxyCompactList}\small\item\em Constructs a Bezer object. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classOwnGraphicsScene_ac0c5440d16675d6bf8c27767d2721622}{Add\+Bezier}} (\mbox{\hyperlink{classBezier}{Bezier}} $\ast$bezier)
-\begin{DoxyCompactList}\small\item\em Add \mbox{\hyperlink{classBezier}{Bezier}} to the scene. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classOwnGraphicsScene_a24d8270608b0bd56c6155d99d7722ab8}{Remove\+Bezier}} (\mbox{\hyperlink{classBezier}{Bezier}} $\ast$bezier)
-\begin{DoxyCompactList}\small\item\em Remove \mbox{\hyperlink{classBezier}{Bezier}} from the scene. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classOwnGraphicsScene_a0ad50d478944ef3200d1c59ddcf973a5}{Create\+Control\+Point\+Circles}} (int point)
-\begin{DoxyCompactList}\small\item\em Create circles matching the bezier control points. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classOwnGraphicsScene_ad6ad8eaab22c10b1a228f08d8bd5bb68}{Remove\+Control\+Point\+Circles}} (int point)
-\begin{DoxyCompactList}\small\item\em Remove circles matching the bezier control points. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classVector2}{Vector2}} \mbox{\hyperlink{classOwnGraphicsScene_abc2de254d3e34b716eb36e33e0486f33}{Control\+Point2\+Circle}} (\mbox{\hyperlink{classVector2}{Vector2}} point)
-\begin{DoxyCompactList}\small\item\em Convert control point coordinates to circle left top corner point. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{classOwnGraphicsScene_ab8e0992d026eaeeda434d659c9c18a46}{is\+Inside\+Control\+Point}} (unsigned x, unsigned y)
-\begin{DoxyCompactList}\small\item\em Check whether mouse is inside control points or not. \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{structX__Y__Coordinates}{X\+\_\+\+Y\+\_\+\+Coordinates}} \mbox{\hyperlink{classOwnGraphicsScene_a17930b28f2c5cb7ed14440e44d667951}{Look\+End\+Points}} (unsigned x, unsigned y)
-\begin{DoxyCompactList}\small\item\em Try to find end points that match mouse position. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classOwnGraphicsScene_a4f029a37e96fc022295ce4e421319ddf}{Remove\+End\+Point}} (unsigned x, unsigned y)
-\begin{DoxyCompactList}\small\item\em Remove an end point. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classOwnGraphicsScene_a64ce3afc4e535576fedbfe3f172cea0d}{Add\+End\+Point}} (unsigned x, unsigned y)
-\begin{DoxyCompactList}\small\item\em Add an end point. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classOwnGraphicsScene_adf8d1495517483ba65c1ccbc95920a1c}{Update\+End\+Points}} (unsigned x, unsigned y)
-\begin{DoxyCompactList}\small\item\em Update \mbox{\hyperlink{structEnd__Points}{End\+\_\+\+Points}}. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classOwnGraphicsScene_a4b1ba1b97b89baad08c3ba5471ebb61f}{Remove\+End\+Point\+Circle}} (void)
-\begin{DoxyCompactList}\small\item\em Remove old end\+\_\+circle from \mbox{\hyperlink{structEnd__Points}{End\+\_\+\+Points}} struct. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classOwnGraphicsScene_a8677d9cbb1f01943c303be0985c84fbe}{add\+View}} (\mbox{\hyperlink{classOwnGraphicsView}{Own\+Graphics\+View}} $\ast$view)
-\begin{DoxyCompactList}\small\item\em Add parent \mbox{\hyperlink{classOwnGraphicsView}{Own\+Graphics\+View}}. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classOwnGraphicsScene_adbcfda0bade866b7e5db29b7bfb53e0c}{mouse\+\_\+tracking}} (bool enable)
-\begin{DoxyCompactList}\small\item\em Set mouse tracking on or off. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classOwnGraphicsScene_a302a5f437c44f6fc84f9911e41172734}{modify\+Bezier\+Options}} (int option)
-\begin{DoxyCompactList}\small\item\em Update \mbox{\hyperlink{structBezier__Mode}{Bezier\+\_\+\+Mode}} lock\+\_\+mode. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classOwnGraphicsScene_a7b205ba3c4db5e88f60f1f327175b5b6}{Erase\+Bezier}} ()
 \begin{DoxyCompactList}\small\item\em Remove current \mbox{\hyperlink{classBezier}{Bezier}}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classOwnGraphicsScene_a0417f4637137fc3ef7004a7b6eeb6a39}{Bezier\+Ready}} ()
-\begin{DoxyCompactList}\small\item\em Stop editing bezier and save it. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Stop editing bezier and save it. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classOwnGraphicsScene_a3f4a8a31aa7a9efbf88c4d80c1cbc8ed}{set\+End\+Points\+Active}} (int value)
+\begin{DoxyCompactList}\small\item\em Update E\+N\+D\+\_\+\+P\+O\+I\+N\+T\+S\+\_\+\+A\+C\+T\+I\+VE value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classOwnGraphicsScene_a302a5f437c44f6fc84f9911e41172734}{modify\+Bezier\+Options}} (int option)
+\begin{DoxyCompactList}\small\item\em Update \mbox{\hyperlink{structBezier__Mode}{Bezier\+\_\+\+Mode}} lock\+\_\+mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classOwnGraphicsScene_a0151f87fc7f7597fe91a99a83e261944}{path\+Image\+Cut}} ()
+\begin{DoxyCompactList}\small\item\em Cut image according to selected path. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 static bool \mbox{\hyperlink{classOwnGraphicsScene_a511dd73ffc0a5f3ee28e8950d0636f5e}{E\+N\+D\+\_\+\+P\+O\+I\+N\+T\+S\+\_\+\+A\+C\+T\+I\+VE}} = true
+\item 
+static Q\+Color \mbox{\hyperlink{classOwnGraphicsScene_af51cea46e8b0cffa341ba88c2b801e81}{Special\+Color}} = Qt\+::black
 \end{DoxyCompactItemize}
 
 
@@ -123,7 +90,7 @@ Own Q\+Graphics\+Scene implementation.
 
 This is an implementation for own Q\+Graphics\+Scene which overloads mouse\+Press\+Event to update the scene 
 
-Definition at line 208 of file Own\+Graphics\+Scene.\+hpp.
+Definition at line 143 of file Own\+Graphics\+Scene.\+hpp.
 
 
 
@@ -132,7 +99,7 @@ Definition at line 208 of file Own\+Graphics\+Scene.\+hpp.
 \index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
 \index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
 \subsubsection{\texorpdfstring{Own\+Graphics\+Scene()}{OwnGraphicsScene()}}
-{\footnotesize\ttfamily Own\+Graphics\+Scene\+::\+Own\+Graphics\+Scene (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily Own\+Graphics\+Scene\+::\+Own\+Graphics\+Scene (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent }\end{DoxyParamCaption})}
 
 
 
@@ -145,79 +112,11 @@ Constructor for \mbox{\hyperlink{classOwnGraphicsScene}{Own\+Graphics\+Scene}}.
 \end{DoxyParams}
 Sets standard size for the view rect 
 
-Definition at line 217 of file Own\+Graphics\+Scene.\+hpp.
+Definition at line 15 of file Own\+Graphics\+Scene.\+cpp.
 
 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{classOwnGraphicsScene_ac0c5440d16675d6bf8c27767d2721622}\label{classOwnGraphicsScene_ac0c5440d16675d6bf8c27767d2721622}} 
-\index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Add\+Bezier@{Add\+Bezier}}
-\index{Add\+Bezier@{Add\+Bezier}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
-\subsubsection{\texorpdfstring{Add\+Bezier()}{AddBezier()}}
-{\footnotesize\ttfamily void Own\+Graphics\+Scene\+::\+Add\+Bezier (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBezier}{Bezier}} $\ast$}]{bezier }\end{DoxyParamCaption})}
-
-
-
-Add \mbox{\hyperlink{classBezier}{Bezier}} to the scene. 
-
-To be more precise adds the Line\+Items matching the \mbox{\hyperlink{classBezier}{Bezier}} (line\+\_\+items) to the scene 
-\begin{DoxyParams}{Parameters}
-{\em bezier} & Pointer to \mbox{\hyperlink{classBezier}{Bezier}} which is added to the scene \\
-\hline
-\end{DoxyParams}
-
-
-Definition at line 770 of file Own\+Graphics\+Scene.\+cpp.
-
-\mbox{\Hypertarget{classOwnGraphicsScene_a64ce3afc4e535576fedbfe3f172cea0d}\label{classOwnGraphicsScene_a64ce3afc4e535576fedbfe3f172cea0d}} 
-\index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Add\+End\+Point@{Add\+End\+Point}}
-\index{Add\+End\+Point@{Add\+End\+Point}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
-\subsubsection{\texorpdfstring{Add\+End\+Point()}{AddEndPoint()}}
-{\footnotesize\ttfamily void Own\+Graphics\+Scene\+::\+Add\+End\+Point (\begin{DoxyParamCaption}\item[{unsigned}]{x,  }\item[{unsigned}]{y }\end{DoxyParamCaption})}
-
-
-
-Add an end point. 
-
-End point is added to end\+\_\+points\+\_\+dict. This method should be called when \mbox{\hyperlink{classLineItem}{Line\+Item}} or \mbox{\hyperlink{classBezier}{Bezier}} is created and added to the scene 
-\begin{DoxyParams}{Parameters}
-{\em x} & Item x coordinate \\
-\hline
-{\em y} & Item y coordinate \\
-\hline
-\end{DoxyParams}
-
-
-Definition at line 1075 of file Own\+Graphics\+Scene.\+cpp.
-
-\mbox{\Hypertarget{classOwnGraphicsScene_a4251b836ee575083f4eeaa73254723f4}\label{classOwnGraphicsScene_a4251b836ee575083f4eeaa73254723f4}} 
-\index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!add\+Line@{add\+Line}}
-\index{add\+Line@{add\+Line}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
-\subsubsection{\texorpdfstring{add\+Line()}{addLine()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classLineItem}{Line\+Item}} $\ast$ Own\+Graphics\+Scene\+::add\+Line (\begin{DoxyParamCaption}\item[{unsigned}]{x1,  }\item[{unsigned}]{y1,  }\item[{unsigned}]{x2,  }\item[{unsigned}]{y2 }\end{DoxyParamCaption})}
-
-
-
-Add a \mbox{\hyperlink{classLineItem}{Line\+Item}}. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em x1} & Start x coordinate \\
-\hline
-{\em y1} & Start y coordinate \\
-\hline
-{\em x2} & End x coordinate \\
-\hline
-{\em y2} & End y coordinate \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Returns pointer to the new item added to the scene 
-\end{DoxyReturn}
-
-
-Definition at line 317 of file Own\+Graphics\+Scene.\+cpp.
-
 \mbox{\Hypertarget{classOwnGraphicsScene_a8677d9cbb1f01943c303be0985c84fbe}\label{classOwnGraphicsScene_a8677d9cbb1f01943c303be0985c84fbe}} 
 \index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!add\+View@{add\+View}}
 \index{add\+View@{add\+View}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
@@ -235,7 +134,7 @@ After this it\textquotesingle{}s possible to send signals to the view. The view 
 \end{DoxyParams}
 
 
-Definition at line 1143 of file Own\+Graphics\+Scene.\+cpp.
+Definition at line 1339 of file Own\+Graphics\+Scene.\+cpp.
 
 \mbox{\Hypertarget{classOwnGraphicsScene_a0417f4637137fc3ef7004a7b6eeb6a39}\label{classOwnGraphicsScene_a0417f4637137fc3ef7004a7b6eeb6a39}} 
 \index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Bezier\+Ready@{Bezier\+Ready}}
@@ -249,88 +148,26 @@ Stop editing bezier and save it.
 
 Called from \mbox{\hyperlink{classGUI}{G\+UI}}, Bezier\+Toolbar\+\_\+\+Save\+Bezier 
 
-Definition at line 1186 of file Own\+Graphics\+Scene.\+cpp.
+Definition at line 1382 of file Own\+Graphics\+Scene.\+cpp.
 
-\mbox{\Hypertarget{classOwnGraphicsScene_a158c6430ca8e07642b693e37ec05119e}\label{classOwnGraphicsScene_a158c6430ca8e07642b693e37ec05119e}} 
-\index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Clear\+Visual\+Items@{Clear\+Visual\+Items}}
-\index{Clear\+Visual\+Items@{Clear\+Visual\+Items}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
-\subsubsection{\texorpdfstring{Clear\+Visual\+Items()}{ClearVisualItems()}}
-{\footnotesize\ttfamily void Own\+Graphics\+Scene\+::\+Clear\+Visual\+Items (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Removes all temporary visual\+\_\+items. 
-
-Called after image cut is ready 
-
-Definition at line 639 of file Own\+Graphics\+Scene.\+cpp.
-
-\mbox{\Hypertarget{classOwnGraphicsScene_abc2de254d3e34b716eb36e33e0486f33}\label{classOwnGraphicsScene_abc2de254d3e34b716eb36e33e0486f33}} 
-\index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Control\+Point2\+Circle@{Control\+Point2\+Circle}}
-\index{Control\+Point2\+Circle@{Control\+Point2\+Circle}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
-\subsubsection{\texorpdfstring{Control\+Point2\+Circle()}{ControlPoint2Circle()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classVector2}{Vector2}} Own\+Graphics\+Scene\+::\+Control\+Point2\+Circle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classVector2}{Vector2}}}]{point }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{classOwnGraphicsScene_abf700184c967b526194bfab096396850}\label{classOwnGraphicsScene_abf700184c967b526194bfab096396850}} 
+\index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!change\+Background\+Color@{change\+Background\+Color}}
+\index{change\+Background\+Color@{change\+Background\+Color}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
+\subsubsection{\texorpdfstring{change\+Background\+Color()}{changeBackgroundColor()}}
+{\footnotesize\ttfamily void Own\+Graphics\+Scene\+::change\+Background\+Color (\begin{DoxyParamCaption}\item[{const Q\+Color \&}]{color }\end{DoxyParamCaption})}
 
 
 
-Convert control point coordinates to circle left top corner point. 
+Change scene backgroundcolor. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em point} & \mbox{\hyperlink{classVector2}{Vector2}} containing control point \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Returns circle point as a \mbox{\hyperlink{classVector2}{Vector2}} object 
-\end{DoxyReturn}
-
-
-Definition at line 962 of file Own\+Graphics\+Scene.\+cpp.
-
-\mbox{\Hypertarget{classOwnGraphicsScene_a9c03d25db8eef3116adbaeba1fc9c4dc}\label{classOwnGraphicsScene_a9c03d25db8eef3116adbaeba1fc9c4dc}} 
-\index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Create\+Bezier@{Create\+Bezier}}
-\index{Create\+Bezier@{Create\+Bezier}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
-\subsubsection{\texorpdfstring{Create\+Bezier()}{CreateBezier()}}
-{\footnotesize\ttfamily void Own\+Graphics\+Scene\+::\+Create\+Bezier (\begin{DoxyParamCaption}\item[{unsigned}]{x,  }\item[{unsigned}]{y,  }\item[{int}]{point\+\_\+added }\end{DoxyParamCaption})}
-
-
-
-Constructs a Bezer object. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em x} & Mouse x coordinate \\
-\hline
-{\em y} & Mouse y coordinate \\
-\hline
-{\em point\+\_\+added} & Which point user moved, 0 means construct new \mbox{\hyperlink{classBezier}{Bezier}} \\
+{\em color} & New backgroundcolor \\
 \hline
 \end{DoxyParams}
 
 
-Definition at line 674 of file Own\+Graphics\+Scene.\+cpp.
-
-\mbox{\Hypertarget{classOwnGraphicsScene_a0ad50d478944ef3200d1c59ddcf973a5}\label{classOwnGraphicsScene_a0ad50d478944ef3200d1c59ddcf973a5}} 
-\index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Create\+Control\+Point\+Circles@{Create\+Control\+Point\+Circles}}
-\index{Create\+Control\+Point\+Circles@{Create\+Control\+Point\+Circles}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
-\subsubsection{\texorpdfstring{Create\+Control\+Point\+Circles()}{CreateControlPointCircles()}}
-{\footnotesize\ttfamily void Own\+Graphics\+Scene\+::\+Create\+Control\+Point\+Circles (\begin{DoxyParamCaption}\item[{int}]{point }\end{DoxyParamCaption})}
-
-
-
-Create circles matching the bezier control points. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em point} & Which circle needs to be created \\
-\hline
-\end{DoxyParams}
-\begin{DoxyRemark}{Remarks}
-point 0 -\/$>$ create all circles, point 1 -\/$>$ create circle 1 etc. 
-\end{DoxyRemark}
-
-
-Definition at line 800 of file Own\+Graphics\+Scene.\+cpp.
+Definition at line 1452 of file Own\+Graphics\+Scene.\+cpp.
 
 \mbox{\Hypertarget{classOwnGraphicsScene_a3ce5a34cebcc134ecb20323c48e5812b}\label{classOwnGraphicsScene_a3ce5a34cebcc134ecb20323c48e5812b}} 
 \index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Cut\+Image\+Mode@{Cut\+Image\+Mode}}
@@ -349,7 +186,7 @@ Activate or deactivate cut\+\_\+image\+\_\+mode.
 \end{DoxyParams}
 
 
-Definition at line 507 of file Own\+Graphics\+Scene.\+cpp.
+Definition at line 684 of file Own\+Graphics\+Scene.\+cpp.
 
 \mbox{\Hypertarget{classOwnGraphicsScene_a7e3d97c27cca1df796b75cc4a99e24cd}\label{classOwnGraphicsScene_a7e3d97c27cca1df796b75cc4a99e24cd}} 
 \index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Cut\+Pixmap\+Item@{Cut\+Pixmap\+Item}}
@@ -363,28 +200,7 @@ Wrapper for \mbox{\hyperlink{classPixmapItem_a4a742318dce01d018da2f4b01790c210}{
 
 Cuts the image by adding painter points. Removes temporary Line\+Items which were used to display the cut path 
 
-Definition at line 575 of file Own\+Graphics\+Scene.\+cpp.
-
-\mbox{\Hypertarget{classOwnGraphicsScene_abda962c04f88920377d3bb23b30b9267}\label{classOwnGraphicsScene_abda962c04f88920377d3bb23b30b9267}} 
-\index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Delete\+Img@{Delete\+Img}}
-\index{Delete\+Img@{Delete\+Img}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
-\subsubsection{\texorpdfstring{Delete\+Img()}{DeleteImg()}}
-{\footnotesize\ttfamily void Own\+Graphics\+Scene\+::\+Delete\+Img (\begin{DoxyParamCaption}\item[{unsigned}]{x1,  }\item[{unsigned}]{y1 }\end{DoxyParamCaption})}
-
-
-
-Delete image from the scene. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em x1} & x coordinate \\
-\hline
-{\em y1} & y coordinate \\
-\hline
-\end{DoxyParams}
-
-
-Definition at line 489 of file Own\+Graphics\+Scene.\+cpp.
+Definition at line 753 of file Own\+Graphics\+Scene.\+cpp.
 
 \mbox{\Hypertarget{classOwnGraphicsScene_aefe52a5b20dbb38dcc9d9510ecfabe52}\label{classOwnGraphicsScene_aefe52a5b20dbb38dcc9d9510ecfabe52}} 
 \index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Delete\+Img\+Mode@{Delete\+Img\+Mode}}
@@ -403,7 +219,7 @@ Activate or deactivate delete\+\_\+img\+\_\+mode.
 \end{DoxyParams}
 
 
-Definition at line 470 of file Own\+Graphics\+Scene.\+cpp.
+Definition at line 639 of file Own\+Graphics\+Scene.\+cpp.
 
 \mbox{\Hypertarget{classOwnGraphicsScene_aca454942ecf6c472d020e063862464d4}\label{classOwnGraphicsScene_aca454942ecf6c472d020e063862464d4}} 
 \index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Delete\+Mode@{Delete\+Mode}}
@@ -422,7 +238,7 @@ Activate or deactivate delete\+\_\+mode.
 \end{DoxyParams}
 
 
-Definition at line 358 of file Own\+Graphics\+Scene.\+cpp.
+Definition at line 495 of file Own\+Graphics\+Scene.\+cpp.
 
 \mbox{\Hypertarget{classOwnGraphicsScene_a7b205ba3c4db5e88f60f1f327175b5b6}\label{classOwnGraphicsScene_a7b205ba3c4db5e88f60f1f327175b5b6}} 
 \index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Erase\+Bezier@{Erase\+Bezier}}
@@ -436,7 +252,7 @@ Remove current \mbox{\hyperlink{classBezier}{Bezier}}.
 
 Called from \mbox{\hyperlink{classGUI}{G\+UI}}, Bezier\+Toolbar\+\_\+\+Remove 
 
-Definition at line 1170 of file Own\+Graphics\+Scene.\+cpp.
+Definition at line 1366 of file Own\+Graphics\+Scene.\+cpp.
 
 \mbox{\Hypertarget{classOwnGraphicsScene_a6e54bd43db758bcd4f7cc1dd4544232e}\label{classOwnGraphicsScene_a6e54bd43db758bcd4f7cc1dd4544232e}} 
 \index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!get\+MouseX@{get\+MouseX}}
@@ -453,7 +269,7 @@ Returns mouse\+\_\+x value
 \end{DoxyReturn}
 
 
-Definition at line 252 of file Own\+Graphics\+Scene.\+hpp.
+Definition at line 166 of file Own\+Graphics\+Scene.\+hpp.
 
 \mbox{\Hypertarget{classOwnGraphicsScene_a3fd2942e9930fc2dda41844622dc8a35}\label{classOwnGraphicsScene_a3fd2942e9930fc2dda41844622dc8a35}} 
 \index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!get\+MouseY@{get\+MouseY}}
@@ -470,7 +286,7 @@ Returns mouse\+\_\+y value
 \end{DoxyReturn}
 
 
-Definition at line 258 of file Own\+Graphics\+Scene.\+hpp.
+Definition at line 172 of file Own\+Graphics\+Scene.\+hpp.
 
 \mbox{\Hypertarget{classOwnGraphicsScene_acc6e7978a3f10889e439ceabd155a341}\label{classOwnGraphicsScene_acc6e7978a3f10889e439ceabd155a341}} 
 \index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!img\+Mode@{img\+Mode}}
@@ -489,34 +305,7 @@ Activate or deactivate image\+\_\+mode.
 \end{DoxyParams}
 
 
-Definition at line 446 of file Own\+Graphics\+Scene.\+cpp.
-
-\mbox{\Hypertarget{classOwnGraphicsScene_ab8e0992d026eaeeda434d659c9c18a46}\label{classOwnGraphicsScene_ab8e0992d026eaeeda434d659c9c18a46}} 
-\index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!is\+Inside\+Control\+Point@{is\+Inside\+Control\+Point}}
-\index{is\+Inside\+Control\+Point@{is\+Inside\+Control\+Point}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
-\subsubsection{\texorpdfstring{is\+Inside\+Control\+Point()}{isInsideControlPoint()}}
-{\footnotesize\ttfamily int Own\+Graphics\+Scene\+::is\+Inside\+Control\+Point (\begin{DoxyParamCaption}\item[{unsigned}]{x,  }\item[{unsigned}]{y }\end{DoxyParamCaption})}
-
-
-
-Check whether mouse is inside control points or not. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em x} & Mouse x coordinate \\
-\hline
-{\em y} & Mouse y coordinate \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Returns 0 if not inside, else returns point number which is inside 
-\end{DoxyReturn}
-\begin{DoxyRemark}{Remarks}
-Goes through control points in reverse order so that point 0 remains starting point and point 4 end point 
-\end{DoxyRemark}
-
-
-Definition at line 980 of file Own\+Graphics\+Scene.\+cpp.
+Definition at line 613 of file Own\+Graphics\+Scene.\+cpp.
 
 \mbox{\Hypertarget{classOwnGraphicsScene_a6b7e69131827f0ae64626af378ff9974}\label{classOwnGraphicsScene_a6b7e69131827f0ae64626af378ff9974}} 
 \index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Line\+Mode@{Line\+Mode}}
@@ -535,31 +324,7 @@ Activate or deactivate line\+\_\+mode.
 \end{DoxyParams}
 
 
-Definition at line 333 of file Own\+Graphics\+Scene.\+cpp.
-
-\mbox{\Hypertarget{classOwnGraphicsScene_a17930b28f2c5cb7ed14440e44d667951}\label{classOwnGraphicsScene_a17930b28f2c5cb7ed14440e44d667951}} 
-\index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Look\+End\+Points@{Look\+End\+Points}}
-\index{Look\+End\+Points@{Look\+End\+Points}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
-\subsubsection{\texorpdfstring{Look\+End\+Points()}{LookEndPoints()}}
-{\footnotesize\ttfamily struct \mbox{\hyperlink{structX__Y__Coordinates}{X\+\_\+\+Y\+\_\+\+Coordinates}} Own\+Graphics\+Scene\+::\+Look\+End\+Points (\begin{DoxyParamCaption}\item[{unsigned}]{x,  }\item[{unsigned}]{y }\end{DoxyParamCaption})}
-
-
-
-Try to find end points that match mouse position. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em x} & Mouse x coordinate \\
-\hline
-{\em y} & Mouse y coordinate \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Returns \mbox{\hyperlink{structX__Y__Coordinates}{X\+\_\+\+Y\+\_\+\+Coordinates}} which contain end point
-\end{DoxyReturn}
-If no end point matches, returns negative coordinates 
-
-Definition at line 1022 of file Own\+Graphics\+Scene.\+cpp.
+Definition at line 470 of file Own\+Graphics\+Scene.\+cpp.
 
 \mbox{\Hypertarget{classOwnGraphicsScene_a302a5f437c44f6fc84f9911e41172734}\label{classOwnGraphicsScene_a302a5f437c44f6fc84f9911e41172734}} 
 \index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!modify\+Bezier\+Options@{modify\+Bezier\+Options}}
@@ -581,154 +346,24 @@ Works only if option is a valid lock\+\_\+mode
 \end{DoxyRemark}
 
 
-Definition at line 1165 of file Own\+Graphics\+Scene.\+cpp.
+Definition at line 1361 of file Own\+Graphics\+Scene.\+cpp.
 
-\mbox{\Hypertarget{classOwnGraphicsScene_adbcfda0bade866b7e5db29b7bfb53e0c}\label{classOwnGraphicsScene_adbcfda0bade866b7e5db29b7bfb53e0c}} 
-\index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!mouse\+\_\+tracking@{mouse\+\_\+tracking}}
-\index{mouse\+\_\+tracking@{mouse\+\_\+tracking}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
-\subsubsection{\texorpdfstring{mouse\+\_\+tracking()}{mouse\_tracking()}}
-{\footnotesize\ttfamily void Own\+Graphics\+Scene\+::mouse\+\_\+tracking (\begin{DoxyParamCaption}\item[{bool}]{enable }\end{DoxyParamCaption})}
-
-
-
-Set mouse tracking on or off. 
-
-Sends signal to parent\+\_\+view to enable or disable mouse tracking 
-\begin{DoxyParams}{Parameters}
-{\em enable} & true -\/$>$ enable, false -\/$>$ disable \\
-\hline
-\end{DoxyParams}
-
-
-Definition at line 1152 of file Own\+Graphics\+Scene.\+cpp.
-
-\mbox{\Hypertarget{classOwnGraphicsScene_ac7f6be2800f09463413459fed74bf34e}\label{classOwnGraphicsScene_ac7f6be2800f09463413459fed74bf34e}} 
-\index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!mouse\+Move\+Event@{mouse\+Move\+Event}}
-\index{mouse\+Move\+Event@{mouse\+Move\+Event}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
-\subsubsection{\texorpdfstring{mouse\+Move\+Event()}{mouseMoveEvent()}}
-{\footnotesize\ttfamily void Own\+Graphics\+Scene\+::mouse\+Move\+Event (\begin{DoxyParamCaption}\item[{Q\+Graphics\+Scene\+Mouse\+Event $\ast$}]{event }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{classOwnGraphicsScene_a0151f87fc7f7597fe91a99a83e261944}\label{classOwnGraphicsScene_a0151f87fc7f7597fe91a99a83e261944}} 
+\index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!path\+Image\+Cut@{path\+Image\+Cut}}
+\index{path\+Image\+Cut@{path\+Image\+Cut}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
+\subsubsection{\texorpdfstring{path\+Image\+Cut()}{pathImageCut()}}
+{\footnotesize\ttfamily void Own\+Graphics\+Scene\+::path\+Image\+Cut (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
-Overload for mouse\+Move\+Event. 
+Cut image according to selected path. 
 
-Used to track user mouse when creating lines and cutting images 
-
-Definition at line 154 of file Own\+Graphics\+Scene.\+cpp.
-
-\mbox{\Hypertarget{classOwnGraphicsScene_a1a9916971af608d5331483606f72fbe4}\label{classOwnGraphicsScene_a1a9916971af608d5331483606f72fbe4}} 
-\index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!mouse\+Press\+Event@{mouse\+Press\+Event}}
-\index{mouse\+Press\+Event@{mouse\+Press\+Event}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
-\subsubsection{\texorpdfstring{mouse\+Press\+Event()}{mousePressEvent()}}
-{\footnotesize\ttfamily void Own\+Graphics\+Scene\+::mouse\+Press\+Event (\begin{DoxyParamCaption}\item[{Q\+Graphics\+Scene\+Mouse\+Event $\ast$}]{event }\end{DoxyParamCaption})}
-
-
-
-Overload for mouse\+Press\+Event. 
-
-Used to add new items to the scene, also to remove and cut old items 
-
-Definition at line 38 of file Own\+Graphics\+Scene.\+cpp.
-
-\mbox{\Hypertarget{classOwnGraphicsScene_a5b4b466a697f83c23294a80067edac23}\label{classOwnGraphicsScene_a5b4b466a697f83c23294a80067edac23}} 
-\index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!remove\+\_\+\+Item@{remove\+\_\+\+Item}}
-\index{remove\+\_\+\+Item@{remove\+\_\+\+Item}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
-\subsubsection{\texorpdfstring{remove\+\_\+\+Item()}{remove\_Item()}}
-{\footnotesize\ttfamily void Own\+Graphics\+Scene\+::remove\+\_\+\+Item (\begin{DoxyParamCaption}\item[{unsigned}]{x,  }\item[{unsigned}]{y }\end{DoxyParamCaption})}
-
-
-
-Remove \mbox{\hyperlink{classLineItem}{Line\+Item}} from the scene. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em x} & x coordinate of the item to be removed \\
-\hline
-{\em y} & y coordinate of the item to be removed \\
-\hline
-\end{DoxyParams}
-
-
-Definition at line 280 of file Own\+Graphics\+Scene.\+cpp.
-
-\mbox{\Hypertarget{classOwnGraphicsScene_a24d8270608b0bd56c6155d99d7722ab8}\label{classOwnGraphicsScene_a24d8270608b0bd56c6155d99d7722ab8}} 
-\index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Remove\+Bezier@{Remove\+Bezier}}
-\index{Remove\+Bezier@{Remove\+Bezier}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
-\subsubsection{\texorpdfstring{Remove\+Bezier()}{RemoveBezier()}}
-{\footnotesize\ttfamily void Own\+Graphics\+Scene\+::\+Remove\+Bezier (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBezier}{Bezier}} $\ast$}]{bezier }\end{DoxyParamCaption})}
-
-
-
-Remove \mbox{\hyperlink{classBezier}{Bezier}} from the scene. 
-
-Removes the Line\+Items matching the \mbox{\hyperlink{classBezier}{Bezier}} and then deletes the object itself 
-\begin{DoxyParams}{Parameters}
-{\em bezier} & Pointer to the \mbox{\hyperlink{classBezier}{Bezier}} to be removed \\
-\hline
-\end{DoxyParams}
-
-
-Definition at line 782 of file Own\+Graphics\+Scene.\+cpp.
-
-\mbox{\Hypertarget{classOwnGraphicsScene_ad6ad8eaab22c10b1a228f08d8bd5bb68}\label{classOwnGraphicsScene_ad6ad8eaab22c10b1a228f08d8bd5bb68}} 
-\index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Remove\+Control\+Point\+Circles@{Remove\+Control\+Point\+Circles}}
-\index{Remove\+Control\+Point\+Circles@{Remove\+Control\+Point\+Circles}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
-\subsubsection{\texorpdfstring{Remove\+Control\+Point\+Circles()}{RemoveControlPointCircles()}}
-{\footnotesize\ttfamily void Own\+Graphics\+Scene\+::\+Remove\+Control\+Point\+Circles (\begin{DoxyParamCaption}\item[{int}]{point }\end{DoxyParamCaption})}
-
-
-
-Remove circles matching the bezier control points. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em point} & Which circle needs to be removed \\
-\hline
-\end{DoxyParams}
 \begin{DoxyRemark}{Remarks}
-point 0 -\/$>$ remove all circles, point 1 -\/$>$ remove circle 1 etc. 
+Called from \mbox{\hyperlink{classGUI}{G\+UI}} when pathcut\+Toolbar continue button is pressed 
 \end{DoxyRemark}
 
 
-Definition at line 878 of file Own\+Graphics\+Scene.\+cpp.
-
-\mbox{\Hypertarget{classOwnGraphicsScene_a4f029a37e96fc022295ce4e421319ddf}\label{classOwnGraphicsScene_a4f029a37e96fc022295ce4e421319ddf}} 
-\index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Remove\+End\+Point@{Remove\+End\+Point}}
-\index{Remove\+End\+Point@{Remove\+End\+Point}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
-\subsubsection{\texorpdfstring{Remove\+End\+Point()}{RemoveEndPoint()}}
-{\footnotesize\ttfamily void Own\+Graphics\+Scene\+::\+Remove\+End\+Point (\begin{DoxyParamCaption}\item[{unsigned}]{x,  }\item[{unsigned}]{y }\end{DoxyParamCaption})}
-
-
-
-Remove an end point. 
-
-End point is removed from end\+\_\+points\+\_\+dict. This method should be called when \mbox{\hyperlink{classLineItem}{Line\+Item}} or \mbox{\hyperlink{classBezier}{Bezier}} is removed from the scene. Removes only one end point matching x and y 
-\begin{DoxyParams}{Parameters}
-{\em x} & Item x coordinate \\
-\hline
-{\em y} & Item y coordinate \\
-\hline
-\end{DoxyParams}
-
-
-Definition at line 1050 of file Own\+Graphics\+Scene.\+cpp.
-
-\mbox{\Hypertarget{classOwnGraphicsScene_a4b1ba1b97b89baad08c3ba5471ebb61f}\label{classOwnGraphicsScene_a4b1ba1b97b89baad08c3ba5471ebb61f}} 
-\index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Remove\+End\+Point\+Circle@{Remove\+End\+Point\+Circle}}
-\index{Remove\+End\+Point\+Circle@{Remove\+End\+Point\+Circle}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
-\subsubsection{\texorpdfstring{Remove\+End\+Point\+Circle()}{RemoveEndPointCircle()}}
-{\footnotesize\ttfamily void Own\+Graphics\+Scene\+::\+Remove\+End\+Point\+Circle (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
-
-
-
-Remove old end\+\_\+circle from \mbox{\hyperlink{structEnd__Points}{End\+\_\+\+Points}} struct. 
-
-\begin{DoxyRemark}{Remarks}
-Does nothing if the circle is nullptr 
-\end{DoxyRemark}
-
-
-Definition at line 1131 of file Own\+Graphics\+Scene.\+cpp.
+Definition at line 1413 of file Own\+Graphics\+Scene.\+cpp.
 
 \mbox{\Hypertarget{classOwnGraphicsScene_a4976a8e6f682612acd3e23b6c98bd8d8}\label{classOwnGraphicsScene_a4976a8e6f682612acd3e23b6c98bd8d8}} 
 \index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Remove\+Poly\+Previous@{Remove\+Poly\+Previous}}
@@ -742,7 +377,7 @@ Remove previous image cut point.
 
 Removes also the \mbox{\hyperlink{classLineItem}{Line\+Item}} matching the point 
 
-Definition at line 594 of file Own\+Graphics\+Scene.\+cpp.
+Definition at line 772 of file Own\+Graphics\+Scene.\+cpp.
 
 \mbox{\Hypertarget{classOwnGraphicsScene_ae79aa179ce90ab26f06d7d17eed96b93}\label{classOwnGraphicsScene_ae79aa179ce90ab26f06d7d17eed96b93}} 
 \index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Select\+Cut\+Img@{Select\+Cut\+Img}}
@@ -759,26 +394,26 @@ Returns true if image exists
 \end{DoxyReturn}
 
 
-Definition at line 538 of file Own\+Graphics\+Scene.\+cpp.
+Definition at line 716 of file Own\+Graphics\+Scene.\+cpp.
 
-\mbox{\Hypertarget{classOwnGraphicsScene_ad62254e1884fa4817ff1beaa3bc6c011}\label{classOwnGraphicsScene_ad62254e1884fa4817ff1beaa3bc6c011}} 
-\index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!set\+Connect\+Lines@{set\+Connect\+Lines}}
-\index{set\+Connect\+Lines@{set\+Connect\+Lines}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
-\subsubsection{\texorpdfstring{set\+Connect\+Lines()}{setConnectLines()}}
-{\footnotesize\ttfamily void Own\+Graphics\+Scene\+::set\+Connect\+Lines (\begin{DoxyParamCaption}\item[{int}]{value }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{classOwnGraphicsScene_a3f4a8a31aa7a9efbf88c4d80c1cbc8ed}\label{classOwnGraphicsScene_a3f4a8a31aa7a9efbf88c4d80c1cbc8ed}} 
+\index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!set\+End\+Points\+Active@{set\+End\+Points\+Active}}
+\index{set\+End\+Points\+Active@{set\+End\+Points\+Active}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
+\subsubsection{\texorpdfstring{set\+End\+Points\+Active()}{setEndPointsActive()}}
+{\footnotesize\ttfamily void Own\+Graphics\+Scene\+::set\+End\+Points\+Active (\begin{DoxyParamCaption}\item[{int}]{value }\end{DoxyParamCaption})}
 
 
 
-Update connect\+\_\+lines value. 
+Update E\+N\+D\+\_\+\+P\+O\+I\+N\+T\+S\+\_\+\+A\+C\+T\+I\+VE value. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em value} & New connect\+\_\+lines value matching combobox options \\
+{\em value} & New E\+N\+D\+\_\+\+P\+O\+I\+N\+T\+S\+\_\+\+A\+C\+T\+I\+VE value matching combobox options \\
 \hline
 \end{DoxyParams}
 
 
-Definition at line 628 of file Own\+Graphics\+Scene.\+cpp.
+Definition at line 806 of file Own\+Graphics\+Scene.\+cpp.
 
 \mbox{\Hypertarget{classOwnGraphicsScene_a656919c9fdd0827ae182d3d3f5f91e4f}\label{classOwnGraphicsScene_a656919c9fdd0827ae182d3d3f5f91e4f}} 
 \index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Set\+Img\+Cut\+Mode@{Set\+Img\+Cut\+Mode}}
@@ -792,31 +427,26 @@ Select image cut mode.
 
 Image cut modes are defined as macros 
 
-Definition at line 562 of file Own\+Graphics\+Scene.\+cpp.
+Definition at line 740 of file Own\+Graphics\+Scene.\+cpp.
 
-\mbox{\Hypertarget{classOwnGraphicsScene_adf8d1495517483ba65c1ccbc95920a1c}\label{classOwnGraphicsScene_adf8d1495517483ba65c1ccbc95920a1c}} 
-\index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Update\+End\+Points@{Update\+End\+Points}}
-\index{Update\+End\+Points@{Update\+End\+Points}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
-\subsubsection{\texorpdfstring{Update\+End\+Points()}{UpdateEndPoints()}}
-{\footnotesize\ttfamily void Own\+Graphics\+Scene\+::\+Update\+End\+Points (\begin{DoxyParamCaption}\item[{unsigned}]{x,  }\item[{unsigned}]{y }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{classOwnGraphicsScene_a6dd98dd7fd32a22016f4f8d4d6a8f400}\label{classOwnGraphicsScene_a6dd98dd7fd32a22016f4f8d4d6a8f400}} 
+\index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Text\+Mode@{Text\+Mode}}
+\index{Text\+Mode@{Text\+Mode}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
+\subsubsection{\texorpdfstring{Text\+Mode()}{TextMode()}}
+{\footnotesize\ttfamily void Own\+Graphics\+Scene\+::\+Text\+Mode (\begin{DoxyParamCaption}\item[{bool}]{activate }\end{DoxyParamCaption})}
 
 
 
-Update \mbox{\hyperlink{structEnd__Points}{End\+\_\+\+Points}}. 
+Activate text\+\_\+mode. 
 
-Checks if mouse is over an end point and possibly draws a circle representing the end point. Updates also end\+\_\+y and end\+\_\+x values 
+
 \begin{DoxyParams}{Parameters}
-{\em x} & Current mouse x coordinate \\
-\hline
-{\em y} & Current mouse y coordinate \\
+{\em activate} & Activate / deactivate Text\+Mode \\
 \hline
 \end{DoxyParams}
-\begin{DoxyRemark}{Remarks}
-Depends heavily on Look\+End\+Points 
-\end{DoxyRemark}
 
 
-Definition at line 1082 of file Own\+Graphics\+Scene.\+cpp.
+Definition at line 521 of file Own\+Graphics\+Scene.\+cpp.
 
 
 
@@ -829,7 +459,17 @@ Definition at line 1082 of file Own\+Graphics\+Scene.\+cpp.
 
 Whether items end points are shown 
 
-Definition at line 496 of file Own\+Graphics\+Scene.\+hpp.
+Definition at line 147 of file Own\+Graphics\+Scene.\+hpp.
+
+\mbox{\Hypertarget{classOwnGraphicsScene_af51cea46e8b0cffa341ba88c2b801e81}\label{classOwnGraphicsScene_af51cea46e8b0cffa341ba88c2b801e81}} 
+\index{Own\+Graphics\+Scene@{Own\+Graphics\+Scene}!Special\+Color@{Special\+Color}}
+\index{Special\+Color@{Special\+Color}!Own\+Graphics\+Scene@{Own\+Graphics\+Scene}}
+\subsubsection{\texorpdfstring{Special\+Color}{SpecialColor}}
+{\footnotesize\ttfamily Q\+Color Own\+Graphics\+Scene\+::\+Special\+Color = Qt\+::black\hspace{0.3cm}{\ttfamily [static]}}
+
+Color used with special items (End points circles) 
+
+Definition at line 148 of file Own\+Graphics\+Scene.\+hpp.
 
 
 

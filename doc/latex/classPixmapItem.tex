@@ -35,7 +35,16 @@ void \mbox{\hyperlink{classPixmapItem_a54810877049ab858d569f83065720a18}{clear\+
 void \mbox{\hyperlink{classPixmapItem_a4a742318dce01d018da2f4b01790c210}{Cut\+Item}} ()
 \begin{DoxyCompactList}\small\item\em Cut the item. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classPixmapItem_ae2e67a7b69ef10dc613e14c1d3c1a327}{Remove\+Latest\+Point}} ()
-\begin{DoxyCompactList}\small\item\em Remove the latest point added. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Remove the latest point added. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPixmapItem_ab71710e3b66024a62fe56a43e60141b3}{Line\+Cut}} ()
+\begin{DoxyCompactList}\small\item\em Cut item based on a \mbox{\hyperlink{classLineItem}{Line\+Item}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPixmapItem_a660c7d73c4f915e6673a3b602affb568}{Bezier\+Cut}} ()
+\begin{DoxyCompactList}\small\item\em Cut item based on a \mbox{\hyperlink{classBezier}{Bezier}} (its Line\+Items) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{namespaceEditor_aad9ecf07f59416285836e79f1b1d2bd8}{Editor\+::\+Connect\+Point}} \mbox{\hyperlink{classPixmapItem_a3733ea98fc45c24acc1bc1552e969895}{connect\+\_\+point}} = Editor\+::\+Connect\+Point\+::\+Connect\+Zero
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -43,7 +52,7 @@ Own Q\+Graphics\+Pixmap\+Item implementation.
 
 This class inherits Q\+Graphics\+Pixmap\+Item Adds a position specifiers to the base class 
 
-Definition at line 51 of file Pixmap\+Item.\+hpp.
+Definition at line 60 of file Pixmap\+Item.\+hpp.
 
 
 
@@ -67,7 +76,7 @@ Constructor for \mbox{\hyperlink{classPixmapItem}{Pixmap\+Item}}.
 \end{DoxyParams}
 
 
-Definition at line 16 of file Pixmap\+Item.\+cpp.
+Definition at line 19 of file Pixmap\+Item.\+cpp.
 
 
 
@@ -91,7 +100,21 @@ Add Q\+Point to painter\+\_\+points.
 \end{DoxyParams}
 The painter point is used in cut image mode to create a polygon cut 
 
-Definition at line 99 of file Pixmap\+Item.\+cpp.
+Definition at line 102 of file Pixmap\+Item.\+cpp.
+
+\mbox{\Hypertarget{classPixmapItem_a660c7d73c4f915e6673a3b602affb568}\label{classPixmapItem_a660c7d73c4f915e6673a3b602affb568}} 
+\index{Pixmap\+Item@{Pixmap\+Item}!Bezier\+Cut@{Bezier\+Cut}}
+\index{Bezier\+Cut@{Bezier\+Cut}!Pixmap\+Item@{Pixmap\+Item}}
+\subsubsection{\texorpdfstring{Bezier\+Cut()}{BezierCut()}}
+{\footnotesize\ttfamily void Pixmap\+Item\+::\+Bezier\+Cut (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Cut item based on a \mbox{\hyperlink{classBezier}{Bezier}} (its Line\+Items) 
+
+Connects lines from the last painter\+\_\+point to the first using lower edge as a connection point 
+
+Definition at line 172 of file Pixmap\+Item.\+cpp.
 
 \mbox{\Hypertarget{classPixmapItem_a54810877049ab858d569f83065720a18}\label{classPixmapItem_a54810877049ab858d569f83065720a18}} 
 \index{Pixmap\+Item@{Pixmap\+Item}!clear\+Points\+Vector@{clear\+Points\+Vector}}
@@ -105,7 +128,7 @@ Clear all Q\+Points of the item.
 
 Points are cleared from painter\+\_\+points vector 
 
-Definition at line 113 of file Pixmap\+Item.\+cpp.
+Definition at line 116 of file Pixmap\+Item.\+cpp.
 
 \mbox{\Hypertarget{classPixmapItem_a4a742318dce01d018da2f4b01790c210}\label{classPixmapItem_a4a742318dce01d018da2f4b01790c210}} 
 \index{Pixmap\+Item@{Pixmap\+Item}!Cut\+Item@{Cut\+Item}}
@@ -119,7 +142,7 @@ Cut the item.
 
 Cut path is defined by Q\+Painter\+Path which is created from Q\+Points in painter\+\_\+points 
 
-Definition at line 30 of file Pixmap\+Item.\+cpp.
+Definition at line 33 of file Pixmap\+Item.\+cpp.
 
 \mbox{\Hypertarget{classPixmapItem_ad5510bf5a97b352e3b06cb888ac0a99c}\label{classPixmapItem_ad5510bf5a97b352e3b06cb888ac0a99c}} 
 \index{Pixmap\+Item@{Pixmap\+Item}!is\+Xinside@{is\+Xinside}}
@@ -141,7 +164,7 @@ Returns true if x is inside the item
 \end{DoxyReturn}
 
 
-Definition at line 65 of file Pixmap\+Item.\+cpp.
+Definition at line 68 of file Pixmap\+Item.\+cpp.
 
 \mbox{\Hypertarget{classPixmapItem_ab6e6526fd5cd0ce5ba34b665adca6c5c}\label{classPixmapItem_ab6e6526fd5cd0ce5ba34b665adca6c5c}} 
 \index{Pixmap\+Item@{Pixmap\+Item}!is\+Yinside@{is\+Yinside}}
@@ -163,7 +186,21 @@ Returns true if y is inside the item
 \end{DoxyReturn}
 
 
-Definition at line 77 of file Pixmap\+Item.\+cpp.
+Definition at line 80 of file Pixmap\+Item.\+cpp.
+
+\mbox{\Hypertarget{classPixmapItem_ab71710e3b66024a62fe56a43e60141b3}\label{classPixmapItem_ab71710e3b66024a62fe56a43e60141b3}} 
+\index{Pixmap\+Item@{Pixmap\+Item}!Line\+Cut@{Line\+Cut}}
+\index{Line\+Cut@{Line\+Cut}!Pixmap\+Item@{Pixmap\+Item}}
+\subsubsection{\texorpdfstring{Line\+Cut()}{LineCut()}}
+{\footnotesize\ttfamily void Pixmap\+Item\+::\+Line\+Cut (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Cut item based on a \mbox{\hyperlink{classLineItem}{Line\+Item}}. 
+
+Connects lines from lower edges of the pixmap to the \mbox{\hyperlink{classLineItem}{Line\+Item}} points 
+
+Definition at line 136 of file Pixmap\+Item.\+cpp.
 
 \mbox{\Hypertarget{classPixmapItem_ae2e67a7b69ef10dc613e14c1d3c1a327}\label{classPixmapItem_ae2e67a7b69ef10dc613e14c1d3c1a327}} 
 \index{Pixmap\+Item@{Pixmap\+Item}!Remove\+Latest\+Point@{Remove\+Latest\+Point}}
@@ -177,7 +214,7 @@ Remove the latest point added.
 
 Removes the latest entry from painter\+\_\+points vector 
 
-Definition at line 123 of file Pixmap\+Item.\+cpp.
+Definition at line 126 of file Pixmap\+Item.\+cpp.
 
 \mbox{\Hypertarget{classPixmapItem_a692a0aca72ffbe102769fdc9246ed2f6}\label{classPixmapItem_a692a0aca72ffbe102769fdc9246ed2f6}} 
 \index{Pixmap\+Item@{Pixmap\+Item}!setX@{setX}}
@@ -196,7 +233,7 @@ Set new x coordinate.
 \end{DoxyParams}
 
 
-Definition at line 86 of file Pixmap\+Item.\+cpp.
+Definition at line 89 of file Pixmap\+Item.\+cpp.
 
 \mbox{\Hypertarget{classPixmapItem_a6c6f4a872823f585edcf134d9bf209e1}\label{classPixmapItem_a6c6f4a872823f585edcf134d9bf209e1}} 
 \index{Pixmap\+Item@{Pixmap\+Item}!setY@{setY}}
@@ -215,7 +252,20 @@ Set new y coordinate.
 \end{DoxyParams}
 
 
-Definition at line 91 of file Pixmap\+Item.\+cpp.
+Definition at line 94 of file Pixmap\+Item.\+cpp.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classPixmapItem_a3733ea98fc45c24acc1bc1552e969895}\label{classPixmapItem_a3733ea98fc45c24acc1bc1552e969895}} 
+\index{Pixmap\+Item@{Pixmap\+Item}!connect\+\_\+point@{connect\+\_\+point}}
+\index{connect\+\_\+point@{connect\+\_\+point}!Pixmap\+Item@{Pixmap\+Item}}
+\subsubsection{\texorpdfstring{connect\+\_\+point}{connect\_point}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespaceEditor_aad9ecf07f59416285836e79f1b1d2bd8}{Editor\+::\+Connect\+Point}} Pixmap\+Item\+::connect\+\_\+point = Editor\+::\+Connect\+Point\+::\+Connect\+Zero\hspace{0.3cm}{\ttfamily [static]}}
+
+Tells to which point Line\+Cut and Bezier\+Cut connect cut paths in y dimension. 
+
+Definition at line 63 of file Pixmap\+Item.\+hpp.
 
 
 

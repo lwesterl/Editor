@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['owngraphicsscene_2ecpp',['OwnGraphicsScene.cpp',['../OwnGraphicsScene_8cpp.html',1,'']]],
-  ['owngraphicsscene_2ehpp',['OwnGraphicsScene.hpp',['../OwnGraphicsScene_8hpp.html',1,'']]],
-  ['owngraphicsview_2ehpp',['OwnGraphicsView.hpp',['../OwnGraphicsView_8hpp.html',1,'']]]
+  ['main_2ecpp',['main.cpp',['../main_8cpp.html',1,'']]],
+  ['mainwidget_2ecpp',['MainWidget.cpp',['../MainWidget_8cpp.html',1,'']]],
+  ['mainwidget_2ehpp',['MainWidget.hpp',['../MainWidget_8hpp.html',1,'']]]
 ];

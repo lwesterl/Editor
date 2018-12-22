@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['hidebeziertoolbar',['HideBezierToolbar',['../classGUI.html#ae36c91ff70502eeecb985c3b84aa3a07',1,'GUI']]],
-  ['hidemaintoolbar',['HideMainToolbar',['../classGUI.html#aa115b0163bfbf518dd201f4f02476b75',1,'GUI']]],
-  ['hidemodetoolbar',['HideModeToolbar',['../classGUI.html#a9517c0ad1e4c2b39faab8050f8133151',1,'GUI']]],
-  ['hidepolygontoolbar',['HidePolygonToolbar',['../classGUI.html#aaf633cd0904e4c3627c21219f330c177',1,'GUI']]],
-  ['hideselecttoolbar',['HideSelectToolbar',['../classGUI.html#a7f6d3b1fcbd874fccd93c5f29c468ed8',1,'GUI']]]
+  ['imgmode',['imgMode',['../classOwnGraphicsScene.html#acc6e7978a3f10889e439ceabd155a341',1,'OwnGraphicsScene']]],
+  ['initscrollbar',['InitScrollBar',['../classMainWidget.html#af544f3b04a81d63c0810a90706773d3d',1,'MainWidget']]],
+  ['isinside',['isInside',['../classBezier.html#a1ea801d6578a5858939b87775a9ea654',1,'Bezier::isInside()'],['../classLineItem.html#af7dc675a032b27d6424536994095a95e',1,'LineItem::isInside()'],['../classTextItem.html#adc7df553640cfb6f9dc3cebc9716aee0',1,'TextItem::isInside()']]],
+  ['isxinside',['isXinside',['../classPixmapItem.html#ad5510bf5a97b352e3b06cb888ac0a99c',1,'PixmapItem']]],
+  ['isyinside',['isYinside',['../classPixmapItem.html#ab6e6526fd5cd0ce5ba34b665adca6c5c',1,'PixmapItem']]]
 ];

@@ -24,13 +24,21 @@ void \mbox{\hyperlink{classOwnGraphicsView_a4902ca3c748bc13040c4d869bf7be291}{en
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classOwnGraphicsView_a57f2f9617077ce2a1d30ec3f6c7144db}{Own\+Graphics\+View}} (Q\+Graphics\+Scene $\ast$scene, Q\+Widget $\ast$parent)
-\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{classOwnGraphicsView}{Own\+Graphics\+View}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{classOwnGraphicsView}{Own\+Graphics\+View}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classOwnGraphicsView_aa1fcab658f07793e921b8b79815d4430}{wheel\+Event}} (Q\+Wheel\+Event $\ast$event)
+\begin{DoxyCompactList}\small\item\em wheel\+Event overload \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classOwnGraphicsView_ac44fdf0870779587fcaf8855f905cdf3}{update\+Size}} (Q\+Size new\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Update view size. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classOwnGraphicsView_aed25dd7c6e958838fcfa7709363ffc9c}{update\+Scene\+Size}} (unsigned width, unsigned height)
+\begin{DoxyCompactList}\small\item\em Updates view scene\+\_\+size to match scene. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classOwnGraphicsView_a4aff62ba2da3d0e4a671ec0a8042e242}{reset\+Scaling}} ()
+\begin{DoxyCompactList}\small\item\em Reset view scaling. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 Custom Q\+Graphics\+View which Implements mouse tracking. 
 
-Definition at line 18 of file Own\+Graphics\+View.\+hpp.
+Definition at line 22 of file Own\+Graphics\+View.\+hpp.
 
 
 
@@ -39,7 +47,7 @@ Definition at line 18 of file Own\+Graphics\+View.\+hpp.
 \index{Own\+Graphics\+View@{Own\+Graphics\+View}!Own\+Graphics\+View@{Own\+Graphics\+View}}
 \index{Own\+Graphics\+View@{Own\+Graphics\+View}!Own\+Graphics\+View@{Own\+Graphics\+View}}
 \subsubsection{\texorpdfstring{Own\+Graphics\+View()}{OwnGraphicsView()}}
-{\footnotesize\ttfamily Own\+Graphics\+View\+::\+Own\+Graphics\+View (\begin{DoxyParamCaption}\item[{Q\+Graphics\+Scene $\ast$}]{scene,  }\item[{Q\+Widget $\ast$}]{parent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily Own\+Graphics\+View\+::\+Own\+Graphics\+View (\begin{DoxyParamCaption}\item[{Q\+Graphics\+Scene $\ast$}]{scene,  }\item[{Q\+Widget $\ast$}]{parent }\end{DoxyParamCaption})}
 
 
 
@@ -47,7 +55,7 @@ Constructor for \mbox{\hyperlink{classOwnGraphicsView}{Own\+Graphics\+View}}.
 
 Starts with mouse tracking disabled 
 
-Definition at line 27 of file Own\+Graphics\+View.\+hpp.
+Definition at line 11 of file Own\+Graphics\+View.\+cpp.
 
 
 
@@ -56,7 +64,7 @@ Definition at line 27 of file Own\+Graphics\+View.\+hpp.
 \index{Own\+Graphics\+View@{Own\+Graphics\+View}!enable\+\_\+mouse\+\_\+tracking@{enable\+\_\+mouse\+\_\+tracking}}
 \index{enable\+\_\+mouse\+\_\+tracking@{enable\+\_\+mouse\+\_\+tracking}!Own\+Graphics\+View@{Own\+Graphics\+View}}
 \subsubsection{\texorpdfstring{enable\+\_\+mouse\+\_\+tracking}{enable\_mouse\_tracking}}
-{\footnotesize\ttfamily void Own\+Graphics\+View\+::enable\+\_\+mouse\+\_\+tracking (\begin{DoxyParamCaption}\item[{bool}]{enable }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [slot]}}
+{\footnotesize\ttfamily void Own\+Graphics\+View\+::enable\+\_\+mouse\+\_\+tracking (\begin{DoxyParamCaption}\item[{bool}]{enable }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
 
 
 
@@ -64,10 +72,85 @@ Slot used to communicate with child scene.
 
 The scene tells when to enable/disable mouse\+\_\+tracking 
 
-Definition at line 38 of file Own\+Graphics\+View.\+hpp.
+Definition at line 19 of file Own\+Graphics\+View.\+cpp.
+
+\mbox{\Hypertarget{classOwnGraphicsView_a4aff62ba2da3d0e4a671ec0a8042e242}\label{classOwnGraphicsView_a4aff62ba2da3d0e4a671ec0a8042e242}} 
+\index{Own\+Graphics\+View@{Own\+Graphics\+View}!reset\+Scaling@{reset\+Scaling}}
+\index{reset\+Scaling@{reset\+Scaling}!Own\+Graphics\+View@{Own\+Graphics\+View}}
+\subsubsection{\texorpdfstring{reset\+Scaling()}{resetScaling()}}
+{\footnotesize\ttfamily void Own\+Graphics\+View\+::reset\+Scaling (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+Reset view scaling. 
+
+Resets view scaling and set it to a safe state. Call this function when vindow or rect size is changed 
+
+Definition at line 85 of file Own\+Graphics\+View.\+cpp.
+
+\mbox{\Hypertarget{classOwnGraphicsView_aed25dd7c6e958838fcfa7709363ffc9c}\label{classOwnGraphicsView_aed25dd7c6e958838fcfa7709363ffc9c}} 
+\index{Own\+Graphics\+View@{Own\+Graphics\+View}!update\+Scene\+Size@{update\+Scene\+Size}}
+\index{update\+Scene\+Size@{update\+Scene\+Size}!Own\+Graphics\+View@{Own\+Graphics\+View}}
+\subsubsection{\texorpdfstring{update\+Scene\+Size()}{updateSceneSize()}}
+{\footnotesize\ttfamily void Own\+Graphics\+View\+::update\+Scene\+Size (\begin{DoxyParamCaption}\item[{unsigned}]{width,  }\item[{unsigned}]{height }\end{DoxyParamCaption})}
+
+
+
+Updates view scene\+\_\+size to match scene. 
+
+\begin{DoxyRemark}{Remarks}
+Call this after scene size is changed 
+\end{DoxyRemark}
+
+\begin{DoxyParams}{Parameters}
+{\em width} & New scene width \\
+\hline
+{\em height} & New scene height \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 75 of file Own\+Graphics\+View.\+cpp.
+
+\mbox{\Hypertarget{classOwnGraphicsView_ac44fdf0870779587fcaf8855f905cdf3}\label{classOwnGraphicsView_ac44fdf0870779587fcaf8855f905cdf3}} 
+\index{Own\+Graphics\+View@{Own\+Graphics\+View}!update\+Size@{update\+Size}}
+\index{update\+Size@{update\+Size}!Own\+Graphics\+View@{Own\+Graphics\+View}}
+\subsubsection{\texorpdfstring{update\+Size()}{updateSize()}}
+{\footnotesize\ttfamily void Own\+Graphics\+View\+::update\+Size (\begin{DoxyParamCaption}\item[{Q\+Size}]{new\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Update view size. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+size} & New view size \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+This should be called after \mbox{\hyperlink{classMainWidget}{Main\+Widget}} is resized 
+\end{DoxyRemark}
+
+
+Definition at line 67 of file Own\+Graphics\+View.\+cpp.
+
+\mbox{\Hypertarget{classOwnGraphicsView_aa1fcab658f07793e921b8b79815d4430}\label{classOwnGraphicsView_aa1fcab658f07793e921b8b79815d4430}} 
+\index{Own\+Graphics\+View@{Own\+Graphics\+View}!wheel\+Event@{wheel\+Event}}
+\index{wheel\+Event@{wheel\+Event}!Own\+Graphics\+View@{Own\+Graphics\+View}}
+\subsubsection{\texorpdfstring{wheel\+Event()}{wheelEvent()}}
+{\footnotesize\ttfamily void Own\+Graphics\+View\+::wheel\+Event (\begin{DoxyParamCaption}\item[{Q\+Wheel\+Event $\ast$}]{event }\end{DoxyParamCaption})}
+
+
+
+wheel\+Event overload 
+
+Used to implement zooming of the view 
+
+Definition at line 30 of file Own\+Graphics\+View.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-include/\mbox{\hyperlink{OwnGraphicsView_8hpp}{Own\+Graphics\+View.\+hpp}}\end{DoxyCompactItemize}
+include/\mbox{\hyperlink{OwnGraphicsView_8hpp}{Own\+Graphics\+View.\+hpp}}\item 
+src/\mbox{\hyperlink{OwnGraphicsView_8cpp}{Own\+Graphics\+View.\+cpp}}\end{DoxyCompactItemize}

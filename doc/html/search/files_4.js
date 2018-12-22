@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['mainwidget_2ecpp',['MainWidget.cpp',['../MainWidget_8cpp.html',1,'']]],
-  ['mainwidget_2ehpp',['MainWidget.hpp',['../MainWidget_8hpp.html',1,'']]]
+  ['lineitem_2ecpp',['LineItem.cpp',['../LineItem_8cpp.html',1,'']]],
+  ['lineitem_2ehpp',['LineItem.hpp',['../LineItem_8hpp.html',1,'']]]
 ];

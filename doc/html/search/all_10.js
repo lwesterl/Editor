@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['test_5fbezier_2ecpp',['Test_bezier.cpp',['../Test__bezier_8cpp.html',1,'']]],
-  ['test_5fbezier_2ehpp',['Test_bezier.hpp',['../Test__bezier_8hpp.html',1,'']]]
+  ['updateposition',['updatePosition',['../classLineItem.html#acea090c7b9ff53dcc7a95ab7939b2cb9',1,'LineItem']]],
+  ['updatescenesize',['updateSceneSize',['../classOwnGraphicsView.html#aed25dd7c6e958838fcfa7709363ffc9c',1,'OwnGraphicsView']]],
+  ['updatesize',['updateSize',['../classOwnGraphicsView.html#ac44fdf0870779587fcaf8855f905cdf3',1,'OwnGraphicsView']]]
 ];

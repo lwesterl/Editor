@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['pixmapitem_2ecpp',['PixmapItem.cpp',['../PixmapItem_8cpp.html',1,'']]],
-  ['pixmapitem_2ehpp',['PixmapItem.hpp',['../PixmapItem_8hpp.html',1,'']]],
-  ['promtwindow_2ecpp',['PromtWindow.cpp',['../PromtWindow_8cpp.html',1,'']]],
-  ['promtwindow_2ehpp',['PromtWindow.hpp',['../PromtWindow_8hpp.html',1,'']]]
+  ['owngraphicsscene_2ecpp',['OwnGraphicsScene.cpp',['../OwnGraphicsScene_8cpp.html',1,'']]],
+  ['owngraphicsscene_2ehpp',['OwnGraphicsScene.hpp',['../OwnGraphicsScene_8hpp.html',1,'']]],
+  ['owngraphicsview_2ecpp',['OwnGraphicsView.cpp',['../OwnGraphicsView_8cpp.html',1,'']]],
+  ['owngraphicsview_2ehpp',['OwnGraphicsView.hpp',['../OwnGraphicsView_8hpp.html',1,'']]]
 ];

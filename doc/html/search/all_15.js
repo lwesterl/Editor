@@ -3,5 +3,6 @@ var searchData=
   ['_7ebezier',['~Bezier',['../classBezier.html#a32f81ea72bd31a4607b4168839ea8815',1,'Bezier']]],
   ['_7egui',['~GUI',['../classGUI.html#ac9cae2328dcb5d83bdfaeca49a2eb695',1,'GUI']]],
   ['_7emainwidget',['~MainWidget',['../classMainWidget.html#add21c63f8e799303a21a69da3d288c2f',1,'MainWidget']]],
-  ['_7eowngraphicsscene',['~OwnGraphicsScene',['../classOwnGraphicsScene.html#a4c77674db1854f2b228c7aefbd9ea688',1,'OwnGraphicsScene']]]
+  ['_7eowngraphicsscene',['~OwnGraphicsScene',['../classOwnGraphicsScene.html#a4c77674db1854f2b228c7aefbd9ea688',1,'OwnGraphicsScene']]],
+  ['_7espinboxaction',['~SpinBoxAction',['../classSpinBoxAction.html#a9f7509bd0dab53ef98c7c077d391b46e',1,'SpinBoxAction']]]
 ];

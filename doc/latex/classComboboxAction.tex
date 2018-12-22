@@ -21,7 +21,11 @@ Inheritance diagram for Combobox\+Action\+:\begin{figure}[H]
 \mbox{\hyperlink{classComboboxAction_afa2a6bfade094a82beef7d478c5a4cf8}{Combobox\+Action}} (const Q\+String \&info)
 \begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{classComboboxAction}{Combobox\+Action}}. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classComboboxAction_adfe475154e5b88eddbc9a51759bdf312}{Combo\+Index}} ()
-\begin{DoxyCompactList}\small\item\em Get combobox index. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Get combobox index. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComboboxAction_ac216fa96660ef568af946eb2fc58746e}{set\+Item\+Text}} (int index, const Q\+String text)
+\begin{DoxyCompactList}\small\item\em Set Item text. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classComboboxAction_a3472e15614e868dbf300fdbcbc5a011c}{add\+Item}} (const Q\+String text)
+\begin{DoxyCompactList}\small\item\em Add new item to the combobox. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -56,6 +60,25 @@ Definition at line 13 of file Combobox\+Action.\+cpp.
 
 
 \subsection{Member Function Documentation}
+\mbox{\Hypertarget{classComboboxAction_a3472e15614e868dbf300fdbcbc5a011c}\label{classComboboxAction_a3472e15614e868dbf300fdbcbc5a011c}} 
+\index{Combobox\+Action@{Combobox\+Action}!add\+Item@{add\+Item}}
+\index{add\+Item@{add\+Item}!Combobox\+Action@{Combobox\+Action}}
+\subsubsection{\texorpdfstring{add\+Item()}{addItem()}}
+{\footnotesize\ttfamily void Combobox\+Action\+::add\+Item (\begin{DoxyParamCaption}\item[{const Q\+String}]{text }\end{DoxyParamCaption})}
+
+
+
+Add new item to the combobox. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & Item text \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 51 of file Combobox\+Action.\+cpp.
+
 \mbox{\Hypertarget{classComboboxAction_adfe475154e5b88eddbc9a51759bdf312}\label{classComboboxAction_adfe475154e5b88eddbc9a51759bdf312}} 
 \index{Combobox\+Action@{Combobox\+Action}!Combo\+Index@{Combo\+Index}}
 \index{Combo\+Index@{Combo\+Index}!Combobox\+Action@{Combobox\+Action}}
@@ -72,6 +95,27 @@ Returns combobox index
 Calls Q\+Combo\+Box current\+Index() 
 
 Definition at line 35 of file Combobox\+Action.\+cpp.
+
+\mbox{\Hypertarget{classComboboxAction_ac216fa96660ef568af946eb2fc58746e}\label{classComboboxAction_ac216fa96660ef568af946eb2fc58746e}} 
+\index{Combobox\+Action@{Combobox\+Action}!set\+Item\+Text@{set\+Item\+Text}}
+\index{set\+Item\+Text@{set\+Item\+Text}!Combobox\+Action@{Combobox\+Action}}
+\subsubsection{\texorpdfstring{set\+Item\+Text()}{setItemText()}}
+{\footnotesize\ttfamily void Combobox\+Action\+::set\+Item\+Text (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{const Q\+String}]{text }\end{DoxyParamCaption})}
+
+
+
+Set Item text. 
+
+This allows set other text than yes / no which are the defaults 
+\begin{DoxyParams}{Parameters}
+{\em index} & Index of the item which text is changed \\
+\hline
+{\em text} & New item text \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 41 of file Combobox\+Action.\+cpp.
 
 
 

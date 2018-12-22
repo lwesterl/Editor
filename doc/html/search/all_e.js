@@ -1,14 +1,22 @@
 var searchData=
 [
-  ['remove',['remove',['../structPolygonToolbar.html#ad5f83fc2ac8daf17ae3014d05d3f5d5b',1,'PolygonToolbar']]],
-  ['remove_5fbezier',['remove_bezier',['../structBezierToolbar.html#a1e1fd77e3baf09d382973b1ede4247cd',1,'BezierToolbar']]],
-  ['remove_5fitem',['remove_Item',['../classOwnGraphicsScene.html#a5b4b466a697f83c23294a80067edac23',1,'OwnGraphicsScene']]],
-  ['remove_5fpoint_5fimg',['remove_point_img',['../GUI_8hpp.html#a19fb1ba48d0a34f41020472dd625cf95',1,'GUI.hpp']]],
-  ['remove_5ftext',['remove_text',['../structPolygonToolbar.html#ad396d8e37e491bb7bfa8bf91d318014c',1,'PolygonToolbar']]],
-  ['removebezier',['RemoveBezier',['../classOwnGraphicsScene.html#a24d8270608b0bd56c6155d99d7722ab8',1,'OwnGraphicsScene']]],
-  ['removecontrolpointcircles',['RemoveControlPointCircles',['../classOwnGraphicsScene.html#ad6ad8eaab22c10b1a228f08d8bd5bb68',1,'OwnGraphicsScene']]],
-  ['removeendpoint',['RemoveEndPoint',['../classOwnGraphicsScene.html#a4f029a37e96fc022295ce4e421319ddf',1,'OwnGraphicsScene']]],
-  ['removeendpointcircle',['RemoveEndPointCircle',['../classOwnGraphicsScene.html#a4b1ba1b97b89baad08c3ba5471ebb61f',1,'OwnGraphicsScene']]],
-  ['removelatestpoint',['RemoveLatestPoint',['../classPixmapItem.html#ae2e67a7b69ef10dc613e14c1d3c1a327',1,'PixmapItem']]],
-  ['removepolyprevious',['RemovePolyPrevious',['../classGUI.html#abf8e1050ae4d599bf35af7b1f841d960',1,'GUI::RemovePolyPrevious()'],['../classOwnGraphicsScene.html#a4976a8e6f682612acd3e23b6c98bd8d8',1,'OwnGraphicsScene::RemovePolyPrevious()']]]
+  ['save_5fbezier',['save_bezier',['../structBezierToolbar.html#a2848e3a1e3d0eb3dfe63959c12538782',1,'BezierToolbar']]],
+  ['save_5foptions',['save_options',['../structBezierToolbar.html#a9d3e4ffe8c28b246dafd257110e28994',1,'BezierToolbar']]],
+  ['scene',['Scene',['../namespaceScene.html',1,'']]],
+  ['select_5fimg_5ftoolbar',['select_img_toolbar',['../structSelectImgToolbar.html#a779bc326cf08c9fbcd1ffebb43a664eb',1,'SelectImgToolbar']]],
+  ['selectcutimg',['SelectCutImg',['../classOwnGraphicsScene.html#ae79aa179ce90ab26f06d7d17eed96b93',1,'OwnGraphicsScene']]],
+  ['selectimgtoolbar',['SelectImgToolbar',['../structSelectImgToolbar.html',1,'']]],
+  ['setdefaultvalue',['setDefaultValue',['../classSpinBoxAction.html#a748fdb2979fe10565d04d447fd45143b',1,'SpinBoxAction']]],
+  ['setendpointsactive',['setEndPointsActive',['../classOwnGraphicsScene.html#a3f4a8a31aa7a9efbf88c4d80c1cbc8ed',1,'OwnGraphicsScene']]],
+  ['setimage',['setImage',['../classOwnGraphicsScene.html#ae83ee24e342b50c335af155a34295185',1,'OwnGraphicsScene']]],
+  ['setimgcutmode',['SetImgCutMode',['../classOwnGraphicsScene.html#a656919c9fdd0827ae182d3d3f5f91e4f',1,'OwnGraphicsScene']]],
+  ['setitemtext',['setItemText',['../classComboboxAction.html#ac216fa96660ef568af946eb2fc58746e',1,'ComboboxAction']]],
+  ['setlimits',['setLimits',['../classSpinBoxAction.html#ae908daf46f9247f04f2917ccf73b0d67',1,'SpinBoxAction']]],
+  ['setx',['setX',['../classPixmapItem.html#a692a0aca72ffbe102769fdc9246ed2f6',1,'PixmapItem']]],
+  ['sety',['setY',['../classPixmapItem.html#a6c6f4a872823f585edcf134d9bf209e1',1,'PixmapItem']]],
+  ['specialcolor',['SpecialColor',['../classOwnGraphicsScene.html#af51cea46e8b0cffa341ba88c2b801e81',1,'OwnGraphicsScene']]],
+  ['spinboxaction',['SpinBoxAction',['../classSpinBoxAction.html',1,'SpinBoxAction'],['../classSpinBoxAction.html#a5d296259cbd00e34939675f1c51e55cc',1,'SpinBoxAction::SpinBoxAction()']]],
+  ['spinboxaction_2ecpp',['SpinBoxAction.cpp',['../SpinBoxAction_8cpp.html',1,'']]],
+  ['spinboxaction_2ehpp',['SpinBoxAction.hpp',['../SpinBoxAction_8hpp.html',1,'']]],
+  ['switch_5fmouse_5ftracking',['switch_mouse_tracking',['../classOwnGraphicsScene.html#af9c3dcf53da255fccf5fb2633d659299',1,'OwnGraphicsScene']]]
 ];

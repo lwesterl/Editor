@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['x',['x',['../structX__Y__Coordinates.html#a89f7ab800d6777b26a037e82501c6798',1,'X_Y_Coordinates']]]
+  ['visual_5fcreated',['visual_created',['../structImage__Cut.html#acbae7507f135d85e9f2f9724fbc2a643',1,'Image_Cut']]],
+  ['visual_5fitems',['visual_items',['../structImage__Cut.html#ad56f1d72a3d7c5488fec27eaf5c6fbd9',1,'Image_Cut']]]
 ];

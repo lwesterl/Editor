@@ -23,14 +23,18 @@ Inheritance diagram for Main\+Widget\+:\begin{figure}[H]
 \mbox{\Hypertarget{classMainWidget_add21c63f8e799303a21a69da3d288c2f}\label{classMainWidget_add21c63f8e799303a21a69da3d288c2f}} 
 \mbox{\hyperlink{classMainWidget_add21c63f8e799303a21a69da3d288c2f}{$\sim$\+Main\+Widget}} ()
 \begin{DoxyCompactList}\small\item\em Deconstructor. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classMainWidget_a7f5a0d4e7d8ecaa1b284014f9dddb9c5}{resize\+Event}} (Q\+Resize\+Event $\ast$event)
+\begin{DoxyCompactList}\small\item\em Overload for resize\+Event. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classOwnGraphicsScene}{Own\+Graphics\+Scene}} $\ast$ \mbox{\hyperlink{classMainWidget_ad40a8bd13b501a0ebe88c87426a5b591}{get\+Scene}} ()
 \begin{DoxyCompactList}\small\item\em Get the scene. \end{DoxyCompactList}\item 
-Q\+Graphics\+View $\ast$ \mbox{\hyperlink{classMainWidget_ae73e3dac6fb1e99dabe84aab683b3fbd}{get\+View}} ()
+\mbox{\hyperlink{classOwnGraphicsView}{Own\+Graphics\+View}} $\ast$ \mbox{\hyperlink{classMainWidget_ad23c8b31116d474ce1a19fe78ad6db07}{get\+View}} ()
 \begin{DoxyCompactList}\small\item\em Get the view. \end{DoxyCompactList}\item 
 Q\+H\+Box\+Layout $\ast$ \mbox{\hyperlink{classMainWidget_a639b465bb49eb31e1c09051ae047951f}{get\+Layout}} ()
 \begin{DoxyCompactList}\small\item\em Get the layout. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classMainWidget_af544f3b04a81d63c0810a90706773d3d}{Init\+Scroll\+Bar}} ()
-\begin{DoxyCompactList}\small\item\em Init the scrollbar. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Init the scrollbar. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMainWidget_a72ea27c7a7054d789e7ab688cf8b0c38}{change\+Background\+Color}} (const Q\+Color \&color)
+\begin{DoxyCompactList}\small\item\em Change backgroundcolor of the widget. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -65,6 +69,25 @@ Definition at line 13 of file Main\+Widget.\+cpp.
 
 
 \subsection{Member Function Documentation}
+\mbox{\Hypertarget{classMainWidget_a72ea27c7a7054d789e7ab688cf8b0c38}\label{classMainWidget_a72ea27c7a7054d789e7ab688cf8b0c38}} 
+\index{Main\+Widget@{Main\+Widget}!change\+Background\+Color@{change\+Background\+Color}}
+\index{change\+Background\+Color@{change\+Background\+Color}!Main\+Widget@{Main\+Widget}}
+\subsubsection{\texorpdfstring{change\+Background\+Color()}{changeBackgroundColor()}}
+{\footnotesize\ttfamily void Main\+Widget\+::change\+Background\+Color (\begin{DoxyParamCaption}\item[{const Q\+Color \&}]{color }\end{DoxyParamCaption})}
+
+
+
+Change backgroundcolor of the widget. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & New backgroundcolor \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 56 of file Main\+Widget.\+cpp.
+
 \mbox{\Hypertarget{classMainWidget_a639b465bb49eb31e1c09051ae047951f}\label{classMainWidget_a639b465bb49eb31e1c09051ae047951f}} 
 \index{Main\+Widget@{Main\+Widget}!get\+Layout@{get\+Layout}}
 \index{get\+Layout@{get\+Layout}!Main\+Widget@{Main\+Widget}}
@@ -80,7 +103,7 @@ Returns the graphics layout
 \end{DoxyReturn}
 
 
-Definition at line 68 of file Main\+Widget.\+hpp.
+Definition at line 69 of file Main\+Widget.\+hpp.
 
 \mbox{\Hypertarget{classMainWidget_ad40a8bd13b501a0ebe88c87426a5b591}\label{classMainWidget_ad40a8bd13b501a0ebe88c87426a5b591}} 
 \index{Main\+Widget@{Main\+Widget}!get\+Scene@{get\+Scene}}
@@ -97,13 +120,13 @@ Returns the graphics scene
 \end{DoxyReturn}
 
 
-Definition at line 58 of file Main\+Widget.\+hpp.
+Definition at line 59 of file Main\+Widget.\+hpp.
 
-\mbox{\Hypertarget{classMainWidget_ae73e3dac6fb1e99dabe84aab683b3fbd}\label{classMainWidget_ae73e3dac6fb1e99dabe84aab683b3fbd}} 
+\mbox{\Hypertarget{classMainWidget_ad23c8b31116d474ce1a19fe78ad6db07}\label{classMainWidget_ad23c8b31116d474ce1a19fe78ad6db07}} 
 \index{Main\+Widget@{Main\+Widget}!get\+View@{get\+View}}
 \index{get\+View@{get\+View}!Main\+Widget@{Main\+Widget}}
 \subsubsection{\texorpdfstring{get\+View()}{getView()}}
-{\footnotesize\ttfamily Q\+Graphics\+View$\ast$ Main\+Widget\+::get\+View (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classOwnGraphicsView}{Own\+Graphics\+View}}$\ast$ Main\+Widget\+::get\+View (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -114,7 +137,7 @@ Returns the graphics view
 \end{DoxyReturn}
 
 
-Definition at line 63 of file Main\+Widget.\+hpp.
+Definition at line 64 of file Main\+Widget.\+hpp.
 
 \mbox{\Hypertarget{classMainWidget_af544f3b04a81d63c0810a90706773d3d}\label{classMainWidget_af544f3b04a81d63c0810a90706773d3d}} 
 \index{Main\+Widget@{Main\+Widget}!Init\+Scroll\+Bar@{Init\+Scroll\+Bar}}
@@ -128,7 +151,26 @@ Init the scrollbar.
 
 Set view scrollbar to left and center of the scene 
 
-Definition at line 39 of file Main\+Widget.\+cpp.
+Definition at line 45 of file Main\+Widget.\+cpp.
+
+\mbox{\Hypertarget{classMainWidget_a7f5a0d4e7d8ecaa1b284014f9dddb9c5}\label{classMainWidget_a7f5a0d4e7d8ecaa1b284014f9dddb9c5}} 
+\index{Main\+Widget@{Main\+Widget}!resize\+Event@{resize\+Event}}
+\index{resize\+Event@{resize\+Event}!Main\+Widget@{Main\+Widget}}
+\subsubsection{\texorpdfstring{resize\+Event()}{resizeEvent()}}
+{\footnotesize\ttfamily void Main\+Widget\+::resize\+Event (\begin{DoxyParamCaption}\item[{Q\+Resize\+Event $\ast$}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Overload for resize\+Event. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & resize\+Event \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 37 of file Main\+Widget.\+cpp.
 
 
 

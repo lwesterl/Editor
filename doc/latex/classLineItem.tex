@@ -29,7 +29,16 @@ unsigned \mbox{\hyperlink{classLineItem_abbdf5be2637561802ea22385c7c11df5}{get\+
 unsigned \mbox{\hyperlink{classLineItem_aa99afab282d1e7e25b5d1549a41984d2}{get\+Y2}} ()
 \begin{DoxyCompactList}\small\item\em Get end y coordinate. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classLineItem_acea090c7b9ff53dcc7a95ab7939b2cb9}{update\+Position}} (unsigned x\+\_\+new, unsigned y\+\_\+new)
-\begin{DoxyCompactList}\small\item\em Update end x and y coordinates. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Update end x and y coordinates. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classLineItem_af7dc675a032b27d6424536994095a95e}{is\+Inside}} (unsigned x, unsigned y)
+\begin{DoxyCompactList}\small\item\em Check if coordinate is inside the item. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const int \mbox{\hyperlink{classLineItem_af02da5c4e14746431c760eb075e3220e}{Compensation\+Value}} = 10
+\item 
+static Q\+Color \mbox{\hyperlink{classLineItem_a290f246bf61be323ebd52f68bfe9ab4d}{Line\+Color}} = Qt\+::black
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -37,7 +46,7 @@ Own implementation of Q\+Graphics\+Line\+Item.
 
 Adds coordinate positions variables to Q\+Graphics\+Line\+Item 
 
-Definition at line 21 of file Line\+Item.\+hpp.
+Definition at line 24 of file Line\+Item.\+hpp.
 
 
 
@@ -46,7 +55,7 @@ Definition at line 21 of file Line\+Item.\+hpp.
 \index{Line\+Item@{Line\+Item}!Line\+Item@{Line\+Item}}
 \index{Line\+Item@{Line\+Item}!Line\+Item@{Line\+Item}}
 \subsubsection{\texorpdfstring{Line\+Item()}{LineItem()}}
-{\footnotesize\ttfamily Line\+Item\+::\+Line\+Item (\begin{DoxyParamCaption}\item[{unsigned}]{x1,  }\item[{unsigned}]{y1,  }\item[{unsigned}]{x2,  }\item[{unsigned}]{y2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily Line\+Item\+::\+Line\+Item (\begin{DoxyParamCaption}\item[{unsigned}]{x1,  }\item[{unsigned}]{y1,  }\item[{unsigned}]{x2,  }\item[{unsigned}]{y2 }\end{DoxyParamCaption})}
 
 
 
@@ -65,7 +74,7 @@ Constructor for \mbox{\hyperlink{classLineItem}{Line\+Item}}.
 \end{DoxyParams}
 
 
-Definition at line 32 of file Line\+Item.\+hpp.
+Definition at line 14 of file Line\+Item.\+cpp.
 
 
 
@@ -74,7 +83,7 @@ Definition at line 32 of file Line\+Item.\+hpp.
 \index{Line\+Item@{Line\+Item}!get\+X1@{get\+X1}}
 \index{get\+X1@{get\+X1}!Line\+Item@{Line\+Item}}
 \subsubsection{\texorpdfstring{get\+X1()}{getX1()}}
-{\footnotesize\ttfamily unsigned Line\+Item\+::get\+X1 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily unsigned Line\+Item\+::get\+X1 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -85,13 +94,13 @@ Returns x1
 \end{DoxyReturn}
 
 
-Definition at line 39 of file Line\+Item.\+hpp.
+Definition at line 23 of file Line\+Item.\+cpp.
 
 \mbox{\Hypertarget{classLineItem_addce0ef5af72c233e2c7bf019c7a693d}\label{classLineItem_addce0ef5af72c233e2c7bf019c7a693d}} 
 \index{Line\+Item@{Line\+Item}!get\+X2@{get\+X2}}
 \index{get\+X2@{get\+X2}!Line\+Item@{Line\+Item}}
 \subsubsection{\texorpdfstring{get\+X2()}{getX2()}}
-{\footnotesize\ttfamily unsigned Line\+Item\+::get\+X2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily unsigned Line\+Item\+::get\+X2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -102,13 +111,13 @@ Returns x2
 \end{DoxyReturn}
 
 
-Definition at line 45 of file Line\+Item.\+hpp.
+Definition at line 28 of file Line\+Item.\+cpp.
 
 \mbox{\Hypertarget{classLineItem_abbdf5be2637561802ea22385c7c11df5}\label{classLineItem_abbdf5be2637561802ea22385c7c11df5}} 
 \index{Line\+Item@{Line\+Item}!get\+Y1@{get\+Y1}}
 \index{get\+Y1@{get\+Y1}!Line\+Item@{Line\+Item}}
 \subsubsection{\texorpdfstring{get\+Y1()}{getY1()}}
-{\footnotesize\ttfamily unsigned Line\+Item\+::get\+Y1 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily unsigned Line\+Item\+::get\+Y1 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -119,13 +128,13 @@ Returns y1
 \end{DoxyReturn}
 
 
-Definition at line 51 of file Line\+Item.\+hpp.
+Definition at line 33 of file Line\+Item.\+cpp.
 
 \mbox{\Hypertarget{classLineItem_aa99afab282d1e7e25b5d1549a41984d2}\label{classLineItem_aa99afab282d1e7e25b5d1549a41984d2}} 
 \index{Line\+Item@{Line\+Item}!get\+Y2@{get\+Y2}}
 \index{get\+Y2@{get\+Y2}!Line\+Item@{Line\+Item}}
 \subsubsection{\texorpdfstring{get\+Y2()}{getY2()}}
-{\footnotesize\ttfamily unsigned Line\+Item\+::get\+Y2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily unsigned Line\+Item\+::get\+Y2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -136,13 +145,37 @@ Returns y2
 \end{DoxyReturn}
 
 
-Definition at line 57 of file Line\+Item.\+hpp.
+Definition at line 38 of file Line\+Item.\+cpp.
+
+\mbox{\Hypertarget{classLineItem_af7dc675a032b27d6424536994095a95e}\label{classLineItem_af7dc675a032b27d6424536994095a95e}} 
+\index{Line\+Item@{Line\+Item}!is\+Inside@{is\+Inside}}
+\index{is\+Inside@{is\+Inside}!Line\+Item@{Line\+Item}}
+\subsubsection{\texorpdfstring{is\+Inside()}{isInside()}}
+{\footnotesize\ttfamily bool Line\+Item\+::is\+Inside (\begin{DoxyParamCaption}\item[{unsigned}]{x,  }\item[{unsigned}]{y }\end{DoxyParamCaption})}
+
+
+
+Check if coordinate is inside the item. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & x coordinate \\
+\hline
+{\em y} & y coordinate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true if the coordinate is inside the item 
+\end{DoxyReturn}
+
+
+Definition at line 51 of file Line\+Item.\+cpp.
 
 \mbox{\Hypertarget{classLineItem_acea090c7b9ff53dcc7a95ab7939b2cb9}\label{classLineItem_acea090c7b9ff53dcc7a95ab7939b2cb9}} 
 \index{Line\+Item@{Line\+Item}!update\+Position@{update\+Position}}
 \index{update\+Position@{update\+Position}!Line\+Item@{Line\+Item}}
 \subsubsection{\texorpdfstring{update\+Position()}{updatePosition()}}
-{\footnotesize\ttfamily void Line\+Item\+::update\+Position (\begin{DoxyParamCaption}\item[{unsigned}]{x\+\_\+new,  }\item[{unsigned}]{y\+\_\+new }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily void Line\+Item\+::update\+Position (\begin{DoxyParamCaption}\item[{unsigned}]{x\+\_\+new,  }\item[{unsigned}]{y\+\_\+new }\end{DoxyParamCaption})}
 
 
 
@@ -157,10 +190,34 @@ Update end x and y coordinates.
 \end{DoxyParams}
 
 
-Definition at line 64 of file Line\+Item.\+hpp.
+Definition at line 43 of file Line\+Item.\+cpp.
 
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classLineItem_af02da5c4e14746431c760eb075e3220e}\label{classLineItem_af02da5c4e14746431c760eb075e3220e}} 
+\index{Line\+Item@{Line\+Item}!Compensation\+Value@{Compensation\+Value}}
+\index{Compensation\+Value@{Compensation\+Value}!Line\+Item@{Line\+Item}}
+\subsubsection{\texorpdfstring{Compensation\+Value}{CompensationValue}}
+{\footnotesize\ttfamily const int Line\+Item\+::\+Compensation\+Value = 10\hspace{0.3cm}{\ttfamily [static]}}
+
+Value used to compensate clicking the item to make it easier 
+
+Definition at line 28 of file Line\+Item.\+hpp.
+
+\mbox{\Hypertarget{classLineItem_a290f246bf61be323ebd52f68bfe9ab4d}\label{classLineItem_a290f246bf61be323ebd52f68bfe9ab4d}} 
+\index{Line\+Item@{Line\+Item}!Line\+Color@{Line\+Color}}
+\index{Line\+Color@{Line\+Color}!Line\+Item@{Line\+Item}}
+\subsubsection{\texorpdfstring{Line\+Color}{LineColor}}
+{\footnotesize\ttfamily Q\+Color Line\+Item\+::\+Line\+Color = Qt\+::black\hspace{0.3cm}{\ttfamily [static]}}
+
+Color for Line\+Items, can be reset via \mbox{\hyperlink{classGUI}{G\+UI}} 
+
+Definition at line 29 of file Line\+Item.\+hpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-include/\mbox{\hyperlink{LineItem_8hpp}{Line\+Item.\+hpp}}\end{DoxyCompactItemize}
+include/\mbox{\hyperlink{LineItem_8hpp}{Line\+Item.\+hpp}}\item 
+src/\mbox{\hyperlink{LineItem_8cpp}{Line\+Item.\+cpp}}\end{DoxyCompactItemize}

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['updateendpoints',['UpdateEndPoints',['../classOwnGraphicsScene.html#adf8d1495517483ba65c1ccbc95920a1c',1,'OwnGraphicsScene']]],
-  ['updateposition',['updatePosition',['../classLineItem.html#acea090c7b9ff53dcc7a95ab7939b2cb9',1,'LineItem']]]
+  ['textitem',['TextItem',['../classTextItem.html#ad9cb0e0bbf9a469f7c6275148014e3cf',1,'TextItem']]],
+  ['textmode',['TextMode',['../classOwnGraphicsScene.html#a6dd98dd7fd32a22016f4f8d4d6a8f400',1,'OwnGraphicsScene']]]
 ];
