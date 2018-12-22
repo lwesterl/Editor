@@ -11,7 +11,8 @@
 
 
 /*    INCLUDES    */
-
+#include "OwnGraphicsScene.hpp"
+#include "OwnGraphicsView.hpp"
 #include <QWidget>
 #include <QMouseEvent>
 #include <QDebug>
@@ -21,8 +22,6 @@
 #include <QHBoxLayout>
 #include <QScrollBar>
 #include <QPalette>
-#include "OwnGraphicsScene.hpp"
-#include "OwnGraphicsView.hpp"
 
 
 /**
