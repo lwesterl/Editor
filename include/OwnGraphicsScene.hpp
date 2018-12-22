@@ -11,29 +11,29 @@
 
 /*    INCLUDES    */
 
- #include <QGraphicsSceneMouseEvent>
- #include <QDebug>
- #include <QGraphicsScene>
- #include <QGraphicsItem>
- #include <QPoint>
- #include <QWidget>
- #include <QList>
- #include <list>
- #include <deque>
- #include <vector>
- #include <map>
- #include <QPixmap>
- #include <QString>
- #include <QGraphicsPixmapItem>
- #include <QGraphicsEllipseItem>
- #include <QBrush>
- #include <QPen>
- #include "LineItem.hpp"
- #include "PixmapItem.hpp"
- #include "OwnGraphicsView.hpp"
- #include "Bezier.hpp"
- #include "Vector2.hpp"
- #include "TextItem.hpp"
+#include "LineItem.hpp"
+#include "PixmapItem.hpp"
+#include "OwnGraphicsView.hpp"
+#include "Bezier.hpp"
+#include "Vector2.hpp"
+#include "TextItem.hpp"
+#include <QGraphicsSceneMouseEvent>
+#include <QDebug>
+#include <QGraphicsScene>
+#include <QGraphicsItem>
+#include <QPoint>
+#include <QWidget>
+#include <QList>
+#include <list>
+#include <deque>
+#include <vector>
+#include <map>
+#include <QPixmap>
+#include <QString>
+#include <QGraphicsPixmapItem>
+#include <QGraphicsEllipseItem>
+#include <QBrush>
+#include <QPen>
 
 /**
   *   @brief Macro for no image cut mode selected
@@ -221,374 +221,374 @@
     static bool END_POINTS_ACTIVE; /**< Whether items end points are shown */
     static QColor SpecialColor; /**< Color used with special items (End points circles) */
 
-  /**
-    *   @brief Constructor for OwnGraphicsScene
-    *   @param parent The QWidget parent
-    *   @details Sets standard size for the view rect
-    */
-   OwnGraphicsScene(QWidget *parent);
+    /**
+      *   @brief Constructor for OwnGraphicsScene
+      *   @param parent The QWidget parent
+      *   @details Sets standard size for the view rect
+      */
+      OwnGraphicsScene(QWidget *parent);
 
-  /**
-    *   @brief Destructor for OwnGraphicsScene
-    */
-   ~OwnGraphicsScene();
+    /**
+      *   @brief Destructor for OwnGraphicsScene
+      */
+      ~OwnGraphicsScene();
 
-  /**
-    *   @brief Overload for mousePressEvent
-    *   @details Used to add new items to the scene, also  to remove and cut
-    *   old items
-    */
-   virtual void mousePressEvent(QGraphicsSceneMouseEvent *event);
+    /**
+      *   @brief Get new mouse x coordinate
+      *   @return Returns mouse_x value
+      */
+      unsigned getMouseX() {return mouse_x;}
 
-  /**
-    *   @brief Overload for mouseMoveEvent
-    *   @details Used to track user mouse when creating lines and cutting
-    *    images
-    */
-   virtual void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
+    /**
+      *   @brief Get new mouse y coordinate
+      *   @return Returns mouse_y value
+      */
+      unsigned getMouseY() {return mouse_y;}
 
-   /**
-     *   @brief Overload for keyPressEvents
-     *   @param keyEvent Key event
-     */
-   virtual void keyPressEvent(QKeyEvent *keyEvent);
+    /**
+      *   @brief Activate or deactivate line_mode
+      *   @param activate If true activates line mode
+      */
+      void LineMode(bool activate);
 
-  /**
-    *   @brief Overload for mouseReleaseEvent
-    *   @param event mouseReleaseEvent
-    */
-   virtual void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
+    /**
+      *   @brief Activate or deactivate delete_mode
+      *   @param activate If true activates delete mode
+      */
+      void DeleteMode(bool activate);
 
-  /**
-    *   @brief Add a LineItem
-    *   @param x1 Start x coordinate
-    *   @param y1 Start y coordinate
-    *   @param x2 End x coordinate
-    *   @param y2 End y coordinate
-    *   @return Returns pointer to the new item added to the scene
-    */
-   LineItem *addLine(unsigned x1, unsigned y1, unsigned x2, unsigned y2);
+    /**
+      *   @brief Activate text_mode
+      *   @param activate Activate / deactivate TextMode
+      */
+      void TextMode(bool activate);
 
-  /**
-    *   @brief Get new mouse x coordinate
-    *   @return Returns mouse_x value
-    */
-   unsigned getMouseX() {return mouse_x;}
+    /**
+      *   @brief Activate or deactivate image_mode
+      *   @param activate If true activate image_mode
+      */
+      bool imgMode(bool activate);
 
-   /**
-     *   @brief Get new mouse y coordinate
-     *   @return Returns mouse_y value
-     */
-   unsigned getMouseY() {return mouse_y;}
+    /**
+      *   @brief Activate or deactivate delete_img_mode
+      *   @param activate If true activate delete_img_mode
+      */
+      void DeleteImgMode(bool activate);
 
-  /**
-    *   @brief Activate or deactivate line_mode
-    *   @param activate If true activates line mode
-    */
-   void LineMode(bool activate);
+    /**
+      *   @brief Activate or deactivate cut_image_mode
+      *   @param active If true activate cut_image_mode
+      */
+      void CutImageMode(bool active);
 
-   /**
-     *   @brief Activate or deactivate delete_mode
-     *   @param activate If true activates delete mode
-     */
-   void DeleteMode(bool activate);
+    /**
+      *   @brief Select image cut mode
+      *   @details Image cut modes are defined as macros
+      */
+      void SetImgCutMode(int cut_mode);
 
-  /**
-    *   @brief Activate text_mode
-    *   @param activate Activate / deactivate TextMode
-    */
-   void TextMode(bool activate);
+    /**
+      *   @brief Activates/deactivates bezier mode
+      */
+      void BezierMode(bool active);
 
-  /**
-    *   @brief Remove LineItem from the scene
-    *   @param x x coordinate of the item to be removed
-    *   @param y y coordinate of the item to be removed
-    */
-   void remove_Item(unsigned x, unsigned y);
+    /**
+      *   @brief Add parent OwnGraphicsView
+      *   @details After this it's possible to send signals to the view. The view
+      *   must be added right after creating it
+      *   @param view OwnGraphicsView parent view
+      */
+      void addView(OwnGraphicsView *view);
 
-  /**
-    *   @brief Remove all items from the scene
-    */
-   void ClearAll();
+    /**
+      *   @brief Change scene backgroundcolor
+      *   @param color New backgroundcolor
+      */
+      void changeBackgroundColor(const QColor &color);
 
-  /**
-    *   @brief Construct QPixmap from an image
-    */
-   bool setImage(QString imagename);
+    /**
+      *   @brief Remove all items from the scene
+      */
+      void ClearAll();
 
-  /**
-    *   @brief Activate or deactivate image_mode
-    *   @param activate If true activate image_mode
-    */
-   bool imgMode(bool activate);
+    /**
+      *   @brief Construct QPixmap from an image
+      */
+      bool setImage(QString imagename);
 
-   /**
-     *   @brief Activate or deactivate delete_img_mode
-     *   @param activate If true activate delete_img_mode
-     */
-   void DeleteImgMode(bool activate);
+     /**
+       *   @brief Select image to be cut
+       *   @return Returns true if image exists
+       */
+      bool SelectCutImg();
 
-  /**
-    *   @brief Delete image from the scene
-    *   @param x1 x coordinate
-    *   @param y1 y coordinate
-    */
-   void DeleteImg(unsigned x1, unsigned y1);
+    /**
+      *   @brief Wrapper for PixmapItem::CutItem
+      *   @details Cuts the image by adding painter points. Removes temporary
+      *   LineItems which were used to display the cut path
+      */
+      void CutPixmapItem();
 
-   /**
-     *   @brief Activate or deactivate cut_image_mode
-     *   @param active If true activate cut_image_mode
-     */
-   void CutImageMode(bool active);
+    /**
+      *   @brief Remove previous image cut point
+      *   @details Removes also the LineItem matching the point
+      */
+      void RemovePolyPrevious();
 
-  /**
-    *   @brief Select image to be cut
-    *   @return Returns true if image exists
-    */
-   bool SelectCutImg();
+    /**
+      *   @brief Remove current Bezier
+      *   @details Called from GUI, BezierToolbar_Remove
+      */
+      void EraseBezier();
 
-  /**
-    *   @brief Select image cut mode
-    *   @details Image cut modes are defined as macros
-    */
-   void SetImgCutMode(int cut_mode);
+    /**
+      *   @brief Stop editing bezier and save it
+      *   @details Called from GUI, BezierToolbar_SaveBezier
+      */
+      void BezierReady();
 
-  /**
-    *   @brief Wrapper for PixmapItem::CutItem
-    *   @details Cuts the image by adding painter points. Removes temporary
-    *   LineItems which were used to display the cut path
-    */
-   void CutPixmapItem();
+    /**
+      *   @brief Update END_POINTS_ACTIVE value
+      *   @param value New END_POINTS_ACTIVE value matching combobox options
+      */
+      void setEndPointsActive(int value);
 
-  /**
-    *   @brief Remove previous image cut point
-    *   @details Removes also the LineItem matching the point
-    */
-   void RemovePolyPrevious();
+    /**
+      *   @brief Update Bezier_Mode lock_mode
+      *   @details Called from GUI when when user has changed BezierToolbar options
+      *   @param option New value for lock_mode
+      *   @remark Works only if option is a valid lock_mode
+      */
+      void modifyBezierOptions(int option);
 
-  /**
-    *   @brief Update END_POINTS_ACTIVE value
-    *   @param value New END_POINTS_ACTIVE value matching combobox options
-    */
-   void setEndPointsActive(int value);
-
-  /**
-    *   @brief Removes all temporary visual_items
-    *   @details Called after image cut is ready
-    */
-   void ClearVisualItems();
-
-  /**
-    *   @brief Activates/deactivates bezier mode
-    */
-   void BezierMode(bool active);
-
-  /**
-    *   @brief Constructs a Bezer object
-    *   @param x Mouse x coordinate
-    *   @param y Mouse y coordinate
-    *   @param point_added Which point user moved, 0 means construct new Bezier
-    */
-   void CreateBezier(unsigned x, unsigned y, int point_added);
-
-  /**
-    *   @brief Add Bezier to the scene
-    *   @details To be more precise adds the LineItems matching the Bezier (line_items)
-    *   to the scene
-    *   @param bezier Pointer to Bezier which is added to the scene
-    */
-   void AddBezier(Bezier *bezier);
-
-  /**
-    *   @brief Remove Bezier from the scene
-    *   @details Removes the LineItems matching the Bezier and then deletes the object itself
-    *   @param bezier Pointer to the Bezier to be removed
-    */
-   void RemoveBezier(Bezier *bezier);
-
-/**
-  *   @brief Create circles matching the bezier control points
-  *   @param point Which circle needs to be created
-  *   @remark point 0 -> create all circles, point 1 -> create circle 1 etc.
-  */
-  void CreateControlPointCircles(int point);
-
-  /**
-    *   @brief Remove circles matching the bezier control points
-    *   @param point Which circle needs to be removed
-    *   @remark point 0 -> remove all circles, point 1 -> remove circle 1 etc.
-    */
-  void RemoveControlPointCircles(int point);
-
-/**
-  *   @brief Convert control point coordinates to circle left top corner point
-  *   @param point Vector2 containing control point
-  *   @return Returns circle point as a Vector2 object
-  */
-  Vector2 ControlPoint2Circle(Vector2 point);
-
-/**
-  *   @brief Check whether mouse is inside control points or not
-  *   @param x Mouse x coordinate
-  *   @param y Mouse y coordinate
-  *   @return Returns 0 if not inside, else returns point number which is inside
-  *   @remark Goes through control points in reverse order so that point 0
-  *   remains starting point and point 4 end point
-  */
-  int isInsideControlPoint(unsigned x, unsigned y);
-
-/**
-  *   @brief Try to find end points that match mouse position
-  *   @param x Mouse x coordinate
-  *   @param y Mouse y coordinate
-  *   @return Returns X_Y_Coordinates which contain end point
-  *   @details If no end point matches, returns negative coordinates
-  */
-  struct X_Y_Coordinates LookEndPoints(unsigned x, unsigned y);
-
-/**
-  *   @brief Remove an end point
-  *   @details End point is removed from end_points_dict. This method should
-  *   be called when LineItem or Bezier is removed from the scene. Removes only
-  *   one end point matching x and y
-  *   @param x Item x coordinate
-  *   @param y Item y coordinate
-  */
-  void RemoveEndPoint(unsigned x, unsigned y);
-
-
-/**
-  *   @brief Add an end point
-  *   @details End point is added to end_points_dict. This method should
-  *   be called when LineItem or Bezier is created and added to the scene
-  *   @param x Item x coordinate
-  *   @param y Item y coordinate
-  */
-  void AddEndPoint(unsigned x, unsigned y);
-
-/**
-  *   @brief Update End_Points
-  *   @details Checks if mouse is over an end point and possibly draws a
-  *   circle representing the end point. Updates also end_y and end_x values
-  *   @param x Current mouse x coordinate
-  *   @param y Current mouse y coordinate
-  *   @remark Depends heavily on LookEndPoints
-  *   @bug Cannot find end points which x or y coordinate is 0
-  */
-  void UpdateEndPoints(unsigned x, unsigned y);
-
-/**
-  *   @brief Remove old end_circle from End_Points struct
-  *   @remark Does nothing if the circle is nullptr
-  */
-  void RemoveEndPointCircle(void);
-
-/**
-  *   @brief Add parent OwnGraphicsView
-  *   @details After this it's possible to send signals to the view. The view
-  *   must be added right after creating it
-  *   @param view OwnGraphicsView parent view
-  */
-  void addView(OwnGraphicsView *view);
-
-/**
-  *   @brief Set mouse tracking on or off
-  *   @details Sends signal to parent_view to enable or disable mouse tracking
-  *   @param enable true -> enable, false -> disable
-  */
-  void mouse_tracking(bool enable);
-
-
-/**
-  *   @brief Update Bezier_Mode lock_mode
-  *   @details Called from GUI when when user has changed BezierToolbar options
-  *   @param option New value for lock_mode
-  *   @remark Works only if option is a valid lock_mode
-  */
-  void modifyBezierOptions(int option);
-
-/**
-  *   @brief Remove current Bezier
-  *   @details Called from GUI, BezierToolbar_Remove
-  */
-  void EraseBezier();
-
-/**
-  *   @brief Stop editing bezier and save it
-  *   @details Called from GUI, BezierToolbar_SaveBezier
-  */
-  void BezierReady();
-
-/**
-  *   @brief Cut image according to selected path
-  *   @remark Called from GUI when pathcutToolbar continue button is pressed
-  */
-  void pathImageCut();
-
-/**
-  *   @brief Change scene backgroundcolor
-  *   @param color New backgroundcolor
-  */
-  void changeBackgroundColor(const QColor &color);
+    /**
+      *   @brief Cut image according to selected path
+      *   @remark Called from GUI when pathcutToolbar continue button is pressed
+      */
+      void pathImageCut();
 
 signals:
 
-/**
-  *   @brief Used to enable/disable mouse tracking from parent_view
-  */
-  void switch_mouse_tracking(bool enable);
+    /**
+      *   @brief Used to enable/disable mouse tracking from parent_view
+      */
+      void switch_mouse_tracking(bool enable);
 
 
 private:
 
-/**
-  *   @brief Add QGraphicsTextItem
-  *   @param x x coordinate
-  *   @param y y coordinate
-  */
-  void addTextItem(unsigned x, unsigned y);
+    /**
+      *   @brief Overload for mousePressEvent
+      *   @details Used to add new items to the scene, also  to remove and cut
+      *   old items
+      */
+      virtual void mousePressEvent(QGraphicsSceneMouseEvent *event);
 
-/**
-  *   @brief Move current_text
-  *   @param x New x coordinate
-  *   @param y New y coordinate
-  */
-  void moveTextItem(unsigned x, unsigned y);
+    /**
+      *   @brief Overload for mouseMoveEvent
+      *   @details Used to track user mouse when creating lines and cutting
+      *    images
+      */
+      virtual void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
 
-/**
-  *   @brief Enable text item editing
-  *   @details Goes through all text_items and enables item editing if there is an
-  *   item at (x,y). Sets item to current_text
-  *   @param x x coordinate
-  *   @param y y coordinate
-  */
-  void enableTextEditing(unsigned x, unsigned y);
+    /**
+      *   @brief Overload for keyPressEvents
+      *   @param keyEvent Key event
+      */
+      virtual void keyPressEvent(QKeyEvent *keyEvent);
 
-/**
-  *   @brief Deactivate all text_items
-  *   @remark This should be used when user moves out of text_mode
-  */
-  void deactivateTextItems();
+    /**
+      *   @brief Overload for mouseReleaseEvent
+      *   @param event mouseReleaseEvent
+      */
+      virtual void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
 
-  /*  Variables */
-   OwnGraphicsView *parent_view;
-   std::list <LineItem*> line_items;
-   std::deque <PixmapItem*> pixmap_items;
-   std::list <Bezier*> beziers;
-   std::deque <TextItem*> text_items;
-   TextItem *current_text = nullptr;
-   unsigned mouse_x;
-   unsigned mouse_y;
-   bool first_line = true;
-   struct Line_Mode line_struct;
-   unsigned char mode = line_mode_value;
-   struct Image_Active image_active;
-   QPixmap image = QPixmap(); // construct a Null pixmap
-   QString current_imagename;
-   struct Image_Cut image_cut;
-   struct Bezier_Mode bezier_struct;
-   struct End_Points end_points_struct;
-   std::map<unsigned, std::list<unsigned> > end_points_dict; /**< Dictionary
-   where end points are stored with x coordinate as key and then list of y coordinates */
+    /**
+      *   @brief Add a LineItem
+      *   @param x1 Start x coordinate
+      *   @param y1 Start y coordinate
+      *   @param x2 End x coordinate
+      *   @param y2 End y coordinate
+      *   @return Returns pointer to the new item added to the scene
+      */
+      LineItem *addLine(unsigned x1, unsigned y1, unsigned x2, unsigned y2);
+
+    /**
+      *   @brief Remove LineItem from the scene
+      *   @param x x coordinate of the item to be removed
+      *   @param y y coordinate of the item to be removed
+      */
+      void remove_Item(unsigned x, unsigned y);
+
+    /**
+      *   @brief Delete image from the scene
+      *   @param x1 x coordinate
+      *   @param y1 y coordinate
+      */
+      void DeleteImg(unsigned x1, unsigned y1);
+
+    /**
+      *   @brief Removes all temporary visual_items
+      *   @details Called after image cut is ready
+      */
+      void ClearVisualItems();
+
+    /**
+      *   @brief Constructs a Bezer object
+      *   @param x Mouse x coordinate
+      *   @param y Mouse y coordinate
+      *   @param point_added Which point user moved, 0 means construct new Bezier
+      */
+      void CreateBezier(unsigned x, unsigned y, int point_added);
+
+    /**
+      *   @brief Add Bezier to the scene
+      *   @details To be more precise adds the LineItems matching the Bezier (line_items)
+      *   to the scene
+      *   @param bezier Pointer to Bezier which is added to the scene
+      */
+      void AddBezier(Bezier *bezier);
+
+    /**
+      *   @brief Remove Bezier from the scene
+      *   @details Removes the LineItems matching the Bezier and then deletes the object itself
+      *   @param bezier Pointer to the Bezier to be removed
+      */
+      void RemoveBezier(Bezier *bezier);
+
+    /**
+      *   @brief Create circles matching the bezier control points
+      *   @param point Which circle needs to be created
+      *   @remark point 0 -> create all circles, point 1 -> create circle 1 etc.
+      */
+      void CreateControlPointCircles(int point);
+
+    /**
+      *   @brief Remove circles matching the bezier control points
+      *   @param point Which circle needs to be removed
+      *   @remark point 0 -> remove all circles, point 1 -> remove circle 1 etc.
+      */
+      void RemoveControlPointCircles(int point);
+
+    /**
+      *   @brief Convert control point coordinates to circle left top corner point
+      *   @param point Vector2 containing control point
+      *   @return Returns circle point as a Vector2 object
+      */
+      Vector2 ControlPoint2Circle(Vector2 point);
+
+    /**
+      *   @brief Check whether mouse is inside control points or not
+      *   @param x Mouse x coordinate
+      *   @param y Mouse y coordinate
+      *   @return Returns 0 if not inside, else returns point number which is inside
+      *   @remark Goes through control points in reverse order so that point 0
+      *   remains starting point and point 4 end point
+      */
+      int isInsideControlPoint(unsigned x, unsigned y);
+
+    /**
+      *   @brief Try to find end points that match mouse position
+      *   @param x Mouse x coordinate
+      *   @param y Mouse y coordinate
+      *   @return Returns X_Y_Coordinates which contain end point
+      *   @details If no end point matches, returns negative coordinates
+      */
+      struct X_Y_Coordinates LookEndPoints(unsigned x, unsigned y);
+
+    /**
+      *   @brief Remove an end point
+      *   @details End point is removed from end_points_dict. This method should
+      *   be called when LineItem or Bezier is removed from the scene. Removes only
+      *   one end point matching x and y
+      *   @param x Item x coordinate
+      *   @param y Item y coordinate
+      */
+      void RemoveEndPoint(unsigned x, unsigned y);
+
+
+    /**
+      *   @brief Add an end point
+      *   @details End point is added to end_points_dict. This method should
+      *   be called when LineItem or Bezier is created and added to the scene
+      *   @param x Item x coordinate
+      *   @param y Item y coordinate
+      */
+      void AddEndPoint(unsigned x, unsigned y);
+
+    /**
+      *   @brief Update End_Points
+      *   @details Checks if mouse is over an end point and possibly draws a
+      *   circle representing the end point. Updates also end_y and end_x values
+      *   @param x Current mouse x coordinate
+      *   @param y Current mouse y coordinate
+      *   @remark Depends heavily on LookEndPoints
+      *   @bug Cannot find end points which x or y coordinate is 0
+      */
+      void UpdateEndPoints(unsigned x, unsigned y);
+
+    /**
+      *   @brief Remove old end_circle from End_Points struct
+      *   @remark Does nothing if the circle is nullptr
+      */
+      void RemoveEndPointCircle(void);
+
+    /**
+      *   @brief Set mouse tracking on or off
+      *   @details Sends signal to parent_view to enable or disable mouse tracking
+      *   @param enable true -> enable, false -> disable
+      */
+      void mouse_tracking(bool enable);
+
+    /**
+      *   @brief Add QGraphicsTextItem
+      *   @param x x coordinate
+      *   @param y y coordinate
+      */
+      void addTextItem(unsigned x, unsigned y);
+
+    /**
+      *   @brief Move current_text
+      *   @param x New x coordinate
+      *   @param y New y coordinate
+      */
+      void moveTextItem(unsigned x, unsigned y);
+
+    /**
+      *   @brief Enable text item editing
+      *   @details Goes through all text_items and enables item editing if there is an
+      *   item at (x,y). Sets item to current_text
+      *   @param x x coordinate
+      *   @param y y coordinate
+      */
+      void enableTextEditing(unsigned x, unsigned y);
+
+    /**
+      *   @brief Deactivate all text_items
+      *   @remark This should be used when user moves out of text_mode
+      */
+      void deactivateTextItems();
+
+    /*  Variables */
+
+      OwnGraphicsView *parent_view;
+      std::list <LineItem*> line_items;
+      std::deque <PixmapItem*> pixmap_items;
+      std::list <Bezier*> beziers;
+      std::deque <TextItem*> text_items;
+      TextItem *current_text = nullptr;
+      unsigned mouse_x;
+      unsigned mouse_y;
+      bool first_line = true;
+      struct Line_Mode line_struct;
+      unsigned char mode = line_mode_value;
+      struct Image_Active image_active;
+      QPixmap image = QPixmap(); // construct a Null pixmap
+      QString current_imagename;
+      struct Image_Cut image_cut;
+      struct Bezier_Mode bezier_struct;
+      struct End_Points end_points_struct;
+      std::map<unsigned, std::list<unsigned> > end_points_dict; /**< Dictionary
+      where end points are stored with x coordinate as key and then list of y coordinates */
 
  };
