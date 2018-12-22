@@ -37,10 +37,11 @@ Run the program (in the main folder):
 $ ./Editor
 ```
 Using Editor should be mostly staight-forward: just follow promts on window.
-| Special Controls |  Description |
-|--------------|--------------|
-| Mouse Middle click |  Center view |
-| Mouse Wheel | Zoom view in /out
+
+| Special Controls    |  Description |
+|---------------------|--------------|
+| Mouse Middle click  |  Center view |
+| Mouse Wheel     | Zoom view in /out|
 
 ### Missing Features
 * Support for CTRL-Z and other shortcuts
