@@ -714,9 +714,9 @@ void GUI::SaveChoices()
 
   // change PixmapItem connect_point based on connect_options_combo
   int connect_option = connect_options_combo->ComboIndex();
-  if (connect_option == 0) PixmapItem::connect_point = ConnectPoint::ConnectZero;
-  else if (connect_option == 1) PixmapItem::connect_point = ConnectPoint::ConnectHeight;
-  else PixmapItem::connect_point = ConnectPoint::ConnectCenter;
+  if (connect_option == 0) PixmapItem::connect_point = Editor::ConnectPoint::ConnectZero;
+  else if (connect_option == 1) PixmapItem::connect_point = Editor::ConnectPoint::ConnectHeight;
+  else PixmapItem::connect_point = Editor::ConnectPoint::ConnectCenter;
 
   // get scene size from SpinBoxActions
   int width = window_width->getCurrentValue();

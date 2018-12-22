@@ -8,7 +8,7 @@
 #pragma once
 
 /*    INCLUDES    */
-
+#include "Definitions.hpp"
 #include <QGraphicsPixmapItem>
 #include <QPixmap>
 #include <QPainter>
@@ -23,12 +23,16 @@
 #include <vector>
 #include <QDebug>
 
-enum ConnectPoint
+/**
+  *   @enum ConnectPoint
+  *   @brief Tells where PixmapItem path cut connects (which edge of the item)
+  */
+/*enum ConnectPoint
 {
   ConnectHeight,
   ConnectZero,
   ConnectCenter
-};
+};*/
 
 /**
   *   @brief Map value to limits
@@ -56,7 +60,7 @@ int check_values(int val, int min_val, int max_val);
 class PixmapItem: public QGraphicsPixmapItem
 {
   public:
-    static ConnectPoint connect_point; /**< Tells to which point LineCut and BezierCut connect cut paths in y dimension. */
+    static Editor::ConnectPoint connect_point; /**< Tells to which point LineCut and BezierCut connect cut paths in y dimension. */
 
     /**
       *   @brief Constructor for PixmapItem

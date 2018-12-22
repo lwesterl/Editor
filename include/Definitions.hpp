@@ -27,6 +27,17 @@ namespace Editor
     SpecialColor,
     TextColor
   };
+
+  /**
+    *   @enum ConnectPoint
+    *   @brief Tells where PixmapItem path cut connects (which edge of the item)
+    */
+  enum ConnectPoint
+  {
+    ConnectHeight,
+    ConnectZero,
+    ConnectCenter
+  };
 };
 
 /**

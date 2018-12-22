@@ -10,7 +10,7 @@
 #include "../include/PixmapItem.hpp"
 
 
-ConnectPoint PixmapItem::connect_point = ConnectPoint::ConnectZero;
+Editor::ConnectPoint PixmapItem::connect_point = Editor::ConnectPoint::ConnectZero;
 
 
 // Constructor
@@ -140,7 +140,7 @@ void PixmapItem::LineCut()
     int x_min = painter_points[0].x();
     int x_max = painter_points[1].x();
     int y_min = painter_points[0].y();
-    if (connect_point == ConnectPoint::ConnectHeight)
+    if (connect_point == Editor::ConnectPoint::ConnectHeight)
     {
       // connect lines from lower edges to the LineItem points
       painter_points.push_back(QPoint(x_max, height));
@@ -148,7 +148,7 @@ void PixmapItem::LineCut()
       painter_points.push_back(QPoint(x_min, y_min));
       CutItem();
     }
-    else if (connect_point == ConnectPoint::ConnectCenter)
+    else if (connect_point == Editor::ConnectPoint::ConnectCenter)
     {
       // connect lines from centerline to the LineItem points
       painter_points.push_back(QPoint(x_max, height / 2));
@@ -176,14 +176,14 @@ void PixmapItem::BezierCut()
     int x_start = painter_points.front().x();
     int x_end = painter_points.back().x();
     int y_start = painter_points.back().y();
-    if (connect_point == ConnectPoint::ConnectHeight)
+    if (connect_point == Editor::ConnectPoint::ConnectHeight)
     {
       // connect lines from the points using lower edges
       painter_points.push_back(QPoint(x_end, height));
       painter_points.push_back(QPoint(x_start, height));
       painter_points.push_back(QPoint(x_start, y_start));
     }
-    else if (connect_point == ConnectPoint::ConnectCenter)
+    else if (connect_point == Editor::ConnectPoint::ConnectCenter)
     {
       // connect lines from the points using centerline
       painter_points.push_back(QPoint(x_end, height / 2));
