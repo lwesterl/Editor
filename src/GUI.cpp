@@ -76,10 +76,12 @@ GUI::GUI(QWidget *parent): QMainWindow(parent)
   QAction *line_color = colors->addAction("Line color");
   QAction *highlight_color = colors->addAction("Highlight color");
   QAction *special_color = colors->addAction("Special item color");
+  QAction *text_color = colors->addAction("Text color");
   connect(background_color, &QAction::triggered, this, &GUI::BackgroundColorDialog);
   connect(line_color, &QAction::triggered, this, &GUI::LineColorDialog);
   connect(highlight_color, &QAction::triggered, this, &GUI::HighlightColorDialog);
   connect(special_color, &QAction::triggered, this, &GUI::SpecialColorDialog);
+  connect(text_color, &QAction::triggered, this, &GUI::TextColorDialog);
   // create all toolbars
   createToolbars();
 
@@ -135,6 +137,7 @@ void GUI::LineMode()
     delete_img_mode->setChecked(false);
     cut_image_mode->setChecked(false);
     bezier_mode->setChecked(false);
+    text_mode->setChecked(false);
   }
   else
   {
@@ -153,6 +156,7 @@ void GUI::DeleteMode()
     delete_img_mode->setChecked(false);
     cut_image_mode->setChecked(false);
     bezier_mode->setChecked(false);
+    text_mode->setChecked(false);
   }
   else
   {
@@ -161,10 +165,26 @@ void GUI::DeleteMode()
 
 }
 
-// Trigger clear mode
-void GUI::ClearMode()
+/*  Enter text mode */
+void GUI::TextMode()
 {
-  mainWidget->getScene()->ClearMode();
+  if (text_mode->isChecked())
+  {
+    // uncheck other buttons
+    line_mode->setChecked(false);
+    delete_mode->setChecked(false);
+    add_img_mode->setChecked(false);
+    delete_img_mode->setChecked(false);
+    cut_image_mode->setChecked(false);
+    bezier_mode->setChecked(false);
+    // activate text_mode
+    mainWidget->getScene()->TextMode(true);
+  }
+  else
+  {
+    mainWidget->getScene()->TextMode(false);
+  }
+
 }
 
 // Clear whole scene
@@ -253,6 +273,7 @@ void GUI::ImgMode()
     delete_img_mode->setChecked(false);
     cut_image_mode->setChecked(false);
     bezier_mode->setChecked(false);
+    text_mode->setChecked(false);
   }
   else
   {
@@ -273,6 +294,7 @@ void GUI::DeleteImgMode()
     add_img_mode->setChecked(false);
     cut_image_mode->setChecked(false);
     bezier_mode->setChecked(false);
+    text_mode->setChecked(false);
     mainWidget->getScene()->DeleteImgMode(true);
   }
   else
@@ -292,6 +314,7 @@ void GUI::CutImageMode()
     add_img_mode->setChecked(false);
     delete_img_mode->setChecked(false);
     bezier_mode->setChecked(false);
+    text_mode->setChecked(false);
 
     // activate mode
     mainWidget->getScene()->CutImageMode(true);
@@ -385,17 +408,19 @@ void GUI::createToolbars()
   line_mode->setChecked(true);
   connect(line_mode, &QAction::triggered, this, &GUI::LineMode);
 
-  // add a checkable delete line button
+  // add a checkable delete item button
+  main_toolbar->addSeparator();
   QPixmap delete_line(delete_line_img);
-  delete_mode = main_toolbar->addAction(QIcon(delete_line),"Delete line");
+  delete_mode = main_toolbar->addAction(QIcon(delete_line),"Delete item");
   delete_mode->setCheckable(true);
   connect(delete_mode, &QAction::triggered, this, &GUI::DeleteMode);
 
-  // add a clear previous points button
-  //main_toolbar->addSeparator();
-  QPixmap clear_points(clear_points_img);
-  clear_mode = main_toolbar->addAction(QIcon(clear_points),"Clear previous point(s)");
-  connect(clear_mode, &QAction::triggered, this, &GUI::ClearMode);
+  // add a action for textmode
+  main_toolbar->addSeparator();
+  QPixmap text_item(text_item_img);
+  text_mode = main_toolbar->addAction(QIcon(text_item),"Text mode");
+  text_mode->setCheckable(true);
+  connect(text_mode, &QAction::triggered, this, &GUI::TextMode);
 
   // add a action for bezier mode
   main_toolbar->addSeparator();
@@ -716,6 +741,7 @@ void GUI::BezierMode()
   add_img_mode->setChecked(false);
   delete_img_mode->setChecked(false);
   cut_image_mode->setChecked(false);
+  text_mode->setChecked(false);
 
   // Activate Bezier mode
   mainWidget->getScene()->BezierMode(true);
@@ -828,6 +854,13 @@ void GUI::SpecialColorDialog()
   colorDialog->open();
 }
 
+/*  Open colorDialog for TextColor */
+void GUI::TextColorDialog()
+{
+  color_setting = ColorSetting::TextColor;
+  colorDialog->open();
+}
+
 /*  Change correct color */
 void GUI::ColorChanged(const QColor &color)
 {
@@ -846,10 +879,15 @@ void GUI::ColorChanged(const QColor &color)
     // change LineItem LineColor
     LineItem::LineColor = color;
   }
-  else
+  else if (color_setting == ColorSetting::SpecialColor)
   {
     // change OwnGraphicsScene::SpecialColor
     OwnGraphicsScene::SpecialColor = color;
+  }
+  else
+  {
+    // change TextItem TextColor
+    TextItem::TextColor = color;
   }
   // store color also to correct file
   writeColorFile(color, color_setting);
@@ -906,6 +944,9 @@ QString GUI::getFilename(ColorSetting color_type)
     case ColorSetting::SpecialColor:
       filename = "data/config/SpecialColor.dat";
       break;
+    case ColorSetting::TextColor:
+      filename = "data/config/TextColor.dat";
+      break;
   }
   return filename;
 }
@@ -921,4 +962,6 @@ void GUI::ReadAllColors()
   LineItem::LineColor = readColorFile(ColorSetting::LineColor);
   // assign OwnGraphicsScene::SpecialColor
   OwnGraphicsScene::SpecialColor = readColorFile(ColorSetting::SpecialColor);
+  // assign TextItem::TextColor
+  TextItem::TextColor = readColorFile(ColorSetting::TextColor);
 }

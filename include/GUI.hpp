@@ -46,6 +46,7 @@
 #include "SpinBoxAction.hpp"
 #include "PixmapItem.hpp"
 #include "LineItem.hpp"
+#include "TextItem.hpp"
 
 /**
   *   @enum ColorSetting
@@ -56,7 +57,8 @@ enum ColorSetting
   SceneColor,
   HighlightColor,
   LineColor,
-  SpecialColor
+  SpecialColor,
+  TextColor
 };
 
 /*    MACROS    */
@@ -84,7 +86,7 @@ enum ColorSetting
 /**
   *   @brief Clear points image macro
   */
-#define clear_points_img "img_src/clear_points.png"
+#define text_item_img "img_src/text_item.png"
 /**
   *   @brief Clear all image macro
   */
@@ -229,10 +231,9 @@ public:
   void DeleteMode();
 
   /**
-    *   @brief Clear previous points
-    *   @details Triggers clear mode in the scene
+    *   @brief Enter text mode
     */
-  void ClearMode();
+  void TextMode();
 
   /**
     *   @brief Clear all objects
@@ -415,6 +416,11 @@ public:
   void SpecialColorDialog();
 
   /**
+    *   @brief Open colorDialog for changing TextColor (TextItem::TextColor)
+    */
+  void TextColorDialog();
+
+  /**
     *   @brief Reads all colors using readColorFile
     *   @details This method should be called from init to restore previous color values.
     *   Assigns colors to correct elements.
@@ -467,7 +473,7 @@ private:
   ColorSetting color_setting; /**< Used to detect which color should be changed */
   QAction *line_mode;
   QAction *delete_mode;
-  QAction *clear_mode;
+  QAction *text_mode;
   QAction *bezier_mode;
   QAction *clear_all_mode;
   QAction *add_img_mode;
