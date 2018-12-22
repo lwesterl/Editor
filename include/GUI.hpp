@@ -11,7 +11,13 @@
 
 
 /*    INCLUDES    */
-
+#include "OwnGraphicsScene.hpp"
+#include "MainWidget.hpp"
+#include "ComboboxAction.hpp"
+#include "SpinBoxAction.hpp"
+#include "PixmapItem.hpp"
+#include "LineItem.hpp"
+#include "TextItem.hpp"
 #include <QMainWindow>
 #include <QWidget>
 #include <QApplication>
@@ -40,13 +46,6 @@
 #include <QColorDialog>
 #include <QFile>
 #include <QDataStream>
-#include "OwnGraphicsScene.hpp"
-#include "MainWidget.hpp"
-#include "ComboboxAction.hpp"
-#include "SpinBoxAction.hpp"
-#include "PixmapItem.hpp"
-#include "LineItem.hpp"
-#include "TextItem.hpp"
 
 /**
   *   @enum ColorSetting
@@ -218,281 +217,285 @@ public:
     */
   ~GUI();
 
-  /**
-    *   @brief Line drawing mode
-    *   @details QAction sends a signal and activates or deactivates line mode
-    */
-  void LineMode();
+  public slots:
 
   /**
-    *   @brief Delete lines mode
-    *   @details QAction sends a signal and activates or deactivates delete mode
+    *   @brief Slot that is connected to colorDialog select color
+    *   @param color Color user selected
+    *   @details This sets new color for correct element based on color_setting
     */
-  void DeleteMode();
+    void ColorChanged(const QColor &color);
 
-  /**
-    *   @brief Enter text mode
-    */
-  void TextMode();
+  private:
 
-  /**
-    *   @brief Clear all objects
-    *   @details User triggered QAction sends a signal and clears all
-    */
-  void ClearAll();
 
-  /**
-    *   @brief Save scene content to an image
-    *   @details User can specify where the image is saved
-    */
-  void saveImage();
+    /**
+      *   @brief Line drawing mode
+      *   @details QAction sends a signal and activates or deactivates line mode
+      */
+    void LineMode();
 
-  /**
-    *   @brief Open an image
-    *   @details By activating image mode user can place the image to the scene
-    */
-  void openImage();
+    /**
+      *   @brief Delete lines mode
+      *   @details QAction sends a signal and activates or deactivates delete mode
+      */
+    void DeleteMode();
 
-  /**
-    *   @brief Mode for adding images to the scene
-    *   @details User can drag image and then save it to the scene
-    */
-  void ImgMode();
+    /**
+      *   @brief Enter text mode
+      */
+    void TextMode();
 
-  /**
-    *   @brief Delete images from the scene
-    *   @details User holds cursor over an image and clicks to delete the image
-    */
-  void DeleteImgMode();
+    /**
+      *   @brief Clear all objects
+      *   @details User triggered QAction sends a signal and clears all
+      */
+    void ClearAll();
 
-  /**
-    *   @brief Mode for cutting images
-    *   @details Images can be cut to multiple shapes. Starts a toolbar which
-    *   promts user to choose which image is being cut. Then user chooses cut style
-    *   and finally cuts the image
-    */
-  void CutImageMode();
+    /**
+      *   @brief Save scene content to an image
+      *   @details User can specify where the image is saved
+      */
+    void saveImage();
 
-  /**
-    *   @brief Create different toolbars
-    *   @details Called from GUI constructor to create all toolbars
-    */
-  void createToolbars();
+    /**
+      *   @brief Open an image
+      *   @details By activating image mode user can place the image to the scene
+      */
+    void openImage();
 
-  /**
-    *   @brief Hide PolygonToolbar
-    *   @param hide if true hides the toolbar
-    */
-  void HidePolygonToolbar(bool hide);
+    /**
+      *   @brief Mode for adding images to the scene
+      *   @details User can drag image and then save it to the scene
+      */
+    void ImgMode();
 
-  /**
-    *   @brief Hide ModeToolbar
-    *   @param hide if true hides the toolbar
-    */
-  void HideModeToolbar(bool hide);
+    /**
+      *   @brief Delete images from the scene
+      *   @details User holds cursor over an image and clicks to delete the image
+      */
+    void DeleteImgMode();
 
-  /**
-    *   @brief Hide MainToolbar
-    *   @param hide if true hides the toolbar
-    */
-  void HideMainToolbar(bool hide);
+    /**
+      *   @brief Mode for cutting images
+      *   @details Images can be cut to multiple shapes. Starts a toolbar which
+      *   promts user to choose which image is being cut. Then user chooses cut style
+      *   and finally cuts the image
+      */
+    void CutImageMode();
 
-  /**
-    *   @brief Hide SelectImgToolbar
-    *   @param hide if true hides the toolbar
-    */
-  void HideSelectToolbar(bool hide);
+    /**
+      *   @brief Create different toolbars
+      *   @details Called from GUI constructor to create all toolbars
+      */
+    void createToolbars();
 
-  /**
-    *   @brief Continue to image cutting
-    *   @details Called after user has selected image cutting mode
-    */
-  void ContinueFromMode();
+    /**
+      *   @brief Hide PolygonToolbar
+      *   @param hide if true hides the toolbar
+      */
+    void HidePolygonToolbar(bool hide);
 
-  /**
-    *   @brief Cancel to the main view, toolbar
-    *   @details Called after user has canceled from image cutting mode
-    */
-  void CancelFromMode();
+    /**
+      *   @brief Hide ModeToolbar
+      *   @param hide if true hides the toolbar
+      */
+    void HideModeToolbar(bool hide);
 
-  /**
-    *   @brief Create polygon cut to an image
-    *   @details Triggered by user when user is ready to cut the image
-    */
-  void SetPolyFinal();
+    /**
+      *   @brief Hide MainToolbar
+      *   @param hide if true hides the toolbar
+      */
+    void HideMainToolbar(bool hide);
 
-  /**
-    *   @brief Remove previous cut line from an image
-    *   @details Triggered by user action
-    */
-  void RemovePolyPrevious();
+    /**
+      *   @brief Hide SelectImgToolbar
+      *   @param hide if true hides the toolbar
+      */
+    void HideSelectToolbar(bool hide);
 
-  /**
-    *   @brief Return to the main view
-    *   @details Called after user has canceled from polygon image cut
-    */
-  void CancelFromPoly();
+    /**
+      *   @brief Continue to image cutting
+      *   @details Called after user has selected image cutting mode
+      */
+    void ContinueFromMode();
 
-  /**
-    *   @brief Continue to image mode select
-    *   @details Called after user has selected which image to cut
-    */
-  void ContinueFromSelect();
+    /**
+      *   @brief Cancel to the main view, toolbar
+      *   @details Called after user has canceled from image cutting mode
+      */
+    void CancelFromMode();
 
-  /**
-    *   @brief Return to the main view
-    *   @details Called after user has canceled from image select
-    */
-  void CancelFromSelect();
+    /**
+      *   @brief Create polygon cut to an image
+      *   @details Triggered by user when user is ready to cut the image
+      */
+    void SetPolyFinal();
 
-  /**
-    *   @brief Save options
-    *   @details Called after user has modified options combobox and wants to save
-    *   the options
-    */
-  void SaveChoices();
+    /**
+      *   @brief Remove previous cut line from an image
+      *   @details Triggered by user action
+      */
+    void RemovePolyPrevious();
 
-  /**
-    *   @brief Activates/deactivates bezier_mode
-    */
-  void BezierMode();
+    /**
+      *   @brief Return to the main view
+      *   @details Called after user has canceled from polygon image cut
+      */
+    void CancelFromPoly();
 
-  /**
-    *   @brief Driggered when BezierToolbar options are saved
-    *   @details Used to update OwnGraphicsScene Bezier drawing
-    */
-  void BezierToolbar_OptionsSaved();
+    /**
+      *   @brief Continue to image mode select
+      *   @details Called after user has selected which image to cut
+      */
+    void ContinueFromSelect();
 
-  /**
-    *   @brief Save the current Bezier
-    *   @details Used to signal OwnGraphicsScene that the Bezier should be saved
-    */
-  void BezierToolbar_SaveBezier();
+    /**
+      *   @brief Return to the main view
+      *   @details Called after user has canceled from image select
+      */
+    void CancelFromSelect();
 
-  /**
-    *   @brief Remove the current Bezier and cancel to main toolbar
-    */
-  void BezierToolbar_Cancel();
+    /**
+      *   @brief Save options
+      *   @details Called after user has modified options combobox and wants to save
+      *   the options
+      */
+    void SaveChoices();
 
-  /**
-    *   @brief Remove current Bezier
-    */
-  void BezierToolbar_Remove();
+    /**
+      *   @brief Activates/deactivates bezier_mode
+      */
+    void BezierMode();
 
-  /**
-    *   @brief Hide or unhide BezierToolbar
-    *   @param hide true -> hide, false -> unhide
-    */
-  void HideBezierToolbar(bool hide);
+    /**
+      *   @brief Driggered when BezierToolbar options are saved
+      *   @details Used to update OwnGraphicsScene Bezier drawing
+      */
+    void BezierToolbar_OptionsSaved();
 
-  /**
-    *   @brief Triggered action for path cut continue button
-    */
-  void PathCut_Continue();
+    /**
+      *   @brief Save the current Bezier
+      *   @details Used to signal OwnGraphicsScene that the Bezier should be saved
+      */
+    void BezierToolbar_SaveBezier();
 
-  /**
-    *   @brief Triggered action for path cut cancel button
-    */
-  void PathCut_Cancel();
+    /**
+      *   @brief Remove the current Bezier and cancel to main toolbar
+      */
+    void BezierToolbar_Cancel();
 
-  /**
-    *   @brief Open colorDialog for changing backgroundcolor (OwnGraphicsScene backgroundcolor)
-    */
-  void BackgroundColorDialog();
+    /**
+      *   @brief Remove current Bezier
+      */
+    void BezierToolbar_Remove();
 
-  /**
-    *   @brief Open colorDialog for changing LineColor (LineItem::LineColor)
-    */
-  void LineColorDialog();
+    /**
+      *   @brief Hide or unhide BezierToolbar
+      *   @param hide true -> hide, false -> unhide
+      */
+    void HideBezierToolbar(bool hide);
 
-  /**
-    *   @brief Open colorDialog for changing HighlightColor (MainWidget backgroundcolor)
-    */
-  void HighlightColorDialog();
+    /**
+      *   @brief Triggered action for path cut continue button
+      */
+    void PathCut_Continue();
 
-  /**
-    *   @brief Open colorDialog for changing SpecialColor (OwnGraphicsScene::SpecialColor)
-    */
-  void SpecialColorDialog();
+    /**
+      *   @brief Triggered action for path cut cancel button
+      */
+    void PathCut_Cancel();
 
-  /**
-    *   @brief Open colorDialog for changing TextColor (TextItem::TextColor)
-    */
-  void TextColorDialog();
+    /**
+      *   @brief Open colorDialog for changing backgroundcolor (OwnGraphicsScene backgroundcolor)
+      */
+    void BackgroundColorDialog();
 
-  /**
-    *   @brief Reads all colors using readColorFile
-    *   @details This method should be called from init to restore previous color values.
-    *   Assigns colors to correct elements.
-    *   @remark mainWidget and scene must be created prior calling this method
-    */
-  void ReadAllColors();
+    /**
+      *   @brief Open colorDialog for changing LineColor (LineItem::LineColor)
+      */
+    void LineColorDialog();
 
-public slots:
+    /**
+      *   @brief Open colorDialog for changing HighlightColor (MainWidget backgroundcolor)
+      */
+    void HighlightColorDialog();
 
-/**
-  *   @brief Slot that is connected to colorDialog select color
-  *   @param color Color user selected
-  *   @details This sets new color for correct element based on color_setting
-  */
-  void ColorChanged(const QColor &color);
+    /**
+      *   @brief Open colorDialog for changing SpecialColor (OwnGraphicsScene::SpecialColor)
+      */
+    void SpecialColorDialog();
 
-private:
+    /**
+      *   @brief Open colorDialog for changing TextColor (TextItem::TextColor)
+      */
+    void TextColorDialog();
 
-  /**
-    *   @brief Set OwnGraphicsScene size
-    *   @details calls setSceneRect for OwnGraphicsScene
-    *   @param width New rect width
-    *   @param height New rect height
-    */
-  void setSceneSize(unsigned width, unsigned height);
+    /**
+      *   @brief Reads all colors using readColorFile
+      *   @details This method should be called from init to restore previous color values.
+      *   Assigns colors to correct elements.
+      *   @remark mainWidget and scene must be created prior calling this method
+      */
+    void ReadAllColors();
 
-  /**
-    *   @brief Write color to data file
-    *   @param color Color to be written
-    *   @param color_type This is used to detect which file color should be written
-    */
-  void writeColorFile(const QColor &color, ColorSetting color_type);
+    /**
+      *   @brief Set OwnGraphicsScene size
+      *   @details calls setSceneRect for OwnGraphicsScene
+      *   @param width New rect width
+      *   @param height New rect height
+      */
+    void setSceneSize(unsigned width, unsigned height);
 
-  /**
-    *   @brief Read one color from specific data file
-    *   @param color_type This is used to detect from which file color shold be read from
-    *   @return Return the read color
-    */
-  QColor readColorFile(ColorSetting color_type);
+    /**
+      *   @brief Write color to data file
+      *   @param color Color to be written
+      *   @param color_type This is used to detect which file color should be written
+      */
+    void writeColorFile(const QColor &color, ColorSetting color_type);
 
-  /**
-    *   @brief Get correct filename based on color_type
-    *   @param color_type Tells which file should contain the specific color
-    */
-  QString getFilename(ColorSetting color_type);
+    /**
+      *   @brief Read one color from specific data file
+      *   @param color_type This is used to detect from which file color shold be read from
+      *   @return Return the read color
+      */
+    QColor readColorFile(ColorSetting color_type);
 
-  /*  Variables */
-  MainWidget *mainWidget;
-  QColorDialog *colorDialog;
-  ColorSetting color_setting; /**< Used to detect which color should be changed */
-  QAction *line_mode;
-  QAction *delete_mode;
-  QAction *text_mode;
-  QAction *bezier_mode;
-  QAction *clear_all_mode;
-  QAction *add_img_mode;
-  QAction *delete_img_mode;
-  QAction *cut_image_mode;
-  QAction *continue_img_cut;
-  QAction *cancel_img_cut;
-  QToolBar *main_toolbar;
+    /**
+      *   @brief Get correct filename based on color_type
+      *   @param color_type Tells which file should contain the specific color
+      */
+    QString getFilename(ColorSetting color_type);
 
-  struct PolygonToolbar polyToolbar;
-  struct ModeToolbar modeToolbar;
-  struct SelectImgToolbar selectToolbar;
-  struct BezierToolbar bezierToolbar;
-  QToolBar *pathcutToolbar;
 
-  ComboboxAction *line_options_combo;
-  ComboboxAction *connect_options_combo;
-  SpinBoxAction *window_width;
-  SpinBoxAction *window_height;
+
+    /*  Variables */
+
+    MainWidget *mainWidget;
+    QColorDialog *colorDialog;
+    ColorSetting color_setting; /**< Used to detect which color should be changed */
+    QAction *line_mode;
+    QAction *delete_mode;
+    QAction *text_mode;
+    QAction *bezier_mode;
+    QAction *clear_all_mode;
+    QAction *add_img_mode;
+    QAction *delete_img_mode;
+    QAction *cut_image_mode;
+    QAction *continue_img_cut;
+    QAction *cancel_img_cut;
+    QToolBar *main_toolbar;
+
+    struct PolygonToolbar polyToolbar;
+    struct ModeToolbar modeToolbar;
+    struct SelectImgToolbar selectToolbar;
+    struct BezierToolbar bezierToolbar;
+    QToolBar *pathcutToolbar;
+
+    ComboboxAction *line_options_combo;
+    ComboboxAction *connect_options_combo;
+    SpinBoxAction *window_width;
+    SpinBoxAction *window_height;
 
 
 };
