@@ -59,7 +59,9 @@ SOURCES       = src/Bezier.cpp \
 		src/PixmapItem.cpp \
 		src/PromtWindow.cpp \
 		src/SpinBoxAction.cpp \
+		src/TextItem.cpp \
 		src/Vector2.cpp moc_GUI.cpp \
+		moc_MainWidget.cpp \
 		moc_OwnGraphicsScene.cpp \
 		moc_OwnGraphicsView.cpp \
 		moc_PromtWindow.cpp
@@ -74,8 +76,10 @@ OBJECTS       = Bezier.o \
 		PixmapItem.o \
 		PromtWindow.o \
 		SpinBoxAction.o \
+		TextItem.o \
 		Vector2.o \
 		moc_GUI.o \
+		moc_MainWidget.o \
 		moc_OwnGraphicsScene.o \
 		moc_OwnGraphicsView.o \
 		moc_PromtWindow.o
@@ -160,6 +164,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		src/PixmapItem.cpp \
 		src/PromtWindow.cpp \
 		src/SpinBoxAction.cpp \
+		src/TextItem.cpp \
 		src/Vector2.cpp
 QMAKE_TARGET  = Editor
 DESTDIR       = 
@@ -316,7 +321,7 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents include/Bezier.hpp include/ComboboxAction.hpp include/GUI.hpp include/LineItem.hpp include/MainWidget.hpp include/OwnGraphicsScene.hpp include/OwnGraphicsView.hpp include/PixmapItem.hpp include/PromtWindow.hpp include/SpinBoxAction.hpp include/Vector2.hpp $(DISTDIR)/
-	$(COPY_FILE) --parents src/Bezier.cpp src/ComboboxAction.cpp src/GUI.cpp src/GUI_test.cpp src/LineItem.cpp src/MainWidget.cpp src/OwnGraphicsScene.cpp src/OwnGraphicsView.cpp src/PixmapItem.cpp src/PromtWindow.cpp src/SpinBoxAction.cpp src/Vector2.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents src/Bezier.cpp src/ComboboxAction.cpp src/GUI.cpp src/GUI_test.cpp src/LineItem.cpp src/MainWidget.cpp src/OwnGraphicsScene.cpp src/OwnGraphicsView.cpp src/PixmapItem.cpp src/PromtWindow.cpp src/SpinBoxAction.cpp src/TextItem.cpp src/Vector2.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -342,15 +347,16 @@ benchmark: first
 
 compiler_rcc_make_all:
 compiler_rcc_clean:
-compiler_moc_header_make_all: moc_GUI.cpp moc_OwnGraphicsScene.cpp moc_OwnGraphicsView.cpp moc_PromtWindow.cpp
+compiler_moc_header_make_all: moc_GUI.cpp moc_MainWidget.cpp moc_OwnGraphicsScene.cpp moc_OwnGraphicsView.cpp moc_PromtWindow.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_GUI.cpp moc_OwnGraphicsScene.cpp moc_OwnGraphicsView.cpp moc_PromtWindow.cpp
+	-$(DEL_FILE) moc_GUI.cpp moc_MainWidget.cpp moc_OwnGraphicsScene.cpp moc_OwnGraphicsView.cpp moc_PromtWindow.cpp
 moc_GUI.cpp: include/OwnGraphicsScene.hpp \
 		include/LineItem.hpp \
 		include/PixmapItem.hpp \
 		include/OwnGraphicsView.hpp \
 		include/Bezier.hpp \
 		include/Vector2.hpp \
+		include/TextItem.hpp \
 		include/MainWidget.hpp \
 		include/ComboboxAction.hpp \
 		include/SpinBoxAction.hpp \
@@ -358,11 +364,23 @@ moc_GUI.cpp: include/OwnGraphicsScene.hpp \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/lauri/Documents/Game_project/Editor -I/home/lauri/Documents/Game_project/Editor -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/GUI.hpp -o moc_GUI.cpp
 
+moc_MainWidget.cpp: include/OwnGraphicsScene.hpp \
+		include/LineItem.hpp \
+		include/PixmapItem.hpp \
+		include/OwnGraphicsView.hpp \
+		include/Bezier.hpp \
+		include/Vector2.hpp \
+		include/TextItem.hpp \
+		include/MainWidget.hpp \
+		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/lauri/Documents/Game_project/Editor -I/home/lauri/Documents/Game_project/Editor -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/MainWidget.hpp -o moc_MainWidget.cpp
+
 moc_OwnGraphicsScene.cpp: include/LineItem.hpp \
 		include/PixmapItem.hpp \
 		include/OwnGraphicsView.hpp \
 		include/Bezier.hpp \
 		include/Vector2.hpp \
+		include/TextItem.hpp \
 		include/OwnGraphicsScene.hpp \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/lauri/Documents/Game_project/Editor -I/home/lauri/Documents/Game_project/Editor -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/OwnGraphicsScene.hpp -o moc_OwnGraphicsScene.cpp
@@ -404,6 +422,7 @@ GUI.o: src/GUI.cpp include/GUI.hpp \
 		include/OwnGraphicsView.hpp \
 		include/Bezier.hpp \
 		include/Vector2.hpp \
+		include/TextItem.hpp \
 		include/MainWidget.hpp \
 		include/ComboboxAction.hpp \
 		include/SpinBoxAction.hpp
@@ -416,6 +435,7 @@ GUI_test.o: src/GUI_test.cpp include/GUI.hpp \
 		include/OwnGraphicsView.hpp \
 		include/Bezier.hpp \
 		include/Vector2.hpp \
+		include/TextItem.hpp \
 		include/MainWidget.hpp \
 		include/ComboboxAction.hpp \
 		include/SpinBoxAction.hpp
@@ -430,7 +450,8 @@ MainWidget.o: src/MainWidget.cpp include/MainWidget.hpp \
 		include/PixmapItem.hpp \
 		include/OwnGraphicsView.hpp \
 		include/Bezier.hpp \
-		include/Vector2.hpp
+		include/Vector2.hpp \
+		include/TextItem.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MainWidget.o src/MainWidget.cpp
 
 OwnGraphicsScene.o: src/OwnGraphicsScene.cpp include/OwnGraphicsScene.hpp \
@@ -438,7 +459,8 @@ OwnGraphicsScene.o: src/OwnGraphicsScene.cpp include/OwnGraphicsScene.hpp \
 		include/PixmapItem.hpp \
 		include/OwnGraphicsView.hpp \
 		include/Bezier.hpp \
-		include/Vector2.hpp
+		include/Vector2.hpp \
+		include/TextItem.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o OwnGraphicsScene.o src/OwnGraphicsScene.cpp
 
 OwnGraphicsView.o: src/OwnGraphicsView.cpp include/OwnGraphicsView.hpp
@@ -453,11 +475,17 @@ PromtWindow.o: src/PromtWindow.cpp include/PromtWindow.hpp
 SpinBoxAction.o: src/SpinBoxAction.cpp include/SpinBoxAction.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o SpinBoxAction.o src/SpinBoxAction.cpp
 
+TextItem.o: src/TextItem.cpp include/TextItem.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o TextItem.o src/TextItem.cpp
+
 Vector2.o: src/Vector2.cpp include/Vector2.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Vector2.o src/Vector2.cpp
 
 moc_GUI.o: moc_GUI.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_GUI.o moc_GUI.cpp
+
+moc_MainWidget.o: moc_MainWidget.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_MainWidget.o moc_MainWidget.cpp
 
 moc_OwnGraphicsScene.o: moc_OwnGraphicsScene.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_OwnGraphicsScene.o moc_OwnGraphicsScene.cpp
