@@ -35,6 +35,7 @@
 
 class MainWidget: public QWidget
 {
+  Q_OBJECT
 public:
   /**
     *   @brief Constructor for MainWidget
