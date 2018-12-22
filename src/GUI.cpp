@@ -927,26 +927,7 @@ QColor GUI::readColorFile(Editor::ColorSetting color_type)
 /*  Get correct color filename */
 QString GUI::getFilename(Editor::ColorSetting color_type)
 {
-  QString filename;
-  switch (color_type)
-  {
-    case Editor::ColorSetting::SceneColor:
-      filename = "data/config/SceneColor.dat";
-      break;
-    case Editor::ColorSetting::HighlightColor:
-      filename = "data/config/HighlightColor.dat";
-      break;
-    case Editor::ColorSetting::LineColor:
-      filename = "data/config/LineColor.dat";
-      break;
-    case Editor::ColorSetting::SpecialColor:
-      filename = "data/config/SpecialColor.dat";
-      break;
-    case Editor::ColorSetting::TextColor:
-      filename = "data/config/TextColor.dat";
-      break;
-  }
-  return filename;
+  return Path::ColorFiles[color_type];
 }
 
 /*  Read all color from colorfiles */
